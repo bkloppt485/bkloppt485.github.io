@@ -1615,7 +1615,7 @@ footer{
         <div class="booking-or">oder per E-Mail</div>
         <a id="booking-email-link" href="#" class="booking-email-btn">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          onyxweb24@gmail.com — einfach schreiben
+          onyxstudio@outlook.de — einfach schreiben
         </a>
       </div>
 
@@ -1654,7 +1654,7 @@ footer{
       <p>Egal ob Website, Web-App oder Idee im Kopf — schreib mir und wir schauen gemeinsam, was möglich ist. <strong style="color:var(--text)">Erstgespräch ist kostenlos.</strong></p>
       <a id="email-cta" href="#" class="email-cta">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        <span id="email-display">onyxweb24@gmail.com</span>
+        <span id="email-display">onyxstudio@outlook.de</span>
       </a>
       <div class="contact-trust">
         <span>🔒 DSGVO-konform</span>
@@ -1742,7 +1742,7 @@ footer{
 
 // Email obfuscation
 (function(){
-  const parts = ['onyxweb24', 'gmail.com'];
+  const parts = ['onyxstudio', 'outlook.de'];
   const email = parts.join('@');
   const subj = encodeURIComponent('Projekt-Anfrage bei ONYX Studio');
   const href = 'mailto:' + email + '?subject=' + subj;
@@ -1758,7 +1758,7 @@ footer{
 // Booking email link
 const bookingEmailLink = document.getElementById('booking-email-link');
 if(bookingEmailLink) {
-  const parts = ['onyxweb24','gmail.com'];
+  const parts = ['onyxstudio','outlook.de'];
   const em = parts.join('@');
   bookingEmailLink.href = 'mailto:' + em + '?subject=' + encodeURIComponent('Erstgespräch anfragen — ONYX Studio');
 }
