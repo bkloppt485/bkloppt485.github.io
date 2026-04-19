@@ -10,18 +10,21 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#0f0f14;
-  --bg-soft:#13131a;
-  --card:#16161e;
-  --card-hover:#1a1a24;
-  --border:#22222e;
-  --border-soft:#1c1c26;
-  --text:#f5f5f7;
-  --text-dim:#a0a0b0;
-  --text-muted:#65657a;
+  --bg:#09090f;
+  --bg-soft:#0e0e16;
+  --bg-alt:#0c0c14;
+  --card:#13131c;
+  --card-hover:#171724;
+  --border:#1e1e2e;
+  --border-soft:#191926;
+  --text:#f0f0f5;
+  --text-dim:#9898ac;
+  --text-muted:#58587a;
   --gold:#c9a84c;
   --gold-soft:#d4b865;
-  --gold-glow:rgba(201,168,76,.15);
+  --gold-bright:#e8c96a;
+  --gold-glow:rgba(201,168,76,.18);
+  --purple:rgba(120,90,220,.6);
   --radius:14px;
   --maxw:1200px;
 }
@@ -35,54 +38,57 @@ body{
 }
 ::selection{background:var(--gold);color:#0f0f14}
 
-/* Animated mesh gradient background */
-.bg-grad{
+/* Background System */
+.bg-grid{
+  position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(201,168,76,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,.03) 1px, transparent 1px);
+  background-size:60px 60px;
+}
+.bg-orbs{
   position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;
 }
-.bg-grad .blob{
-  position:absolute;border-radius:50%;filter:blur(80px);will-change:transform;
+.orb{
+  position:absolute;border-radius:50%;filter:blur(100px);will-change:transform;
 }
-.bg-grad .b1{
-  width:700px;height:700px;
-  background:radial-gradient(circle,rgba(201,168,76,.22) 0%,transparent 70%);
-  top:-15%;left:-10%;
-  animation:blob1 30s ease-in-out infinite;
+.orb-1{
+  width:800px;height:800px;
+  background:radial-gradient(circle,rgba(201,168,76,.18) 0%,transparent 65%);
+  top:-20%;left:-15%;
+  animation:orbFloat1 35s ease-in-out infinite;
 }
-.bg-grad .b2{
-  width:600px;height:600px;
-  background:radial-gradient(circle,rgba(201,168,76,.16) 0%,transparent 70%);
-  bottom:-20%;right:-10%;
-  animation:blob2 36s ease-in-out infinite;
+.orb-2{
+  width:650px;height:650px;
+  background:radial-gradient(circle,rgba(120,90,200,.10) 0%,transparent 65%);
+  bottom:-15%;right:-10%;
+  animation:orbFloat2 42s ease-in-out infinite;
 }
-.bg-grad .b3{
+.orb-3{
   width:500px;height:500px;
-  background:radial-gradient(circle,rgba(180,140,60,.14) 0%,transparent 70%);
-  top:40%;left:40%;
-  animation:blob3 42s ease-in-out infinite;
+  background:radial-gradient(circle,rgba(201,168,76,.12) 0%,transparent 65%);
+  top:45%;left:50%;
+  animation:orbFloat3 50s ease-in-out infinite;
 }
-.bg-grad .b4{
-  width:400px;height:400px;
-  background:radial-gradient(circle,rgba(100,80,30,.10) 0%,transparent 70%);
-  top:10%;right:20%;
-  animation:blob1 26s ease-in-out infinite reverse;
+.orb-4{
+  width:350px;height:350px;
+  background:radial-gradient(circle,rgba(80,60,160,.08) 0%,transparent 65%);
+  top:15%;right:15%;
+  animation:orbFloat1 28s ease-in-out infinite reverse;
 }
-@keyframes blob1{
+@keyframes orbFloat1{
   0%,100%{transform:translate(0,0) scale(1)}
-  33%{transform:translate(120px,-80px) scale(1.15)}
-  66%{transform:translate(-80px,100px) scale(.9)}
+  33%{transform:translate(100px,-70px) scale(1.12)}
+  66%{transform:translate(-70px,90px) scale(.92)}
 }
-@keyframes blob2{
+@keyframes orbFloat2{
   0%,100%{transform:translate(0,0) scale(1)}
-  33%{transform:translate(-100px,80px) scale(1.2)}
-  66%{transform:translate(90px,-60px) scale(.85)}
+  40%{transform:translate(-90px,70px) scale(1.18)}
+  70%{transform:translate(80px,-50px) scale(.88)}
 }
-@keyframes blob3{
-  0%,100%{transform:translate(0,0) scale(1)}
-  50%{transform:translate(-120px,-100px) scale(1.3)}
-}
-.noise{
-  position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.025;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+@keyframes orbFloat3{
+  0%,100%{transform:translate(-50%,-50%) scale(1)}
+  50%{transform:translate(-50%,-50%) translate(-110px,-90px) scale(1.25)}
 }
 
 .container{max-width:var(--maxw);margin:0 auto;padding:0 32px}
@@ -140,6 +146,17 @@ nav.scrolled{border-bottom-color:var(--border-soft);background:rgba(15,15,20,.85
   animation:fadeUp .8s ease both;
 }
 .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold)}
+.dot.pulse{
+  animation:pulseDot 2s ease-in-out infinite;
+  box-shadow:0 0 0 0 rgba(201,168,76,.6);
+}
+@keyframes pulseDot{
+  0%{box-shadow:0 0 0 0 rgba(201,168,76,.6)}
+  70%{box-shadow:0 0 0 8px rgba(201,168,76,0)}
+  100%{box-shadow:0 0 0 0 rgba(201,168,76,0)}
+}
+.eyebrow-sep{opacity:.4;margin:0 2px}
+.eyebrow-slots strong{color:var(--gold-bright);font-weight:700}
 h1{
   font-family:'Georgia',serif;
   font-size:clamp(42px,7vw,82px);
@@ -163,19 +180,36 @@ h1 .gold{
   font-weight:600;font-size:15px;text-decoration:none;
   transition:.25s;cursor:pointer;border:none;
 }
-.btn-primary{background:var(--gold);color:#0f0f14}
-.btn-primary:hover{background:var(--gold-soft);transform:translateY(-2px);box-shadow:0 10px 30px var(--gold-glow)}
+.btn-primary{
+  background:linear-gradient(135deg,var(--gold) 0%,var(--gold-soft) 100%);
+  color:#09090f;
+  box-shadow:0 0 0 0 var(--gold-glow);
+  animation:ctaPulse 3s ease-in-out infinite;
+}
+.btn-primary:hover{
+  background:linear-gradient(135deg,var(--gold-soft) 0%,var(--gold-bright) 100%);
+  transform:translateY(-2px);
+  box-shadow:0 12px 40px rgba(201,168,76,.4);
+  animation:none;
+}
+@keyframes ctaPulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,.25)}
+  50%{box-shadow:0 0 0 14px rgba(201,168,76,0)}
+}
 .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
 .btn-ghost:hover{background:var(--card);border-color:var(--gold)}
 .arrow{transition:.25s}
 .btn:hover .arrow{transform:translateX(4px)}
 
 .hero-stats{
-  display:flex;gap:48px;margin-top:80px;flex-wrap:wrap;
+  display:flex;gap:48px;margin-top:80px;flex-wrap:wrap;align-items:center;
   animation:fadeUp .8s ease .5s both;
 }
 .stat-num{font-family:'Georgia',serif;font-size:36px;font-weight:700;color:var(--gold)}
 .stat-label{font-size:13px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+.stat-divider{
+  width:1px;height:40px;background:var(--border);align-self:center;
+}
 
 /* SECTION GENERIC */
 section{padding:120px 0;position:relative}
@@ -191,6 +225,17 @@ h2{
   margin-bottom:20px;
 }
 .section-head p{font-size:18px;color:var(--text-dim)}
+.section-divider{
+  width:100%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(201,168,76,.2),transparent);
+  margin:0;
+}
+section.alt-bg{
+  background:linear-gradient(180deg,var(--bg-alt) 0%,var(--bg) 100%);
+}
+section.alt-bg-2{
+  background:linear-gradient(180deg,var(--bg) 0%,var(--bg-soft) 50%,var(--bg) 100%);
+}
 
 /* SERVICES */
 .services-grid{
@@ -295,6 +340,33 @@ h2{
   font-size:14px;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;
   margin-bottom:24px;font-weight:600;
 }
+.about-avatar{
+  position:relative;width:80px;height:80px;margin:0 auto 24px;
+}
+.avatar-ring{
+  position:absolute;inset:-4px;border-radius:50%;
+  background:conic-gradient(var(--gold) 0deg,var(--gold-soft) 120deg,transparent 120deg);
+  animation:ringRotate 8s linear infinite;
+}
+@keyframes ringRotate{to{transform:rotate(360deg)}}
+.avatar-circle{
+  position:relative;width:80px;height:80px;border-radius:50%;
+  background:linear-gradient(135deg,var(--card-hover) 0%,var(--card) 100%);
+  border:2px solid var(--bg);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Georgia',serif;font-size:24px;font-weight:700;
+  color:var(--gold);z-index:1;
+}
+.status-live{
+  display:flex;align-items:center;gap:8px;color:var(--gold) !important;
+  font-weight:600;
+}
+.status-dot{
+  width:8px;height:8px;border-radius:50%;background:#4cd45c;
+  box-shadow:0 0 0 0 rgba(76,212,92,.4);
+  animation:pulseDot 2s ease-in-out infinite;
+  flex-shrink:0;
+}
 .about-list{list-style:none}
 .about-list li{
   padding:18px 0;border-bottom:1px solid var(--border-soft);
@@ -326,6 +398,16 @@ h2{
   transition:.25s;
 }
 .email-cta:hover{background:var(--gold-soft);transform:translateY(-2px);box-shadow:0 14px 40px var(--gold-glow)}
+.contact-badge{
+  display:inline-block;padding:8px 18px;border-radius:100px;
+  background:rgba(76,212,92,.1);border:1px solid rgba(76,212,92,.25);
+  color:#4cd45c;font-size:13px;font-weight:500;margin-bottom:24px;
+}
+.contact-trust{
+  margin-top:32px;display:flex;gap:16px;justify-content:center;
+  flex-wrap:wrap;color:var(--text-muted);font-size:13.5px;
+}
+.contact-trust span:not(:nth-child(even)){color:var(--text-dim)}
 
 /* TRUST SECTION */
 .trust{padding:80px 0 40px}
@@ -361,16 +443,22 @@ h2{
 }
 .testimonial::before{
   content:'"';
-  position:absolute;top:18px;right:24px;
-  font-family:'Georgia',serif;font-size:80px;line-height:1;
-  color:var(--gold);opacity:.12;
+  position:absolute;top:-8px;right:20px;
+  font-family:'Georgia',serif;font-size:120px;line-height:1;
+  background:linear-gradient(135deg,var(--gold) 0%,transparent 60%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  opacity:.3;
+  pointer-events:none;
 }
 .testimonial:hover{
-  transform:translateY(-3px);
-  border-color:rgba(201,168,76,.3);
-  box-shadow:0 16px 40px rgba(0,0,0,.25);
+  transform:translateY(-5px);
+  border-color:rgba(201,168,76,.4);
+  box-shadow:0 20px 60px rgba(0,0,0,.3),0 0 0 1px rgba(201,168,76,.1);
 }
-.stars{color:var(--gold);font-size:16px;letter-spacing:3px;margin-bottom:18px}
+.stars{
+  color:var(--gold);font-size:18px;letter-spacing:2px;margin-bottom:20px;
+  filter:drop-shadow(0 0 6px rgba(201,168,76,.4));
+}
 .quote{
   color:var(--text-dim);font-style:italic;font-size:15px;line-height:1.7;
   margin-bottom:24px;flex:1;position:relative;z-index:1;
@@ -484,6 +572,68 @@ h2{
 .work-visual.portfolio{background:linear-gradient(135deg,#101014 0%,#1a1a20 100%)}
 .work-visual.fitness{background:linear-gradient(135deg,#0d1a10 0%,#15281a 100%)}
 .work-visual.immobilien{background:linear-gradient(135deg,#0d101a 0%,#151a28 100%)}
+
+/* PROCESS */
+.process{padding:80px 0}
+.process-steps{
+  display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:0;
+  align-items:start;
+}
+.process-step{
+  text-align:center;padding:0 24px;
+}
+.ps-number{
+  font-family:'Georgia',serif;font-size:56px;font-weight:700;
+  color:var(--border);letter-spacing:-3px;margin-bottom:-10px;
+  line-height:1;
+}
+.ps-icon{
+  width:60px;height:60px;border-radius:16px;margin:0 auto 20px;
+  background:var(--gold-glow);border:1px solid rgba(201,168,76,.25);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--gold);position:relative;z-index:1;
+}
+.process-step h3{font-size:18px;font-weight:700;margin-bottom:12px}
+.process-step p{font-size:14.5px;color:var(--text-dim);line-height:1.7}
+.process-connector{
+  width:2px;height:60px;margin-top:80px;
+  background:linear-gradient(to bottom,transparent,var(--gold),transparent);
+  align-self:start;
+  flex-shrink:0;
+}
+@media(max-width:860px){
+  .process-steps{
+    grid-template-columns:1fr;
+    gap:32px;
+  }
+  .process-connector{display:none}
+}
+
+/* FLOATING CTA */
+.floating-cta{
+  position:fixed;bottom:32px;right:32px;z-index:200;
+  opacity:0;transform:translateY(20px);
+  transition:.4s cubic-bezier(.175,.885,.32,1.275);
+  pointer-events:none;
+}
+.floating-cta.visible{opacity:1;transform:translateY(0);pointer-events:auto}
+.floating-cta-btn{
+  display:flex;align-items:center;gap:10px;
+  padding:14px 22px;border-radius:100px;
+  background:linear-gradient(135deg,var(--gold) 0%,var(--gold-soft) 100%);
+  color:#09090f;font-weight:700;font-size:14px;
+  text-decoration:none;
+  box-shadow:0 8px 32px rgba(201,168,76,.35),0 2px 8px rgba(0,0,0,.4);
+  transition:.25s;
+}
+.floating-cta-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 40px rgba(201,168,76,.5),0 4px 12px rgba(0,0,0,.4);
+}
+@media(max-width:600px){
+  .floating-cta{bottom:20px;right:20px}
+  .floating-cta-btn span{display:none}
+}
 
 /* SHOWCASE TOOL */
 .showcase-wrapper{
@@ -740,8 +890,13 @@ footer{
 </head>
 <body>
 
-<div class="bg-grad"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="blob b4"></div></div>
-<div class="noise"></div>
+<div class="bg-grid"></div>
+<div class="bg-orbs">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="orb orb-4"></div>
+</div>
 
 <nav id="nav">
   <div class="container nav-inner">
@@ -761,7 +916,12 @@ footer{
 
 <header class="hero">
   <div class="container hero-content">
-    <div class="eyebrow"><span class="dot"></span> Verfügbar für neue Projekte</div>
+    <div class="eyebrow">
+      <span class="dot pulse"></span>
+      <span>Aktuell verfügbar</span>
+      <span class="eyebrow-sep">·</span>
+      <span class="eyebrow-slots">Noch <strong>2 Projektslots</strong> im April frei</span>
+    </div>
     <h1>Websites & Apps,<br>die <span class="gold">begeistern.</span></h1>
     <p>Maßgeschneiderte digitale Lösungen für Unternehmen, die mehr wollen als nur eine Website. Schnell entwickelt, sauber gebaut, kompromisslos in der Qualität.</p>
     <div class="hero-cta">
@@ -769,23 +929,31 @@ footer{
       <a href="#work" class="btn btn-ghost">Vorlagen ansehen</a>
     </div>
     <div class="hero-stats">
-      <div>
+      <div class="stat">
+        <div class="stat-num">8+</div>
+        <div class="stat-label">Websites gebaut</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <div class="stat-num">5 Tage</div>
+        <div class="stat-label">Ø Lieferzeit</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
         <div class="stat-num">100%</div>
-        <div class="stat-label">Maßarbeit</div>
+        <div class="stat-label">Zufriedene Kunden</div>
       </div>
-      <div>
-        <div class="stat-num">&lt;1 Wo.</div>
-        <div class="stat-label">Lieferzeit</div>
-      </div>
-      <div>
-        <div class="stat-num">SSL</div>
-        <div class="stat-label">& DSGVO-konform</div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <div class="stat-num">0€</div>
+        <div class="stat-label">Erstgespräch</div>
       </div>
     </div>
   </div>
 </header>
 
-<section id="testimonials" class="testimonials">
+<div class="section-divider"></div>
+<section id="testimonials" class="testimonials alt-bg-2">
   <div class="container">
     <div class="section-head reveal" style="text-align:center;margin-left:auto;margin-right:auto">
       <div class="section-eyebrow">Kundenstimmen</div>
@@ -833,7 +1001,8 @@ footer{
   </div>
 </section>
 
-<section id="services">
+<div class="section-divider"></div>
+<section id="services" class="alt-bg">
   <div class="container">
     <div class="section-head reveal">
       <div class="section-eyebrow">Leistungen</div>
@@ -887,7 +1056,46 @@ footer{
   </div>
 </section>
 
-<section id="trust" class="trust">
+<div class="section-divider"></div>
+<section id="process" class="process">
+  <div class="container">
+    <div class="section-head reveal" style="text-align:center;margin:0 auto 64px;max-width:600px">
+      <div class="section-eyebrow">So einfach gehts</div>
+      <h2>In 3 Schritten<br>zur fertigen Website.</h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="ps-number">01</div>
+        <div class="ps-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </div>
+        <h3>Kostenloses Erstgespräch</h3>
+        <p>Wir besprechen Ihre Idee, Ziele und Budget — völlig unverbindlich. Kein Verkaufsgespräch, nur ehrliche Beratung.</p>
+      </div>
+      <div class="process-connector"></div>
+      <div class="process-step reveal">
+        <div class="ps-number">02</div>
+        <div class="ps-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <h3>Design & Entwicklung</h3>
+        <p>Ich baue Ihre Website — maßgeschneidert, sauber codiert, optimiert für Geschwindigkeit und Mobilgeräte.</p>
+      </div>
+      <div class="process-connector"></div>
+      <div class="process-step reveal">
+        <div class="ps-number">03</div>
+        <div class="ps-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3>Live & erfolgreich</h3>
+        <p>Nach Ihrer Freigabe geht die Seite live. Sie bekommen den kompletten Code — keine Abhängigkeiten, kein Lock-In.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+<section id="trust" class="trust alt-bg">
   <div class="container">
     <div class="section-head reveal" style="text-align:center;margin-left:auto;margin-right:auto">
       <div class="section-eyebrow">Warum ONYX Studio?</div>
@@ -922,6 +1130,7 @@ footer{
   </div>
 </section>
 
+<div class="section-divider"></div>
 <section id="work">
   <div class="container">
     <div class="section-head reveal">
@@ -966,6 +1175,7 @@ footer{
   </div>
 </section>
 
+<div class="section-divider"></div>
 <section id="about">
   <div class="container">
     <div class="about-grid">
@@ -978,29 +1188,42 @@ footer{
       </div>
 
       <div class="about-card reveal">
+        <div class="about-avatar">
+          <div class="avatar-ring"></div>
+          <div class="avatar-circle">LH</div>
+        </div>
         <h4>Auf einen Blick</h4>
         <ul class="about-list">
-          <li><span>Standort</span><span>Deutschland 🇩🇪</span></li>
+          <li><span>Standort</span><span>Melsungen, DE 🇩🇪</span></li>
           <li><span>Sprachen</span><span>DE / EN</span></li>
-          <li><span>Tech-Stack</span><span>Modern Web</span></li>
+          <li><span>Hauptberuf</span><span>IT & System-Techniker</span></li>
           <li><span>Lieferzeit</span><span>3–7 Tage</span></li>
-          <li><span>Verfügbarkeit</span><span style="color:var(--gold)">● Aktiv</span></li>
+          <li><span>Verfügbarkeit</span><span class="status-live"><span class="status-dot"></span>Aktuell verfügbar</span></li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
+<div class="section-divider"></div>
 <section id="contact">
   <div class="container">
     <div class="contact reveal">
+      <div class="contact-badge">⚡ Schnelle Antwort — meist innerhalb 24h</div>
       <div class="section-eyebrow">Kontakt</div>
       <h2>Lass uns dein<br>Projekt umsetzen.</h2>
-      <p>Egal ob Website, Web-App oder Idee im Kopf — schreib mir und wir schauen gemeinsam, was möglich ist. Erstgespräch ist kostenlos.</p>
+      <p>Egal ob Website, Web-App oder Idee im Kopf — schreib mir und wir schauen gemeinsam, was möglich ist. <strong style="color:var(--text)">Erstgespräch ist kostenlos.</strong></p>
       <a id="email-cta" href="#" class="email-cta">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        <span id="email-display"></span>
+        <span id="email-display">onyxweb24@gmail.com</span>
       </a>
+      <div class="contact-trust">
+        <span>🔒 DSGVO-konform</span>
+        <span>·</span>
+        <span>✅ Kostenlos anfragen</span>
+        <span>·</span>
+        <span>🇩🇪 Auf Deutsch</span>
+      </div>
     </div>
   </div>
 </section>
@@ -1031,6 +1254,8 @@ footer{
   if(cta) cta.href = href;
   if(disp) disp.textContent = email;
   if(fe){ fe.href = href; fe.textContent = 'Kontakt'; }
+  const floatingEmailBtn = document.getElementById('floating-email');
+  if(floatingEmailBtn) floatingEmailBtn.href = href;
 })();
 
 // Nav scroll effect
@@ -1038,6 +1263,14 @@ const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 20);
 });
+
+// Floating CTA
+const floatingCta = document.getElementById('floatingCta');
+const heroSection = document.querySelector('.hero');
+const floatingObserver = new IntersectionObserver(([e]) => {
+  floatingCta.classList.toggle('visible', !e.isIntersecting);
+}, {threshold: 0});
+if(heroSection) floatingObserver.observe(heroSection);
 
 // Reveal on scroll
 const io = new IntersectionObserver(es => {
@@ -1281,5 +1514,11 @@ buildOverviewGrid();
 switchTemplate(0);
 </script>
 
+<div class="floating-cta" id="floatingCta">
+  <a id="floating-email" href="#" class="floating-cta-btn">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    Projekt anfragen
+  </a>
+</div>
 </body>
 </html>
