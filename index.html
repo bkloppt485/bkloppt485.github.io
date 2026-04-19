@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="ONYX Studio — Premium Websites & Web-Apps für Unternehmen. Schnell, sicher, modern.">
 <meta name="theme-color" content="#0f0f14">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'none'; frame-src 'none'; object-src 'none';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://assets.calendly.com; script-src 'self' 'unsafe-inline' https://assets.calendly.com; img-src 'self' data: https://*.calendly.com https://*.cloudfront.net; font-src 'self' data: https://assets.calendly.com; connect-src https://calendly.com https://api.calendly.com https://*.calendly.com; frame-src https://calendly.com; object-src 'none'">
 <title>ONYX Studio — Websites & Apps die begeistern</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -889,6 +889,120 @@ section.alt-bg-2{
   .floating-cta-btn span{display:none}
 }
 
+/* BOOKING SECTION */
+.booking-section{
+  padding:120px 0;
+  position:relative;
+}
+.booking-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:start;
+}
+.booking-left{}
+.booking-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:20px;
+}
+.booking-left h2{
+  font-family:'Georgia',serif;
+  font-size:clamp(32px,4vw,48px);
+  font-weight:700;line-height:1.15;
+  color:var(--text);margin-bottom:20px;
+}
+.booking-left h2 span{color:var(--gold)}
+.booking-sub{
+  font-size:16px;color:var(--text-dim);line-height:1.7;
+  margin-bottom:32px;max-width:440px;
+}
+.booking-what{
+  background:var(--card);border:1px solid var(--border-soft);
+  border-radius:14px;padding:28px;margin-bottom:32px;
+}
+.booking-what-title{
+  font-size:13px;font-weight:700;text-transform:uppercase;
+  letter-spacing:1.5px;color:var(--text-muted);margin-bottom:16px;
+}
+.booking-checklist{
+  list-style:none;display:flex;flex-direction:column;gap:12px;
+}
+.booking-checklist li{
+  display:flex;align-items:flex-start;gap:12px;
+  font-size:14.5px;color:var(--text-dim);line-height:1.5;
+}
+.booking-check{
+  width:20px;height:20px;border-radius:50%;
+  background:var(--gold-glow);border:1px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-top:1px;font-size:11px;color:var(--gold);font-weight:700;
+}
+.booking-scarcity{
+  display:flex;align-items:center;gap:10px;
+  font-size:13.5px;color:var(--text-dim);
+  background:rgba(201,168,76,.08);
+  border:1px solid rgba(201,168,76,.2);
+  border-radius:10px;padding:12px 16px;
+  margin-bottom:24px;
+}
+.booking-scarcity-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:#f59e0b;flex-shrink:0;
+  animation:pulseDot 1.5s ease-in-out infinite;
+}
+.booking-or{
+  display:flex;align-items:center;gap:12px;
+  color:var(--text-muted);font-size:13px;margin:20px 0;
+}
+.booking-or::before,.booking-or::after{
+  content:'';flex:1;height:1px;background:var(--border);
+}
+.booking-email-btn{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;padding:14px;border-radius:10px;
+  background:var(--card);border:1px solid var(--border-soft);
+  color:var(--text-dim);font-size:14px;font-weight:500;
+  cursor:pointer;text-decoration:none;transition:.2s;
+}
+.booking-email-btn:hover{
+  border-color:var(--gold);color:var(--gold);
+  background:var(--gold-glow);
+}
+/* Calendly widget styling */
+.booking-right{
+  position:sticky;top:100px;
+}
+.booking-widget-wrap{
+  border-radius:16px;overflow:hidden;
+  border:1px solid var(--border-soft);
+  background:var(--card);
+  box-shadow:0 40px 80px rgba(0,0,0,.5);
+}
+.booking-widget-header{
+  padding:20px 24px;
+  border-bottom:1px solid var(--border-soft);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.booking-widget-label{
+  font-size:13px;font-weight:700;color:var(--gold);
+  text-transform:uppercase;letter-spacing:1.5px;
+}
+.booking-widget-duration{
+  font-size:12px;color:var(--text-muted);
+  display:flex;align-items:center;gap:6px;
+}
+.calendly-inline-widget{
+  min-width:280px !important;
+}
+/* Responsive booking */
+@media(max-width:900px){
+  .booking-grid{grid-template-columns:1fr;gap:40px}
+  .booking-right{position:static}
+}
+@media(max-width:600px){
+  .booking-section{padding:80px 0}
+}
 /* SHOWCASE TOOL */
 .showcase-wrapper{
   display:grid;
@@ -1158,6 +1272,7 @@ footer{
       <li><a href="#services">Leistungen</a></li>
       <li><a href="#work">Projekte</a></li>
       <li><a href="#about">Über</a></li>
+      <li><a href="#booking">Termin</a></li>
       <li><a href="#contact" class="nav-cta">Anfragen</a></li>
     </ul>
     <button class="menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
@@ -1176,7 +1291,7 @@ footer{
     <p>Maßgeschneiderte digitale Lösungen für Unternehmen, die mehr wollen als nur eine Website. Schnell entwickelt, sauber gebaut, kompromisslos in der Qualität.</p>
     <div class="hero-cta">
       <a href="#contact" class="btn btn-primary">Projekt starten <span class="arrow">→</span></a>
-      <a href="#work" class="btn btn-ghost">Vorlagen ansehen</a>
+      <a href="#booking" class="btn btn-ghost">Termin buchen →</a>
     </div>
     <div class="hero-stats">
       <div class="stat">
@@ -1456,6 +1571,80 @@ footer{
 </section>
 
 <div class="section-divider"></div>
+
+<section id="booking" class="booking-section">
+  <div class="container">
+    <div class="booking-grid">
+
+      <!-- LEFT: Info & Psychology -->
+      <div class="booking-left reveal">
+        <div class="booking-eyebrow">
+          <span style="width:6px;height:6px;border-radius:50%;background:var(--gold);display:inline-block"></span>
+          Erstgespräch
+        </div>
+        <h2>Lass uns reden.<br><span>Kostenlos.</span></h2>
+        <p class="booking-sub">In 30 Minuten besprechen wir dein Projekt, deine Ziele — und ob wir zusammenpassen. Kein Verkaufsgespräch. Kein Risiko. Nur ehrliche Beratung.</p>
+
+        <div class="booking-scarcity">
+          <div class="booking-scarcity-dot"></div>
+          <span><strong>Noch 2 Termine diese Woche verfügbar</strong> — nächste Woche bereits teilweise belegt.</span>
+        </div>
+
+        <div class="booking-what">
+          <div class="booking-what-title">Was dich erwartet</div>
+          <ul class="booking-checklist">
+            <li>
+              <div class="booking-check">✓</div>
+              <span><strong>Deine Ziele &amp; Wünsche</strong> — Was brauchst du wirklich? Wir hören zu, ohne zu raten.</span>
+            </li>
+            <li>
+              <div class="booking-check">✓</div>
+              <span><strong>Ehrliche Einschätzung</strong> — Was ist realistisch, was kostet es, wie lange dauert es.</span>
+            </li>
+            <li>
+              <div class="booking-check">✓</div>
+              <span><strong>Konkrete nächste Schritte</strong> — Du gehst mit einem klaren Plan raus, egal ob du buchst oder nicht.</span>
+            </li>
+            <li>
+              <div class="booking-check">✓</div>
+              <span><strong>Kostenlos &amp; unverbindlich</strong> — Kein Vertrag, keine Verpflichtung, kein Druck.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="booking-or">oder per E-Mail</div>
+        <a id="booking-email-link" href="#" class="booking-email-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          onyxweb24@gmail.com — einfach schreiben
+        </a>
+      </div>
+
+      <!-- RIGHT: Calendly Widget -->
+      <div class="booking-right reveal">
+        <div class="booking-widget-wrap">
+          <div class="booking-widget-header">
+            <div class="booking-widget-label">Termin wählen</div>
+            <div class="booking-widget-duration">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              30 Minuten · Kostenlos
+            </div>
+          </div>
+          <div
+            class="calendly-inline-widget"
+            data-url="https://calendly.com/DEIN-CALENDLY-LINK/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=13131c&text_color=f5f5f7&primary_color=c9a84c"
+            style="height:620px;">
+          </div>
+        </div>
+        <p style="text-align:center;font-size:12px;color:var(--text-muted);margin-top:12px;">
+          🔒 Deine Daten sind sicher · Buchung über Calendly
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
 <section id="contact">
   <div class="container">
     <div class="contact reveal">
@@ -1566,6 +1755,13 @@ footer{
   const floatingEmailBtn = document.getElementById('floating-email');
   if(floatingEmailBtn) floatingEmailBtn.href = href;
 })();
+// Booking email link
+const bookingEmailLink = document.getElementById('booking-email-link');
+if(bookingEmailLink) {
+  const parts = ['onyxweb24','gmail.com'];
+  const em = parts.join('@');
+  bookingEmailLink.href = 'mailto:' + em + '?subject=' + encodeURIComponent('Erstgespräch anfragen — ONYX Studio');
+}
 
 // Nav scroll effect
 const nav = document.getElementById('nav');
@@ -2639,5 +2835,7 @@ document.addEventListener('DOMContentLoaded', function() {
   </section>
 
 </div><!-- /#demo-storage -->
+<!-- Calendly Widget Script -->
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 </body>
 </html>
