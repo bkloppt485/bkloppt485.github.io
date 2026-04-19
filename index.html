@@ -1675,20 +1675,21 @@ document.addEventListener('keydown', e => {
   }
 });
 
-// Init: move demo pages into preview browser, then show first
-buildTemplateList();
-buildOverviewGrid();
-document.querySelectorAll('.demo-page').forEach(p => {
-  document.getElementById('previewContent').appendChild(p);
-  p.style.display = 'none';
-});
-switchTemplate(0);
+// Init after full DOM is ready (demo-storage is after this script tag)
+document.addEventListener('DOMContentLoaded', function() {
+  buildTemplateList();
+  buildOverviewGrid();
+  document.querySelectorAll('.demo-page').forEach(p => {
+    document.getElementById('previewContent').appendChild(p);
+    p.style.display = 'none';
+  });
+  switchTemplate(0);
 
-  // Add scroll hint at bottom of preview
   const scrollHint = document.createElement('div');
   scrollHint.className = 'preview-scroll-hint';
   scrollHint.textContent = '\u2193 Scrollen';
   document.getElementById('previewContent').appendChild(scrollHint);
+});
 </script>
 
 <div class="floating-cta" id="floatingCta">
