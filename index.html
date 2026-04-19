@@ -1,14 +1,12 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="ONYX Studio — Premium Websites & Web-Apps für Unternehmen. Schnell, sicher, modern.">
 <meta name="theme-color" content="#0f0f14">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'none'; frame-src 'none'; object-src 'none';">
 <title>ONYX Studio — Websites & Apps die begeistern</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -29,7 +27,7 @@
 }
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
 body{
-  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
   background:var(--bg);
   color:var(--text);
   line-height:1.6;
@@ -102,7 +100,7 @@ nav{
 nav.scrolled{border-bottom-color:var(--border-soft);background:rgba(15,15,20,.85)}
 .nav-inner{display:flex;justify-content:space-between;align-items:center}
 .logo{
-  font-family:'Playfair Display',serif;font-weight:700;font-size:24px;
+  font-family:'Georgia',serif;font-weight:700;font-size:24px;
   letter-spacing:.5px;display:flex;align-items:center;gap:10px;
   text-decoration:none;color:var(--text);
 }
@@ -143,7 +141,7 @@ nav.scrolled{border-bottom-color:var(--border-soft);background:rgba(15,15,20,.85
 }
 .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold)}
 h1{
-  font-family:'Playfair Display',serif;
+  font-family:'Georgia',serif;
   font-size:clamp(42px,7vw,82px);
   font-weight:700;line-height:1.05;letter-spacing:-.02em;
   margin-bottom:24px;
@@ -176,7 +174,7 @@ h1 .gold{
   display:flex;gap:48px;margin-top:80px;flex-wrap:wrap;
   animation:fadeUp .8s ease .5s both;
 }
-.stat-num{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--gold)}
+.stat-num{font-family:'Georgia',serif;font-size:36px;font-weight:700;color:var(--gold)}
 .stat-label{font-size:13px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
 
 /* SECTION GENERIC */
@@ -187,7 +185,7 @@ section{padding:120px 0;position:relative}
   text-transform:uppercase;letter-spacing:2px;margin-bottom:16px;
 }
 h2{
-  font-family:'Playfair Display',serif;
+  font-family:'Georgia',serif;
   font-size:clamp(34px,4.5vw,52px);
   font-weight:700;line-height:1.1;letter-spacing:-.01em;
   margin-bottom:20px;
@@ -271,7 +269,7 @@ h2{
   text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px;
 }
 .work-info h3{
-  font-family:'Playfair Display',serif;font-size:30px;font-weight:700;
+  font-family:'Georgia',serif;font-size:30px;font-weight:700;
   margin-bottom:16px;letter-spacing:-.01em;
 }
 .work-info > p{color:var(--text-dim);margin-bottom:24px;font-size:15px}
@@ -364,7 +362,7 @@ h2{
 .testimonial::before{
   content:'"';
   position:absolute;top:18px;right:24px;
-  font-family:'Playfair Display',serif;font-size:80px;line-height:1;
+  font-family:'Georgia',serif;font-size:80px;line-height:1;
   color:var(--gold);opacity:.12;
 }
 .testimonial:hover{
@@ -486,6 +484,220 @@ h2{
 .work-visual.portfolio{background:linear-gradient(135deg,#101014 0%,#1a1a20 100%)}
 .work-visual.fitness{background:linear-gradient(135deg,#0d1a10 0%,#15281a 100%)}
 .work-visual.immobilien{background:linear-gradient(135deg,#0d101a 0%,#151a28 100%)}
+
+/* SHOWCASE TOOL */
+.showcase-wrapper{
+  display:grid;
+  grid-template-columns:260px 1fr;
+  gap:28px;
+  align-items:start;
+  margin-bottom:80px;
+}
+.template-list{
+  display:flex;flex-direction:column;gap:8px;
+  position:sticky;top:100px;
+}
+.tl-btn{
+  display:flex;align-items:center;gap:12px;
+  padding:14px 18px;border-radius:12px;
+  background:var(--card);border:1px solid var(--border-soft);
+  cursor:pointer;transition:.25s;
+  text-align:left;width:100%;color:var(--text-dim);
+  font-size:14px;font-weight:500;
+}
+.tl-btn:hover{background:var(--card-hover);color:var(--text)}
+.tl-btn.active{
+  background:var(--card-hover);
+  border-color:var(--gold);
+  color:var(--text);
+  border-left:3px solid var(--gold);
+}
+.tl-dot{
+  width:10px;height:10px;border-radius:50%;flex-shrink:0;
+}
+.tl-info{display:flex;flex-direction:column;gap:2px}
+.tl-name{font-size:13.5px;font-weight:600}
+.tl-branch{font-size:11.5px;color:var(--text-muted)}
+.tl-btn.active .tl-branch{color:var(--gold);opacity:.8}
+
+/* Preview Panel */
+.preview-panel{
+  display:flex;flex-direction:column;gap:24px;
+}
+.preview-browser{
+  border-radius:14px;overflow:hidden;
+  border:1px solid #2a2a36;
+  box-shadow:0 40px 80px rgba(0,0,0,.6),0 10px 30px rgba(0,0,0,.4);
+  transition:opacity .35s ease, transform .35s ease;
+}
+.preview-browser.switching{opacity:0;transform:translateY(-10px)}
+.preview-bar{
+  height:36px;background:#1a1a24;
+  display:flex;align-items:center;padding:0 14px;gap:7px;
+  border-bottom:1px solid #2a2a36;
+}
+.pb-dot{width:12px;height:12px;border-radius:50%}
+.pd-red{background:#ff5f57}
+.pd-yellow{background:#febc2e}
+.pd-green{background:#28c840}
+.preview-url{
+  flex:1;margin-left:12px;height:20px;
+  background:rgba(255,255,255,.06);border-radius:6px;
+  border:1px solid #2a2a36;
+  display:flex;align-items:center;padding:0 10px;
+  font-size:11px;color:var(--text-muted);font-family:monospace;
+  letter-spacing:.3px;
+}
+.preview-content{
+  height:420px;overflow-y:auto;overflow-x:hidden;
+  background:var(--preview-bg,#0f0f14);
+  scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.1) transparent;
+}
+.preview-content::-webkit-scrollbar{width:4px}
+.preview-content::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:2px}
+
+/* Preview Sections */
+.pc-nav{
+  height:44px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 20px;border-bottom:1px solid rgba(255,255,255,.06);
+  background:rgba(0,0,0,.3);position:sticky;top:0;z-index:1;
+  backdrop-filter:blur(10px);
+}
+.pc-logo{height:16px;width:70px;border-radius:4px;background:var(--preview-theme,#c9a84c)}
+.pc-links{display:flex;gap:14px}
+.pc-link{height:8px;border-radius:3px;background:rgba(255,255,255,.2)}
+.pc-cta-btn{height:22px;width:60px;border-radius:5px;background:var(--preview-theme,#c9a84c)}
+
+.pc-hero{
+  padding:40px 24px;
+  background:linear-gradient(135deg,var(--preview-theme-dark,#8b6f2a) 0%,rgba(0,0,0,.6) 100%);
+  display:flex;gap:24px;align-items:center;
+  position:relative;overflow:hidden;min-height:180px;
+}
+.pc-hero::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 80% 20%,rgba(255,255,255,.08),transparent 60%);
+  pointer-events:none;
+}
+.pc-hero-text{flex:1}
+.pc-h1{height:18px;border-radius:4px;background:rgba(255,255,255,.9);width:80%;margin-bottom:10px}
+.pc-h2{height:12px;border-radius:3px;background:rgba(255,255,255,.6);width:55%;margin-bottom:18px}
+.pc-sub{height:8px;border-radius:2px;background:rgba(255,255,255,.4);width:90%;margin-bottom:5px}
+.pc-sub.s2{width:70%;margin-bottom:20px}
+.pc-btns{display:flex;gap:10px}
+.pc-btn-p{height:28px;width:80px;border-radius:6px;background:rgba(255,255,255,.95)}
+.pc-btn-g{height:28px;width:70px;border-radius:6px;border:1px solid rgba(255,255,255,.5);background:transparent}
+.pc-hero-img{
+  width:130px;height:110px;border-radius:10px;flex-shrink:0;
+  background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.2);
+}
+
+.pc-features{
+  padding:28px 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+  background:rgba(0,0,0,.2);
+}
+.pc-feat{
+  background:rgba(255,255,255,.04);border-radius:8px;padding:14px;
+  border:1px solid rgba(255,255,255,.06);
+}
+.pc-feat-icon{
+  width:28px;height:28px;border-radius:7px;
+  background:var(--preview-theme,#c9a84c);opacity:.8;margin-bottom:8px;
+}
+.pc-feat-t{height:7px;border-radius:2px;background:rgba(255,255,255,.6);width:80%;margin-bottom:5px}
+.pc-feat-s{height:5px;border-radius:2px;background:rgba(255,255,255,.3);width:60%}
+
+.pc-about{
+  padding:28px 24px;display:grid;grid-template-columns:1fr 1fr;gap:20px;
+  align-items:center;
+}
+.pc-about-text{display:flex;flex-direction:column;gap:6px}
+.pc-at-bar{height:7px;border-radius:2px;background:rgba(255,255,255,.5)}
+.pc-at-bar.w90{width:90%}.pc-at-bar.w70{width:70%}.pc-at-bar.w80{width:80%}.pc-at-bar.w50{width:50%}
+.pc-about-img{
+  height:110px;border-radius:10px;
+  background:linear-gradient(135deg,rgba(255,255,255,.1),rgba(255,255,255,.04));
+  border:1px solid rgba(255,255,255,.1);
+}
+
+.pc-footer{
+  padding:20px 24px;
+  background:rgba(0,0,0,.4);
+  border-top:1px solid rgba(255,255,255,.06);
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+}
+.pc-footer-col{display:flex;flex-direction:column;gap:6px}
+.pc-ft{height:6px;border-radius:2px;background:rgba(255,255,255,.25)}
+.pc-ft.ft1{width:60%}.pc-ft.ft2{width:80%}.pc-ft.ft3{width:50%}.pc-ft.ft4{width:70%}
+
+/* Preview Info */
+.preview-info{
+  display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+  padding:20px 24px;background:var(--card);border-radius:12px;
+  border:1px solid var(--border-soft);
+}
+.pi-name{
+  font-family:'Georgia',serif;font-size:20px;font-weight:700;
+  color:var(--text);flex:1;min-width:160px;
+}
+.pi-branch{
+  font-size:12px;color:var(--gold);text-transform:uppercase;
+  letter-spacing:1.5px;font-weight:600;
+}
+.pi-features{
+  list-style:none;display:flex;gap:12px;flex-wrap:wrap;
+}
+.pi-features li{
+  font-size:12.5px;color:var(--text-dim);
+  background:var(--bg-soft);padding:4px 10px;border-radius:100px;
+  border:1px solid var(--border);
+}
+.pi-cta{padding:12px 20px;font-size:14px;white-space:nowrap}
+
+/* TEMPLATE OVERVIEW GRID */
+.template-overview-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+  margin-top:40px;
+}
+.tog-card{
+  background:var(--card);border:1px solid var(--border-soft);
+  border-radius:12px;padding:20px;cursor:pointer;transition:.25s;
+}
+.tog-card:hover{
+  border-color:rgba(201,168,76,.3);
+  background:var(--card-hover);
+  transform:translateY(-2px);
+}
+.tog-header{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.tog-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
+.tog-name{font-size:14px;font-weight:600}
+.tog-branch{font-size:11px;color:var(--text-muted);margin-bottom:10px}
+.tog-feats{list-style:none;font-size:12px;color:var(--text-dim)}
+.tog-feats li{padding:2px 0;display:flex;align-items:center;gap:6px}
+.tog-feats li::before{
+  content:'';width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0;
+}
+
+/* Responsive Showcase */
+@media (max-width:900px){
+  .showcase-wrapper{grid-template-columns:1fr;gap:20px}
+  .template-list{
+    flex-direction:row;overflow-x:auto;position:static;
+    padding-bottom:4px;gap:8px;
+    scrollbar-width:none;
+  }
+  .template-list::-webkit-scrollbar{display:none}
+  .tl-btn{flex-shrink:0;min-width:130px}
+  .template-overview-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:600px){
+  .template-overview-grid{grid-template-columns:1fr 1fr}
+  .preview-content{height:300px}
+  .pc-hero{min-height:140px;padding:24px 16px}
+  .pc-hero-img{display:none}
+  .pi-cta{display:none}
+}
 
 /* FOOTER */
 footer{
@@ -715,273 +927,41 @@ footer{
     <div class="section-head reveal">
       <div class="section-eyebrow">Design-Vorlagen</div>
       <h2>So könnte Ihre<br>Website aussehen.</h2>
-      <p>Beispiel-Vorlagen für verschiedene Branchen — individuell anpassbar an Ihr Corporate Design, Ihre Inhalte und Ihre Wünsche.</p>
+      <p>Klicken Sie eine Branche an — und sehen Sie live, wie Ihre Website aussehen könnte. Individuell angepasst an Ihr Design, Ihre Inhalte, Ihre Marke.</p>
     </div>
 
-    <div class="work-grid">
-      <article class="work reveal">
-        <div class="work-visual restaurant">
-          <div class="mockup t-restaurant">
-            <div class="mockup-bar"><span></span><span></span><span></span><div class="mockup-url"></div></div>
-            <div class="mockup-content">
-              <div class="mini-nav"></div>
-              <div class="hero-block">
-                <div class="hb-line long"></div>
-                <div class="hb-line short"></div>
-                <div class="hb-btn"></div>
-              </div>
-              <div class="card-row">
-                <div class="mini-card"></div><div class="mini-card"></div><div class="mini-card"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="work-info">
-          <div class="work-tag">Gastronomie · Template</div>
-          <h3>Restaurant Template</h3>
-          <p>Perfekt für Restaurants, Cafés und Gastronomiebetriebe. Mit Speisekarte, Bildergalerie, Öffnungszeiten und Online-Reservierung — komplett auf Ihre Marke angepasst.</p>
-          <div class="work-tech">
-            <span class="tech">HTML5</span><span class="tech">CSS3</span>
-            <span class="tech">JavaScript</span><span class="tech">Mobil-optimiert</span>
-          </div>
-          <ul class="work-features">
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Vollständig responsiv für Smartphone & Tablet</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Schnelle Ladezeiten & SEO-optimiert</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Speisekarte, Galerie & Reservierung integriert</li>
-          </ul>
-        </div>
-      </article>
+    <!-- INTERACTIVE SHOWCASE -->
+    <div class="showcase-wrapper reveal">
+      <!-- LEFT: Template List -->
+      <div class="template-list" id="templateList">
+        <!-- filled by JS -->
+      </div>
 
-      <article class="work reveal">
-        <div class="work-visual dashboard">
-          <div class="mockup t-dashboard">
-            <div class="mockup-bar"><span></span><span></span><span></span><div class="mockup-url"></div></div>
-            <div class="mockup-content">
-              <div class="mini-nav"></div>
-              <div class="hero-block">
-                <div class="hb-line long"></div>
-                <div class="hb-line short"></div>
-                <div class="hb-btn"></div>
-              </div>
-              <div class="card-row">
-                <div class="mini-card"></div><div class="mini-card"></div><div class="mini-card"></div>
-              </div>
-            </div>
+      <!-- RIGHT: Preview Panel -->
+      <div class="preview-panel" id="previewPanel">
+        <div class="preview-browser">
+          <div class="preview-bar">
+            <span class="pb-dot pd-red"></span>
+            <span class="pb-dot pd-yellow"></span>
+            <span class="pb-dot pd-green"></span>
+            <div class="preview-url" id="previewUrl">restaurant.onyx-studio.de</div>
+          </div>
+          <div class="preview-content" id="previewContent">
+            <!-- filled by JS -->
           </div>
         </div>
-        <div class="work-info">
-          <div class="work-tag">Business · Template</div>
-          <h3>Business Dashboard Template</h3>
-          <p>Ideal für Unternehmen die intern arbeiten möchten: Projekte verwalten, Notizen, Aufgaben & Kundendaten — sicher, übersichtlich und auf jedem Gerät verfügbar.</p>
-          <div class="work-tech">
-            <span class="tech">PWA</span><span class="tech">Verschlüsselung</span>
-            <span class="tech">Cloud-Sync</span><span class="tech">Offline-fähig</span>
-          </div>
-          <ul class="work-features">
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Ende-zu-Ende verschlüsselt (AES-256)</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Synchronisation über alle Geräte</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Funktioniert auch ohne Internet</li>
-          </ul>
+        <div class="preview-info">
+          <div class="pi-name" id="piName">Restaurant Template</div>
+          <div class="pi-branch" id="piBranch">Gastronomie</div>
+          <ul class="pi-features" id="piFeatures"></ul>
+          <a href="#contact" class="btn btn-primary pi-cta">Diese Vorlage anfragen <span class="arrow">→</span></a>
         </div>
-      </article>
+      </div>
+    </div>
 
-      <article class="work reveal">
-        <div class="work-visual shop">
-          <div class="mockup t-shop">
-            <div class="mockup-bar"><span></span><span></span><span></span><div class="mockup-url"></div></div>
-            <div class="mockup-content">
-              <div class="mini-nav"></div>
-              <div class="hero-block">
-                <div class="hb-line long"></div>
-                <div class="hb-line short"></div>
-                <div class="hb-btn"></div>
-              </div>
-              <div class="card-row">
-                <div class="mini-card"></div><div class="mini-card"></div><div class="mini-card"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="work-info">
-          <div class="work-tag">E-Commerce · Template</div>
-          <h3>Online-Shop Template</h3>
-          <p>Professioneller Online-Shop mit Produktkatalog, Warenkorb und Checkout. Perfekt für Händler die online verkaufen wollen — modern, schnell und konversions-optimiert.</p>
-          <div class="work-tech">
-            <span class="tech">E-Commerce</span><span class="tech">Warenkorb</span>
-            <span class="tech">Payment</span><span class="tech">Responsive</span>
-          </div>
-          <ul class="work-features">
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Produktkatalog mit Filtern & Suche</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Sichere Checkout-Integration</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Kundenkonto & Bestellverfolgung</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="work reveal">
-        <div class="work-visual beauty">
-          <div class="mockup t-beauty">
-            <div class="mockup-bar"><span></span><span></span><span></span><div class="mockup-url"></div></div>
-            <div class="mockup-content">
-              <div class="mini-nav"></div>
-              <div class="hero-block">
-                <div class="hb-line long"></div>
-                <div class="hb-line short"></div>
-                <div class="hb-btn"></div>
-              </div>
-              <div class="card-row">
-                <div class="mini-card"></div><div class="mini-card"></div><div class="mini-card"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="work-info">
-          <div class="work-tag">Beauty & Wellness · Template</div>
-          <h3>Friseursalon Template</h3>
-          <p>Elegante Website für Friseursalons, Beautystudios und Wellness — mit Online-Terminbuchung, Team-Vorstellung und übersichtlicher Preisliste.</p>
-          <div class="work-tech">
-            <span class="tech">Termine</span><span class="tech">Online-Buchung</span>
-            <span class="tech">Galerie</span><span class="tech">Responsive</span>
-          </div>
-          <ul class="work-features">
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Termin-Buchungssystem integriert</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Team & Leistungen übersichtlich präsentiert</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Instagram-Feed direkt einbindbar</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="work reveal">
-        <div class="work-visual handwerker">
-          <div class="mockup t-handwerker">
-            <div class="mockup-bar"><span></span><span></span><span></span><div class="mockup-url"></div></div>
-            <div class="mockup-content">
-              <div class="mini-nav"></div>
-              <div class="hero-block">
-                <div class="hb-line long"></div>
-                <div class="hb-line short"></div>
-                <div class="hb-btn"></div>
-              </div>
-              <div class="card-row">
-                <div class="mini-card"></div><div class="mini-card"></div><div class="mini-card"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="work-info">
-          <div class="work-tag">Handwerk & Dienstleistung · Template</div>
-          <h3>Handwerker Template</h3>
-          <p>Ideal für Elektriker, Klempner, Maler und andere Handwerksbetriebe — mit Leistungsübersicht, Notdienst-Hinweis und einfachem Kontaktformular.</p>
-          <div class="work-tech">
-            <span class="tech">Kontaktformular</span><span class="tech">Notdienst</span>
-            <span class="tech">Mobil-optimiert</span><span class="tech">SEO</span>
-          </div>
-          <ul class="work-features">
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Leistungskatalog & Referenz-Galerie</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Notdienst-Banner prominent platziert</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Direkter Anruf-Button (Click-to-Call)</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="work reveal">
-        <div class="work-visual portfolio">
-          <div class="mockup t-portfolio">
-            <div class="mockup-bar"><span></span><span></span><span></span><div class="mockup-url"></div></div>
-            <div class="mockup-content">
-              <div class="mini-nav"></div>
-              <div class="hero-block">
-                <div class="hb-line long"></div>
-                <div class="hb-line short"></div>
-                <div class="hb-btn"></div>
-              </div>
-              <div class="card-row">
-                <div class="mini-card"></div><div class="mini-card"></div><div class="mini-card"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="work-info">
-          <div class="work-tag">Kreativ · Template</div>
-          <h3>Portfolio Template</h3>
-          <p>Minimalistisches Portfolio für Fotografen, Designer und Künstler — Ihre Arbeit steht im Mittelpunkt, ohne Ablenkung. Klar, fokussiert, hochwertig.</p>
-          <div class="work-tech">
-            <span class="tech">Lightbox-Galerie</span><span class="tech">Projekte</span>
-            <span class="tech">Minimalistisch</span><span class="tech">Fast Loading</span>
-          </div>
-          <ul class="work-features">
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Vollbild-Galerie mit Lightbox-Effekt</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Projekt-Cases mit Beschreibung</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Kontakt & Social Media Links</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="work reveal">
-        <div class="work-visual fitness">
-          <div class="mockup t-fitness">
-            <div class="mockup-bar"><span></span><span></span><span></span><div class="mockup-url"></div></div>
-            <div class="mockup-content">
-              <div class="mini-nav"></div>
-              <div class="hero-block">
-                <div class="hb-line long"></div>
-                <div class="hb-line short"></div>
-                <div class="hb-btn"></div>
-              </div>
-              <div class="card-row">
-                <div class="mini-card"></div><div class="mini-card"></div><div class="mini-card"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="work-info">
-          <div class="work-tag">Sport & Fitness · Template</div>
-          <h3>Fitnessstudio Template</h3>
-          <p>Kraftvolle Website für Fitnessstudios und Personal Trainer — mit Kursplänen, Trainer-Profilen und übersichtlichen Mitgliedschafts-Angeboten.</p>
-          <div class="work-tech">
-            <span class="tech">Kursplan</span><span class="tech">Buchung</span>
-            <span class="tech">Trainer-Profile</span><span class="tech">Responsive</span>
-          </div>
-          <ul class="work-features">
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Wöchentlicher Kursplan dynamisch</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Trainer-Vorstellung mit Expertise</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Mitgliedschaftspakete & Preise klar</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="work reveal">
-        <div class="work-visual immobilien">
-          <div class="mockup t-immobilien">
-            <div class="mockup-bar"><span></span><span></span><span></span><div class="mockup-url"></div></div>
-            <div class="mockup-content">
-              <div class="mini-nav"></div>
-              <div class="hero-block">
-                <div class="hb-line long"></div>
-                <div class="hb-line short"></div>
-                <div class="hb-btn"></div>
-              </div>
-              <div class="card-row">
-                <div class="mini-card"></div><div class="mini-card"></div><div class="mini-card"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="work-info">
-          <div class="work-tag">Immobilien · Template</div>
-          <h3>Immobilienmakler Template</h3>
-          <p>Seriöse Web-Präsenz für Immobilienmakler — mit Objektsuche, Filtern, ansprechenden Exposés und direktem Kontakt für Besichtigungstermine.</p>
-          <div class="work-tech">
-            <span class="tech">Objektsuche</span><span class="tech">Filter</span>
-            <span class="tech">Exposés</span><span class="tech">Kontakt</span>
-          </div>
-          <ul class="work-features">
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Objektdatenbank mit Suchfiltern</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Einzelansicht mit Bildergalerie</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Besichtigungstermin direkt anfragen</li>
-          </ul>
-        </div>
-      </article>
+    <!-- TEMPLATE OVERVIEW GRID (compact) -->
+    <div class="template-overview-grid">
+      <!-- filled by JS -->
     </div>
   </div>
 </section>
@@ -1017,9 +997,9 @@ footer{
       <div class="section-eyebrow">Kontakt</div>
       <h2>Lass uns dein<br>Projekt umsetzen.</h2>
       <p>Egal ob Website, Web-App oder Idee im Kopf — schreib mir und wir schauen gemeinsam, was möglich ist. Erstgespräch ist kostenlos.</p>
-      <a href="mailto:onyxweb24@gmail.com?subject=Projekt-Anfrage%20bei%20ONYX%20Studio" class="email-cta">
+      <a id="email-cta" href="#" class="email-cta">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        onyxweb24@gmail.com
+        <span id="email-display"></span>
       </a>
     </div>
   </div>
@@ -1031,7 +1011,7 @@ footer{
     <ul class="footer-links">
       <li><a href="#services">Leistungen</a></li>
       <li><a href="#work">Vorlagen</a></li>
-      <li><a href="mailto:onyxweb24@gmail.com">Kontakt</a></li>
+      <li><a href="#" id="footer-email">Kontakt</a></li>
       <li><a href="impressum.html">Impressum</a></li>
       <li><a href="datenschutz.html">Datenschutz</a></li>
     </ul>
@@ -1039,21 +1019,35 @@ footer{
 </footer>
 
 <script>
+// Email obfuscation
+(function(){
+  const parts = ['onyxweb24', 'gmail.com'];
+  const email = parts.join('@');
+  const subj = encodeURIComponent('Projekt-Anfrage bei ONYX Studio');
+  const href = 'mailto:' + email + '?subject=' + subj;
+  const cta = document.getElementById('email-cta');
+  const disp = document.getElementById('email-display');
+  const fe = document.getElementById('footer-email');
+  if(cta) cta.href = href;
+  if(disp) disp.textContent = email;
+  if(fe){ fe.href = href; fe.textContent = 'Kontakt'; }
+})();
+
 // Nav scroll effect
-const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>{
-  nav.classList.toggle('scrolled',window.scrollY>20);
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 20);
 });
 
 // Reveal on scroll
-const io=new IntersectionObserver(es=>{
-  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
-},{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const io = new IntersectionObserver(es => {
+  es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }});
+}, {threshold: .12});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
 // Mobile menu toggle styles
-const style=document.createElement('style');
-style.textContent=`
+const style = document.createElement('style');
+style.textContent = `
 @media (max-width:860px){
   .nav-links.open{
     display:flex;flex-direction:column;
@@ -1063,6 +1057,228 @@ style.textContent=`
   }
 }`;
 document.head.appendChild(style);
+
+// ============================================
+// TEMPLATE SHOWCASE
+// ============================================
+const templates = [
+  {
+    name: 'Restaurant Template',
+    branch: 'Gastronomie',
+    theme: '#d4734c',
+    themeDark: '#8a3a18',
+    bgPreview: '#1a100d',
+    url: 'ihr-restaurant.de',
+    features: ['Online-Reservierung', 'Speisekarte', 'Bildergalerie']
+  },
+  {
+    name: 'Business Dashboard',
+    branch: 'Business',
+    theme: '#55ce55',
+    themeDark: '#2a7a2a',
+    bgPreview: '#0d150d',
+    url: 'firma-dashboard.de',
+    features: ['Projektverwaltung', 'AES-256 Verschlüsselt', 'Offline-fähig']
+  },
+  {
+    name: 'Online-Shop',
+    branch: 'E-Commerce',
+    theme: '#4c89d4',
+    themeDark: '#1a4a8a',
+    bgPreview: '#0d1218',
+    url: 'ihr-onlineshop.de',
+    features: ['Produktkatalog', 'Warenkorb & Checkout', 'Kundenkonto']
+  },
+  {
+    name: 'Friseursalon',
+    branch: 'Beauty & Wellness',
+    theme: '#d44c9e',
+    themeDark: '#8a1a5a',
+    bgPreview: '#180d15',
+    url: 'salon-beauty.de',
+    features: ['Online-Terminbuchung', 'Team & Preisliste', 'Instagram-Feed']
+  },
+  {
+    name: 'Handwerksbetrieb',
+    branch: 'Handwerk & Service',
+    theme: '#d49e4c',
+    themeDark: '#8a5a18',
+    bgPreview: '#181410',
+    url: 'meister-betrieb.de',
+    features: ['Leistungskatalog', 'Notdienst-Banner', 'Click-to-Call']
+  },
+  {
+    name: 'Kreativ-Portfolio',
+    branch: 'Fotografie & Design',
+    theme: '#a0a0b8',
+    themeDark: '#404050',
+    bgPreview: '#101012',
+    url: 'ihr-portfolio.de',
+    features: ['Vollbild-Galerie', 'Projekt-Cases', 'Social Media Links']
+  },
+  {
+    name: 'Fitnessstudio',
+    branch: 'Sport & Fitness',
+    theme: '#4cd45c',
+    themeDark: '#1a8a2a',
+    bgPreview: '#0d180e',
+    url: 'fitness-studio.de',
+    features: ['Wöchentlicher Kursplan', 'Trainer-Profile', 'Mitgliedschaftspakete']
+  },
+  {
+    name: 'Immobilienmakler',
+    branch: 'Immobilien',
+    theme: '#4c6fd4',
+    themeDark: '#1a3a8a',
+    bgPreview: '#0d1018',
+    url: 'immobilien-makler.de',
+    features: ['Objektsuche & Filter', 'Exposé mit Galerie', 'Besichtigungs-Anfrage']
+  }
+];
+
+let activeIdx = 0;
+
+function buildPreviewHTML(t) {
+  return `
+    <div class="pc-nav" style="--preview-theme:${t.theme}">
+      <div class="pc-logo"></div>
+      <div class="pc-links">
+        <div class="pc-link" style="width:30px"></div>
+        <div class="pc-link" style="width:36px"></div>
+        <div class="pc-link" style="width:28px"></div>
+        <div class="pc-link" style="width:32px"></div>
+      </div>
+      <div class="pc-cta-btn"></div>
+    </div>
+    <div class="pc-hero" style="--preview-theme:${t.theme};--preview-theme-dark:${t.themeDark}">
+      <div class="pc-hero-text">
+        <div class="pc-h1"></div>
+        <div class="pc-h2"></div>
+        <div class="pc-sub"></div>
+        <div class="pc-sub s2"></div>
+        <div class="pc-btns">
+          <div class="pc-btn-p"></div>
+          <div class="pc-btn-g"></div>
+        </div>
+      </div>
+      <div class="pc-hero-img"></div>
+    </div>
+    <div class="pc-features" style="--preview-theme:${t.theme}">
+      ${[0,1,2].map(() => `
+        <div class="pc-feat">
+          <div class="pc-feat-icon"></div>
+          <div class="pc-feat-t"></div>
+          <div class="pc-feat-s"></div>
+        </div>
+      `).join('')}
+    </div>
+    <div class="pc-about">
+      <div class="pc-about-text">
+        <div class="pc-at-bar w90"></div>
+        <div class="pc-at-bar w70"></div>
+        <div class="pc-at-bar w80"></div>
+        <div class="pc-at-bar w50"></div>
+      </div>
+      <div class="pc-about-img"></div>
+    </div>
+    <div class="pc-footer">
+      ${[0,1,2].map(() => `
+        <div class="pc-footer-col">
+          <div class="pc-ft ft1"></div>
+          <div class="pc-ft ft2"></div>
+          <div class="pc-ft ft3"></div>
+          <div class="pc-ft ft4"></div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+}
+
+function buildTemplateList() {
+  const list = document.getElementById('templateList');
+  if(!list) return;
+  list.innerHTML = templates.map((t, i) => `
+    <button class="tl-btn${i === 0 ? ' active' : ''}" onclick="switchTemplate(${i})" data-idx="${i}">
+      <div class="tl-dot" style="background:${t.theme}"></div>
+      <div class="tl-info">
+        <div class="tl-name">${t.name}</div>
+        <div class="tl-branch">${t.branch}</div>
+      </div>
+    </button>
+  `).join('');
+}
+
+function buildOverviewGrid() {
+  const grid = document.querySelector('.template-overview-grid');
+  if(!grid) return;
+  grid.innerHTML = templates.map((t, i) => `
+    <div class="tog-card" onclick="switchTemplate(${i}); document.getElementById('work').scrollIntoView({behavior:'smooth'})">
+      <div class="tog-header">
+        <div class="tog-dot" style="background:${t.theme}"></div>
+        <div class="tog-name">${t.name}</div>
+      </div>
+      <div class="tog-branch">${t.branch}</div>
+      <ul class="tog-feats">
+        ${t.features.map(f => `<li>${f}</li>`).join('')}
+      </ul>
+    </div>
+  `).join('');
+}
+
+window.switchTemplate = function(idx) {
+  const browser = document.querySelector('.preview-browser');
+  const content = document.getElementById('previewContent');
+  const urlBar = document.getElementById('previewUrl');
+  const nameEl = document.getElementById('piName');
+  const branchEl = document.getElementById('piBranch');
+  const featsList = document.getElementById('piFeatures');
+
+  // Fade out
+  browser.classList.add('switching');
+
+  setTimeout(() => {
+    const t = templates[idx];
+    activeIdx = idx;
+
+    // Update CSS vars on content
+    content.style.setProperty('--preview-bg', t.bgPreview);
+    content.style.background = t.bgPreview;
+    content.innerHTML = buildPreviewHTML(t);
+
+    // Update URL bar
+    urlBar.textContent = t.url;
+
+    // Update info
+    nameEl.textContent = t.name;
+    branchEl.textContent = t.branch;
+    featsList.innerHTML = t.features.map(f => `<li>${f}</li>`).join('');
+
+    // Update active button
+    document.querySelectorAll('.tl-btn').forEach((btn, i) => {
+      btn.classList.toggle('active', i === idx);
+    });
+
+    // Scroll content to top
+    content.scrollTop = 0;
+
+    // Fade in
+    browser.classList.remove('switching');
+  }, 200);
+};
+
+// Keyboard navigation
+document.addEventListener('keydown', e => {
+  const focused = document.activeElement;
+  if(focused && focused.classList.contains('tl-btn')) {
+    if(e.key === 'ArrowDown') { e.preventDefault(); switchTemplate(Math.min(activeIdx + 1, templates.length - 1)); document.querySelectorAll('.tl-btn')[activeIdx].focus(); }
+    if(e.key === 'ArrowUp') { e.preventDefault(); switchTemplate(Math.max(activeIdx - 1, 0)); document.querySelectorAll('.tl-btn')[activeIdx].focus(); }
+  }
+});
+
+// Init
+buildTemplateList();
+buildOverviewGrid();
+switchTemplate(0);
 </script>
 
 </body>
