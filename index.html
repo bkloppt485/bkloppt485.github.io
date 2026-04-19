@@ -36,6 +36,7 @@ body{
   overflow-x:hidden;
 }
 ::selection{background:var(--gold);color:#0f0f14}
+button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 
 #starfield{
   position:fixed;inset:0;z-index:-1;pointer-events:none;
@@ -1249,6 +1250,59 @@ footer{
   .testimonial-grid{grid-template-columns:1fr;gap:18px}
   .testimonial{padding:28px 24px}
 }
+
+/* === MOBILE OPTIMIERUNG === */
+@media(hover:none){
+  .service:hover,.work:hover,.trust-item:hover,.testimonial:hover,.tog-card:hover{
+    transform:none;box-shadow:none;
+  }
+}
+@media(max-width:640px){
+  .footer-inner{flex-direction:column;text-align:center;gap:16px}
+  .footer-links{flex-wrap:wrap;justify-content:center;gap:8px 16px}
+}
+@media(max-width:600px){
+  section{padding:60px 0}
+  .container{padding:0 16px}
+  .section-head{margin-bottom:40px}
+  .hero{padding:100px 0 60px}
+  .hero-cta{gap:10px;flex-direction:column;align-items:flex-start}
+  .btn{padding:14px 22px;font-size:15px;width:100%;justify-content:center}
+  .hero p{font-size:16px}
+  .eyebrow{font-size:11px;padding:6px 12px}
+  .hero-stats{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px 0;
+    margin-top:48px;
+  }
+  .stat-divider{display:none}
+  .stat{
+    padding:16px;
+    background:rgba(255,255,255,.03);
+    border-radius:12px;
+    border:1px solid var(--border-soft);
+  }
+  .stat-num{font-size:28px}
+  .booking-cta-card{padding:24px 20px}
+  .booking-what{padding:20px}
+  .booking-section{padding:60px 0}
+  .booking-cta-title{font-size:17px}
+  .tl-btn{min-width:120px}
+}
+@media(max-width:480px){
+  .contact{padding:36px 18px}
+  .email-cta{padding:16px 20px;font-size:15px}
+  .contact-trust{flex-direction:column;gap:8px;align-items:center}
+  .contact-trust span:nth-child(even){display:none}
+  .about-card{padding:28px 20px}
+  .about-list li{font-size:14px;flex-wrap:wrap;gap:4px}
+}
+@media(max-width:380px){
+  .container{padding:0 14px}
+  .stat-num{font-size:24px}
+  .booking-cta-card{padding:20px 16px}
+}
 </style>
 </head>
 <body>
@@ -1267,7 +1321,7 @@ footer{
       <li><a href="#booking">Termin</a></li>
       <li><a href="#contact" class="nav-cta">Anfragen</a></li>
     </ul>
-    <button class="menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <button class="menu-btn" id="menuBtn" onclick="toggleMobileMenu()">☰</button>
   </div>
 </nav>
 
@@ -1796,8 +1850,23 @@ style.textContent = `
   .nav-links.open{
     display:flex;flex-direction:column;
     position:absolute;top:100%;left:0;right:0;
-    background:var(--bg-soft);padding:24px 32px;
-    border-bottom:1px solid var(--border);gap:20px;
+    background:rgba(9,9,15,.98);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    padding:20px 24px 28px;
+    border-bottom:1px solid var(--border);
+    gap:4px;
+    box-shadow:0 20px 40px rgba(0,0,0,.5);
+  }
+  .nav-links.open li a{
+    display:block;padding:12px 8px;font-size:16px;
+    border-bottom:1px solid var(--border-soft);
+    color:var(--text-dim);
+  }
+  .nav-links.open li:last-child a{
+    border-bottom:none;margin-top:8px;
+    background:var(--gold);color:#09090f !important;
+    border-radius:8px;text-align:center;padding:12px;
   }
 }`;
 document.head.appendChild(style);
@@ -1978,6 +2047,21 @@ document.addEventListener('DOMContentLoaded', function() {
   scrollHint.className = 'preview-scroll-hint';
   scrollHint.textContent = '\u2193 Scrollen';
   document.getElementById('previewContent').appendChild(scrollHint);
+});
+
+// Mobile menu
+window.toggleMobileMenu = function() {
+  const navLinks = document.querySelector('.nav-links');
+  const btn = document.getElementById('menuBtn');
+  const isOpen = navLinks.classList.toggle('open');
+  btn.textContent = isOpen ? '✕' : '☰';
+};
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => {
+    document.querySelector('.nav-links').classList.remove('open');
+    const btn = document.getElementById('menuBtn');
+    if(btn) btn.textContent = '☰';
+  });
 });
 </script>
 
