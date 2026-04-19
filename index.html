@@ -4,21 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="ONYX Studio — Premium Websites & Web-Apps für Unternehmen. Schnell, sicher, modern.">
-<meta name="theme-color" content="#0f0f14">
+<meta name="theme-color" content="#07101e">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://assets.calendly.com; script-src 'self' 'unsafe-inline' https://assets.calendly.com https://va.vercel-scripts.com; img-src 'self' data: https://*.calendly.com https://*.cloudfront.net; font-src 'self' data: https://assets.calendly.com; connect-src https://calendly.com https://api.calendly.com https://*.calendly.com https://vitals.vercel-insights.com; frame-src https://calendly.com; object-src 'none'"><title>ONYX Studio — Websites & Apps die begeistern</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#09090f;
-  --bg-soft:#0e0e16;
-  --bg-alt:#0c0c14;
-  --card:#13131c;
-  --card-hover:#171724;
-  --border:#1e1e2e;
-  --border-soft:#191926;
-  --text:#f0f0f5;
-  --text-dim:#9898ac;
-  --text-muted:#58587a;
+  --bg:#07101e;
+  --bg-soft:#0b1726;
+  --bg-alt:#091422;
+  --card:#0f1e32;
+  --card-hover:#132540;
+  --border:#1a2e48;
+  --border-soft:#152540;
+  --text:#eef2f8;
+  --text-dim:#8a9ab8;
+  --text-muted:#4a5a78;
   --gold:#c9a84c;
   --gold-soft:#d4b865;
   --gold-bright:#e8c96a;
@@ -48,13 +48,13 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
   padding:18px 0;
-  background:rgba(15,15,20,.7);
+  background:rgba(7,16,30,.75);
   backdrop-filter:blur(20px);
   -webkit-backdrop-filter:blur(20px);
   border-bottom:1px solid transparent;
   transition:.3s;
 }
-nav.scrolled{border-bottom-color:var(--border-soft);background:rgba(15,15,20,.85)}
+nav.scrolled{border-bottom-color:var(--border-soft);background:rgba(7,16,30,.92)}
 .nav-inner{display:flex;justify-content:space-between;align-items:center}
 .logo{
   font-family:'Georgia',serif;font-weight:700;font-size:24px;
@@ -565,7 +565,7 @@ section.alt-bg-2{
    ============================================================ */
 #demo-overlay{
   position:fixed;inset:0;z-index:500;
-  background:#09090f;
+  background:#07101e;
   overflow-y:auto;overflow-x:hidden;
   opacity:0;visibility:hidden;pointer-events:none;
   transition:opacity .4s ease,visibility .4s ease;
@@ -577,7 +577,7 @@ section.alt-bg-2{
   position:sticky;top:0;z-index:10;
   display:flex;align-items:center;justify-content:space-between;
   padding:14px 32px;
-  background:rgba(9,9,15,.9);backdrop-filter:blur(20px);
+  background:rgba(7,16,30,.95);backdrop-filter:blur(20px);
   border-bottom:1px solid rgba(255,255,255,.06);
   gap:16px;
 }
@@ -1061,7 +1061,7 @@ section.alt-bg-2{
 }
 .preview-content{
   height:580px;overflow-y:auto;overflow-x:hidden;
-  background:var(--preview-bg,#0f0f14);
+  background:var(--preview-bg,#07101e);
   scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.1) transparent;
 }
 .preview-content::-webkit-scrollbar{width:4px}
@@ -1835,7 +1835,7 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
   let W, H, stars = [];
   const STAR_COUNT = 220;
   const GOLD = 'rgba(201,168,76,';
-  const WHITE = 'rgba(245,245,247,';
+  const WHITE = 'rgba(220,230,248,';
 
   function resize(){
     W = canvas.width = window.innerWidth;
@@ -1941,7 +1941,7 @@ style.textContent = `
   .nav-links.open{
     display:flex;flex-direction:column;
     position:absolute;top:100%;left:0;right:0;
-    background:rgba(9,9,15,.98);
+    background:rgba(7,16,30,.98);
     backdrop-filter:blur(20px);
     -webkit-backdrop-filter:blur(20px);
     padding:20px 24px 28px;
