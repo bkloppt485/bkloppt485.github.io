@@ -1331,7 +1331,7 @@ footer{
       <span class="dot pulse"></span>
       <span>Aktuell verfügbar</span>
       <span class="eyebrow-sep">·</span>
-      <span class="eyebrow-slots">Noch <strong>2 Projektslots</strong> im April frei</span>
+      <span class="eyebrow-slots">Noch <strong>2 Projektslots</strong> im <span id="current-month">April</span> frei</span>
     </div>
     <h1>Websites & Apps,<br>die <span class="gold">begeistern.</span></h1>
     <p>Maßgeschneiderte digitale Lösungen für Unternehmen, die mehr wollen als nur eine Website. Schnell entwickelt, sauber gebaut, kompromisslos in der Qualität.</p>
@@ -1822,6 +1822,10 @@ if(bookingEmailLink) {
   const em = parts.join('@');
   bookingEmailLink.href = 'mailto:' + em + '?subject=' + encodeURIComponent('Erstgespräch anfragen — ONYX Studio');
 }
+
+// Auto-update current month in hero eyebrow
+const monthEl = document.getElementById('current-month');
+if(monthEl) monthEl.textContent = new Date().toLocaleString('de-DE',{month:'long'});
 
 // Nav scroll effect
 const nav = document.getElementById('nav');
