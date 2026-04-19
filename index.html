@@ -604,7 +604,7 @@ section.alt-bg-2{
 /* ---- SHARED DEMO COMPONENTS ---- */
 .d-header{
   padding:0;
-  min-height:90vh;display:flex;flex-direction:column;
+  min-height:auto;display:flex;flex-direction:column;
 }
 .d-nav{
   display:flex;align-items:center;justify-content:space-between;
@@ -760,6 +760,93 @@ section.alt-bg-2{
   font-size:13px;color:rgba(240,240,245,.35);text-decoration:none;transition:.2s;
 }
 .d-footer-links a:hover{color:rgba(240,240,245,.7)}
+
+/* Demo: compact hero for preview */
+.d-hero-compact{padding:48px 40px 40px;display:flex;flex-direction:column;gap:16px;position:relative;overflow:hidden}
+.d-hero-compact::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,var(--d-accent-glow,rgba(255,255,255,.08)),transparent 60%);pointer-events:none}
+
+/* Demo: stats row */
+.d-stats-row{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.08)}
+.d-stat{padding:20px 16px;text-align:center;border-right:1px solid rgba(255,255,255,.08)}
+.d-stat:last-child{border-right:none}
+.d-stat-num{font-size:24px;font-weight:800;margin-bottom:4px}
+.d-stat-label{font-size:11px;color:rgba(240,240,245,.45);text-transform:uppercase;letter-spacing:.8px}
+
+/* Demo: price list */
+.d-price-list{display:flex;flex-direction:column;gap:0}
+.d-price-row{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.d-price-row:last-child{border-bottom:none}
+.d-price-name{font-size:14px;font-weight:500;color:#f0f0f5}
+.d-price-val{font-size:15px;font-weight:700}
+
+/* Demo: team grid */
+.d-team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.d-team-card{text-align:center;padding:24px 16px;background:rgba(255,255,255,.04);border-radius:12px;border:1px solid rgba(255,255,255,.06)}
+.d-team-avatar{width:64px;height:64px;border-radius:50%;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700}
+.d-team-name{font-size:14px;font-weight:600;color:#f0f0f5;margin-bottom:4px}
+.d-team-role{font-size:12px;color:rgba(240,240,245,.4)}
+
+/* Demo: product grid */
+.d-product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.d-product{background:rgba(255,255,255,.04);border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,.08);transition:.2s}
+.d-product:hover{border-color:rgba(255,255,255,.2);transform:translateY(-2px)}
+.d-product-img{height:100px;display:flex;align-items:center;justify-content:center;font-size:28px}
+.d-product-info{padding:12px}
+.d-product-name{font-size:13px;font-weight:600;color:#f0f0f5;margin-bottom:4px}
+.d-product-price{font-size:15px;font-weight:700;margin-bottom:10px}
+.d-add-btn{width:100%;padding:8px;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:.2s}
+
+/* Demo: schedule/timetable */
+.d-schedule{display:flex;flex-direction:column;gap:8px}
+.d-sched-item{display:flex;align-items:center;gap:16px;padding:12px 16px;background:rgba(255,255,255,.04);border-radius:8px;border:1px solid rgba(255,255,255,.06)}
+.d-sched-time{font-size:12px;font-weight:700;color:rgba(240,240,245,.5);min-width:48px;font-family:monospace}
+.d-sched-name{font-size:14px;font-weight:600;color:#f0f0f5;flex:1}
+.d-sched-badge{font-size:11px;padding:3px 8px;border-radius:100px;font-weight:600}
+
+/* Demo: property listing */
+.d-prop-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.d-prop{background:rgba(255,255,255,.04);border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
+.d-prop-img{height:90px;display:flex;align-items:center;justify-content:center;font-size:24px;position:relative}
+.d-prop-badge{position:absolute;top:8px;left:8px;font-size:10px;padding:3px 8px;border-radius:4px;font-weight:700}
+.d-prop-info{padding:12px}
+.d-prop-title{font-size:13px;font-weight:600;color:#f0f0f5;margin-bottom:4px}
+.d-prop-meta{font-size:11px;color:rgba(240,240,245,.45);margin-bottom:8px}
+.d-prop-price{font-size:16px;font-weight:800}
+
+/* Demo: portfolio masonry */
+.d-work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.d-work-item{border-radius:8px;overflow:hidden;position:relative;cursor:pointer}
+.d-work-item:hover .d-work-overlay{opacity:1}
+.d-work-thumb{height:80px;display:flex;align-items:center;justify-content:center;font-size:20px}
+.d-work-overlay{position:absolute;inset:0;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;opacity:0;transition:.25s;font-size:12px;font-weight:600;color:#fff}
+
+/* Demo: service cards 2-col */
+.d-services-2col{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.d-service-card{padding:20px;background:rgba(255,255,255,.04);border-radius:10px;border:1px solid rgba(255,255,255,.07)}
+.d-service-icon{font-size:24px;margin-bottom:10px}
+.d-service-name{font-size:14px;font-weight:600;color:#f0f0f5;margin-bottom:4px}
+.d-service-desc{font-size:12px;color:rgba(240,240,245,.4);line-height:1.5}
+
+/* Demo: emergency banner */
+.d-emergency{background:#c0392b;padding:12px 40px;display:flex;align-items:center;gap:12px;font-weight:700;font-size:14px;color:#fff}
+.d-emergency-dot{width:8px;height:8px;border-radius:50%;background:#fff;animation:pulseDot 1.5s infinite}
+
+/* Demo: search bar */
+.d-search-bar{display:flex;gap:0;border-radius:10px;overflow:hidden;border:2px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);max-width:480px}
+.d-search-input{flex:1;padding:14px 16px;background:none;border:none;color:#f0f0f5;font-size:14px;outline:none}
+.d-search-input::placeholder{color:rgba(240,240,245,.35)}
+.d-search-btn{padding:14px 20px;border:none;font-weight:700;font-size:13px;cursor:pointer}
+
+/* Demo: membership cards */
+.d-membership-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.d-membership{padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,.1);text-align:center;position:relative}
+.d-membership.featured{border-width:2px}
+.d-mem-badge{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.d-mem-name{font-size:16px;font-weight:700;color:#f0f0f5;margin-bottom:8px}
+.d-mem-price{font-size:28px;font-weight:800;margin-bottom:4px}
+.d-mem-period{font-size:11px;color:rgba(240,240,245,.4);margin-bottom:16px}
+.d-mem-features{list-style:none;font-size:12px;color:rgba(240,240,245,.6);text-align:left;display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.d-mem-features li::before{content:'✓ ';color:inherit;font-weight:700}
 
 /* Responsive Demo */
 @media(max-width:860px){
@@ -1702,10 +1789,10 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- DEMO PAGES (moved into preview by JS) -->
 <div id="demo-storage" hidden>
 
-  <!-- DEMO 1: RESTAURANT -->
+  <!-- DEMO 1: RESTAURANT  Bella Cucina -->
   <section class="demo-page" data-tpl="0">
-    <header class="d-header" style="background:linear-gradient(135deg,#2d1408 0%,#4a2010 100%)">
-      <nav class="d-nav">
+    <header class="d-header" style="background:#1a0c08">
+      <nav class="d-nav" style="border-bottom:1px solid rgba(232,125,74,.12)">
         <div class="d-logo" style="color:#e87d4a">&#127829; Bella Cucina</div>
         <ul class="d-links">
           <li><a href="#">Speisekarte</a></li>
@@ -1714,248 +1801,328 @@ document.addEventListener('DOMContentLoaded', function() {
           <li><a href="#" class="d-cta-link" style="background:#e87d4a">Reservieren</a></li>
         </ul>
       </nav>
-      <div class="d-hero-content" style="background:radial-gradient(ellipse at top left,rgba(232,125,74,.2),transparent 65%)">
-        <div class="d-eyebrow" style="color:#e87d4a;border-color:rgba(232,125,74,.3)">&#9733; Seit 1998 in Melsungen</div>
-        <h1 class="d-h1">Mediterrane K&#252;che<br><span style="color:#e87d4a">mit Herz &amp; Leidenschaft</span></h1>
-        <p class="d-p">Frische Zutaten, traditionelle Rezepte und ein Hauch von Italien &#8212; mitten in Deutschland. Erleben Sie echten Geschmack.</p>
+      <div class="d-hero-compact" style="background:linear-gradient(135deg,#2d1408 0%,#3a1a0a 100%);--d-accent-glow:rgba(232,125,74,.15)">
+        <div class="d-eyebrow" style="color:#e87d4a">&#9733; Seit 1998 in Melsungen</div>
+        <h1 class="d-h1">Mediterrane K&#252;che<br>mit Herz.</h1>
+        <p class="d-p" style="max-width:420px">Frische Zutaten, traditionelle Rezepte und eine Atmosph&#228;re, die Sie in den S&#252;den entf&#252;hrt.</p>
         <div class="d-btns">
-          <a href="#" class="d-btn" style="background:#e87d4a;color:#fff">Tisch reservieren</a>
-          <a href="#" class="d-btn d-btn-ghost">Speisekarte ansehen</a>
+          <a href="#" class="d-btn" style="background:#e87d4a">Tisch reservieren</a>
+          <a href="#" class="d-btn-ghost">Speisekarte</a>
+        </div>
+      </div>
+      <div class="d-stats-row" style="background:#1a0c08">
+        <div class="d-stat">
+          <div class="d-stat-num" style="color:#e87d4a">24</div>
+          <div class="d-stat-label">Jahre Erfahrung</div>
+        </div>
+        <div class="d-stat">
+          <div class="d-stat-num" style="color:#e87d4a">4.9 &#9733;</div>
+          <div class="d-stat-label">Google Bewertung</div>
+        </div>
+        <div class="d-stat">
+          <div class="d-stat-num" style="color:#e87d4a">150+</div>
+          <div class="d-stat-label">Sitzpl&#228;tze</div>
+        </div>
+        <div class="d-stat">
+          <div class="d-stat-num" style="color:#e87d4a">Di&#8211;So</div>
+          <div class="d-stat-label">Ge&#246;ffnet</div>
         </div>
       </div>
     </header>
-    <section class="d-section" style="background:#1c1008">
-      <div class="d-section-label" style="color:#e87d4a">Unsere Spezialit&#228;ten</div>
-      <h2 class="d-h2">Highlights aus unserer K&#252;che</h2>
+
+    <section class="d-section" style="background:#120a06">
+      <div class="d-section-label" style="color:#e87d4a">Unsere Empfehlungen</div>
+      <h2 class="d-h2">Highlights der Woche</h2>
       <div class="d-grid-3">
-        <div class="d-card" style="border-color:rgba(232,125,74,.2)">
-          <div class="d-card-img" style="background:linear-gradient(135deg,#3d1a0a,#5c2a10)"></div>
+        <div class="d-card">
+          <div class="d-card-img" style="background:linear-gradient(135deg,#3a1a08,#5a2810);font-size:40px;display:flex;align-items:center;justify-content:center">&#127829;</div>
           <div class="d-card-body">
-            <h3 class="d-card-title">Pasta Carbonara</h3>
-            <p class="d-card-text">Klassiker mit echtem Guanciale, Pecorino und frischen Eiern nach original r&#246;mischem Rezept.</p>
-            <span class="d-price" style="color:#e87d4a">ab &#8364;14,90</span>
+            <div class="d-card-title">Pizza Bella</div>
+            <div class="d-card-text">Haucsd&#252;nner Teig, San Marzano Tomaten, B&#252;ffelmozzarella, frisches Basilikum</div>
+            <div class="d-price" style="color:#e87d4a;margin-top:10px;font-size:16px;font-weight:800">14,90 &#8364;</div>
           </div>
         </div>
-        <div class="d-card d-card-featured" style="border-color:#e87d4a">
-          <div class="d-featured-badge" style="background:#e87d4a">Chef's Choice</div>
-          <div class="d-card-img" style="background:linear-gradient(135deg,#5c2010,#8c3018)"></div>
+        <div class="d-card">
+          <div class="d-card-img" style="background:linear-gradient(135deg,#2a1a08,#4a2a10);font-size:40px;display:flex;align-items:center;justify-content:center">&#127837;</div>
           <div class="d-card-body">
-            <h3 class="d-card-title">Bistecca Fiorentina</h3>
-            <p class="d-card-text">Toskanisches T-Bone Steak vom regionalen Metzger, 800g, mit Rosmarin-Kartoffeln.</p>
-            <span class="d-price" style="color:#e87d4a">ab &#8364;38,00</span>
+            <div class="d-card-title">Pasta al Tartufo</div>
+            <div class="d-card-text">Handgemachte Tagliatelle mit Tr&#252;ffelcreme, Parmesan und frischen Kr&#228;utern</div>
+            <div class="d-price" style="color:#e87d4a;margin-top:10px;font-size:16px;font-weight:800">18,50 &#8364;</div>
           </div>
         </div>
-        <div class="d-card" style="border-color:rgba(232,125,74,.2)">
-          <div class="d-card-img" style="background:linear-gradient(135deg,#2a1808,#3d2510)"></div>
+        <div class="d-card">
+          <div class="d-card-img" style="background:linear-gradient(135deg,#1a1008,#3a2010);font-size:40px;display:flex;align-items:center;justify-content:center">&#127843;</div>
           <div class="d-card-body">
-            <h3 class="d-card-title">Tiramiù della Nonna</h3>
-            <p class="d-card-text">Hausgemachtes Tiramiù nach Gro&#223;mutters Rezept &#8212; cremig, leicht, unvergesslich.</p>
-            <span class="d-price" style="color:#e87d4a">&#8364;7,50</span>
+            <div class="d-card-title">Branzino grigliato</div>
+            <div class="d-card-text">Gegrillter Wolfsbarsch, Zitrone, Kapern, mediterranes Gem&#252;se</div>
+            <div class="d-price" style="color:#e87d4a;margin-top:10px;font-size:16px;font-weight:800">24,90 &#8364;</div>
           </div>
         </div>
       </div>
     </section>
-    <section class="d-section d-section-split" style="background:#180e07">
-      <div class="d-split-text">
-        <div class="d-section-label" style="color:#e87d4a">Reservierung</div>
-        <h2 class="d-h2">Ihren Tisch reservieren</h2>
-        <p class="d-text-dim">Rufen Sie uns an oder nutzen Sie das Online-Formular &#8212; wir best&#228;tigen innerhalb von 2 Stunden.</p>
-        <div class="d-info-list">
-          <div class="d-info-item"><span class="d-info-icon" style="background:rgba(232,125,74,.15);color:#e87d4a">&#128336;</span><div><strong>&#214;ffnungszeiten</strong><br><span class="d-text-dim">Di&#8211;So: 12&#8211;14h &amp; 18&#8211;23h</span></div></div>
-          <div class="d-info-item"><span class="d-info-icon" style="background:rgba(232,125,74,.15);color:#e87d4a">&#128205;</span><div><strong>Adresse</strong><br><span class="d-text-dim">Hauptstra&#223;e 42, 34212 Melsungen</span></div></div>
-          <div class="d-info-item"><span class="d-info-icon" style="background:rgba(232,125,74,.15);color:#e87d4a">&#128222;</span><div><strong>Telefon</strong><br><span class="d-text-dim">+49 5661 12345</span></div></div>
+
+    <section class="d-section" style="background:#0e0805">
+      <div class="d-section-split">
+        <div class="d-split-text">
+          <div class="d-section-label" style="color:#e87d4a">&#214;ffnungszeiten</div>
+          <h2 class="d-h2" style="font-size:22px">Wann wir f&#252;r Sie da sind</h2>
+          <ul class="d-info-list">
+            <li class="d-info-item"><span class="d-info-icon">&#128336;</span><div><strong>Di&#8211;Fr</strong><div class="d-text-dim">12:0014:30 &amp; 17:3022:30</div></div></li>
+            <li class="d-info-item"><span class="d-info-icon">&#128336;</span><div><strong>Sa&#8211;So</strong><div class="d-text-dim">12:0023:00 Uhr</div></div></li>
+            <li class="d-info-item"><span class="d-info-icon">&#128205;</span><div><strong>Adresse</strong><div class="d-text-dim">Marktgasse 7, 34212 Melsungen</div></div></li>
+            <li class="d-info-item"><span class="d-info-icon">&#128222;</span><div><strong>Reservierung</strong><div class="d-text-dim">+49 5661 45678</div></div></li>
+          </ul>
+        </div>
+        <div class="d-split-img" style="background:linear-gradient(135deg,#2d1408,#1a0c08);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:12px">
+          <div style="font-size:14px;font-weight:600;color:#f0f0f5;margin-bottom:4px">Tisch reservieren</div>
+          <div style="background:rgba(255,255,255,.06);border:1px solid rgba(232,125,74,.2);border-radius:8px;padding:12px 14px;font-size:13px;color:rgba(240,240,245,.4)">Ihr Name</div>
+          <div style="background:rgba(255,255,255,.06);border:1px solid rgba(232,125,74,.2);border-radius:8px;padding:12px 14px;font-size:13px;color:rgba(240,240,245,.4)">Datum w&#228;hlen</div>
+          <div style="background:rgba(255,255,255,.06);border:1px solid rgba(232,125,74,.2);border-radius:8px;padding:12px 14px;font-size:13px;color:rgba(240,240,245,.4)">Anzahl G&#228;ste</div>
+          <a href="#" class="d-btn" style="background:#e87d4a;text-align:center">Tisch reservieren</a>
         </div>
       </div>
-      <div class="d-split-img" style="background:linear-gradient(135deg,#2a1408,#1a0c08);border-color:rgba(232,125,74,.2)">
-        <div style="text-align:center;padding:40px;color:rgba(232,125,74,.4);font-size:48px">&#127863;</div>
-        <p style="text-align:center;color:rgba(232,125,74,.5);font-size:14px">Atmosph&#228;risches Ambiente</p>
-      </div>
     </section>
-    <footer class="d-footer" style="background:#080503;border-color:rgba(232,125,74,.1)">
+
+    <footer class="d-footer" style="background:#0a0703">
       <div class="d-footer-inner">
-        <div class="d-footer-brand" style="color:#e87d4a">&#127829; Bella Cucina</div>
-        <p class="d-footer-text">Authentische italienische K&#252;che seit 1998</p>
+        <div class="d-footer-brand">
+          <div class="d-logo" style="color:#e87d4a;font-size:18px">&#127829; Bella Cucina</div>
+          <div class="d-footer-text">Authentische mediterrane K&#252;che seit 1998</div>
+        </div>
         <div class="d-footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">Kontakt</a></div>
       </div>
     </footer>
   </section>
 
-  <!-- DEMO 2: BUSINESS DASHBOARD -->
+  <!-- DEMO 2: BUSINESS DASHBOARD  FlowDesk -->
   <section class="demo-page" data-tpl="1">
-    <header class="d-header" style="background:linear-gradient(135deg,#0d1a0d 0%,#183018 100%)">
-      <nav class="d-nav">
-        <div class="d-logo" style="color:#55ce55">&#9672; FlowDesk</div>
+    <header class="d-header" style="background:#080f08">
+      <nav class="d-nav" style="border-bottom:1px solid rgba(85,206,85,.1)">
+        <div class="d-logo" style="color:#55ce55">&#128202; FlowDesk</div>
         <ul class="d-links">
-          <li><a href="#">Dashboard</a></li>
-          <li><a href="#">Projekte</a></li>
-          <li><a href="#">Team</a></li>
-          <li><a href="#" class="d-cta-link" style="background:#55ce55;color:#080f08">App starten</a></li>
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Preise</a></li>
+          <li><a href="#">Login</a></li>
+          <li><a href="#" class="d-cta-link" style="background:#55ce55;color:#080f08">Kostenlos starten</a></li>
         </ul>
       </nav>
-      <div class="d-hero-content" style="background:radial-gradient(ellipse at top left,rgba(85,206,85,.2),transparent 65%)">
-        <div class="d-eyebrow" style="color:#55ce55;border-color:rgba(85,206,85,.3)">&#128272; Ende-zu-Ende verschl&#252;sselt</div>
-        <h1 class="d-h1">Ihr Business.<br><span style="color:#55ce55">Alles an einem Ort.</span></h1>
-        <p class="d-p">Projekte, Aufgaben, Dokumente und Kundendaten &#8212; sicher, schnell und von &#252;berall erreichbar. Kein Abo, kein Lock-In.</p>
+      <div class="d-hero-compact" style="background:linear-gradient(160deg,#0a1a0a 0%,#0d1f0d 100%);--d-accent-glow:rgba(85,206,85,.12)">
+        <div class="d-eyebrow" style="color:#55ce55">Neu: KI-gest&#252;tzte Berichte</div>
+        <h1 class="d-h1">Ihr Business.<br>Immer im &#220;berblick.</h1>
+        <p class="d-p" style="max-width:460px">Projekte, Teams und Kennzahlen &#8212; alles in einer Plattform. Klar strukturiert, blitzschnell, sicher.</p>
         <div class="d-btns">
-          <a href="#" class="d-btn" style="background:#55ce55;color:#080f08">Kostenlos testen</a>
-          <a href="#" class="d-btn d-btn-ghost">Demo ansehen</a>
+          <a href="#" class="d-btn" style="background:#55ce55;color:#080f08;font-weight:700">Kostenlos testen &#8211; 14 Tage</a>
+        </div>
+        <div style="font-size:12px;color:rgba(240,240,245,.35);display:flex;gap:16px;flex-wrap:wrap">
+          <span>&#10003; Keine Kreditkarte</span>
+          <span>&#10003; Setup in 5 Min</span>
+          <span>&#10003; DSGVO-konform</span>
+        </div>
+      </div>
+      <div class="d-stats-row" style="background:#080f08">
+        <div class="d-stat">
+          <div class="d-stat-num" style="color:#55ce55">2.400+</div>
+          <div class="d-stat-label">Unternehmen</div>
+        </div>
+        <div class="d-stat">
+          <div class="d-stat-num" style="color:#55ce55">99.9%</div>
+          <div class="d-stat-label">Uptime</div>
+        </div>
+        <div class="d-stat">
+          <div class="d-stat-num" style="color:#55ce55">&lt; 3 Sek</div>
+          <div class="d-stat-label">Ladezeit</div>
+        </div>
+        <div class="d-stat">
+          <div class="d-stat-num" style="color:#55ce55">AES-256</div>
+          <div class="d-stat-label">Verschl&#252;sselt</div>
         </div>
       </div>
     </header>
-    <section class="d-section" style="background:#0e180e">
-      <div class="d-section-label" style="color:#55ce55">Funktionen</div>
-      <h2 class="d-h2">Alles was Ihr Unternehmen braucht</h2>
-      <div class="d-grid-3">
-        <div class="d-card" style="border-color:rgba(85,206,85,.2)">
-          <div class="d-card-icon" style="background:rgba(85,206,85,.1);color:#55ce55">&#128202;</div>
-          <h3 class="d-card-title">Live Dashboard</h3>
-          <p class="d-card-text">Alle wichtigen KPIs auf einen Blick. Umsatz, Projekte, Aufgaben &#8212; immer aktuell.</p>
+
+    <section class="d-section" style="background:#0a130a">
+      <div class="d-section-label" style="color:#55ce55">Features</div>
+      <h2 class="d-h2">Alles was Ihr Business braucht.</h2>
+      <div class="d-services-2col">
+        <div class="d-service-card">
+          <div class="d-service-icon">&#128203;</div>
+          <div class="d-service-name">Projektverwaltung</div>
+          <div class="d-service-desc">Aufgaben, Meilensteine und Deadlines &#252;bersichtlich auf einem Board verwalten.</div>
         </div>
-        <div class="d-card d-card-featured" style="border-color:#55ce55">
-          <div class="d-featured-badge" style="background:#55ce55;color:#080f08">Beliebteste Funktion</div>
-          <div class="d-card-icon" style="background:rgba(85,206,85,.1);color:#55ce55">&#128274;</div>
-          <h3 class="d-card-title">AES-256 Verschl&#252;sselung</h3>
-          <p class="d-card-text">Ihre Daten sind verschl&#252;sselt &#8212; nicht mal wir k&#246;nnen sie lesen. DSGVO-konform ab Tag 1.</p>
+        <div class="d-service-card">
+          <div class="d-service-icon">&#128200;</div>
+          <div class="d-service-name">Echtzeit-Berichte</div>
+          <div class="d-service-desc">Live-Dashboards mit automatisch aktualisierten KPIs und Exportfunktion.</div>
         </div>
-        <div class="d-card" style="border-color:rgba(85,206,85,.2)">
-          <div class="d-card-icon" style="background:rgba(85,206,85,.1);color:#55ce55">&#128241;</div>
-          <h3 class="d-card-title">Offline-f&#228;hig</h3>
-          <p class="d-card-text">Funktioniert auch ohne Internet &#8212; alle Daten synchronisieren sich automatisch.</p>
+        <div class="d-service-card">
+          <div class="d-service-icon">&#128101;</div>
+          <div class="d-service-name">Team-Zugriff</div>
+          <div class="d-service-desc">Rollenverwaltung, Berechtigungen und nahtlose Zusammenarbeit im Team.</div>
         </div>
-      </div>
-    </section>
-    <section class="d-section d-section-split" style="background:#0c160c">
-      <div class="d-split-text">
-        <div class="d-section-label" style="color:#55ce55">Sicherheit &amp; Vertrauen</div>
-        <h2 class="d-h2">Ihre Daten geh&#246;ren Ihnen</h2>
-        <p class="d-text-dim">Kein Cloud-Zwang, kein Abo-Modell. Der Code geh&#246;rt Ihnen &#8212; f&#252;r immer.</p>
-        <div class="d-info-list">
-          <div class="d-info-item"><span class="d-info-icon" style="background:rgba(85,206,85,.15);color:#55ce55">&#10003;</span><div><strong>DSGVO-konform</strong><br><span class="d-text-dim">Vollst&#228;ndig deutschem Datenschutzrecht entsprechend</span></div></div>
-          <div class="d-info-item"><span class="d-info-icon" style="background:rgba(85,206,85,.15);color:#55ce55">&#10003;</span><div><strong>Kein Vendor Lock-In</strong><br><span class="d-text-dim">Sie k&#246;nnen jederzeit wechseln, exportieren oder selbst hosten</span></div></div>
-          <div class="d-info-item"><span class="d-info-icon" style="background:rgba(85,206,85,.15);color:#55ce55">&#10003;</span><div><strong>Einmalzahlung</strong><br><span class="d-text-dim">Kein monatliches Abo &#8212; zahlen Sie einmal, nutzen Sie f&#252;r immer</span></div></div>
-        </div>
-      </div>
-      <div class="d-split-img" style="background:linear-gradient(135deg,#0d1a0d,#0a140a);border-color:rgba(85,206,85,.2)">
-        <div style="padding:24px">
-          <div style="background:rgba(85,206,85,.08);border:1px solid rgba(85,206,85,.2);border-radius:10px;padding:16px;margin-bottom:12px">
-            <div style="color:#55ce55;font-size:12px;margin-bottom:8px">AKTIVE PROJEKTE</div>
-            <div style="color:#f0f0f5;font-size:28px;font-weight:700">12</div>
-          </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-            <div style="background:rgba(85,206,85,.06);border:1px solid rgba(85,206,85,.15);border-radius:8px;padding:12px;text-align:center">
-              <div style="color:#55ce55;font-size:10px;margin-bottom:4px">AUFGABEN</div>
-              <div style="color:#f0f0f5;font-size:20px;font-weight:700">48</div>
-            </div>
-            <div style="background:rgba(85,206,85,.06);border:1px solid rgba(85,206,85,.15);border-radius:8px;padding:12px;text-align:center">
-              <div style="color:#55ce55;font-size:10px;margin-bottom:4px">TEAM</div>
-              <div style="color:#f0f0f5;font-size:20px;font-weight:700">7</div>
-            </div>
-          </div>
+        <div class="d-service-card">
+          <div class="d-service-icon">&#128225;</div>
+          <div class="d-service-name">Offline-Modus</div>
+          <div class="d-service-desc">Arbeiten auch ohne Internet &#8212; Daten synchronisieren sich automatisch.</div>
         </div>
       </div>
     </section>
-    <footer class="d-footer" style="background:#040a04;border-color:rgba(85,206,85,.1)">
+
+    <section class="d-section" style="background:#06100a">
+      <div class="d-section-split">
+        <div class="d-split-text">
+          <div class="d-section-label" style="color:#55ce55">Sicher &amp; Zuverl&#228;ssig</div>
+          <h2 class="d-h2" style="font-size:22px">Gebaut f&#252;r Profis.</h2>
+          <ul class="d-info-list">
+            <li class="d-info-item"><span class="d-info-icon" style="color:#55ce55">&#128274;</span><div><strong>DSGVO-konform</strong><div class="d-text-dim">Server in Deutschland, volle Datenkontrolle</div></div></li>
+            <li class="d-info-item"><span class="d-info-icon" style="color:#55ce55">&#9729;</span><div><strong>T&#228;gliche Backups</strong><div class="d-text-dim">Automatisch, verschl&#252;sselt, wiederherstellbar</div></div></li>
+            <li class="d-info-item"><span class="d-info-icon" style="color:#55ce55">&#128241;</span><div><strong>Mobile App</strong><div class="d-text-dim">iOS &amp; Android &#8212; immer alles dabei</div></div></li>
+          </ul>
+        </div>
+        <div class="d-split-img" style="background:rgba(85,206,85,.04);border:1px solid rgba(85,206,85,.1);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:10px">
+          <div style="font-size:12px;font-weight:700;color:rgba(240,240,245,.4);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">Dashboard &#8212; Live</div>
+          <div style="display:flex;align-items:center;gap:10px">
+            <div style="font-size:12px;color:rgba(240,240,245,.5);width:80px">Umsatz</div>
+            <div style="flex:1;background:rgba(255,255,255,.06);border-radius:4px;height:8px"><div style="width:78%;background:#55ce55;border-radius:4px;height:8px"></div></div>
+            <div style="font-size:12px;font-weight:700;color:#55ce55">78%</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px">
+            <div style="font-size:12px;color:rgba(240,240,245,.5);width:80px">Aufgaben</div>
+            <div style="flex:1;background:rgba(255,255,255,.06);border-radius:4px;height:8px"><div style="width:64%;background:#4ab8d4;border-radius:4px;height:8px"></div></div>
+            <div style="font-size:12px;font-weight:700;color:#4ab8d4">64%</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px">
+            <div style="font-size:12px;color:rgba(240,240,245,.5);width:80px">Team</div>
+            <div style="flex:1;background:rgba(255,255,255,.06);border-radius:4px;height:8px"><div style="width:91%;background:#d4a44a;border-radius:4px;height:8px"></div></div>
+            <div style="font-size:12px;font-weight:700;color:#d4a44a">91%</div>
+          </div>
+          <div style="border-top:1px solid rgba(255,255,255,.06);padding-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <div style="background:rgba(85,206,85,.08);border-radius:8px;padding:10px;text-align:center"><div style="font-size:18px;font-weight:800;color:#55ce55">142</div><div style="font-size:10px;color:rgba(240,240,245,.4)">Projekte</div></div>
+            <div style="background:rgba(85,206,85,.08);border-radius:8px;padding:10px;text-align:center"><div style="font-size:18px;font-weight:800;color:#55ce55">38</div><div style="font-size:10px;color:rgba(240,240,245,.4)">Nutzer</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="d-footer" style="background:#050d05">
       <div class="d-footer-inner">
-        <div class="d-footer-brand" style="color:#55ce55">&#9672; FlowDesk</div>
-        <p class="d-footer-text">Business-Software die wirklich funktioniert</p>
+        <div class="d-footer-brand">
+          <div class="d-logo" style="color:#55ce55;font-size:18px">&#128202; FlowDesk</div>
+          <div class="d-footer-text">Business-Software f&#252;r moderne Teams</div>
+        </div>
         <div class="d-footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">Kontakt</a></div>
       </div>
     </footer>
   </section>
 
-  <!-- DEMO 3: ONLINE-SHOP -->
+  <!-- DEMO 3: ONLINE-SHOP  StyleVault -->
   <section class="demo-page" data-tpl="2">
-    <header class="d-header" style="background:linear-gradient(135deg,#0d1528 0%,#152040 100%)">
-      <nav class="d-nav">
+    <header class="d-header" style="background:#0a0f18">
+      <nav class="d-nav" style="border-bottom:1px solid rgba(76,137,212,.12)">
         <div class="d-logo" style="color:#4c89d4">&#128717; StyleVault</div>
         <ul class="d-links">
-          <li><a href="#">Neuheiten</a></li>
+          <li><a href="#">Damen</a></li>
+          <li><a href="#">Herren</a></li>
           <li><a href="#">Sale</a></li>
-          <li><a href="#">Marken</a></li>
-          <li><a href="#" class="d-cta-link" style="background:#4c89d4">&#128722; Warenkorb</a></li>
+          <li><a href="#" class="d-cta-link" style="background:#4c89d4">&#128722; Warenkorb (3)</a></li>
         </ul>
       </nav>
-      <div class="d-hero-content" style="background:radial-gradient(ellipse at top left,rgba(76,137,212,.2),transparent 65%)">
-        <div class="d-eyebrow" style="color:#4c89d4;border-color:rgba(76,137,212,.3)">&#128640; Kostenloser Versand ab &#8364;49</div>
-        <h1 class="d-h1">Mode &amp; Stil,<br><span style="color:#4c89d4">die zu Ihnen passt.</span></h1>
-        <p class="d-p">Kuratierte Kollektionen f&#252;r jeden Anlass. Schnelle Lieferung, einfache R&#252;ckgabe &#8212; Einkaufen wie es sein soll.</p>
+      <div class="d-hero-compact" style="background:linear-gradient(135deg,#0c1628 0%,#0e1c38 100%);--d-accent-glow:rgba(76,137,212,.15)">
+        <div style="display:inline-block;background:#4c89d4;color:#fff;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;padding:5px 14px;border-radius:4px;margin-bottom:4px">Neue Kollektion</div>
+        <h1 class="d-h1">Stil, der begeistert.</h1>
+        <p class="d-p" style="max-width:420px">Entdecke die neuesten Trends &#8212; kuratiert f&#252;r jeden Anlass und jeden Style.</p>
         <div class="d-btns">
-          <a href="#" class="d-btn" style="background:#4c89d4">Jetzt shoppen</a>
-          <a href="#" class="d-btn d-btn-ghost">Sale entdecken</a>
+          <a href="#" class="d-btn" style="background:#4c89d4">Jetzt entdecken</a>
+          <a href="#" class="d-btn-ghost" style="border-color:rgba(76,137,212,.4);color:#4c89d4">Sale ansehen</a>
+        </div>
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(76,137,212,.12);border:1px solid rgba(76,137,212,.25);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:600;color:#4c89d4;width:fit-content">
+          &#128666; FREE SHIPPING ab 49&#8364;
         </div>
       </div>
     </header>
-    <section class="d-section" style="background:#0e1828">
-      <div class="d-section-label" style="color:#4c89d4">Neuheiten</div>
-      <h2 class="d-h2">Frisch eingetroffen</h2>
+
+    <section class="d-section" style="background:#0c1220">
+      <div class="d-section-label" style="color:#4c89d4">Bestseller</div>
+      <h2 class="d-h2">Unsere meistgekauften St&#252;cke.</h2>
+      <div class="d-product-grid">
+        <div class="d-product">
+          <div class="d-product-img" style="background:linear-gradient(135deg,#0e1c38,#1a2d52)">&#128084;</div>
+          <div class="d-product-info">
+            <div class="d-product-name">Oversize Blazer</div>
+            <div class="d-product-price" style="color:#4c89d4">89,95 &#8364;</div>
+            <button class="d-add-btn" style="background:#4c89d4;color:#fff">In Warenkorb</button>
+          </div>
+        </div>
+        <div class="d-product">
+          <div class="d-product-img" style="background:linear-gradient(135deg,#0a1528,#152240)">&#128084;</div>
+          <div class="d-product-info">
+            <div class="d-product-name">Slim Chino</div>
+            <div class="d-product-price" style="color:#4c89d4">54,95 &#8364;</div>
+            <button class="d-add-btn" style="background:#4c89d4;color:#fff">In Warenkorb</button>
+          </div>
+        </div>
+        <div class="d-product">
+          <div class="d-product-img" style="background:linear-gradient(135deg,#0c1a35,#183050)">&#128085;</div>
+          <div class="d-product-info">
+            <div class="d-product-name">Seiden-Bluse</div>
+            <div class="d-product-price" style="color:#4c89d4">69,95 &#8364;</div>
+            <button class="d-add-btn" style="background:#4c89d4;color:#fff">In Warenkorb</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="d-section" style="background:#080d18">
+      <div class="d-section-label" style="color:#4c89d4">Kategorien</div>
+      <h2 class="d-h2">Entdecke deinen Style.</h2>
       <div class="d-grid-3">
-        <div class="d-card" style="border-color:rgba(76,137,212,.2)">
-          <div class="d-card-img" style="background:linear-gradient(135deg,#1a2540,#253560)"></div>
-          <div class="d-card-body">
-            <div style="font-size:11px;color:#4c89d4;margin-bottom:4px">NEUHEIT</div>
-            <h3 class="d-card-title">Premium Lederjacke</h3>
-            <p class="d-card-text">Echtleder, slim fit, perfekt f&#252;r Herbst &amp; Winter. 3 Farben verf&#252;gbar.</p>
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
-              <span class="d-price" style="color:#4c89d4">&#8364;189,00</span>
-              <a href="#" style="background:#4c89d4;color:#fff;padding:6px 14px;border-radius:6px;font-size:12px;text-decoration:none">+ Warenkorb</a>
-            </div>
-          </div>
+        <div class="d-card" style="text-align:center;padding:32px 16px;background:linear-gradient(160deg,rgba(76,137,212,.1),rgba(76,137,212,.04))">
+          <div style="font-size:44px;margin-bottom:12px">&#128247;</div>
+          <div class="d-card-title">Damen</div>
+          <div class="d-card-text" style="margin-bottom:16px">Kleider, Blusen, Hosen &amp; mehr</div>
+          <a href="#" style="font-size:13px;font-weight:600;color:#4c89d4;text-decoration:none">Entdecken &#8594;</a>
         </div>
-        <div class="d-card d-card-featured" style="border-color:#4c89d4">
-          <div class="d-featured-badge" style="background:#e84c4c">-30% Sale</div>
-          <div class="d-card-img" style="background:linear-gradient(135deg,#1e3050,#2a4570)"></div>
-          <div class="d-card-body">
-            <h3 class="d-card-title">Cashmere Pullover</h3>
-            <p class="d-card-text">100% Kaschmir, weich und warm. Zeitloses Design f&#252;r jeden Anlass.</p>
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
-              <div><span style="color:#888;text-decoration:line-through;font-size:12px">&#8364;149</span> <span class="d-price" style="color:#4c89d4">&#8364;99,00</span></div>
-              <a href="#" style="background:#4c89d4;color:#fff;padding:6px 14px;border-radius:6px;font-size:12px;text-decoration:none">+ Warenkorb</a>
-            </div>
-          </div>
+        <div class="d-card" style="text-align:center;padding:32px 16px;background:linear-gradient(160deg,rgba(76,137,212,.1),rgba(76,137,212,.04))">
+          <div style="font-size:44px;margin-bottom:12px">&#128084;</div>
+          <div class="d-card-title">Herren</div>
+          <div class="d-card-text" style="margin-bottom:16px">Hemden, Jacken, Hosen &amp; mehr</div>
+          <a href="#" style="font-size:13px;font-weight:600;color:#4c89d4;text-decoration:none">Entdecken &#8594;</a>
         </div>
-        <div class="d-card" style="border-color:rgba(76,137,212,.2)">
-          <div class="d-card-img" style="background:linear-gradient(135deg,#152035,#1e2d50)"></div>
-          <div class="d-card-body">
-            <div style="font-size:11px;color:#4c89d4;margin-bottom:4px">BESTSELLER</div>
-            <h3 class="d-card-title">Slim-Fit Chino</h3>
-            <p class="d-card-text">Elastisch, pflegeleicht, b&#252;rotauglich. In 8 Farben &#8212; der Allrounder f&#252;r den Alltag.</p>
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
-              <span class="d-price" style="color:#4c89d4">&#8364;59,00</span>
-              <a href="#" style="background:#4c89d4;color:#fff;padding:6px 14px;border-radius:6px;font-size:12px;text-decoration:none">+ Warenkorb</a>
-            </div>
-          </div>
+        <div class="d-card" style="text-align:center;padding:32px 16px;background:linear-gradient(160deg,rgba(76,137,212,.1),rgba(76,137,212,.04))">
+          <div style="font-size:44px;margin-bottom:12px">&#128092;</div>
+          <div class="d-card-title">Accessoires</div>
+          <div class="d-card-text" style="margin-bottom:16px">Taschen, Schmuck &amp; Mehr</div>
+          <a href="#" style="font-size:13px;font-weight:600;color:#4c89d4;text-decoration:none">Entdecken &#8594;</a>
         </div>
       </div>
     </section>
-    <section class="d-section d-section-split" style="background:#0c1625">
-      <div class="d-split-text">
-        <div class="d-section-label" style="color:#4c89d4">Warum StyleVault?</div>
-        <h2 class="d-h2">Einkaufen ohne Kompromisse</h2>
-        <div class="d-info-list">
-          <div class="d-info-item"><span class="d-info-icon" style="background:rgba(76,137,212,.15);color:#4c89d4">&#128640;</span><div><strong>Schnelle Lieferung</strong><br><span class="d-text-dim">1-2 Werktage &#8212; oder Express am n&#228;chsten Tag</span></div></div>
-          <div class="d-info-item"><span class="d-info-icon" style="background:rgba(76,137,212,.15);color:#4c89d4">&#8617;</span><div><strong>30 Tage R&#252;ckgabe</strong><br><span class="d-text-dim">Kostenlos zur&#252;cksenden &#8212; kein Stress, keine Fragen</span></div></div>
-          <div class="d-info-item"><span class="d-info-icon" style="background:rgba(76,137,212,.15);color:#4c89d4">&#128274;</span><div><strong>Sicheres Bezahlen</strong><br><span class="d-text-dim">PayPal, Kreditkarte, Klarna &#8212; SSL-verschl&#252;sselt</span></div></div>
-        </div>
-      </div>
-      <div class="d-split-img" style="background:linear-gradient(135deg,#0d1528,#0a1020);border-color:rgba(76,137,212,.2)">
-        <div style="text-align:center;padding:40px;color:rgba(76,137,212,.5);font-size:48px">&#128717;</div>
-        <p style="text-align:center;color:rgba(76,137,212,.4);font-size:13px">&#220;ber 500 zufriedene Kunden</p>
+
+    <section style="background:#0a0f18;padding:16px 40px;border-top:1px solid rgba(76,137,212,.1);border-bottom:1px solid rgba(76,137,212,.1)">
+      <div style="display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;font-size:13px;font-weight:500;color:rgba(240,240,245,.55)">
+        <span>&#128274; SSL-Zahlung</span>
+        <span style="color:rgba(255,255,255,.15)">|</span>
+        <span>&#128666; Gratis Versand ab 49&#8364;</span>
+        <span style="color:rgba(255,255,255,.15)">|</span>
+        <span>&#128260; 30 Tage R&#252;ckgabe</span>
+        <span style="color:rgba(255,255,255,.15)">|</span>
+        <span>&#11088; 4.8/5 Kundenbewertung</span>
       </div>
     </section>
-    <footer class="d-footer" style="background:#040910;border-color:rgba(76,137,212,.1)">
+
+    <footer class="d-footer" style="background:#070b14">
       <div class="d-footer-inner">
-        <div class="d-footer-brand" style="color:#4c89d4">&#128717; StyleVault</div>
-        <p class="d-footer-text">Premium Mode f&#252;r jeden Anlass</p>
-        <div class="d-footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">AGB</a></div>
+        <div class="d-footer-brand">
+          <div class="d-logo" style="color:#4c89d4;font-size:18px">&#128717; StyleVault</div>
+          <div class="d-footer-text">Mode f&#252;r jeden Moment</div>
+        </div>
+        <div class="d-footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">Kontakt</a></div>
       </div>
     </footer>
   </section>
 
-  <!-- DEMO 4: FRISEURSALON -->
+  <!-- DEMO 4: FRISEURSALON  LuminaBeauty -->
   <section class="demo-page" data-tpl="3">
-    <header class="d-header" style="background:linear-gradient(135deg,#220d22 0%,#380d38 100%)">
-      <nav class="d-nav">
-        <div class="d-logo" style="color:#d44c9e">&#10022; LuminaBeauty</div>
+    <header class="d-header" style="background:#140a12">
+      <nav class="d-nav" style="border-bottom:1px solid rgba(212,76,158,.12)">
+        <div class="d-logo" style="color:#d44c9e">&#9986;&#65039; LuminaBeauty</div>
         <ul class="d-links">
           <li><a href="#">Leistungen</a></li>
           <li><a href="#">Team</a></li>
@@ -1963,295 +2130,509 @@ document.addEventListener('DOMContentLoaded', function() {
           <li><a href="#" class="d-cta-link" style="background:#d44c9e">Termin buchen</a></li>
         </ul>
       </nav>
-      <div class="d-hero-content" style="background:radial-gradient(ellipse at top left,rgba(212,76,158,.2),transparent 65%)">
-        <div class="d-eyebrow" style="color:#d44c9e;border-color:rgba(212,76,158,.3)">&#128134; Online-Buchung 24/7 verf&#252;gbar</div>
-        <h1 class="d-h1">Sch&#246;nheit &amp; Wellness<br><span style="color:#d44c9e">f&#252;r den modernen Menschen.</span></h1>
-        <p class="d-p">Haare, N&#228;gel, Kosmetik &#8212; alles unter einem Dach. Ihr pers&#246;nlicher Wohlehlort, wo Sie sich rundum verw&#246;hnen lassen.</p>
+      <div class="d-hero-compact" style="background:linear-gradient(135deg,#2a0a24 0%,#1e0820 50%,#140a18 100%);--d-accent-glow:rgba(212,76,158,.15)">
+        <div class="d-eyebrow" style="color:#d44c9e">&#10024; Sch&#246;nheit neu erleben</div>
+        <h1 class="d-h1">Ihr Moment.<br>Ihr Style.</h1>
+        <p class="d-p" style="max-width:420px">Premium Hair &amp; Beauty Care &#8212; individuell auf Sie abgestimmt, von zertifizierten Stylisten.</p>
         <div class="d-btns">
-          <a href="#" class="d-btn" style="background:#d44c9e">Jetzt Termin buchen</a>
-          <a href="#" class="d-btn d-btn-ghost">Unsere Leistungen</a>
+          <a href="#" class="d-btn" style="background:#d44c9e">Termin online buchen</a>
+          <a href="#" class="d-btn-ghost" style="border-color:rgba(212,76,158,.35);color:#d44c9e">Preisliste ansehen</a>
         </div>
       </div>
     </header>
-    <section class="d-section" style="background:#1a1020">
+
+    <section class="d-section" style="background:#100810">
       <div class="d-section-label" style="color:#d44c9e">Unsere Leistungen</div>
-      <h2 class="d-h2">Premium Beauty Services</h2>
-      <div class="d-grid-3">
-        <div class="d-card" style="border-color:rgba(212,76,158,.2)">
-          <div class="d-card-icon" style="background:rgba(212,76,158,.1);color:#d44c9e">&#9986;</div>
-          <h3 class="d-card-title">Hairstyling</h3>
-          <p class="d-card-text">Schnitt, Farbe, Str&#228;hnchen &#8212; individuell abgestimmt auf Ihren Typ. Mit Premium-Produkten.</p>
-          <span class="d-price" style="color:#d44c9e">ab &#8364;45</span>
+      <h2 class="d-h2">Was wir f&#252;r Sie tun.</h2>
+      <div class="d-price-list">
+        <div class="d-price-row">
+          <div class="d-price-name">&#128247; Damenhaarschnitt</div>
+          <div class="d-price-val" style="color:#d44c9e">ab 45 &#8364;</div>
         </div>
-        <div class="d-card d-card-featured" style="border-color:#d44c9e">
-          <div class="d-featured-badge" style="background:#d44c9e">Top gebucht</div>
-          <div class="d-card-icon" style="background:rgba(212,76,158,.1);color:#d44c9e">&#128133;</div>
-          <h3 class="d-card-title">Manik&#252;re &amp; Nails</h3>
-          <p class="d-card-text">Shellac, Gel-Nails, French &#8212; perfekte N&#228;gel die lange halten. &#220;ber 80 Farben.</p>
-          <span class="d-price" style="color:#d44c9e">ab &#8364;35</span>
+        <div class="d-price-row">
+          <div class="d-price-name">&#127774; Coloration &amp; Balayage</div>
+          <div class="d-price-val" style="color:#d44c9e">ab 85 &#8364;</div>
         </div>
-        <div class="d-card" style="border-color:rgba(212,76,158,.2)">
-          <div class="d-card-icon" style="background:rgba(212,76,158,.1);color:#d44c9e">&#127800;</div>
-          <h3 class="d-card-title">Kosmetik &amp; Pflege</h3>
-          <p class="d-card-text">Gesichtsbehandlung, Microdermabrasion, Wimpernlifting &#8212; sichtbare Ergebnisse.</p>
-          <span class="d-price" style="color:#d44c9e">ab &#8364;55</span>
+        <div class="d-price-row">
+          <div class="d-price-name">&#128141; Hochzeitsstyling</div>
+          <div class="d-price-val" style="color:#d44c9e">ab 120 &#8364;</div>
+        </div>
+        <div class="d-price-row">
+          <div class="d-price-name">&#9986;&#65039; Herrenhaarschnitt</div>
+          <div class="d-price-val" style="color:#d44c9e">ab 28 &#8364;</div>
+        </div>
+        <div class="d-price-row">
+          <div class="d-price-name">&#128488;&#65039; Bart &amp; Rasur</div>
+          <div class="d-price-val" style="color:#d44c9e">ab 18 &#8364;</div>
         </div>
       </div>
     </section>
-    <section class="d-section d-section-split" style="background:#160c16">
-      <div class="d-split-text">
-        <div class="d-section-label" style="color:#d44c9e">Online Terminbuchung</div>
-        <h2 class="d-h2">Ihr n&#228;chster Termin &#8212; in 2 Minuten</h2>
-        <p class="d-text-dim">Buchen Sie Ihren Wunschtermin rund um die Uhr &#8212; ohne Anruf, ohne Wartezeit.</p>
-        <div class="d-info-list">
-          <div class="d-info-item"><span class="d-info-icon" style="background:rgba(212,76,158,.15);color:#d44c9e">&#128197;</span><div><strong>&#214;ffnungszeiten</strong><br><span class="d-text-dim">Mo&#8211;Sa: 9&#8211;19 Uhr &middot; Abendtermine auf Anfrage</span></div></div>
-          <div class="d-info-item"><span class="d-info-icon" style="background:rgba(212,76,158,.15);color:#d44c9e">&#10022;</span><div><strong>4 erfahrene Stylisten</strong><br><span class="d-text-dim">W&#228;hlen Sie Ihren Lieblingsstylisten direkt bei der Buchung</span></div></div>
-          <div class="d-info-item"><span class="d-info-icon" style="background:rgba(212,76,158,.15);color:#d44c9e">&#128140;</span><div><strong>Erinnerungs-SMS</strong><br><span class="d-text-dim">Automatische Erinnerung 24h vor Ihrem Termin</span></div></div>
+
+    <section class="d-section" style="background:#0e070d">
+      <div class="d-section-label" style="color:#d44c9e">Unser Team</div>
+      <h2 class="d-h2">Ihre Experten.</h2>
+      <div class="d-team-grid">
+        <div class="d-team-card">
+          <div class="d-team-avatar" style="background:linear-gradient(135deg,#3a0a30,#5a1248);color:#d44c9e">&#128135;&#8205;&#9792;&#65039;</div>
+          <div class="d-team-name">Sophie M.</div>
+          <div class="d-team-role">Lead Stylistin</div>
+        </div>
+        <div class="d-team-card">
+          <div class="d-team-avatar" style="background:linear-gradient(135deg,#2a0820,#4a1040);color:#d44c9e">&#10024;</div>
+          <div class="d-team-name">Laura K.</div>
+          <div class="d-team-role">Coloristin</div>
+        </div>
+        <div class="d-team-card">
+          <div class="d-team-avatar" style="background:linear-gradient(135deg,#1e0618,#380c30);color:#d44c9e">&#9986;&#65039;</div>
+          <div class="d-team-name">Max B.</div>
+          <div class="d-team-role">Barbier</div>
         </div>
       </div>
-      <div class="d-split-img" style="background:linear-gradient(135deg,#220d22,#1a0a1a);border-color:rgba(212,76,158,.2)">
-        <div style="text-align:center;padding:40px;color:rgba(212,76,158,.5);font-size:48px">&#128134;</div>
-        <p style="text-align:center;color:rgba(212,76,158,.4);font-size:13px">&#220;ber 200 gl&#252;ckliche Stammkunden</p>
+    </section>
+
+    <section class="d-section" style="background:#120910">
+      <div class="d-section-split">
+        <div class="d-split-text" style="display:flex;flex-direction:column;justify-content:center;gap:16px">
+          <div class="d-section-label" style="color:#d44c9e">Termin vereinbaren</div>
+          <h2 class="d-h2" style="font-size:22px">Jetzt buchen &#8212; online oder per Anruf</h2>
+          <div style="font-size:22px;font-weight:800;color:#d44c9e">+49 5661 88999</div>
+          <a href="#" class="d-btn" style="background:#d44c9e;width:fit-content">Online Termin buchen</a>
+        </div>
+        <div class="d-split-img">
+          <div class="d-section-label" style="color:#d44c9e">&#214;ffnungszeiten</div>
+          <ul class="d-info-list" style="margin-top:8px">
+            <li class="d-info-item"><span class="d-info-icon">&#128336;</span><div><strong>Mo&#8211;Fr</strong><div class="d-text-dim">09:00 &#8211; 19:00 Uhr</div></div></li>
+            <li class="d-info-item"><span class="d-info-icon">&#128336;</span><div><strong>Samstag</strong><div class="d-text-dim">09:00 &#8211; 17:00 Uhr</div></div></li>
+            <li class="d-info-item"><span class="d-info-icon">&#128336;</span><div><strong>Sonntag</strong><div class="d-text-dim">Geschlossen</div></div></li>
+            <li class="d-info-item"><span class="d-info-icon">&#128205;</span><div><strong>Adresse</strong><div class="d-text-dim">Steinweg 12, 34212 Melsungen</div></div></li>
+          </ul>
+        </div>
       </div>
     </section>
-    <footer class="d-footer" style="background:#080408;border-color:rgba(212,76,158,.1)">
+
+    <footer class="d-footer" style="background:#0a050a">
       <div class="d-footer-inner">
-        <div class="d-footer-brand" style="color:#d44c9e">&#10022; LuminaBeauty</div>
-        <p class="d-footer-text">Ihr Wohlehlort in der Stadt</p>
+        <div class="d-footer-brand">
+          <div class="d-logo" style="color:#d44c9e;font-size:18px">&#9986;&#65039; LuminaBeauty</div>
+          <div class="d-footer-text">Ihr Wohf&#252;hlsalon in Melsungen</div>
+        </div>
         <div class="d-footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">Kontakt</a></div>
       </div>
     </footer>
   </section>
 
-  <!-- DEMO 5: HANDWERK -->
+  <!-- DEMO 5: HANDWERK  Meister Schmidt -->
   <section class="demo-page" data-tpl="4">
-    <header class="d-header" style="background:linear-gradient(135deg,#251808 0%,#3d2808 100%)">
-      <nav class="d-nav">
+    <div class="d-emergency">
+      <div class="d-emergency-dot"></div>
+      &#128680; Notdienst 24/7 &#8212; Jetzt anrufen: +49 5661 99000
+    </div>
+    <header class="d-header" style="background:#0f0c08">
+      <nav class="d-nav" style="border-bottom:1px solid rgba(212,158,76,.12)">
         <div class="d-logo" style="color:#d49e4c">&#128295; Meister Schmidt</div>
         <ul class="d-links">
           <li><a href="#">Leistungen</a></li>
           <li><a href="#">Referenzen</a></li>
           <li><a href="#">&#220;ber uns</a></li>
-          <li><a href="#" class="d-cta-link" style="background:#d49e4c;color:#0a0806">Jetzt anrufen</a></li>
+          <li><a href="#" class="d-cta-link" style="background:#d49e4c;color:#0f0c08">Kostenlos anfragen</a></li>
         </ul>
       </nav>
-      <div class="d-notdienst-banner" style="background:rgba(220,80,60,.15);border:1px solid rgba(220,80,60,.4);color:#e86c50">
-        &#128680; 24/7 Notdienst verf&#252;gbar &#8212; Telefon: +49 5661 99999
-      </div>
-      <div class="d-hero-content" style="background:radial-gradient(ellipse at top left,rgba(212,158,76,.2),transparent 65%)">
-        <div class="d-eyebrow" style="color:#d49e4c;border-color:rgba(212,158,76,.3)">&#10003; Meisterbetrieb seit 1985</div>
-        <h1 class="d-h1">Ihr zuverl&#228;ssiger<br><span style="color:#d49e4c">Elektro-Fachbetrieb.</span></h1>
-        <p class="d-p">Von der Steckdose bis zur Photovoltaikanlage &#8212; schnell, sauber, mit Garantie. Kostenloser Kostenvoranschlag innerhalb von 24h.</p>
+      <div class="d-hero-compact" style="background:linear-gradient(160deg,#1e1608 0%,#2a1e0a 100%);--d-accent-glow:rgba(212,158,76,.12)">
+        <div class="d-eyebrow" style="color:#d49e4c">&#10003; Seit 15 Jahren Ihr Fachbetrieb</div>
+        <h1 class="d-h1">Schnell. Zuverl&#228;ssig.<br>Vor Ort.</h1>
+        <p class="d-p" style="max-width:440px">Elektriker, Sanit&#228;r &amp; Heizung aus Melsungen &#8212; f&#252;r Privat und Gewerbe.</p>
         <div class="d-btns">
-          <a href="#" class="d-btn" style="background:#d49e4c;color:#0a0806">Kostenlos anfragen</a>
-          <a href="#" class="d-btn d-btn-ghost">Alle Leistungen</a>
+          <a href="#" class="d-btn" style="background:#d49e4c;color:#0f0c08;font-weight:700;font-size:15px">&#128222; Jetzt anrufen</a>
+          <a href="#" class="d-btn-ghost" style="border-color:rgba(212,158,76,.35);color:#d49e4c">Kostenvoranschlag</a>
         </div>
       </div>
     </header>
-    <section class="d-section" style="background:#1a1608">
+
+    <section class="d-section" style="background:#0d0a06">
       <div class="d-section-label" style="color:#d49e4c">Unsere Leistungen</div>
-      <h2 class="d-h2">Was wir f&#252;r Sie tun</h2>
-      <div class="d-grid-3">
-        <div class="d-card" style="border-color:rgba(212,158,76,.2)">
-          <div class="d-card-icon" style="background:rgba(212,158,76,.1);color:#d49e4c">&#9889;</div>
-          <h3 class="d-card-title">Elektroinstallation</h3>
-          <p class="d-card-text">Neu- und Umbauten, Erweiterungen, Sicherheitspr&#252;fungen &#8212; alles aus einer Hand.</p>
+      <h2 class="d-h2">Womit wir helfen.</h2>
+      <div class="d-services-2col">
+        <div class="d-service-card">
+          <div class="d-service-icon">&#9889;</div>
+          <div class="d-service-name">Elektroinstallation</div>
+          <div class="d-service-desc">Neuinstallation, Erweiterung und Reparatur aller elektrischen Anlagen.</div>
         </div>
-        <div class="d-card d-card-featured" style="border-color:#d49e4c">
-          <div class="d-featured-badge" style="background:#d49e4c;color:#0a0806">Meistempfohlen</div>
-          <div class="d-card-icon" style="background:rgba(212,158,76,.1);color:#d49e4c">&#9728;</div>
-          <h3 class="d-card-title">Photovoltaik</h3>
-          <p class="d-card-text">Komplettl&#246;sung: Planung, Montage, Anmeldung beim Netzbetreiber. F&#246;rderung inklusive.</p>
+        <div class="d-service-card">
+          <div class="d-service-icon">&#128295;</div>
+          <div class="d-service-name">Sanit&#228;r &amp; Heizung</div>
+          <div class="d-service-desc">Von der Rohrleitung bis zur kompletten Heizungsanlage &#8212; alles aus einer Hand.</div>
         </div>
-        <div class="d-card" style="border-color:rgba(212,158,76,.2)">
-          <div class="d-card-icon" style="background:rgba(212,158,76,.1);color:#d49e4c">&#128268;</div>
-          <h3 class="d-card-title">E-Mobilit&#228;t</h3>
-          <p class="d-card-text">Wallbox-Installation f&#252;r zuhause und Gewerbe &#8212; eichrechtskonform, f&#246;rderf&#228;hig.</p>
+        <div class="d-service-card">
+          <div class="d-service-icon">&#128296;</div>
+          <div class="d-service-name">Reparatur &amp; Wartung</div>
+          <div class="d-service-desc">Schnelle Reparaturen und regelm&#228;&#223;ige Wartung f&#252;r lange Lebensdauer.</div>
+        </div>
+        <div class="d-service-card">
+          <div class="d-service-icon">&#128161;</div>
+          <div class="d-service-name">Smart Home</div>
+          <div class="d-service-desc">Intelligente Steuerung von Licht, Heizung und Sicherheit &#8212; einfach vernetzt.</div>
+        </div>
+        <div class="d-service-card">
+          <div class="d-service-icon">&#128703;</div>
+          <div class="d-service-name">Badsanierung</div>
+          <div class="d-service-desc">Komplette Badsanierungen vom Konzept bis zur Fertigstellung.</div>
+        </div>
+        <div class="d-service-card" style="border-color:rgba(192,57,43,.3);background:rgba(192,57,43,.06)">
+          <div class="d-service-icon">&#128680;</div>
+          <div class="d-service-name" style="color:#e74c3c">Notdienst</div>
+          <div class="d-service-desc">24/7 erreichbar &#8212; bei Wassersch&#228;den, Stromausfall und Heizungsausfall.</div>
         </div>
       </div>
     </section>
-    <section class="d-section d-section-split" style="background:#160e06">
-      <div class="d-split-text">
-        <div class="d-section-label" style="color:#d49e4c">Warum Schmidt Elektro?</div>
-        <h2 class="d-h2">Handwerk mit Qualit&#228;tsgarantie</h2>
-        <div class="d-info-list">
-          <div class="d-info-item"><span class="d-info-icon" style="background:rgba(212,158,76,.15);color:#d49e4c">&#127942;</span><div><strong>40 Jahre Erfahrung</strong><br><span class="d-text-dim">Meisterbetrieb mit &#252;ber 2.000 abgeschlossenen Projekten</span></div></div>
-          <div class="d-info-item"><span class="d-info-icon" style="background:rgba(212,158,76,.15);color:#d49e4c">&#128203;</span><div><strong>Kostenloser KV</strong><br><span class="d-text-dim">Transparenter Kostenvoranschlag &#8212; keine versteckten Kosten</span></div></div>
-          <div class="d-info-item"><span class="d-info-icon" style="background:rgba(212,158,76,.15);color:#d49e4c">&#128719;</span><div><strong>5 Jahre Gew&#228;hrleistung</strong><br><span class="d-text-dim">Auf alle unsere Arbeiten &#8212; weit &#252;ber den gesetzlichen Standard</span></div></div>
+
+    <section class="d-section" style="background:#100d08">
+      <div class="d-section-split">
+        <div class="d-split-text">
+          <div class="d-section-label" style="color:#d49e4c">Warum Meister Schmidt?</div>
+          <h2 class="d-h2" style="font-size:22px">Vertrauen, das z&#228;hlt.</h2>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-top:8px">
+            <div style="display:flex;align-items:center;gap:10px;background:rgba(212,158,76,.07);border:1px solid rgba(212,158,76,.15);border-radius:8px;padding:10px 14px;font-size:13px;font-weight:600;color:#f0f0f5">
+              <span style="color:#d49e4c">&#10003;</span> Meisterbetrieb &#8212; gepr&#252;ft &amp; zertifiziert
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;background:rgba(212,158,76,.07);border:1px solid rgba(212,158,76,.15);border-radius:8px;padding:10px 14px;font-size:13px;font-weight:600;color:#f0f0f5">
+              <span style="color:#d49e4c">&#10003;</span> 15 Jahre Erfahrung in der Region
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;background:rgba(212,158,76,.07);border:1px solid rgba(212,158,76,.15);border-radius:8px;padding:10px 14px;font-size:13px;font-weight:600;color:#f0f0f5">
+              <span style="color:#d49e4c">&#10003;</span> Festpreisgarantie &#8212; keine versteckten Kosten
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;background:rgba(212,158,76,.07);border:1px solid rgba(212,158,76,.15);border-radius:8px;padding:10px 14px;font-size:13px;font-weight:600;color:#f0f0f5">
+              <span style="color:#d49e4c">&#10003;</span> Kostenlose Erstberatung vor Ort
+            </div>
+          </div>
+        </div>
+        <div class="d-split-img" style="background:rgba(212,158,76,.05);border:1px solid rgba(212,158,76,.12);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:16px">
+          <div class="d-section-label" style="color:#d49e4c">Kontakt &amp; Adresse</div>
+          <ul class="d-info-list">
+            <li class="d-info-item"><span class="d-info-icon" style="color:#d49e4c">&#128222;</span><div><strong>Telefon</strong><div style="color:#d49e4c;font-size:16px;font-weight:700">+49 5661 99000</div></div></li>
+            <li class="d-info-item"><span class="d-info-icon" style="color:#d49e4c">&#128205;</span><div><strong>Adresse</strong><div class="d-text-dim">Handwerkerstra&#223;e 4, 34212 Melsungen</div></div></li>
+            <li class="d-info-item"><span class="d-info-icon" style="color:#d49e4c">&#128337;</span><div><strong>Notdienst</strong><div class="d-text-dim">24 Stunden, 7 Tage die Woche</div></div></li>
+          </ul>
+          <a href="#" class="d-btn" style="background:#d49e4c;color:#0f0c08;font-weight:700;text-align:center">Jetzt anfragen</a>
         </div>
       </div>
-      <div class="d-split-img" style="background:linear-gradient(135deg,#251808,#180e05);border-color:rgba(212,158,76,.2)">
-        <div style="text-align:center;padding:40px;color:rgba(212,158,76,.5);font-size:48px">&#128295;</div>
-        <p style="text-align:center;color:rgba(212,158,76,.4);font-size:13px">Gepr&#252;fter Meisterbetrieb</p>
-      </div>
     </section>
-    <footer class="d-footer" style="background:#080604;border-color:rgba(212,158,76,.1)">
+
+    <footer class="d-footer" style="background:#080605">
       <div class="d-footer-inner">
-        <div class="d-footer-brand" style="color:#d49e4c">&#128295; Meister Schmidt</div>
-        <p class="d-footer-text">Ihr Elektro-Fachbetrieb seit 1985</p>
+        <div class="d-footer-brand">
+          <div class="d-logo" style="color:#d49e4c;font-size:18px">&#128295; Meister Schmidt</div>
+          <div class="d-footer-text">Notdienst: <strong style="color:#d49e4c">+49 5661 99000</strong> &#8212; 24/7 f&#252;r Sie da</div>
+        </div>
         <div class="d-footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">Kontakt</a></div>
       </div>
     </footer>
   </section>
 
-  <!-- DEMO 6: PORTFOLIO -->
+  <!-- DEMO 6: PORTFOLIO  Max Müller -->
   <section class="demo-page" data-tpl="5">
-    <header class="d-header" style="background:linear-gradient(135deg,#0d0d12 0%,#181820 100%)">
-      <nav class="d-nav">
-        <div class="d-logo" style="color:#f0f0f5">&#9633; Max M&#252;ller</div>
+    <header class="d-header" style="background:#0a0a0c">
+      <nav class="d-nav" style="border-bottom:1px solid rgba(255,255,255,.05)">
+        <div class="d-logo" style="color:#f0f0f5;font-family:monospace;letter-spacing:2px;font-size:16px">MAX M&#220;LLER</div>
         <ul class="d-links">
-          <li><a href="#">Arbeiten</a></li>
-          <li><a href="#">&#220;ber mich</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#" class="d-cta-link" style="background:#f0f0f5;color:#080808">Kontakt</a></li>
+          <li><a href="#" style="color:rgba(240,240,245,.5)">Arbeiten</a></li>
+          <li><a href="#" style="color:rgba(240,240,245,.5)">&#220;ber mich</a></li>
+          <li><a href="#" style="color:rgba(240,240,245,.5)">Kontakt</a></li>
         </ul>
       </nav>
-      <div class="d-hero-content" style="text-align:center;max-width:700px;margin:0 auto;background:radial-gradient(ellipse at center top,rgba(160,160,184,.2),transparent 65%)">
-        <div class="d-eyebrow" style="color:#a0a0b8;border-color:rgba(160,160,184,.2)">Freier Fotograf &amp; Designer &middot; Berlin</div>
-        <h1 class="d-h1" style="font-size:clamp(36px,6vw,72px)">Bilder die<br><span style="color:transparent;-webkit-text-stroke:1px rgba(240,240,245,.6)">Geschichten erz&#228;hlen.</span></h1>
-        <p class="d-p" style="margin:0 auto 40px;max-width:500px">Editorial, Portrait, Architektur &#8212; ich fange Momente ein die bleiben. Kein Filter, echte Emotion.</p>
-        <div class="d-btns" style="justify-content:center">
-          <a href="#" class="d-btn" style="background:#f0f0f5;color:#080808">Portfolio ansehen</a>
-          <a href="#" class="d-btn d-btn-ghost">Buchung anfragen</a>
+      <div class="d-hero-compact" style="background:#0a0a0c;padding:56px 48px 48px">
+        <h1 style="font-size:clamp(28px,4vw,44px);font-weight:800;color:#f0f0f5;line-height:1.15;letter-spacing:-1px;margin:0">Fotografie<br>&amp; Design.</h1>
+        <p style="font-size:14px;color:rgba(240,240,245,.35);margin:0;max-width:340px;line-height:1.6">Ich erschaffe visuelle Erlebnisse, die bleiben.</p>
+        <div>
+          <a href="#" style="display:inline-block;padding:10px 22px;border:1px solid rgba(240,240,245,.2);border-radius:8px;font-size:13px;font-weight:500;color:rgba(240,240,245,.7);text-decoration:none;letter-spacing:.3px">Arbeiten ansehen &#8594;</a>
         </div>
       </div>
     </header>
-    <section class="d-section" style="background:#0e0e10">
-      <div class="d-section-label" style="color:#a0a0b8;text-align:center">Ausgew&#228;hlte Arbeiten</div>
-      <h2 class="d-h2" style="text-align:center">Recent Work</h2>
-      <div class="d-portfolio-grid">
-        <div class="d-portfolio-item d-p-big" style="background:linear-gradient(135deg,#1a1a1a,#252525)"><div class="d-p-label">Editorial &#8212; Vogue DE</div></div>
-        <div class="d-portfolio-item" style="background:linear-gradient(135deg,#141414,#202020)"><div class="d-p-label">Portrait</div></div>
-        <div class="d-portfolio-item" style="background:linear-gradient(135deg,#181818,#242424)"><div class="d-p-label">Architektur</div></div>
-        <div class="d-portfolio-item d-p-big" style="background:linear-gradient(135deg,#0e0e0e,#1a1a1a)"><div class="d-p-label">Kampagne &#8212; BMW</div></div>
-        <div class="d-portfolio-item" style="background:linear-gradient(135deg,#161616,#222222)"><div class="d-p-label">Branding</div></div>
+
+    <section class="d-section" style="background:#0c0c0f;padding-top:32px">
+      <h2 class="d-h2" style="font-size:18px;font-weight:600;color:rgba(240,240,245,.7);margin-bottom:20px">Ausgew&#228;hlte Arbeiten</h2>
+      <div class="d-work-grid">
+        <div class="d-work-item">
+          <div class="d-work-thumb" style="background:linear-gradient(135deg,#1a1a2e,#16213e)">&#128202;</div>
+          <div class="d-work-overlay">Branding</div>
+        </div>
+        <div class="d-work-item">
+          <div class="d-work-thumb" style="background:linear-gradient(135deg,#0d1117,#1c2128)">&#128247;</div>
+          <div class="d-work-overlay">Fotografie</div>
+        </div>
+        <div class="d-work-item">
+          <div class="d-work-thumb" style="background:linear-gradient(135deg,#1a0a2e,#2d1054)">&#128215;</div>
+          <div class="d-work-overlay">Editorial</div>
+        </div>
+        <div class="d-work-item">
+          <div class="d-work-thumb" style="background:linear-gradient(135deg,#0a1628,#102040)">&#128187;</div>
+          <div class="d-work-overlay">Web</div>
+        </div>
+        <div class="d-work-item">
+          <div class="d-work-thumb" style="background:linear-gradient(135deg,#0f1a0f,#1a2d1a)">&#127909;</div>
+          <div class="d-work-overlay">Motion</div>
+        </div>
+        <div class="d-work-item">
+          <div class="d-work-thumb" style="background:linear-gradient(135deg,#1a1208,#2d1e0a)">&#128444;&#65039;</div>
+          <div class="d-work-overlay">Print</div>
+        </div>
       </div>
     </section>
-    <footer class="d-footer" style="background:#040404;border-color:rgba(240,240,245,.08)">
-      <div class="d-footer-inner">
-        <div class="d-footer-brand" style="color:#f0f0f5">&#9633; Max M&#252;ller</div>
-        <p class="d-footer-text">Fotografie &amp; Design &middot; Berlin</p>
-        <div class="d-footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">Kontakt</a></div>
+
+    <section class="d-section" style="background:#080810">
+      <div class="d-section-split">
+        <div class="d-split-text">
+          <p style="font-size:14px;font-style:italic;color:rgba(240,240,245,.35);line-height:1.8;margin:0">&#8220;Gutes Design ist unsichtbar &#8212; es l&#228;sst das Wesentliche sprechen. Ich arbeite an der Schnittstelle von Fotografie, Typografie und Konzept.&#8221;</p>
+        </div>
+        <div class="d-split-img" style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;align-items:center;gap:10px">
+            <div style="width:8px;height:8px;border-radius:50%;background:#22c55e;flex-shrink:0"></div>
+            <div style="font-size:13px;font-weight:500;color:rgba(240,240,245,.6)">Verf&#252;gbar f&#252;r Projekte</div>
+          </div>
+          <div style="font-size:13px;color:rgba(240,240,245,.35);font-family:monospace">hello@maxmueller.de</div>
+          <div style="font-size:12px;color:rgba(240,240,245,.2)">Fotografie &#183; Branding &#183; Editorial</div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="d-footer" style="background:#060608;padding:20px 0">
+      <div class="d-footer-inner" style="justify-content:space-between">
+        <div style="font-size:12px;color:rgba(240,240,245,.2);font-family:monospace">MAX M&#220;LLER &#169; 2025</div>
+        <div style="font-size:12px;color:rgba(240,240,245,.2)">Alle Rechte vorbehalten</div>
       </div>
     </footer>
   </section>
 
-  <!-- DEMO 7: FITNESS -->
+  <!-- DEMO 7: FITNESS  IronForge -->
   <section class="demo-page" data-tpl="6">
-    <header class="d-header" style="background:linear-gradient(135deg,#0a180a 0%,#102010 100%)">
-      <nav class="d-nav">
+    <header class="d-header" style="background:#080f09">
+      <nav class="d-nav" style="border-bottom:1px solid rgba(76,212,92,.1)">
         <div class="d-logo" style="color:#4cd45c">&#128170; IronForge</div>
         <ul class="d-links">
           <li><a href="#">Kurse</a></li>
           <li><a href="#">Trainer</a></li>
           <li><a href="#">Mitgliedschaft</a></li>
-          <li><a href="#" class="d-cta-link" style="background:#4cd45c;color:#060f06">Probe-Training</a></li>
+          <li><a href="#" class="d-cta-link" style="background:#4cd45c;color:#080f09;font-weight:700">Probetraining</a></li>
         </ul>
       </nav>
-      <div class="d-hero-content" style="background:radial-gradient(ellipse at top left,rgba(76,212,92,.2),transparent 65%)">
-        <div class="d-eyebrow" style="color:#4cd45c;border-color:rgba(76,212,92,.3)">&#127942; Bestes Studio der Region 2024</div>
-        <h1 class="d-h1">Dein K&#246;rper.<br><span style="color:#4cd45c">Deine Transformation.</span></h1>
-        <p class="d-p">State-of-the-Art Equipment, erfahrene Trainer und eine Community die motiviert. Dein erstes Training ist kostenlos.</p>
+      <div class="d-hero-compact" style="background:linear-gradient(160deg,#0c1a0d 0%,#0a1808 100%);--d-accent-glow:rgba(76,212,92,.15)">
+        <div class="d-eyebrow" style="color:#4cd45c">&#128165; Jetzt Probetraining sichern</div>
+        <h1 class="d-h1" style="font-weight:900;text-transform:uppercase;letter-spacing:-1px">St&#228;rker werden.<br>Jeden Tag.</h1>
+        <p class="d-p" style="max-width:420px">Dein Fitnessstudio in Melsungen &#8212; modernste Ger&#228;te, motivierende Trainer, echte Gemeinschaft.</p>
         <div class="d-btns">
-          <a href="#" class="d-btn" style="background:#4cd45c;color:#060f06">Gratis Probe-Training</a>
-          <a href="#" class="d-btn d-btn-ghost">Kursplan ansehen</a>
+          <a href="#" class="d-btn" style="background:#4cd45c;color:#080f09;font-weight:800">Mitglied werden</a>
+          <a href="#" class="d-btn-ghost" style="border-color:rgba(76,212,92,.3);color:#4cd45c">Kursplan ansehen</a>
+        </div>
+        <div style="font-size:12px;color:rgba(240,240,245,.35);display:flex;gap:16px">
+          <span>500+ Mitglieder</span>
+          <span style="color:rgba(255,255,255,.15)">&#183;</span>
+          <span>20+ Kurse/Woche</span>
+          <span style="color:rgba(255,255,255,.15)">&#183;</span>
+          <span>5 Trainer</span>
         </div>
       </div>
     </header>
-    <section class="d-section" style="background:#0c180c">
-      <div class="d-section-label" style="color:#4cd45c">Mitgliedschaft</div>
-      <h2 class="d-h2">Das richtige Paket f&#252;r dich</h2>
-      <div class="d-grid-3">
-        <div class="d-card" style="border-color:rgba(76,212,92,.2)">
-          <h3 class="d-card-title">Starter</h3>
-          <div style="font-size:32px;font-weight:700;color:#f0f0f5;margin:12px 0">&#8364;29<span style="font-size:14px;color:#9898ac">/Monat</span></div>
-          <p class="d-card-text">Ger&#228;tetraining, Umkleiden, 1&#215; Kurs/Woche</p>
-          <a href="#" style="display:block;text-align:center;margin-top:16px;padding:10px;border:1px solid rgba(76,212,92,.4);border-radius:8px;color:#4cd45c;font-size:14px;text-decoration:none">Ausw&#228;hlen</a>
+
+    <section class="d-section" style="background:#060d07">
+      <div class="d-section-label" style="color:#4cd45c">Heutiger Kursplan</div>
+      <h2 class="d-h2">Dein Tag. Dein Training.</h2>
+      <div class="d-schedule">
+        <div class="d-sched-item">
+          <div class="d-sched-time">07:00</div>
+          <div class="d-sched-name">Yoga Flow</div>
+          <div class="d-sched-badge" style="background:rgba(76,212,92,.15);color:#4cd45c">Entspannt</div>
         </div>
-        <div class="d-card d-card-featured" style="border-color:#4cd45c">
-          <div class="d-featured-badge" style="background:#4cd45c;color:#060f06">Beliebteste Wahl</div>
-          <h3 class="d-card-title">Pro</h3>
-          <div style="font-size:32px;font-weight:700;color:#f0f0f5;margin:12px 0">&#8364;49<span style="font-size:14px;color:#9898ac">/Monat</span></div>
-          <p class="d-card-text">Alle Kurse, Personal Training 1&#215;/Monat, Sauna</p>
-          <a href="#" style="display:block;text-align:center;margin-top:16px;padding:10px;background:#4cd45c;border-radius:8px;color:#060f06;font-size:14px;font-weight:700;text-decoration:none">Jetzt starten</a>
+        <div class="d-sched-item">
+          <div class="d-sched-time">09:00</div>
+          <div class="d-sched-name">HIIT Power</div>
+          <div class="d-sched-badge" style="background:rgba(212,76,76,.15);color:#e05555">Hochintensiv</div>
         </div>
-        <div class="d-card" style="border-color:rgba(76,212,92,.2)">
-          <h3 class="d-card-title">Elite</h3>
-          <div style="font-size:32px;font-weight:700;color:#f0f0f5;margin:12px 0">&#8364;79<span style="font-size:14px;color:#9898ac">/Monat</span></div>
-          <p class="d-card-text">Alles inklusive + w&#246;chentl. PT, Ern&#228;hrungsplan</p>
-          <a href="#" style="display:block;text-align:center;margin-top:16px;padding:10px;border:1px solid rgba(76,212,92,.4);border-radius:8px;color:#4cd45c;font-size:14px;text-decoration:none">Ausw&#228;hlen</a>
+        <div class="d-sched-item">
+          <div class="d-sched-time">12:00</div>
+          <div class="d-sched-name">R&#252;cken &amp; Core</div>
+          <div class="d-sched-badge" style="background:rgba(76,137,212,.15);color:#4c89d4">B&#252;ro-Fit</div>
+        </div>
+        <div class="d-sched-item">
+          <div class="d-sched-time">17:30</div>
+          <div class="d-sched-name">Spinning</div>
+          <div class="d-sched-badge" style="background:rgba(212,158,76,.15);color:#d49e4c">Ausdauer</div>
+        </div>
+        <div class="d-sched-item">
+          <div class="d-sched-time">19:00</div>
+          <div class="d-sched-name">Bootcamp</div>
+          <div class="d-sched-badge" style="background:rgba(160,76,212,.15);color:#a04cd4">Fortgeschritten</div>
         </div>
       </div>
     </section>
-    <footer class="d-footer" style="background:#030803;border-color:rgba(76,212,92,.1)">
+
+    <section class="d-section" style="background:#050c06">
+      <div class="d-section-label" style="color:#4cd45c">Mitgliedschaft</div>
+      <h2 class="d-h2">W&#228;hle deinen Plan.</h2>
+      <div class="d-membership-grid">
+        <div class="d-membership" style="background:rgba(255,255,255,.03)">
+          <div class="d-mem-badge" style="color:rgba(240,240,245,.4)">Basic</div>
+          <div class="d-mem-name">Starter</div>
+          <div class="d-mem-price" style="color:#4cd45c">29 &#8364;</div>
+          <div class="d-mem-period">pro Monat</div>
+          <ul class="d-mem-features">
+            <li>Freier Ger&#228;tezugang</li>
+            <li>Umkleiden &amp; Duschen</li>
+            <li>Mo&#8211;Fr 06:00&#8211;22:00</li>
+          </ul>
+          <a href="#" class="d-btn-ghost" style="display:block;text-align:center;border-color:rgba(76,212,92,.3);color:#4cd45c;padding:10px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none">W&#228;hlen</a>
+        </div>
+        <div class="d-membership featured" style="background:rgba(76,212,92,.08);border-color:#4cd45c">
+          <div class="d-mem-badge" style="color:#4cd45c">&#11088; Beliebt</div>
+          <div class="d-mem-name">Premium</div>
+          <div class="d-mem-price" style="color:#4cd45c">49 &#8364;</div>
+          <div class="d-mem-period">pro Monat</div>
+          <ul class="d-mem-features" style="color:rgba(240,240,245,.75)">
+            <li>Alle Kurse inklusive</li>
+            <li>Personal Training (1x/Mo)</li>
+            <li>7 Tage, 06:00&#8211;23:00</li>
+            <li>Ern&#228;hrungsberatung</li>
+          </ul>
+          <a href="#" class="d-btn" style="display:block;text-align:center;background:#4cd45c;color:#080f09;padding:10px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none">W&#228;hlen</a>
+        </div>
+        <div class="d-membership" style="background:rgba(255,255,255,.03)">
+          <div class="d-mem-badge" style="color:rgba(240,240,245,.4)">Elite</div>
+          <div class="d-mem-name">VIP</div>
+          <div class="d-mem-price" style="color:#4cd45c">79 &#8364;</div>
+          <div class="d-mem-period">pro Monat</div>
+          <ul class="d-mem-features">
+            <li>Alles aus Premium</li>
+            <li>Unlimitiertes PT</li>
+            <li>24/7 Zugang</li>
+            <li>Sauna &amp; Wellness</li>
+          </ul>
+          <a href="#" class="d-btn-ghost" style="display:block;text-align:center;border-color:rgba(76,212,92,.3);color:#4cd45c;padding:10px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none">W&#228;hlen</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="d-footer" style="background:#040a05">
       <div class="d-footer-inner">
-        <div class="d-footer-brand" style="color:#4cd45c">&#128170; IronForge</div>
-        <p class="d-footer-text">Fitness Studio &#8212; Weil du es dir verdient hast</p>
+        <div class="d-footer-brand">
+          <div class="d-logo" style="color:#4cd45c;font-size:18px">&#128170; IronForge</div>
+          <div class="d-footer-text">Dein Fitnessstudio in Melsungen</div>
+        </div>
         <div class="d-footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">Kontakt</a></div>
       </div>
     </footer>
   </section>
 
-  <!-- DEMO 8: IMMOBILIEN -->
+  <!-- DEMO 8: IMMOBILIEN  PrimeImmobilien -->
   <section class="demo-page" data-tpl="7">
-    <header class="d-header" style="background:linear-gradient(135deg,#0c1228 0%,#101e40 100%)">
-      <nav class="d-nav">
+    <header class="d-header" style="background:#070a12">
+      <nav class="d-nav" style="border-bottom:1px solid rgba(76,111,212,.12)">
         <div class="d-logo" style="color:#4c6fd4">&#127968; PrimeImmobilien</div>
         <ul class="d-links">
           <li><a href="#">Kaufen</a></li>
           <li><a href="#">Mieten</a></li>
           <li><a href="#">Bewerten</a></li>
-          <li><a href="#" class="d-cta-link" style="background:#4c6fd4">Kontakt</a></li>
+          <li><a href="#" class="d-cta-link" style="background:#4c6fd4">Kostenlose Beratung</a></li>
         </ul>
       </nav>
-      <div class="d-hero-content" style="background:radial-gradient(ellipse at top left,rgba(76,111,212,.2),transparent 65%)">
-        <div class="d-eyebrow" style="color:#4c6fd4;border-color:rgba(76,111,212,.3)">&#127942; Top Makler Nordhessen 2024</div>
-        <h1 class="d-h1">Ihr Traum-<br><span style="color:#4c6fd4">zuhause wartet.</span></h1>
-        <p class="d-p">&#220;ber 300 Objekte in der Region. Pers&#246;nliche Beratung, professionelle Bewertung, schnelle Vermittlung &#8212; seit &#252;ber 20 Jahren.</p>
-        <div class="d-btns">
-          <a href="#" class="d-btn" style="background:#4c6fd4">Objekte ansehen</a>
-          <a href="#" class="d-btn d-btn-ghost">Kostenlose Bewertung</a>
+      <div class="d-hero-compact" style="background:linear-gradient(160deg,#0c1428 0%,#0a1020 100%);--d-accent-glow:rgba(76,111,212,.15)">
+        <div class="d-eyebrow" style="color:#4c6fd4">Ihr Immobilienexperte in Nordhessen</div>
+        <h1 class="d-h1">Ihr Traumhaus<br>wartet.</h1>
+        <p class="d-p" style="max-width:420px">Professionelle Vermittlung von Wohn- und Gewerbeimmobilien in der Region Nordhessen.</p>
+        <div class="d-search-bar" style="margin-top:4px">
+          <input class="d-search-input" type="text" placeholder="Ort, PLZ oder Stadtteil ..." readonly>
+          <button class="d-search-btn" style="background:#4c6fd4;color:#fff">Suchen</button>
+        </div>
+        <div style="font-size:12px;color:rgba(240,240,245,.35);display:flex;gap:10px;flex-wrap:wrap">
+          <span>&#128293; Beliebt:</span>
+          <a href="#" style="color:rgba(76,111,212,.8);text-decoration:none;font-size:12px">Melsungen</a>
+          <a href="#" style="color:rgba(76,111,212,.8);text-decoration:none;font-size:12px">Kassel</a>
+          <a href="#" style="color:rgba(76,111,212,.8);text-decoration:none;font-size:12px">Bad Hersfeld</a>
         </div>
       </div>
     </header>
-    <section class="d-section" style="background:#0e1428">
+
+    <section class="d-section" style="background:#060910">
       <div class="d-section-label" style="color:#4c6fd4">Aktuelle Angebote</div>
-      <h2 class="d-h2">Ausgew&#228;hlte Objekte</h2>
-      <div class="d-grid-3">
-        <div class="d-card" style="border-color:rgba(76,111,212,.2)">
-          <div class="d-card-img" style="background:linear-gradient(135deg,#1a2240,#243060)"></div>
-          <div class="d-card-body">
-            <div style="font-size:11px;color:#4c6fd4;margin-bottom:4px">ZUM KAUF &middot; 34212 MELSUNGEN</div>
-            <h3 class="d-card-title">Einfamilienhaus</h3>
-            <p class="d-card-text">160m&#178; &middot; 6 Zi. &middot; Garten 500m&#178; &middot; Baujahr 2015 &middot; Energieeffizienz A</p>
-            <span class="d-price" style="color:#4c6fd4">&#8364; 485.000</span>
+      <h2 class="d-h2">Ausgew&#228;hlte Objekte.</h2>
+      <div class="d-prop-grid">
+        <div class="d-prop">
+          <div class="d-prop-img" style="background:linear-gradient(135deg,#0c1828,#142240)">
+            &#127969;
+            <div class="d-prop-badge" style="background:#e74c3c;color:#fff">VERKAUFEN</div>
+          </div>
+          <div class="d-prop-info">
+            <div class="d-prop-title">Einfamilienhaus Melsungen</div>
+            <div class="d-prop-meta">4 Zimmer &#183; 140 m&#178; &#183; Garten</div>
+            <div class="d-prop-price" style="color:#4c6fd4">349.000 &#8364;</div>
           </div>
         </div>
-        <div class="d-card d-card-featured" style="border-color:#4c6fd4">
-          <div class="d-featured-badge" style="background:#4c6fd4">Neu eingestellt</div>
-          <div class="d-card-img" style="background:linear-gradient(135deg,#1e2e55,#2a3e70)"></div>
-          <div class="d-card-body">
-            <div style="font-size:11px;color:#4c6fd4;margin-bottom:4px">ZUR MIETE &middot; 34117 KASSEL</div>
-            <h3 class="d-card-title">Penthouse-Wohnung</h3>
-            <p class="d-card-text">95m&#178; &middot; 3 Zi. &middot; Dachterrasse &middot; Tiefgarage &middot; Erstbezug</p>
-            <span class="d-price" style="color:#4c6fd4">&#8364; 1.450 / Monat</span>
+        <div class="d-prop">
+          <div class="d-prop-img" style="background:linear-gradient(135deg,#0a1420,#101e38)">
+            &#127970;
+            <div class="d-prop-badge" style="background:#2ecc71;color:#fff">MIETEN</div>
+          </div>
+          <div class="d-prop-info">
+            <div class="d-prop-title">Moderne Wohnung Kassel</div>
+            <div class="d-prop-meta">2 Zimmer &#183; 68 m&#178; &#183; Balkon</div>
+            <div class="d-prop-price" style="color:#4c6fd4">1.250 &#8364;/Mo</div>
           </div>
         </div>
-        <div class="d-card" style="border-color:rgba(76,111,212,.2)">
-          <div class="d-card-img" style="background:linear-gradient(135deg,#151e38,#1e2a50)"></div>
-          <div class="d-card-body">
-            <div style="font-size:11px;color:#4c6fd4;margin-bottom:4px">GEWERBE &middot; 34125 KASSEL</div>
-            <h3 class="d-card-title">B&#252;rofläche</h3>
-            <p class="d-card-text">220m&#178; &middot; Repr&#228;sentative Lage &middot; Stellpl&#228;tze &middot; Sofort verf&#252;gbar</p>
-            <span class="d-price" style="color:#4c6fd4">&#8364; 2.800 / Monat</span>
+        <div class="d-prop">
+          <div class="d-prop-img" style="background:linear-gradient(135deg,#0c1020,#141828)">
+            &#127978;
+            <div class="d-prop-badge" style="background:#2ecc71;color:#fff">MIETEN</div>
+          </div>
+          <div class="d-prop-info">
+            <div class="d-prop-title">Gewerbeimmobilie</div>
+            <div class="d-prop-meta">250 m&#178; &#183; Parkpl&#228;tze &#183; zentral</div>
+            <div class="d-prop-price" style="color:#4c6fd4">2.800 &#8364;/Mo</div>
+          </div>
+        </div>
+        <div class="d-prop">
+          <div class="d-prop-img" style="background:linear-gradient(135deg,#0a1408,#101c10)">
+            &#127807;
+            <div class="d-prop-badge" style="background:#4c6fd4;color:#fff">KAUFEN</div>
+          </div>
+          <div class="d-prop-info">
+            <div class="d-prop-title">Grundst&#252;ck Schwalm</div>
+            <div class="d-prop-meta">800 m&#178; &#183; Bauland &#183; ruhige Lage</div>
+            <div class="d-prop-price" style="color:#4c6fd4">89.000 &#8364;</div>
           </div>
         </div>
       </div>
     </section>
-    <footer class="d-footer" style="background:#040810;border-color:rgba(76,111,212,.1)">
+
+    <section class="d-section" style="background:#050810">
+      <div class="d-section-split">
+        <div class="d-split-text" style="display:flex;flex-direction:column;align-items:flex-start;gap:12px">
+          <div class="d-section-label" style="color:#4c6fd4">Ihr Ansprechpartner</div>
+          <div style="display:flex;align-items:center;gap:16px">
+            <div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#1a2848,#0e1a34);border:2px solid rgba(76,111,212,.3);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;color:#4c6fd4;flex-shrink:0">TK</div>
+            <div>
+              <div style="font-size:16px;font-weight:700;color:#f0f0f5">Thomas Klein</div>
+              <div style="font-size:12px;color:rgba(240,240,245,.4)">Ihr pers&#246;nlicher Berater</div>
+            </div>
+          </div>
+          <div style="font-size:13px;color:rgba(240,240,245,.5)">&#128222; +49 5661 77800</div>
+          <div style="font-size:13px;color:rgba(240,240,245,.5)">&#128231; t.klein@prime-immo.de</div>
+          <a href="#" class="d-btn" style="background:#4c6fd4;margin-top:4px">Jetzt kontaktieren</a>
+        </div>
+        <div class="d-split-img">
+          <div class="d-section-label" style="color:#4c6fd4">Warum PrimeImmobilien?</div>
+          <ul class="d-info-list" style="margin-top:8px">
+            <li class="d-info-item"><span class="d-info-icon" style="color:#4c6fd4">&#10003;</span><div><strong>15 Jahre Erfahrung</strong><div class="d-text-dim">Tiefes Marktwissen in Nordhessen</div></div></li>
+            <li class="d-info-item"><span class="d-info-icon" style="color:#4c6fd4">&#10003;</span><div><strong>200+ verkaufte Objekte</strong><div class="d-text-dim">Nachgewiesene Erfolgsbilanz</div></div></li>
+            <li class="d-info-item"><span class="d-info-icon" style="color:#4c6fd4">&#10003;</span><div><strong>Kostenlose Erstberatung</strong><div class="d-text-dim">Unverbindlich und ohne Risiko</div></div></li>
+            <li class="d-info-item"><span class="d-info-icon" style="color:#4c6fd4">&#10003;</span><div><strong>Diskretion garantiert</strong><div class="d-text-dim">Vertraulicher Umgang mit Ihren Daten</div></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer class="d-footer" style="background:#040710">
       <div class="d-footer-inner">
-        <div class="d-footer-brand" style="color:#4c6fd4">&#127968; PrimeImmobilien</div>
-        <p class="d-footer-text">Ihr Immobilienmakler f&#252;r Nordhessen</p>
+        <div class="d-footer-brand">
+          <div class="d-logo" style="color:#4c6fd4;font-size:18px">&#127968; PrimeImmobilien</div>
+          <div class="d-footer-text">Ihr Immobilienexperte in Nordhessen</div>
+        </div>
         <div class="d-footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">Kontakt</a></div>
       </div>
     </footer>
