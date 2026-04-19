@@ -38,57 +38,8 @@ body{
 }
 ::selection{background:var(--gold);color:#0f0f14}
 
-/* Background System */
-.bg-grid{
-  position:fixed;inset:0;z-index:-2;pointer-events:none;
-  background-image:
-    linear-gradient(rgba(201,168,76,.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(201,168,76,.03) 1px, transparent 1px);
-  background-size:60px 60px;
-}
-.bg-orbs{
-  position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;
-}
-.orb{
-  position:absolute;border-radius:50%;filter:blur(100px);will-change:transform;
-}
-.orb-1{
-  width:800px;height:800px;
-  background:radial-gradient(circle,rgba(201,168,76,.18) 0%,transparent 65%);
-  top:-20%;left:-15%;
-  animation:orbFloat1 35s ease-in-out infinite;
-}
-.orb-2{
-  width:650px;height:650px;
-  background:radial-gradient(circle,rgba(120,90,200,.10) 0%,transparent 65%);
-  bottom:-15%;right:-10%;
-  animation:orbFloat2 42s ease-in-out infinite;
-}
-.orb-3{
-  width:500px;height:500px;
-  background:radial-gradient(circle,rgba(201,168,76,.12) 0%,transparent 65%);
-  top:45%;left:50%;
-  animation:orbFloat3 50s ease-in-out infinite;
-}
-.orb-4{
-  width:350px;height:350px;
-  background:radial-gradient(circle,rgba(80,60,160,.08) 0%,transparent 65%);
-  top:15%;right:15%;
-  animation:orbFloat1 28s ease-in-out infinite reverse;
-}
-@keyframes orbFloat1{
-  0%,100%{transform:translate(0,0) scale(1)}
-  33%{transform:translate(100px,-70px) scale(1.12)}
-  66%{transform:translate(-70px,90px) scale(.92)}
-}
-@keyframes orbFloat2{
-  0%,100%{transform:translate(0,0) scale(1)}
-  40%{transform:translate(-90px,70px) scale(1.18)}
-  70%{transform:translate(80px,-50px) scale(.88)}
-}
-@keyframes orbFloat3{
-  0%,100%{transform:translate(-50%,-50%) scale(1)}
-  50%{transform:translate(-50%,-50%) translate(-110px,-90px) scale(1.25)}
+#starfield{
+  position:fixed;inset:0;z-index:-1;pointer-events:none;
 }
 
 .container{max-width:var(--maxw);margin:0 auto;padding:0 32px}
@@ -609,6 +560,222 @@ section.alt-bg-2{
   .process-connector{display:none}
 }
 
+/* ============================================================
+   DEMO OVERLAY SYSTEM
+   ============================================================ */
+#demo-overlay{
+  position:fixed;inset:0;z-index:500;
+  background:#09090f;
+  overflow-y:auto;overflow-x:hidden;
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .4s ease,visibility .4s ease;
+}
+#demo-overlay.open{
+  opacity:1;visibility:visible;pointer-events:auto;
+}
+.demo-nav{
+  position:sticky;top:0;z-index:10;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 32px;
+  background:rgba(9,9,15,.9);backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+  gap:16px;
+}
+.demo-back{
+  display:flex;align-items:center;gap:8px;
+  background:none;border:1px solid rgba(255,255,255,.12);
+  color:var(--text-dim);padding:8px 16px;border-radius:8px;
+  cursor:pointer;font-size:13px;font-weight:500;
+  transition:.2s;white-space:nowrap;
+}
+.demo-back:hover{background:var(--card);color:var(--text);border-color:var(--gold)}
+.demo-nav-label{
+  font-size:14px;color:var(--text-muted);flex:1;text-align:center;
+}
+.demo-contact{
+  background:var(--gold);color:#09090f;padding:8px 18px;
+  border-radius:8px;font-size:13px;font-weight:700;
+  text-decoration:none;transition:.2s;white-space:nowrap;
+}
+.demo-contact:hover{background:var(--gold-soft)}
+.demo-page{display:none}
+.demo-page.active{display:block}
+
+/* ---- SHARED DEMO COMPONENTS ---- */
+.d-header{
+  padding:0;
+  min-height:90vh;display:flex;flex-direction:column;
+}
+.d-nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 48px;flex-shrink:0;gap:24px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.d-logo{font-size:22px;font-weight:700;letter-spacing:-.3px}
+.d-links{
+  display:flex;list-style:none;gap:28px;align-items:center;
+}
+.d-links a{
+  color:rgba(240,240,245,.7);text-decoration:none;font-size:14px;
+  font-weight:500;transition:.2s;
+}
+.d-links a:hover{color:#f0f0f5}
+.d-cta-link{
+  padding:9px 20px;border-radius:8px;font-weight:600 !important;
+  color:#fff !important;
+}
+.d-notdienst-banner{
+  margin:0 48px;margin-top:12px;padding:10px 16px;
+  border-radius:8px;font-size:13px;font-weight:600;
+  display:flex;align-items:center;gap:8px;
+}
+.d-hero-content{
+  flex:1;display:flex;flex-direction:column;justify-content:center;
+  padding:60px 48px 80px;max-width:800px;
+}
+.d-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:7px 16px;border-radius:100px;
+  font-size:13px;font-weight:500;letter-spacing:.3px;
+  border:1px solid;margin-bottom:24px;width:fit-content;
+  background:rgba(255,255,255,.03);
+}
+.d-h1{
+  font-family:'Georgia',serif;
+  font-size:clamp(36px,5.5vw,68px);
+  font-weight:700;line-height:1.05;letter-spacing:-.02em;
+  color:#f0f0f5;margin-bottom:20px;
+}
+.d-p{
+  font-size:17px;color:rgba(240,240,245,.65);
+  max-width:580px;margin-bottom:36px;line-height:1.7;
+}
+.d-btns{display:flex;gap:14px;flex-wrap:wrap}
+.d-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:14px 26px;border-radius:10px;
+  font-weight:600;font-size:15px;text-decoration:none;
+  transition:.2s;
+}
+.d-btn:hover{transform:translateY(-2px);filter:brightness(1.1)}
+.d-btn-ghost{
+  background:transparent;color:#f0f0f5;
+  border:1px solid rgba(255,255,255,.18);
+}
+.d-btn-ghost:hover{background:rgba(255,255,255,.06)}
+
+.d-section{padding:80px 48px}
+.d-section-label{
+  font-size:12px;font-weight:600;text-transform:uppercase;
+  letter-spacing:2px;margin-bottom:12px;
+}
+.d-h2{
+  font-family:'Georgia',serif;font-size:clamp(28px,3.5vw,42px);
+  font-weight:700;color:#f0f0f5;margin-bottom:48px;line-height:1.15;
+}
+.d-grid-3{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+}
+.d-card{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+  border-radius:14px;overflow:hidden;transition:.25s;
+  position:relative;
+}
+.d-card:hover{transform:translateY(-4px);background:rgba(255,255,255,.06)}
+.d-card-featured{position:relative}
+.d-featured-badge{
+  position:absolute;top:14px;right:14px;
+  font-size:11px;font-weight:700;padding:4px 10px;
+  border-radius:100px;z-index:1;
+}
+.d-card-img{
+  height:140px;width:100%;
+}
+.d-card-icon{
+  width:48px;height:48px;border-radius:12px;margin:20px 20px 12px;
+  display:flex;align-items:center;justify-content:center;font-size:22px;
+}
+.d-card-body{padding:16px 20px 20px}
+.d-card-title{
+  font-size:17px;font-weight:700;color:#f0f0f5;margin-bottom:8px;
+}
+.d-card-text{
+  font-size:14px;color:rgba(240,240,245,.55);line-height:1.6;
+}
+.d-price{font-size:16px;font-weight:700;display:block;margin-top:10px}
+
+.d-section-split{
+  display:grid;grid-template-columns:1fr 1fr;gap:60px;
+  align-items:center;
+}
+.d-split-text{}
+.d-split-img{
+  border-radius:16px;border:1px solid rgba(255,255,255,.08);
+  min-height:240px;display:flex;flex-direction:column;
+  justify-content:center;
+}
+.d-text-dim{font-size:15px;color:rgba(240,240,245,.55);line-height:1.7;margin-bottom:24px}
+.d-info-list{display:flex;flex-direction:column;gap:16px}
+.d-info-item{display:flex;align-items:flex-start;gap:14px}
+.d-info-icon{
+  width:38px;height:38px;border-radius:10px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:16px;
+}
+.d-info-item strong{font-size:14.5px;font-weight:600;color:#f0f0f5}
+.d-info-item .d-text-dim{font-size:13px;margin:2px 0 0;line-height:1.5}
+
+/* Portfolio Grid */
+.d-portfolio-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  grid-template-rows:200px 200px;
+  gap:12px;
+}
+.d-p-big{grid-row:span 2}
+.d-portfolio-item{
+  border-radius:12px;position:relative;overflow:hidden;cursor:pointer;
+  transition:.3s;
+}
+.d-portfolio-item:hover{transform:scale(1.02)}
+.d-p-label{
+  position:absolute;bottom:12px;left:12px;
+  background:rgba(0,0,0,.6);color:rgba(240,240,245,.8);
+  font-size:11px;padding:4px 10px;border-radius:100px;
+  backdrop-filter:blur(8px);
+}
+
+/* Demo Footer */
+.d-footer{
+  padding:32px 48px;
+  border-top:1px solid rgba(255,255,255,.06);
+}
+.d-footer-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:20px;flex-wrap:wrap;
+}
+.d-footer-brand{font-size:18px;font-weight:700}
+.d-footer-text{font-size:13px;color:rgba(240,240,245,.35)}
+.d-footer-links{display:flex;gap:20px}
+.d-footer-links a{
+  font-size:13px;color:rgba(240,240,245,.35);text-decoration:none;transition:.2s;
+}
+.d-footer-links a:hover{color:rgba(240,240,245,.7)}
+
+/* Responsive Demo */
+@media(max-width:860px){
+  .d-nav{padding:16px 24px;gap:16px}
+  .d-links{display:none}
+  .d-hero-content{padding:40px 24px 60px}
+  .d-section{padding:56px 24px}
+  .d-grid-3{grid-template-columns:1fr}
+  .d-section-split{grid-template-columns:1fr;gap:32px}
+  .d-portfolio-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .d-p-big{grid-row:auto}
+  .d-footer{padding:24px}
+  .demo-nav{padding:12px 20px}
+  .d-notdienst-banner{margin:0 24px;margin-top:10px}
+}
+
 /* FLOATING CTA */
 .floating-cta{
   position:fixed;bottom:32px;right:32px;z-index:200;
@@ -804,6 +971,8 @@ section.alt-bg-2{
   border:1px solid var(--border);
 }
 .pi-cta{padding:12px 20px;font-size:14px;white-space:nowrap}
+.pi-demo{border-color:rgba(201,168,76,.3);color:var(--gold) !important}
+.pi-demo:hover{background:var(--gold-glow) !important}
 
 /* TEMPLATE OVERVIEW GRID */
 .template-overview-grid{
@@ -889,14 +1058,7 @@ footer{
 </style>
 </head>
 <body>
-
-<div class="bg-grid"></div>
-<div class="bg-orbs">
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
-  <div class="orb orb-4"></div>
-</div>
+<canvas id="starfield"></canvas>
 
 <nav id="nav">
   <div class="container nav-inner">
@@ -1242,6 +1404,65 @@ footer{
 </footer>
 
 <script>
+// STARFIELD
+(function(){
+  const canvas = document.getElementById('starfield');
+  const ctx = canvas.getContext('2d');
+  let W, H, stars = [];
+  const STAR_COUNT = 220;
+  const GOLD = 'rgba(201,168,76,';
+  const WHITE = 'rgba(245,245,247,';
+
+  function resize(){
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+
+  function initStars(){
+    stars = [];
+    for(let i = 0; i < STAR_COUNT; i++){
+      const isGold = Math.random() < 0.28;
+      stars.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        r: Math.random() * 1.4 + 0.3,
+        alpha: Math.random() * 0.7 + 0.15,
+        speed: Math.random() * 0.015 + 0.005,
+        phase: Math.random() * Math.PI * 2,
+        gold: isGold,
+        twinkleSpeed: Math.random() * 0.02 + 0.005
+      });
+    }
+  }
+
+  let frame = 0;
+  function draw(){
+    ctx.clearRect(0, 0, W, H);
+    frame += 0.5;
+    stars.forEach(s => {
+      const tw = Math.sin(frame * s.twinkleSpeed + s.phase);
+      const a = s.alpha * (0.5 + 0.5 * tw);
+      const color = s.gold ? GOLD : WHITE;
+      if(s.gold && a > 0.4){
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r * 3, 0, Math.PI * 2);
+        ctx.fillStyle = GOLD + (a * 0.12) + ')';
+        ctx.fill();
+      }
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = color + a + ')';
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', () => { resize(); initStars(); });
+  resize();
+  initStars();
+  draw();
+})();
+
 // Email obfuscation
 (function(){
   const parts = ['onyxweb24', 'gmail.com'];
@@ -1486,6 +1707,19 @@ window.switchTemplate = function(idx) {
     branchEl.textContent = t.branch;
     featsList.innerHTML = t.features.map(f => `<li>${f}</li>`).join('');
 
+    // Add/update demo button in preview-info
+    let demoBtn = document.getElementById('pi-demo-btn');
+    if(!demoBtn){
+      demoBtn = document.createElement('a');
+      demoBtn.id = 'pi-demo-btn';
+      demoBtn.className = 'btn btn-ghost pi-demo';
+      demoBtn.style.cssText = 'padding:12px 20px;font-size:14px;white-space:nowrap;display:inline-flex;align-items:center;gap:8px';
+      document.querySelector('.preview-info').appendChild(demoBtn);
+    }
+    demoBtn.innerHTML = 'Live Demo <span style="font-size:16px">&#8594;</span>';
+    demoBtn.href = '#';
+    demoBtn.onclick = (e) => { e.preventDefault(); openDemo(idx); };
+
     // Update active button
     document.querySelectorAll('.tl-btn').forEach((btn, i) => {
       btn.classList.toggle('active', i === idx);
@@ -1512,6 +1746,46 @@ document.addEventListener('keydown', e => {
 buildTemplateList();
 buildOverviewGrid();
 switchTemplate(0);
+
+// ============================================================
+// DEMO OVERLAY SYSTEM
+// ============================================================
+const overlay = document.getElementById('demo-overlay');
+const demoNavLabel = document.getElementById('demoNavLabel');
+const demoContactBtn = document.getElementById('demo-contact-btn');
+
+const demoLabels = [
+  'Restaurant Template','Business Dashboard','Online-Shop Template',
+  'Friseursalon Template','Handwerksbetrieb Template',
+  'Kreativ-Portfolio Template','Fitnessstudio Template','Immobilienmakler Template'
+];
+
+window.openDemo = function(idx){
+  const parts2 = ['onyxweb24','gmail.com'];
+  const em2 = parts2.join('@');
+  if(demoContactBtn) demoContactBtn.href = 'mailto:'+em2+'?subject='+encodeURIComponent('Anfrage: '+demoLabels[idx]);
+
+  document.querySelectorAll('.demo-page').forEach((p,i) => {
+    p.classList.toggle('active', i === idx);
+  });
+
+  if(demoNavLabel) demoNavLabel.textContent = demoLabels[idx] || '';
+
+  overlay.classList.add('open');
+  overlay.setAttribute('aria-hidden','false');
+  overlay.scrollTop = 0;
+  document.body.style.overflow = 'hidden';
+};
+
+window.closeDemo = function(){
+  overlay.classList.remove('open');
+  overlay.setAttribute('aria-hidden','true');
+  document.body.style.overflow = '';
+};
+
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape' && overlay.classList.contains('open')) closeDemo();
+});
 </script>
 
 <div class="floating-cta" id="floatingCta">
@@ -1520,5 +1794,573 @@ switchTemplate(0);
     Projekt anfragen
   </a>
 </div>
+
+<!-- DEMO OVERLAY SYSTEM -->
+<div id="demo-overlay" aria-hidden="true">
+  <nav class="demo-nav">
+    <button class="demo-back" onclick="closeDemo()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+      ONYX Studio
+    </button>
+    <div class="demo-nav-label" id="demoNavLabel">Restaurant Template</div>
+    <a id="demo-contact-btn" href="#" class="demo-contact">Anfragen &#8594;</a>
+  </nav>
+
+  <!-- DEMO 1: RESTAURANT -->
+  <section class="demo-page" data-tpl="0">
+    <header class="d-header" style="background:linear-gradient(135deg,#1a0c08 0%,#2d1408 100%)">
+      <nav class="d-nav">
+        <div class="d-logo" style="color:#e87d4a">&#127829; Bella Cucina</div>
+        <ul class="d-links">
+          <li><a href="#">Speisekarte</a></li>
+          <li><a href="#">&#220;ber uns</a></li>
+          <li><a href="#">Galerie</a></li>
+          <li><a href="#" class="d-cta-link" style="background:#e87d4a">Reservieren</a></li>
+        </ul>
+      </nav>
+      <div class="d-hero-content">
+        <div class="d-eyebrow" style="color:#e87d4a;border-color:rgba(232,125,74,.3)">&#9733; Seit 1998 in Melsungen</div>
+        <h1 class="d-h1">Mediterrane K&#252;che<br><span style="color:#e87d4a">mit Herz &amp; Leidenschaft</span></h1>
+        <p class="d-p">Frische Zutaten, traditionelle Rezepte und ein Hauch von Italien &#8212; mitten in Deutschland. Erleben Sie echten Geschmack.</p>
+        <div class="d-btns">
+          <a href="#" class="d-btn" style="background:#e87d4a;color:#fff">Tisch reservieren</a>
+          <a href="#" class="d-btn d-btn-ghost">Speisekarte ansehen</a>
+        </div>
+      </div>
+    </header>
+    <section class="d-section" style="background:#100a07">
+      <div class="d-section-label" style="color:#e87d4a">Unsere Spezialit&#228;ten</div>
+      <h2 class="d-h2">Highlights aus unserer K&#252;che</h2>
+      <div class="d-grid-3">
+        <div class="d-card" style="border-color:rgba(232,125,74,.2)">
+          <div class="d-card-img" style="background:linear-gradient(135deg,#3d1a0a,#5c2a10)"></div>
+          <div class="d-card-body">
+            <h3 class="d-card-title">Pasta Carbonara</h3>
+            <p class="d-card-text">Klassiker mit echtem Guanciale, Pecorino und frischen Eiern nach original r&#246;mischem Rezept.</p>
+            <span class="d-price" style="color:#e87d4a">ab &#8364;14,90</span>
+          </div>
+        </div>
+        <div class="d-card d-card-featured" style="border-color:#e87d4a">
+          <div class="d-featured-badge" style="background:#e87d4a">Chef's Choice</div>
+          <div class="d-card-img" style="background:linear-gradient(135deg,#5c2010,#8c3018)"></div>
+          <div class="d-card-body">
+            <h3 class="d-card-title">Bistecca Fiorentina</h3>
+            <p class="d-card-text">Toskanisches T-Bone Steak vom regionalen Metzger, 800g, mit Rosmarin-Kartoffeln.</p>
+            <span class="d-price" style="color:#e87d4a">ab &#8364;38,00</span>
+          </div>
+        </div>
+        <div class="d-card" style="border-color:rgba(232,125,74,.2)">
+          <div class="d-card-img" style="background:linear-gradient(135deg,#2a1808,#3d2510)"></div>
+          <div class="d-card-body">
+            <h3 class="d-card-title">Tiramiù della Nonna</h3>
+            <p class="d-card-text">Hausgemachtes Tiramiù nach Gro&#223;mutters Rezept &#8212; cremig, leicht, unvergesslich.</p>
+            <span class="d-price" style="color:#e87d4a">&#8364;7,50</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="d-section d-section-split" style="background:#0d0805">
+      <div class="d-split-text">
+        <div class="d-section-label" style="color:#e87d4a">Reservierung</div>
+        <h2 class="d-h2">Ihren Tisch reservieren</h2>
+        <p class="d-text-dim">Rufen Sie uns an oder nutzen Sie das Online-Formular &#8212; wir best&#228;tigen innerhalb von 2 Stunden.</p>
+        <div class="d-info-list">
+          <div class="d-info-item"><span class="d-info-icon" style="background:rgba(232,125,74,.15);color:#e87d4a">&#128336;</span><div><strong>&#214;ffnungszeiten</strong><br><span class="d-text-dim">Di&#8211;So: 12&#8211;14h &amp; 18&#8211;23h</span></div></div>
+          <div class="d-info-item"><span class="d-info-icon" style="background:rgba(232,125,74,.15);color:#e87d4a">&#128205;</span><div><strong>Adresse</strong><br><span class="d-text-dim">Hauptstra&#223;e 42, 34212 Melsungen</span></div></div>
+          <div class="d-info-item"><span class="d-info-icon" style="background:rgba(232,125,74,.15);color:#e87d4a">&#128222;</span><div><strong>Telefon</strong><br><span class="d-text-dim">+49 5661 12345</span></div></div>
+        </div>
+      </div>
+      <div class="d-split-img" style="background:linear-gradient(135deg,#2a1408,#1a0c08);border-color:rgba(232,125,74,.2)">
+        <div style="text-align:center;padding:40px;color:rgba(232,125,74,.4);font-size:48px">&#127863;</div>
+        <p style="text-align:center;color:rgba(232,125,74,.5);font-size:14px">Atmosph&#228;risches Ambiente</p>
+      </div>
+    </section>
+    <footer class="d-footer" style="background:#080503;border-color:rgba(232,125,74,.1)">
+      <div class="d-footer-inner">
+        <div class="d-footer-brand" style="color:#e87d4a">&#127829; Bella Cucina</div>
+        <p class="d-footer-text">Authentische italienische K&#252;che seit 1998</p>
+        <div class="d-footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">Kontakt</a></div>
+      </div>
+    </footer>
+  </section>
+
+  <!-- DEMO 2: BUSINESS DASHBOARD -->
+  <section class="demo-page" data-tpl="1">
+    <header class="d-header" style="background:linear-gradient(135deg,#080f08 0%,#0d1a0d 100%)">
+      <nav class="d-nav">
+        <div class="d-logo" style="color:#55ce55">&#9672; FlowDesk</div>
+        <ul class="d-links">
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Projekte</a></li>
+          <li><a href="#">Team</a></li>
+          <li><a href="#" class="d-cta-link" style="background:#55ce55;color:#080f08">App starten</a></li>
+        </ul>
+      </nav>
+      <div class="d-hero-content">
+        <div class="d-eyebrow" style="color:#55ce55;border-color:rgba(85,206,85,.3)">&#128272; Ende-zu-Ende verschl&#252;sselt</div>
+        <h1 class="d-h1">Ihr Business.<br><span style="color:#55ce55">Alles an einem Ort.</span></h1>
+        <p class="d-p">Projekte, Aufgaben, Dokumente und Kundendaten &#8212; sicher, schnell und von &#252;berall erreichbar. Kein Abo, kein Lock-In.</p>
+        <div class="d-btns">
+          <a href="#" class="d-btn" style="background:#55ce55;color:#080f08">Kostenlos testen</a>
+          <a href="#" class="d-btn d-btn-ghost">Demo ansehen</a>
+        </div>
+      </div>
+    </header>
+    <section class="d-section" style="background:#060d06">
+      <div class="d-section-label" style="color:#55ce55">Funktionen</div>
+      <h2 class="d-h2">Alles was Ihr Unternehmen braucht</h2>
+      <div class="d-grid-3">
+        <div class="d-card" style="border-color:rgba(85,206,85,.2)">
+          <div class="d-card-icon" style="background:rgba(85,206,85,.1);color:#55ce55">&#128202;</div>
+          <h3 class="d-card-title">Live Dashboard</h3>
+          <p class="d-card-text">Alle wichtigen KPIs auf einen Blick. Umsatz, Projekte, Aufgaben &#8212; immer aktuell.</p>
+        </div>
+        <div class="d-card d-card-featured" style="border-color:#55ce55">
+          <div class="d-featured-badge" style="background:#55ce55;color:#080f08">Beliebteste Funktion</div>
+          <div class="d-card-icon" style="background:rgba(85,206,85,.1);color:#55ce55">&#128274;</div>
+          <h3 class="d-card-title">AES-256 Verschl&#252;sselung</h3>
+          <p class="d-card-text">Ihre Daten sind verschl&#252;sselt &#8212; nicht mal wir k&#246;nnen sie lesen. DSGVO-konform ab Tag 1.</p>
+        </div>
+        <div class="d-card" style="border-color:rgba(85,206,85,.2)">
+          <div class="d-card-icon" style="background:rgba(85,206,85,.1);color:#55ce55">&#128241;</div>
+          <h3 class="d-card-title">Offline-f&#228;hig</h3>
+          <p class="d-card-text">Funktioniert auch ohne Internet &#8212; alle Daten synchronisieren sich automatisch.</p>
+        </div>
+      </div>
+    </section>
+    <section class="d-section d-section-split" style="background:#050c05">
+      <div class="d-split-text">
+        <div class="d-section-label" style="color:#55ce55">Sicherheit &amp; Vertrauen</div>
+        <h2 class="d-h2">Ihre Daten geh&#246;ren Ihnen</h2>
+        <p class="d-text-dim">Kein Cloud-Zwang, kein Abo-Modell. Der Code geh&#246;rt Ihnen &#8212; f&#252;r immer.</p>
+        <div class="d-info-list">
+          <div class="d-info-item"><span class="d-info-icon" style="background:rgba(85,206,85,.15);color:#55ce55">&#10003;</span><div><strong>DSGVO-konform</strong><br><span class="d-text-dim">Vollst&#228;ndig deutschem Datenschutzrecht entsprechend</span></div></div>
+          <div class="d-info-item"><span class="d-info-icon" style="background:rgba(85,206,85,.15);color:#55ce55">&#10003;</span><div><strong>Kein Vendor Lock-In</strong><br><span class="d-text-dim">Sie k&#246;nnen jederzeit wechseln, exportieren oder selbst hosten</span></div></div>
+          <div class="d-info-item"><span class="d-info-icon" style="background:rgba(85,206,85,.15);color:#55ce55">&#10003;</span><div><strong>Einmalzahlung</strong><br><span class="d-text-dim">Kein monatliches Abo &#8212; zahlen Sie einmal, nutzen Sie f&#252;r immer</span></div></div>
+        </div>
+      </div>
+      <div class="d-split-img" style="background:linear-gradient(135deg,#0d1a0d,#0a140a);border-color:rgba(85,206,85,.2)">
+        <div style="padding:24px">
+          <div style="background:rgba(85,206,85,.08);border:1px solid rgba(85,206,85,.2);border-radius:10px;padding:16px;margin-bottom:12px">
+            <div style="color:#55ce55;font-size:12px;margin-bottom:8px">AKTIVE PROJEKTE</div>
+            <div style="color:#f0f0f5;font-size:28px;font-weight:700">12</div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+            <div style="background:rgba(85,206,85,.06);border:1px solid rgba(85,206,85,.15);border-radius:8px;padding:12px;text-align:center">
+              <div style="color:#55ce55;font-size:10px;margin-bottom:4px">AUFGABEN</div>
+              <div style="color:#f0f0f5;font-size:20px;font-weight:700">48</div>
+            </div>
+            <div style="background:rgba(85,206,85,.06);border:1px solid rgba(85,206,85,.15);border-radius:8px;padding:12px;text-align:center">
+              <div style="color:#55ce55;font-size:10px;margin-bottom:4px">TEAM</div>
+              <div style="color:#f0f0f5;font-size:20px;font-weight:700">7</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="d-footer" style="background:#040a04;border-color:rgba(85,206,85,.1)">
+      <div class="d-footer-inner">
+        <div class="d-footer-brand" style="color:#55ce55">&#9672; FlowDesk</div>
+        <p class="d-footer-text">Business-Software die wirklich funktioniert</p>
+        <div class="d-footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">Kontakt</a></div>
+      </div>
+    </footer>
+  </section>
+
+  <!-- DEMO 3: ONLINE-SHOP -->
+  <section class="demo-page" data-tpl="2">
+    <header class="d-header" style="background:linear-gradient(135deg,#080d18 0%,#0d1528 100%)">
+      <nav class="d-nav">
+        <div class="d-logo" style="color:#4c89d4">&#128717; StyleVault</div>
+        <ul class="d-links">
+          <li><a href="#">Neuheiten</a></li>
+          <li><a href="#">Sale</a></li>
+          <li><a href="#">Marken</a></li>
+          <li><a href="#" class="d-cta-link" style="background:#4c89d4">&#128722; Warenkorb</a></li>
+        </ul>
+      </nav>
+      <div class="d-hero-content">
+        <div class="d-eyebrow" style="color:#4c89d4;border-color:rgba(76,137,212,.3)">&#128640; Kostenloser Versand ab &#8364;49</div>
+        <h1 class="d-h1">Mode &amp; Stil,<br><span style="color:#4c89d4">die zu Ihnen passt.</span></h1>
+        <p class="d-p">Kuratierte Kollektionen f&#252;r jeden Anlass. Schnelle Lieferung, einfache R&#252;ckgabe &#8212; Einkaufen wie es sein soll.</p>
+        <div class="d-btns">
+          <a href="#" class="d-btn" style="background:#4c89d4">Jetzt shoppen</a>
+          <a href="#" class="d-btn d-btn-ghost">Sale entdecken</a>
+        </div>
+      </div>
+    </header>
+    <section class="d-section" style="background:#060c18">
+      <div class="d-section-label" style="color:#4c89d4">Neuheiten</div>
+      <h2 class="d-h2">Frisch eingetroffen</h2>
+      <div class="d-grid-3">
+        <div class="d-card" style="border-color:rgba(76,137,212,.2)">
+          <div class="d-card-img" style="background:linear-gradient(135deg,#1a2540,#253560)"></div>
+          <div class="d-card-body">
+            <div style="font-size:11px;color:#4c89d4;margin-bottom:4px">NEUHEIT</div>
+            <h3 class="d-card-title">Premium Lederjacke</h3>
+            <p class="d-card-text">Echtleder, slim fit, perfekt f&#252;r Herbst &amp; Winter. 3 Farben verf&#252;gbar.</p>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+              <span class="d-price" style="color:#4c89d4">&#8364;189,00</span>
+              <a href="#" style="background:#4c89d4;color:#fff;padding:6px 14px;border-radius:6px;font-size:12px;text-decoration:none">+ Warenkorb</a>
+            </div>
+          </div>
+        </div>
+        <div class="d-card d-card-featured" style="border-color:#4c89d4">
+          <div class="d-featured-badge" style="background:#e84c4c">-30% Sale</div>
+          <div class="d-card-img" style="background:linear-gradient(135deg,#1e3050,#2a4570)"></div>
+          <div class="d-card-body">
+            <h3 class="d-card-title">Cashmere Pullover</h3>
+            <p class="d-card-text">100% Kaschmir, weich und warm. Zeitloses Design f&#252;r jeden Anlass.</p>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+              <div><span style="color:#888;text-decoration:line-through;font-size:12px">&#8364;149</span> <span class="d-price" style="color:#4c89d4">&#8364;99,00</span></div>
+              <a href="#" style="background:#4c89d4;color:#fff;padding:6px 14px;border-radius:6px;font-size:12px;text-decoration:none">+ Warenkorb</a>
+            </div>
+          </div>
+        </div>
+        <div class="d-card" style="border-color:rgba(76,137,212,.2)">
+          <div class="d-card-img" style="background:linear-gradient(135deg,#152035,#1e2d50)"></div>
+          <div class="d-card-body">
+            <div style="font-size:11px;color:#4c89d4;margin-bottom:4px">BESTSELLER</div>
+            <h3 class="d-card-title">Slim-Fit Chino</h3>
+            <p class="d-card-text">Elastisch, pflegeleicht, b&#252;rotauglich. In 8 Farben &#8212; der Allrounder f&#252;r den Alltag.</p>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+              <span class="d-price" style="color:#4c89d4">&#8364;59,00</span>
+              <a href="#" style="background:#4c89d4;color:#fff;padding:6px 14px;border-radius:6px;font-size:12px;text-decoration:none">+ Warenkorb</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="d-section d-section-split" style="background:#050b16">
+      <div class="d-split-text">
+        <div class="d-section-label" style="color:#4c89d4">Warum StyleVault?</div>
+        <h2 class="d-h2">Einkaufen ohne Kompromisse</h2>
+        <div class="d-info-list">
+          <div class="d-info-item"><span class="d-info-icon" style="background:rgba(76,137,212,.15);color:#4c89d4">&#128640;</span><div><strong>Schnelle Lieferung</strong><br><span class="d-text-dim">1-2 Werktage &#8212; oder Express am n&#228;chsten Tag</span></div></div>
+          <div class="d-info-item"><span class="d-info-icon" style="background:rgba(76,137,212,.15);color:#4c89d4">&#8617;</span><div><strong>30 Tage R&#252;ckgabe</strong><br><span class="d-text-dim">Kostenlos zur&#252;cksenden &#8212; kein Stress, keine Fragen</span></div></div>
+          <div class="d-info-item"><span class="d-info-icon" style="background:rgba(76,137,212,.15);color:#4c89d4">&#128274;</span><div><strong>Sicheres Bezahlen</strong><br><span class="d-text-dim">PayPal, Kreditkarte, Klarna &#8212; SSL-verschl&#252;sselt</span></div></div>
+        </div>
+      </div>
+      <div class="d-split-img" style="background:linear-gradient(135deg,#0d1528,#0a1020);border-color:rgba(76,137,212,.2)">
+        <div style="text-align:center;padding:40px;color:rgba(76,137,212,.5);font-size:48px">&#128717;</div>
+        <p style="text-align:center;color:rgba(76,137,212,.4);font-size:13px">&#220;ber 500 zufriedene Kunden</p>
+      </div>
+    </section>
+    <footer class="d-footer" style="background:#040910;border-color:rgba(76,137,212,.1)">
+      <div class="d-footer-inner">
+        <div class="d-footer-brand" style="color:#4c89d4">&#128717; StyleVault</div>
+        <p class="d-footer-text">Premium Mode f&#252;r jeden Anlass</p>
+        <div class="d-footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">AGB</a></div>
+      </div>
+    </footer>
+  </section>
+
+  <!-- DEMO 4: FRISEURSALON -->
+  <section class="demo-page" data-tpl="3">
+    <header class="d-header" style="background:linear-gradient(135deg,#180d18 0%,#220d22 100%)">
+      <nav class="d-nav">
+        <div class="d-logo" style="color:#d44c9e">&#10022; LuminaBeauty</div>
+        <ul class="d-links">
+          <li><a href="#">Leistungen</a></li>
+          <li><a href="#">Team</a></li>
+          <li><a href="#">Galerie</a></li>
+          <li><a href="#" class="d-cta-link" style="background:#d44c9e">Termin buchen</a></li>
+        </ul>
+      </nav>
+      <div class="d-hero-content">
+        <div class="d-eyebrow" style="color:#d44c9e;border-color:rgba(212,76,158,.3)">&#128134; Online-Buchung 24/7 verf&#252;gbar</div>
+        <h1 class="d-h1">Sch&#246;nheit &amp; Wellness<br><span style="color:#d44c9e">f&#252;r den modernen Menschen.</span></h1>
+        <p class="d-p">Haare, N&#228;gel, Kosmetik &#8212; alles unter einem Dach. Ihr pers&#246;nlicher Wohlehlort, wo Sie sich rundum verw&#246;hnen lassen.</p>
+        <div class="d-btns">
+          <a href="#" class="d-btn" style="background:#d44c9e">Jetzt Termin buchen</a>
+          <a href="#" class="d-btn d-btn-ghost">Unsere Leistungen</a>
+        </div>
+      </div>
+    </header>
+    <section class="d-section" style="background:#100810">
+      <div class="d-section-label" style="color:#d44c9e">Unsere Leistungen</div>
+      <h2 class="d-h2">Premium Beauty Services</h2>
+      <div class="d-grid-3">
+        <div class="d-card" style="border-color:rgba(212,76,158,.2)">
+          <div class="d-card-icon" style="background:rgba(212,76,158,.1);color:#d44c9e">&#9986;</div>
+          <h3 class="d-card-title">Hairstyling</h3>
+          <p class="d-card-text">Schnitt, Farbe, Str&#228;hnchen &#8212; individuell abgestimmt auf Ihren Typ. Mit Premium-Produkten.</p>
+          <span class="d-price" style="color:#d44c9e">ab &#8364;45</span>
+        </div>
+        <div class="d-card d-card-featured" style="border-color:#d44c9e">
+          <div class="d-featured-badge" style="background:#d44c9e">Top gebucht</div>
+          <div class="d-card-icon" style="background:rgba(212,76,158,.1);color:#d44c9e">&#128133;</div>
+          <h3 class="d-card-title">Manik&#252;re &amp; Nails</h3>
+          <p class="d-card-text">Shellac, Gel-Nails, French &#8212; perfekte N&#228;gel die lange halten. &#220;ber 80 Farben.</p>
+          <span class="d-price" style="color:#d44c9e">ab &#8364;35</span>
+        </div>
+        <div class="d-card" style="border-color:rgba(212,76,158,.2)">
+          <div class="d-card-icon" style="background:rgba(212,76,158,.1);color:#d44c9e">&#127800;</div>
+          <h3 class="d-card-title">Kosmetik &amp; Pflege</h3>
+          <p class="d-card-text">Gesichtsbehandlung, Microdermabrasion, Wimpernlifting &#8212; sichtbare Ergebnisse.</p>
+          <span class="d-price" style="color:#d44c9e">ab &#8364;55</span>
+        </div>
+      </div>
+    </section>
+    <section class="d-section d-section-split" style="background:#0d060d">
+      <div class="d-split-text">
+        <div class="d-section-label" style="color:#d44c9e">Online Terminbuchung</div>
+        <h2 class="d-h2">Ihr n&#228;chster Termin &#8212; in 2 Minuten</h2>
+        <p class="d-text-dim">Buchen Sie Ihren Wunschtermin rund um die Uhr &#8212; ohne Anruf, ohne Wartezeit.</p>
+        <div class="d-info-list">
+          <div class="d-info-item"><span class="d-info-icon" style="background:rgba(212,76,158,.15);color:#d44c9e">&#128197;</span><div><strong>&#214;ffnungszeiten</strong><br><span class="d-text-dim">Mo&#8211;Sa: 9&#8211;19 Uhr &middot; Abendtermine auf Anfrage</span></div></div>
+          <div class="d-info-item"><span class="d-info-icon" style="background:rgba(212,76,158,.15);color:#d44c9e">&#10022;</span><div><strong>4 erfahrene Stylisten</strong><br><span class="d-text-dim">W&#228;hlen Sie Ihren Lieblingsstylisten direkt bei der Buchung</span></div></div>
+          <div class="d-info-item"><span class="d-info-icon" style="background:rgba(212,76,158,.15);color:#d44c9e">&#128140;</span><div><strong>Erinnerungs-SMS</strong><br><span class="d-text-dim">Automatische Erinnerung 24h vor Ihrem Termin</span></div></div>
+        </div>
+      </div>
+      <div class="d-split-img" style="background:linear-gradient(135deg,#220d22,#1a0a1a);border-color:rgba(212,76,158,.2)">
+        <div style="text-align:center;padding:40px;color:rgba(212,76,158,.5);font-size:48px">&#128134;</div>
+        <p style="text-align:center;color:rgba(212,76,158,.4);font-size:13px">&#220;ber 200 gl&#252;ckliche Stammkunden</p>
+      </div>
+    </section>
+    <footer class="d-footer" style="background:#080408;border-color:rgba(212,76,158,.1)">
+      <div class="d-footer-inner">
+        <div class="d-footer-brand" style="color:#d44c9e">&#10022; LuminaBeauty</div>
+        <p class="d-footer-text">Ihr Wohlehlort in der Stadt</p>
+        <div class="d-footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">Kontakt</a></div>
+      </div>
+    </footer>
+  </section>
+
+  <!-- DEMO 5: HANDWERK -->
+  <section class="demo-page" data-tpl="4">
+    <header class="d-header" style="background:linear-gradient(135deg,#181008 0%,#251808 100%)">
+      <nav class="d-nav">
+        <div class="d-logo" style="color:#d49e4c">&#128295; Meister Schmidt</div>
+        <ul class="d-links">
+          <li><a href="#">Leistungen</a></li>
+          <li><a href="#">Referenzen</a></li>
+          <li><a href="#">&#220;ber uns</a></li>
+          <li><a href="#" class="d-cta-link" style="background:#d49e4c;color:#0a0806">Jetzt anrufen</a></li>
+        </ul>
+      </nav>
+      <div class="d-notdienst-banner" style="background:rgba(220,80,60,.15);border:1px solid rgba(220,80,60,.4);color:#e86c50">
+        &#128680; 24/7 Notdienst verf&#252;gbar &#8212; Telefon: +49 5661 99999
+      </div>
+      <div class="d-hero-content">
+        <div class="d-eyebrow" style="color:#d49e4c;border-color:rgba(212,158,76,.3)">&#10003; Meisterbetrieb seit 1985</div>
+        <h1 class="d-h1">Ihr zuverl&#228;ssiger<br><span style="color:#d49e4c">Elektro-Fachbetrieb.</span></h1>
+        <p class="d-p">Von der Steckdose bis zur Photovoltaikanlage &#8212; schnell, sauber, mit Garantie. Kostenloser Kostenvoranschlag innerhalb von 24h.</p>
+        <div class="d-btns">
+          <a href="#" class="d-btn" style="background:#d49e4c;color:#0a0806">Kostenlos anfragen</a>
+          <a href="#" class="d-btn d-btn-ghost">Alle Leistungen</a>
+        </div>
+      </div>
+    </header>
+    <section class="d-section" style="background:#100c06">
+      <div class="d-section-label" style="color:#d49e4c">Unsere Leistungen</div>
+      <h2 class="d-h2">Was wir f&#252;r Sie tun</h2>
+      <div class="d-grid-3">
+        <div class="d-card" style="border-color:rgba(212,158,76,.2)">
+          <div class="d-card-icon" style="background:rgba(212,158,76,.1);color:#d49e4c">&#9889;</div>
+          <h3 class="d-card-title">Elektroinstallation</h3>
+          <p class="d-card-text">Neu- und Umbauten, Erweiterungen, Sicherheitspr&#252;fungen &#8212; alles aus einer Hand.</p>
+        </div>
+        <div class="d-card d-card-featured" style="border-color:#d49e4c">
+          <div class="d-featured-badge" style="background:#d49e4c;color:#0a0806">Meistempfohlen</div>
+          <div class="d-card-icon" style="background:rgba(212,158,76,.1);color:#d49e4c">&#9728;</div>
+          <h3 class="d-card-title">Photovoltaik</h3>
+          <p class="d-card-text">Komplettl&#246;sung: Planung, Montage, Anmeldung beim Netzbetreiber. F&#246;rderung inklusive.</p>
+        </div>
+        <div class="d-card" style="border-color:rgba(212,158,76,.2)">
+          <div class="d-card-icon" style="background:rgba(212,158,76,.1);color:#d49e4c">&#128268;</div>
+          <h3 class="d-card-title">E-Mobilit&#228;t</h3>
+          <p class="d-card-text">Wallbox-Installation f&#252;r zuhause und Gewerbe &#8212; eichrechtskonform, f&#246;rderf&#228;hig.</p>
+        </div>
+      </div>
+    </section>
+    <section class="d-section d-section-split" style="background:#0c0904">
+      <div class="d-split-text">
+        <div class="d-section-label" style="color:#d49e4c">Warum Schmidt Elektro?</div>
+        <h2 class="d-h2">Handwerk mit Qualit&#228;tsgarantie</h2>
+        <div class="d-info-list">
+          <div class="d-info-item"><span class="d-info-icon" style="background:rgba(212,158,76,.15);color:#d49e4c">&#127942;</span><div><strong>40 Jahre Erfahrung</strong><br><span class="d-text-dim">Meisterbetrieb mit &#252;ber 2.000 abgeschlossenen Projekten</span></div></div>
+          <div class="d-info-item"><span class="d-info-icon" style="background:rgba(212,158,76,.15);color:#d49e4c">&#128203;</span><div><strong>Kostenloser KV</strong><br><span class="d-text-dim">Transparenter Kostenvoranschlag &#8212; keine versteckten Kosten</span></div></div>
+          <div class="d-info-item"><span class="d-info-icon" style="background:rgba(212,158,76,.15);color:#d49e4c">&#128719;</span><div><strong>5 Jahre Gew&#228;hrleistung</strong><br><span class="d-text-dim">Auf alle unsere Arbeiten &#8212; weit &#252;ber den gesetzlichen Standard</span></div></div>
+        </div>
+      </div>
+      <div class="d-split-img" style="background:linear-gradient(135deg,#251808,#180e05);border-color:rgba(212,158,76,.2)">
+        <div style="text-align:center;padding:40px;color:rgba(212,158,76,.5);font-size:48px">&#128295;</div>
+        <p style="text-align:center;color:rgba(212,158,76,.4);font-size:13px">Gepr&#252;fter Meisterbetrieb</p>
+      </div>
+    </section>
+    <footer class="d-footer" style="background:#080604;border-color:rgba(212,158,76,.1)">
+      <div class="d-footer-inner">
+        <div class="d-footer-brand" style="color:#d49e4c">&#128295; Meister Schmidt</div>
+        <p class="d-footer-text">Ihr Elektro-Fachbetrieb seit 1985</p>
+        <div class="d-footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">Kontakt</a></div>
+      </div>
+    </footer>
+  </section>
+
+  <!-- DEMO 6: PORTFOLIO -->
+  <section class="demo-page" data-tpl="5">
+    <header class="d-header" style="background:#080808">
+      <nav class="d-nav">
+        <div class="d-logo" style="color:#f0f0f5">&#9633; Max M&#252;ller</div>
+        <ul class="d-links">
+          <li><a href="#">Arbeiten</a></li>
+          <li><a href="#">&#220;ber mich</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#" class="d-cta-link" style="background:#f0f0f5;color:#080808">Kontakt</a></li>
+        </ul>
+      </nav>
+      <div class="d-hero-content" style="text-align:center;max-width:700px;margin:0 auto">
+        <div class="d-eyebrow" style="color:#a0a0b8;border-color:rgba(160,160,184,.2)">Freier Fotograf &amp; Designer &middot; Berlin</div>
+        <h1 class="d-h1" style="font-size:clamp(36px,6vw,72px)">Bilder die<br><span style="color:transparent;-webkit-text-stroke:1px rgba(240,240,245,.6)">Geschichten erz&#228;hlen.</span></h1>
+        <p class="d-p" style="margin:0 auto 40px;max-width:500px">Editorial, Portrait, Architektur &#8212; ich fange Momente ein die bleiben. Kein Filter, echte Emotion.</p>
+        <div class="d-btns" style="justify-content:center">
+          <a href="#" class="d-btn" style="background:#f0f0f5;color:#080808">Portfolio ansehen</a>
+          <a href="#" class="d-btn d-btn-ghost">Buchung anfragen</a>
+        </div>
+      </div>
+    </header>
+    <section class="d-section" style="background:#060606">
+      <div class="d-section-label" style="color:#a0a0b8;text-align:center">Ausgew&#228;hlte Arbeiten</div>
+      <h2 class="d-h2" style="text-align:center">Recent Work</h2>
+      <div class="d-portfolio-grid">
+        <div class="d-portfolio-item d-p-big" style="background:linear-gradient(135deg,#1a1a1a,#252525)"><div class="d-p-label">Editorial &#8212; Vogue DE</div></div>
+        <div class="d-portfolio-item" style="background:linear-gradient(135deg,#141414,#202020)"><div class="d-p-label">Portrait</div></div>
+        <div class="d-portfolio-item" style="background:linear-gradient(135deg,#181818,#242424)"><div class="d-p-label">Architektur</div></div>
+        <div class="d-portfolio-item d-p-big" style="background:linear-gradient(135deg,#0e0e0e,#1a1a1a)"><div class="d-p-label">Kampagne &#8212; BMW</div></div>
+        <div class="d-portfolio-item" style="background:linear-gradient(135deg,#161616,#222222)"><div class="d-p-label">Branding</div></div>
+      </div>
+    </section>
+    <footer class="d-footer" style="background:#040404;border-color:rgba(240,240,245,.08)">
+      <div class="d-footer-inner">
+        <div class="d-footer-brand" style="color:#f0f0f5">&#9633; Max M&#252;ller</div>
+        <p class="d-footer-text">Fotografie &amp; Design &middot; Berlin</p>
+        <div class="d-footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">Kontakt</a></div>
+      </div>
+    </footer>
+  </section>
+
+  <!-- DEMO 7: FITNESS -->
+  <section class="demo-page" data-tpl="6">
+    <header class="d-header" style="background:linear-gradient(135deg,#060f06 0%,#0a180a 100%)">
+      <nav class="d-nav">
+        <div class="d-logo" style="color:#4cd45c">&#128170; IronForge</div>
+        <ul class="d-links">
+          <li><a href="#">Kurse</a></li>
+          <li><a href="#">Trainer</a></li>
+          <li><a href="#">Mitgliedschaft</a></li>
+          <li><a href="#" class="d-cta-link" style="background:#4cd45c;color:#060f06">Probe-Training</a></li>
+        </ul>
+      </nav>
+      <div class="d-hero-content">
+        <div class="d-eyebrow" style="color:#4cd45c;border-color:rgba(76,212,92,.3)">&#127942; Bestes Studio der Region 2024</div>
+        <h1 class="d-h1">Dein K&#246;rper.<br><span style="color:#4cd45c">Deine Transformation.</span></h1>
+        <p class="d-p">State-of-the-Art Equipment, erfahrene Trainer und eine Community die motiviert. Dein erstes Training ist kostenlos.</p>
+        <div class="d-btns">
+          <a href="#" class="d-btn" style="background:#4cd45c;color:#060f06">Gratis Probe-Training</a>
+          <a href="#" class="d-btn d-btn-ghost">Kursplan ansehen</a>
+        </div>
+      </div>
+    </header>
+    <section class="d-section" style="background:#050d05">
+      <div class="d-section-label" style="color:#4cd45c">Mitgliedschaft</div>
+      <h2 class="d-h2">Das richtige Paket f&#252;r dich</h2>
+      <div class="d-grid-3">
+        <div class="d-card" style="border-color:rgba(76,212,92,.2)">
+          <h3 class="d-card-title">Starter</h3>
+          <div style="font-size:32px;font-weight:700;color:#f0f0f5;margin:12px 0">&#8364;29<span style="font-size:14px;color:#9898ac">/Monat</span></div>
+          <p class="d-card-text">Ger&#228;tetraining, Umkleiden, 1&#215; Kurs/Woche</p>
+          <a href="#" style="display:block;text-align:center;margin-top:16px;padding:10px;border:1px solid rgba(76,212,92,.4);border-radius:8px;color:#4cd45c;font-size:14px;text-decoration:none">Ausw&#228;hlen</a>
+        </div>
+        <div class="d-card d-card-featured" style="border-color:#4cd45c">
+          <div class="d-featured-badge" style="background:#4cd45c;color:#060f06">Beliebteste Wahl</div>
+          <h3 class="d-card-title">Pro</h3>
+          <div style="font-size:32px;font-weight:700;color:#f0f0f5;margin:12px 0">&#8364;49<span style="font-size:14px;color:#9898ac">/Monat</span></div>
+          <p class="d-card-text">Alle Kurse, Personal Training 1&#215;/Monat, Sauna</p>
+          <a href="#" style="display:block;text-align:center;margin-top:16px;padding:10px;background:#4cd45c;border-radius:8px;color:#060f06;font-size:14px;font-weight:700;text-decoration:none">Jetzt starten</a>
+        </div>
+        <div class="d-card" style="border-color:rgba(76,212,92,.2)">
+          <h3 class="d-card-title">Elite</h3>
+          <div style="font-size:32px;font-weight:700;color:#f0f0f5;margin:12px 0">&#8364;79<span style="font-size:14px;color:#9898ac">/Monat</span></div>
+          <p class="d-card-text">Alles inklusive + w&#246;chentl. PT, Ern&#228;hrungsplan</p>
+          <a href="#" style="display:block;text-align:center;margin-top:16px;padding:10px;border:1px solid rgba(76,212,92,.4);border-radius:8px;color:#4cd45c;font-size:14px;text-decoration:none">Ausw&#228;hlen</a>
+        </div>
+      </div>
+    </section>
+    <footer class="d-footer" style="background:#030803;border-color:rgba(76,212,92,.1)">
+      <div class="d-footer-inner">
+        <div class="d-footer-brand" style="color:#4cd45c">&#128170; IronForge</div>
+        <p class="d-footer-text">Fitness Studio &#8212; Weil du es dir verdient hast</p>
+        <div class="d-footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">Kontakt</a></div>
+      </div>
+    </footer>
+  </section>
+
+  <!-- DEMO 8: IMMOBILIEN -->
+  <section class="demo-page" data-tpl="7">
+    <header class="d-header" style="background:linear-gradient(135deg,#080c18 0%,#0c1228 100%)">
+      <nav class="d-nav">
+        <div class="d-logo" style="color:#4c6fd4">&#127968; PrimeImmobilien</div>
+        <ul class="d-links">
+          <li><a href="#">Kaufen</a></li>
+          <li><a href="#">Mieten</a></li>
+          <li><a href="#">Bewerten</a></li>
+          <li><a href="#" class="d-cta-link" style="background:#4c6fd4">Kontakt</a></li>
+        </ul>
+      </nav>
+      <div class="d-hero-content">
+        <div class="d-eyebrow" style="color:#4c6fd4;border-color:rgba(76,111,212,.3)">&#127942; Top Makler Nordhessen 2024</div>
+        <h1 class="d-h1">Ihr Traum-<br><span style="color:#4c6fd4">zuhause wartet.</span></h1>
+        <p class="d-p">&#220;ber 300 Objekte in der Region. Pers&#246;nliche Beratung, professionelle Bewertung, schnelle Vermittlung &#8212; seit &#252;ber 20 Jahren.</p>
+        <div class="d-btns">
+          <a href="#" class="d-btn" style="background:#4c6fd4">Objekte ansehen</a>
+          <a href="#" class="d-btn d-btn-ghost">Kostenlose Bewertung</a>
+        </div>
+      </div>
+    </header>
+    <section class="d-section" style="background:#060a16">
+      <div class="d-section-label" style="color:#4c6fd4">Aktuelle Angebote</div>
+      <h2 class="d-h2">Ausgew&#228;hlte Objekte</h2>
+      <div class="d-grid-3">
+        <div class="d-card" style="border-color:rgba(76,111,212,.2)">
+          <div class="d-card-img" style="background:linear-gradient(135deg,#1a2240,#243060)"></div>
+          <div class="d-card-body">
+            <div style="font-size:11px;color:#4c6fd4;margin-bottom:4px">ZUM KAUF &middot; 34212 MELSUNGEN</div>
+            <h3 class="d-card-title">Einfamilienhaus</h3>
+            <p class="d-card-text">160m&#178; &middot; 6 Zi. &middot; Garten 500m&#178; &middot; Baujahr 2015 &middot; Energieeffizienz A</p>
+            <span class="d-price" style="color:#4c6fd4">&#8364; 485.000</span>
+          </div>
+        </div>
+        <div class="d-card d-card-featured" style="border-color:#4c6fd4">
+          <div class="d-featured-badge" style="background:#4c6fd4">Neu eingestellt</div>
+          <div class="d-card-img" style="background:linear-gradient(135deg,#1e2e55,#2a3e70)"></div>
+          <div class="d-card-body">
+            <div style="font-size:11px;color:#4c6fd4;margin-bottom:4px">ZUR MIETE &middot; 34117 KASSEL</div>
+            <h3 class="d-card-title">Penthouse-Wohnung</h3>
+            <p class="d-card-text">95m&#178; &middot; 3 Zi. &middot; Dachterrasse &middot; Tiefgarage &middot; Erstbezug</p>
+            <span class="d-price" style="color:#4c6fd4">&#8364; 1.450 / Monat</span>
+          </div>
+        </div>
+        <div class="d-card" style="border-color:rgba(76,111,212,.2)">
+          <div class="d-card-img" style="background:linear-gradient(135deg,#151e38,#1e2a50)"></div>
+          <div class="d-card-body">
+            <div style="font-size:11px;color:#4c6fd4;margin-bottom:4px">GEWERBE &middot; 34125 KASSEL</div>
+            <h3 class="d-card-title">B&#252;rofläche</h3>
+            <p class="d-card-text">220m&#178; &middot; Repr&#228;sentative Lage &middot; Stellpl&#228;tze &middot; Sofort verf&#252;gbar</p>
+            <span class="d-price" style="color:#4c6fd4">&#8364; 2.800 / Monat</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="d-footer" style="background:#040810;border-color:rgba(76,111,212,.1)">
+      <div class="d-footer-inner">
+        <div class="d-footer-brand" style="color:#4c6fd4">&#127968; PrimeImmobilien</div>
+        <p class="d-footer-text">Ihr Immobilienmakler f&#252;r Nordhessen</p>
+        <div class="d-footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">Kontakt</a></div>
+      </div>
+    </footer>
+  </section>
+
+</div><!-- /#demo-overlay -->
 </body>
 </html>
