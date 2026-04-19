@@ -872,6 +872,7 @@ section.alt-bg-2{
 }
 .preview-content::-webkit-scrollbar{width:4px}
 .preview-content::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:2px}
+.preview-scroll-hint{position:sticky;bottom:0;width:100%;text-align:center;padding:8px;font-size:11px;color:var(--text-muted);background:linear-gradient(transparent,rgba(9,9,15,.8));pointer-events:none;}
 
 /* Preview Sections */
 .pc-nav{
@@ -1682,6 +1683,12 @@ document.querySelectorAll('.demo-page').forEach(p => {
   p.style.display = 'none';
 });
 switchTemplate(0);
+
+  // Add scroll hint at bottom of preview
+  const scrollHint = document.createElement('div');
+  scrollHint.className = 'preview-scroll-hint';
+  scrollHint.textContent = '\u2193 Scrollen';
+  document.getElementById('previewContent').appendChild(scrollHint);
 </script>
 
 <div class="floating-cta" id="floatingCta">
@@ -1696,7 +1703,7 @@ switchTemplate(0);
 
   <!-- DEMO 1: RESTAURANT -->
   <section class="demo-page" data-tpl="0">
-    <header class="d-header" style="background:linear-gradient(135deg,#1a0c08 0%,#2d1408 100%)">
+    <header class="d-header" style="background:linear-gradient(135deg,#2d1408 0%,#4a2010 100%)">
       <nav class="d-nav">
         <div class="d-logo" style="color:#e87d4a">&#127829; Bella Cucina</div>
         <ul class="d-links">
@@ -1706,7 +1713,7 @@ switchTemplate(0);
           <li><a href="#" class="d-cta-link" style="background:#e87d4a">Reservieren</a></li>
         </ul>
       </nav>
-      <div class="d-hero-content">
+      <div class="d-hero-content" style="background:radial-gradient(ellipse at top left,rgba(232,125,74,.2),transparent 65%)">
         <div class="d-eyebrow" style="color:#e87d4a;border-color:rgba(232,125,74,.3)">&#9733; Seit 1998 in Melsungen</div>
         <h1 class="d-h1">Mediterrane K&#252;che<br><span style="color:#e87d4a">mit Herz &amp; Leidenschaft</span></h1>
         <p class="d-p">Frische Zutaten, traditionelle Rezepte und ein Hauch von Italien &#8212; mitten in Deutschland. Erleben Sie echten Geschmack.</p>
@@ -1716,7 +1723,7 @@ switchTemplate(0);
         </div>
       </div>
     </header>
-    <section class="d-section" style="background:#100a07">
+    <section class="d-section" style="background:#1c1008">
       <div class="d-section-label" style="color:#e87d4a">Unsere Spezialit&#228;ten</div>
       <h2 class="d-h2">Highlights aus unserer K&#252;che</h2>
       <div class="d-grid-3">
@@ -1747,7 +1754,7 @@ switchTemplate(0);
         </div>
       </div>
     </section>
-    <section class="d-section d-section-split" style="background:#0d0805">
+    <section class="d-section d-section-split" style="background:#180e07">
       <div class="d-split-text">
         <div class="d-section-label" style="color:#e87d4a">Reservierung</div>
         <h2 class="d-h2">Ihren Tisch reservieren</h2>
@@ -1774,7 +1781,7 @@ switchTemplate(0);
 
   <!-- DEMO 2: BUSINESS DASHBOARD -->
   <section class="demo-page" data-tpl="1">
-    <header class="d-header" style="background:linear-gradient(135deg,#080f08 0%,#0d1a0d 100%)">
+    <header class="d-header" style="background:linear-gradient(135deg,#0d1a0d 0%,#183018 100%)">
       <nav class="d-nav">
         <div class="d-logo" style="color:#55ce55">&#9672; FlowDesk</div>
         <ul class="d-links">
@@ -1784,7 +1791,7 @@ switchTemplate(0);
           <li><a href="#" class="d-cta-link" style="background:#55ce55;color:#080f08">App starten</a></li>
         </ul>
       </nav>
-      <div class="d-hero-content">
+      <div class="d-hero-content" style="background:radial-gradient(ellipse at top left,rgba(85,206,85,.2),transparent 65%)">
         <div class="d-eyebrow" style="color:#55ce55;border-color:rgba(85,206,85,.3)">&#128272; Ende-zu-Ende verschl&#252;sselt</div>
         <h1 class="d-h1">Ihr Business.<br><span style="color:#55ce55">Alles an einem Ort.</span></h1>
         <p class="d-p">Projekte, Aufgaben, Dokumente und Kundendaten &#8212; sicher, schnell und von &#252;berall erreichbar. Kein Abo, kein Lock-In.</p>
@@ -1794,7 +1801,7 @@ switchTemplate(0);
         </div>
       </div>
     </header>
-    <section class="d-section" style="background:#060d06">
+    <section class="d-section" style="background:#0e180e">
       <div class="d-section-label" style="color:#55ce55">Funktionen</div>
       <h2 class="d-h2">Alles was Ihr Unternehmen braucht</h2>
       <div class="d-grid-3">
@@ -1816,7 +1823,7 @@ switchTemplate(0);
         </div>
       </div>
     </section>
-    <section class="d-section d-section-split" style="background:#050c05">
+    <section class="d-section d-section-split" style="background:#0c160c">
       <div class="d-split-text">
         <div class="d-section-label" style="color:#55ce55">Sicherheit &amp; Vertrauen</div>
         <h2 class="d-h2">Ihre Daten geh&#246;ren Ihnen</h2>
@@ -1857,7 +1864,7 @@ switchTemplate(0);
 
   <!-- DEMO 3: ONLINE-SHOP -->
   <section class="demo-page" data-tpl="2">
-    <header class="d-header" style="background:linear-gradient(135deg,#080d18 0%,#0d1528 100%)">
+    <header class="d-header" style="background:linear-gradient(135deg,#0d1528 0%,#152040 100%)">
       <nav class="d-nav">
         <div class="d-logo" style="color:#4c89d4">&#128717; StyleVault</div>
         <ul class="d-links">
@@ -1867,7 +1874,7 @@ switchTemplate(0);
           <li><a href="#" class="d-cta-link" style="background:#4c89d4">&#128722; Warenkorb</a></li>
         </ul>
       </nav>
-      <div class="d-hero-content">
+      <div class="d-hero-content" style="background:radial-gradient(ellipse at top left,rgba(76,137,212,.2),transparent 65%)">
         <div class="d-eyebrow" style="color:#4c89d4;border-color:rgba(76,137,212,.3)">&#128640; Kostenloser Versand ab &#8364;49</div>
         <h1 class="d-h1">Mode &amp; Stil,<br><span style="color:#4c89d4">die zu Ihnen passt.</span></h1>
         <p class="d-p">Kuratierte Kollektionen f&#252;r jeden Anlass. Schnelle Lieferung, einfache R&#252;ckgabe &#8212; Einkaufen wie es sein soll.</p>
@@ -1877,7 +1884,7 @@ switchTemplate(0);
         </div>
       </div>
     </header>
-    <section class="d-section" style="background:#060c18">
+    <section class="d-section" style="background:#0e1828">
       <div class="d-section-label" style="color:#4c89d4">Neuheiten</div>
       <h2 class="d-h2">Frisch eingetroffen</h2>
       <div class="d-grid-3">
@@ -1919,7 +1926,7 @@ switchTemplate(0);
         </div>
       </div>
     </section>
-    <section class="d-section d-section-split" style="background:#050b16">
+    <section class="d-section d-section-split" style="background:#0c1625">
       <div class="d-split-text">
         <div class="d-section-label" style="color:#4c89d4">Warum StyleVault?</div>
         <h2 class="d-h2">Einkaufen ohne Kompromisse</h2>
@@ -1945,7 +1952,7 @@ switchTemplate(0);
 
   <!-- DEMO 4: FRISEURSALON -->
   <section class="demo-page" data-tpl="3">
-    <header class="d-header" style="background:linear-gradient(135deg,#180d18 0%,#220d22 100%)">
+    <header class="d-header" style="background:linear-gradient(135deg,#220d22 0%,#380d38 100%)">
       <nav class="d-nav">
         <div class="d-logo" style="color:#d44c9e">&#10022; LuminaBeauty</div>
         <ul class="d-links">
@@ -1955,7 +1962,7 @@ switchTemplate(0);
           <li><a href="#" class="d-cta-link" style="background:#d44c9e">Termin buchen</a></li>
         </ul>
       </nav>
-      <div class="d-hero-content">
+      <div class="d-hero-content" style="background:radial-gradient(ellipse at top left,rgba(212,76,158,.2),transparent 65%)">
         <div class="d-eyebrow" style="color:#d44c9e;border-color:rgba(212,76,158,.3)">&#128134; Online-Buchung 24/7 verf&#252;gbar</div>
         <h1 class="d-h1">Sch&#246;nheit &amp; Wellness<br><span style="color:#d44c9e">f&#252;r den modernen Menschen.</span></h1>
         <p class="d-p">Haare, N&#228;gel, Kosmetik &#8212; alles unter einem Dach. Ihr pers&#246;nlicher Wohlehlort, wo Sie sich rundum verw&#246;hnen lassen.</p>
@@ -1965,7 +1972,7 @@ switchTemplate(0);
         </div>
       </div>
     </header>
-    <section class="d-section" style="background:#100810">
+    <section class="d-section" style="background:#1a1020">
       <div class="d-section-label" style="color:#d44c9e">Unsere Leistungen</div>
       <h2 class="d-h2">Premium Beauty Services</h2>
       <div class="d-grid-3">
@@ -1990,7 +1997,7 @@ switchTemplate(0);
         </div>
       </div>
     </section>
-    <section class="d-section d-section-split" style="background:#0d060d">
+    <section class="d-section d-section-split" style="background:#160c16">
       <div class="d-split-text">
         <div class="d-section-label" style="color:#d44c9e">Online Terminbuchung</div>
         <h2 class="d-h2">Ihr n&#228;chster Termin &#8212; in 2 Minuten</h2>
@@ -2017,7 +2024,7 @@ switchTemplate(0);
 
   <!-- DEMO 5: HANDWERK -->
   <section class="demo-page" data-tpl="4">
-    <header class="d-header" style="background:linear-gradient(135deg,#181008 0%,#251808 100%)">
+    <header class="d-header" style="background:linear-gradient(135deg,#251808 0%,#3d2808 100%)">
       <nav class="d-nav">
         <div class="d-logo" style="color:#d49e4c">&#128295; Meister Schmidt</div>
         <ul class="d-links">
@@ -2030,7 +2037,7 @@ switchTemplate(0);
       <div class="d-notdienst-banner" style="background:rgba(220,80,60,.15);border:1px solid rgba(220,80,60,.4);color:#e86c50">
         &#128680; 24/7 Notdienst verf&#252;gbar &#8212; Telefon: +49 5661 99999
       </div>
-      <div class="d-hero-content">
+      <div class="d-hero-content" style="background:radial-gradient(ellipse at top left,rgba(212,158,76,.2),transparent 65%)">
         <div class="d-eyebrow" style="color:#d49e4c;border-color:rgba(212,158,76,.3)">&#10003; Meisterbetrieb seit 1985</div>
         <h1 class="d-h1">Ihr zuverl&#228;ssiger<br><span style="color:#d49e4c">Elektro-Fachbetrieb.</span></h1>
         <p class="d-p">Von der Steckdose bis zur Photovoltaikanlage &#8212; schnell, sauber, mit Garantie. Kostenloser Kostenvoranschlag innerhalb von 24h.</p>
@@ -2040,7 +2047,7 @@ switchTemplate(0);
         </div>
       </div>
     </header>
-    <section class="d-section" style="background:#100c06">
+    <section class="d-section" style="background:#1a1608">
       <div class="d-section-label" style="color:#d49e4c">Unsere Leistungen</div>
       <h2 class="d-h2">Was wir f&#252;r Sie tun</h2>
       <div class="d-grid-3">
@@ -2062,7 +2069,7 @@ switchTemplate(0);
         </div>
       </div>
     </section>
-    <section class="d-section d-section-split" style="background:#0c0904">
+    <section class="d-section d-section-split" style="background:#160e06">
       <div class="d-split-text">
         <div class="d-section-label" style="color:#d49e4c">Warum Schmidt Elektro?</div>
         <h2 class="d-h2">Handwerk mit Qualit&#228;tsgarantie</h2>
@@ -2088,7 +2095,7 @@ switchTemplate(0);
 
   <!-- DEMO 6: PORTFOLIO -->
   <section class="demo-page" data-tpl="5">
-    <header class="d-header" style="background:#080808">
+    <header class="d-header" style="background:linear-gradient(135deg,#0d0d12 0%,#181820 100%)">
       <nav class="d-nav">
         <div class="d-logo" style="color:#f0f0f5">&#9633; Max M&#252;ller</div>
         <ul class="d-links">
@@ -2098,7 +2105,7 @@ switchTemplate(0);
           <li><a href="#" class="d-cta-link" style="background:#f0f0f5;color:#080808">Kontakt</a></li>
         </ul>
       </nav>
-      <div class="d-hero-content" style="text-align:center;max-width:700px;margin:0 auto">
+      <div class="d-hero-content" style="text-align:center;max-width:700px;margin:0 auto;background:radial-gradient(ellipse at center top,rgba(160,160,184,.2),transparent 65%)">
         <div class="d-eyebrow" style="color:#a0a0b8;border-color:rgba(160,160,184,.2)">Freier Fotograf &amp; Designer &middot; Berlin</div>
         <h1 class="d-h1" style="font-size:clamp(36px,6vw,72px)">Bilder die<br><span style="color:transparent;-webkit-text-stroke:1px rgba(240,240,245,.6)">Geschichten erz&#228;hlen.</span></h1>
         <p class="d-p" style="margin:0 auto 40px;max-width:500px">Editorial, Portrait, Architektur &#8212; ich fange Momente ein die bleiben. Kein Filter, echte Emotion.</p>
@@ -2108,7 +2115,7 @@ switchTemplate(0);
         </div>
       </div>
     </header>
-    <section class="d-section" style="background:#060606">
+    <section class="d-section" style="background:#0e0e10">
       <div class="d-section-label" style="color:#a0a0b8;text-align:center">Ausgew&#228;hlte Arbeiten</div>
       <h2 class="d-h2" style="text-align:center">Recent Work</h2>
       <div class="d-portfolio-grid">
@@ -2130,7 +2137,7 @@ switchTemplate(0);
 
   <!-- DEMO 7: FITNESS -->
   <section class="demo-page" data-tpl="6">
-    <header class="d-header" style="background:linear-gradient(135deg,#060f06 0%,#0a180a 100%)">
+    <header class="d-header" style="background:linear-gradient(135deg,#0a180a 0%,#102010 100%)">
       <nav class="d-nav">
         <div class="d-logo" style="color:#4cd45c">&#128170; IronForge</div>
         <ul class="d-links">
@@ -2140,7 +2147,7 @@ switchTemplate(0);
           <li><a href="#" class="d-cta-link" style="background:#4cd45c;color:#060f06">Probe-Training</a></li>
         </ul>
       </nav>
-      <div class="d-hero-content">
+      <div class="d-hero-content" style="background:radial-gradient(ellipse at top left,rgba(76,212,92,.2),transparent 65%)">
         <div class="d-eyebrow" style="color:#4cd45c;border-color:rgba(76,212,92,.3)">&#127942; Bestes Studio der Region 2024</div>
         <h1 class="d-h1">Dein K&#246;rper.<br><span style="color:#4cd45c">Deine Transformation.</span></h1>
         <p class="d-p">State-of-the-Art Equipment, erfahrene Trainer und eine Community die motiviert. Dein erstes Training ist kostenlos.</p>
@@ -2150,7 +2157,7 @@ switchTemplate(0);
         </div>
       </div>
     </header>
-    <section class="d-section" style="background:#050d05">
+    <section class="d-section" style="background:#0c180c">
       <div class="d-section-label" style="color:#4cd45c">Mitgliedschaft</div>
       <h2 class="d-h2">Das richtige Paket f&#252;r dich</h2>
       <div class="d-grid-3">
@@ -2186,7 +2193,7 @@ switchTemplate(0);
 
   <!-- DEMO 8: IMMOBILIEN -->
   <section class="demo-page" data-tpl="7">
-    <header class="d-header" style="background:linear-gradient(135deg,#080c18 0%,#0c1228 100%)">
+    <header class="d-header" style="background:linear-gradient(135deg,#0c1228 0%,#101e40 100%)">
       <nav class="d-nav">
         <div class="d-logo" style="color:#4c6fd4">&#127968; PrimeImmobilien</div>
         <ul class="d-links">
@@ -2196,7 +2203,7 @@ switchTemplate(0);
           <li><a href="#" class="d-cta-link" style="background:#4c6fd4">Kontakt</a></li>
         </ul>
       </nav>
-      <div class="d-hero-content">
+      <div class="d-hero-content" style="background:radial-gradient(ellipse at top left,rgba(76,111,212,.2),transparent 65%)">
         <div class="d-eyebrow" style="color:#4c6fd4;border-color:rgba(76,111,212,.3)">&#127942; Top Makler Nordhessen 2024</div>
         <h1 class="d-h1">Ihr Traum-<br><span style="color:#4c6fd4">zuhause wartet.</span></h1>
         <p class="d-p">&#220;ber 300 Objekte in der Region. Pers&#246;nliche Beratung, professionelle Bewertung, schnelle Vermittlung &#8212; seit &#252;ber 20 Jahren.</p>
@@ -2206,7 +2213,7 @@ switchTemplate(0);
         </div>
       </div>
     </header>
-    <section class="d-section" style="background:#060a16">
+    <section class="d-section" style="background:#0e1428">
       <div class="d-section-label" style="color:#4c6fd4">Aktuelle Angebote</div>
       <h2 class="d-h2">Ausgew&#228;hlte Objekte</h2>
       <div class="d-grid-3">
