@@ -866,7 +866,7 @@ section.alt-bg-2{
   letter-spacing:.3px;
 }
 .preview-content{
-  height:420px;overflow-y:auto;overflow-x:hidden;
+  height:580px;overflow-y:auto;overflow-x:hidden;
   background:var(--preview-bg,#0f0f14);
   scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.1) transparent;
 }
@@ -1592,61 +1592,6 @@ const templates = [
 
 let activeIdx = 0;
 
-function buildPreviewHTML(t) {
-  return `
-    <div class="pc-nav" style="--preview-theme:${t.theme}">
-      <div class="pc-logo"></div>
-      <div class="pc-links">
-        <div class="pc-link" style="width:30px"></div>
-        <div class="pc-link" style="width:36px"></div>
-        <div class="pc-link" style="width:28px"></div>
-        <div class="pc-link" style="width:32px"></div>
-      </div>
-      <div class="pc-cta-btn"></div>
-    </div>
-    <div class="pc-hero" style="--preview-theme:${t.theme};--preview-theme-dark:${t.themeDark}">
-      <div class="pc-hero-text">
-        <div class="pc-h1"></div>
-        <div class="pc-h2"></div>
-        <div class="pc-sub"></div>
-        <div class="pc-sub s2"></div>
-        <div class="pc-btns">
-          <div class="pc-btn-p"></div>
-          <div class="pc-btn-g"></div>
-        </div>
-      </div>
-      <div class="pc-hero-img"></div>
-    </div>
-    <div class="pc-features" style="--preview-theme:${t.theme}">
-      ${[0,1,2].map(() => `
-        <div class="pc-feat">
-          <div class="pc-feat-icon"></div>
-          <div class="pc-feat-t"></div>
-          <div class="pc-feat-s"></div>
-        </div>
-      `).join('')}
-    </div>
-    <div class="pc-about">
-      <div class="pc-about-text">
-        <div class="pc-at-bar w90"></div>
-        <div class="pc-at-bar w70"></div>
-        <div class="pc-at-bar w80"></div>
-        <div class="pc-at-bar w50"></div>
-      </div>
-      <div class="pc-about-img"></div>
-    </div>
-    <div class="pc-footer">
-      ${[0,1,2].map(() => `
-        <div class="pc-footer-col">
-          <div class="pc-ft ft1"></div>
-          <div class="pc-ft ft2"></div>
-          <div class="pc-ft ft3"></div>
-          <div class="pc-ft ft4"></div>
-        </div>
-      `).join('')}
-    </div>
-  `;
-}
 
 function buildTemplateList() {
   const list = document.getElementById('templateList');
@@ -1694,10 +1639,10 @@ window.switchTemplate = function(idx) {
     const t = templates[idx];
     activeIdx = idx;
 
-    // Update CSS vars on content
-    content.style.setProperty('--preview-bg', t.bgPreview);
-    content.style.background = t.bgPreview;
-    content.innerHTML = buildPreviewHTML(t);
+    // Show active demo page directly in preview
+    document.querySelectorAll('#previewContent .demo-page').forEach((p, i) => {
+      p.style.display = i === idx ? 'block' : 'none';
+    });
 
     // Update URL bar
     urlBar.textContent = t.url;
@@ -1706,19 +1651,6 @@ window.switchTemplate = function(idx) {
     nameEl.textContent = t.name;
     branchEl.textContent = t.branch;
     featsList.innerHTML = t.features.map(f => `<li>${f}</li>`).join('');
-
-    // Add/update demo button in preview-info
-    let demoBtn = document.getElementById('pi-demo-btn');
-    if(!demoBtn){
-      demoBtn = document.createElement('a');
-      demoBtn.id = 'pi-demo-btn';
-      demoBtn.className = 'btn btn-ghost pi-demo';
-      demoBtn.style.cssText = 'padding:12px 20px;font-size:14px;white-space:nowrap;display:inline-flex;align-items:center;gap:8px';
-      document.querySelector('.preview-info').appendChild(demoBtn);
-    }
-    demoBtn.innerHTML = 'Live Demo <span style="font-size:16px">&#8594;</span>';
-    demoBtn.href = '#';
-    demoBtn.onclick = (e) => { e.preventDefault(); openDemo(idx); };
 
     // Update active button
     document.querySelectorAll('.tl-btn').forEach((btn, i) => {
@@ -1742,50 +1674,14 @@ document.addEventListener('keydown', e => {
   }
 });
 
-// Init
+// Init: move demo pages into preview browser, then show first
 buildTemplateList();
 buildOverviewGrid();
-switchTemplate(0);
-
-// ============================================================
-// DEMO OVERLAY SYSTEM
-// ============================================================
-const overlay = document.getElementById('demo-overlay');
-const demoNavLabel = document.getElementById('demoNavLabel');
-const demoContactBtn = document.getElementById('demo-contact-btn');
-
-const demoLabels = [
-  'Restaurant Template','Business Dashboard','Online-Shop Template',
-  'Friseursalon Template','Handwerksbetrieb Template',
-  'Kreativ-Portfolio Template','Fitnessstudio Template','Immobilienmakler Template'
-];
-
-window.openDemo = function(idx){
-  const parts2 = ['onyxweb24','gmail.com'];
-  const em2 = parts2.join('@');
-  if(demoContactBtn) demoContactBtn.href = 'mailto:'+em2+'?subject='+encodeURIComponent('Anfrage: '+demoLabels[idx]);
-
-  document.querySelectorAll('.demo-page').forEach((p,i) => {
-    p.classList.toggle('active', i === idx);
-  });
-
-  if(demoNavLabel) demoNavLabel.textContent = demoLabels[idx] || '';
-
-  overlay.classList.add('open');
-  overlay.setAttribute('aria-hidden','false');
-  overlay.scrollTop = 0;
-  document.body.style.overflow = 'hidden';
-};
-
-window.closeDemo = function(){
-  overlay.classList.remove('open');
-  overlay.setAttribute('aria-hidden','true');
-  document.body.style.overflow = '';
-};
-
-document.addEventListener('keydown', e => {
-  if(e.key === 'Escape' && overlay.classList.contains('open')) closeDemo();
+document.querySelectorAll('.demo-page').forEach(p => {
+  document.getElementById('previewContent').appendChild(p);
+  p.style.display = 'none';
 });
+switchTemplate(0);
 </script>
 
 <div class="floating-cta" id="floatingCta">
@@ -1795,16 +1691,8 @@ document.addEventListener('keydown', e => {
   </a>
 </div>
 
-<!-- DEMO OVERLAY SYSTEM -->
-<div id="demo-overlay" aria-hidden="true">
-  <nav class="demo-nav">
-    <button class="demo-back" onclick="closeDemo()">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-      ONYX Studio
-    </button>
-    <div class="demo-nav-label" id="demoNavLabel">Restaurant Template</div>
-    <a id="demo-contact-btn" href="#" class="demo-contact">Anfragen &#8594;</a>
-  </nav>
+<!-- DEMO PAGES (moved into preview by JS) -->
+<div id="demo-storage" hidden>
 
   <!-- DEMO 1: RESTAURANT -->
   <section class="demo-page" data-tpl="0">
@@ -2361,6 +2249,6 @@ document.addEventListener('keydown', e => {
     </footer>
   </section>
 
-</div><!-- /#demo-overlay -->
+</div><!-- /#demo-storage -->
 </body>
 </html>
