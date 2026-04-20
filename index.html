@@ -3,27 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="ONYX Studio — Premium Websites & Web-Apps für Unternehmen. Schnell, sicher, modern.">
-<meta name="theme-color" content="#07101e">
+<meta name="description" content="ONYX Studio — Premium Websites, Web-Apps & Mobile Apps für Unternehmen. Schnell, sicher, modern.">
+<meta name="theme-color" content="#faf8f5">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://assets.calendly.com; script-src 'self' 'unsafe-inline' https://assets.calendly.com https://va.vercel-scripts.com; img-src 'self' data: https://*.calendly.com https://*.cloudfront.net https://images.unsplash.com; font-src 'self' data: https://assets.calendly.com; connect-src https://calendly.com https://api.calendly.com https://*.calendly.com https://vitals.vercel-insights.com; frame-src https://calendly.com; object-src 'none'"><title>ONYX Studio — Websites & Apps die begeistern</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#07101e;
-  --bg-soft:#0b1726;
-  --bg-alt:#091422;
-  --card:#0f1e32;
-  --card-hover:#132540;
-  --border:#1a2e48;
-  --border-soft:#152540;
-  --text:#eef2f8;
-  --text-dim:#8a9ab8;
-  --text-muted:#4a5a78;
-  --gold:#c9a84c;
-  --gold-soft:#d4b865;
-  --gold-bright:#e8c96a;
-  --gold-glow:rgba(201,168,76,.18);
-  --purple:rgba(120,90,220,.6);
+  --bg:#faf8f5;
+  --bg-soft:#f3efe9;
+  --bg-alt:#ede8e0;
+  --card:#ffffff;
+  --card-hover:#f9f6f1;
+  --border:#e5ddd0;
+  --border-soft:#ece5d8;
+  --text:#1a1a2e;
+  --text-dim:#4a4a62;
+  --text-muted:#8a8a9a;
+  --gold:#b8942e;
+  --gold-soft:#c9a53d;
+  --gold-bright:#d4b04a;
+  --gold-glow:rgba(184,148,46,.12);
+  --purple:rgba(120,90,220,.3);
   --radius:14px;
   --maxw:1200px;
 }
@@ -35,7 +35,7 @@ body{
   line-height:1.6;
   overflow-x:hidden;
 }
-::selection{background:var(--gold);color:#0f0f14}
+::selection{background:var(--gold);color:#ffffff}
 button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 
 #starfield{
@@ -48,13 +48,13 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
   padding:18px 0;
-  background:rgba(7,16,30,.75);
+  background:rgba(255,255,255,.85);
   backdrop-filter:blur(20px);
   -webkit-backdrop-filter:blur(20px);
   border-bottom:1px solid transparent;
   transition:.3s;
 }
-nav.scrolled{border-bottom-color:var(--border-soft);background:rgba(7,16,30,.92)}
+nav.scrolled{border-bottom-color:var(--border-soft);background:rgba(255,255,255,.95)}
 .nav-inner{display:flex;justify-content:space-between;align-items:center}
 .logo{
   font-family:'Georgia',serif;font-weight:700;font-size:24px;
@@ -242,22 +242,22 @@ section.alt-bg-2{
 }
 .mockup{
   width:80%;max-width:380px;aspect-ratio:16/10;
-  background:#0a0a10;border-radius:10px;
-  border:1px solid #2a2a36;box-shadow:0 30px 60px rgba(0,0,0,.5);
+  background:#f0ede8;border-radius:10px;
+  border:1px solid #d5d0c8;box-shadow:0 20px 40px rgba(0,0,0,.08);
   position:relative;overflow:hidden;
 }
 .mockup-bar{
-  height:24px;background:#1a1a24;display:flex;align-items:center;padding:0 10px;gap:5px;
+  height:24px;background:#e5e0d8;display:flex;align-items:center;padding:0 10px;gap:5px;
 }
-.mockup-bar span{width:8px;height:8px;border-radius:50%;background:#3a3a48}
+.mockup-bar span{width:8px;height:8px;border-radius:50%;background:#c5beb0}
 .mockup-content{padding:18px;height:calc(100% - 24px);display:flex;flex-direction:column;gap:8px}
-.mockup-line{height:8px;border-radius:3px;background:#22222e}
+.mockup-line{height:8px;border-radius:3px;background:#dcd6ca}
 .mockup-line.gold{background:linear-gradient(90deg,var(--gold),transparent);width:60%}
 .mockup-line.green{background:linear-gradient(90deg,#55ce55,transparent);width:55%}
 .mockup-line.short{width:40%}
 .mockup-line.med{width:75%}
 .mockup-grid-mini{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:auto}
-.mockup-card{aspect-ratio:1;background:#1a1a24;border-radius:5px}
+.mockup-card{aspect-ratio:1;background:#e5e0d8;border-radius:5px}
 
 .work-info{padding:48px}
 .work-tag{
@@ -403,8 +403,8 @@ section.alt-bg-2{
 }
 .testimonial:hover{
   transform:translateY(-5px);
-  border-color:rgba(201,168,76,.4);
-  box-shadow:0 20px 60px rgba(0,0,0,.3),0 0 0 1px rgba(201,168,76,.1);
+  border-color:rgba(184,148,46,.4);
+  box-shadow:0 20px 40px rgba(0,0,0,.06),0 0 0 1px rgba(184,148,46,.1);
 }
 .stars{
   color:var(--gold);font-size:18px;letter-spacing:2px;margin-bottom:20px;
@@ -432,21 +432,21 @@ section.alt-bg-2{
 .work-visual{padding:40px 32px}
 .mockup{
   width:100%;max-width:480px;aspect-ratio:16/10;
-  background:#0a0a10;border-radius:10px;
-  border:1px solid #2a2a36;box-shadow:0 30px 60px rgba(0,0,0,.55),0 8px 20px rgba(0,0,0,.35);
+  background:#f0ede8;border-radius:10px;
+  border:1px solid #d5d0c8;box-shadow:0 20px 40px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.04);
   position:relative;overflow:hidden;
 }
 .mockup-bar{
-  height:24px;background:#1a1a24;display:flex;align-items:center;
-  padding:0 10px;gap:5px;border-bottom:1px solid #2a2a36;
+  height:24px;background:#e5e0d8;display:flex;align-items:center;
+  padding:0 10px;gap:5px;border-bottom:1px solid #d5d0c8;
 }
-.mockup-bar span{width:8px;height:8px;border-radius:50%;background:#3a3a48}
+.mockup-bar span{width:8px;height:8px;border-radius:50%;background:#c5beb0}
 .mockup-bar span:nth-child(1){background:#ff5f57}
 .mockup-bar span:nth-child(2){background:#febc2e}
 .mockup-bar span:nth-child(3){background:#28c840}
 .mockup-url{
-  flex:1;margin-left:10px;height:14px;background:#0f0f14;border-radius:4px;
-  border:1px solid #2a2a36;
+  flex:1;margin-left:10px;height:14px;background:#faf8f5;border-radius:4px;
+  border:1px solid #d5d0c8;
 }
 .mockup-content{
   padding:14px;height:calc(100% - 24px);display:flex;flex-direction:column;gap:10px;
@@ -486,13 +486,13 @@ section.alt-bg-2{
   background:rgba(255,255,255,.95);
 }
 .text-block{
-  height:8px;border-radius:3px;background:#22222e;width:90%;
+  height:8px;border-radius:3px;background:#dcd6ca;width:90%;
 }
 .card-row{display:flex;gap:8px;margin-top:auto}
 .mini-card{
   flex:1;height:42px;border-radius:5px;
-  background:linear-gradient(135deg,#1a1a24,#22222e);
-  border:1px solid rgba(255,255,255,.04);
+  background:linear-gradient(135deg,#ece5d8,#dcd6ca);
+  border:1px solid rgba(0,0,0,.04);
   position:relative;overflow:hidden;
 }
 .mini-card::before{
@@ -501,18 +501,18 @@ section.alt-bg-2{
 }
 .mini-card::after{
   content:'';position:absolute;bottom:6px;left:6px;width:60%;height:4px;
-  border-radius:2px;background:#3a3a48;
+  border-radius:2px;background:#c5beb0;
 }
 
 /* Theme classes */
 .t-restaurant{--theme:#d4734c;--theme-dark:#8a3a18}
 .t-dashboard{--theme:#55ce55;--theme-dark:#2a7a2a}
 .t-shop{--theme:#4c89d4;--theme-dark:#1a4a8a}
-.t-beauty{--theme:#d44c9e;--theme-dark:#8a1a5a}
+.t-fitness-app{--theme:#4cd45c;--theme-dark:#1a8a2a}
 .t-handwerker{--theme:#d49e4c;--theme-dark:#8a5a18}
-.t-portfolio{--theme:#c0c0c8;--theme-dark:#404048}
-.t-fitness{--theme:#4cd45c;--theme-dark:#1a8a2a}
-.t-immobilien{--theme:#4c6fd4;--theme-dark:#1a3a8a}
+.t-liefer-app{--theme:#e87d4a;--theme-dark:#8a3a18}
+.t-termin-app{--theme:#7c5ce0;--theme-dark:#4a2a9a}
+.t-immo-app{--theme:#4c6fd4;--theme-dark:#1a3a8a}
 
 /* Visual backgrounds */
 .work-visual.restaurant{background:linear-gradient(135deg,#1a1410 0%,#2a1f15 100%)}
@@ -565,7 +565,7 @@ section.alt-bg-2{
    ============================================================ */
 #demo-overlay{
   position:fixed;inset:0;z-index:500;
-  background:#07101e;
+  background:#faf8f5;
   overflow-y:auto;overflow-x:hidden;
   opacity:0;visibility:hidden;pointer-events:none;
   transition:opacity .4s ease,visibility .4s ease;
@@ -577,13 +577,13 @@ section.alt-bg-2{
   position:sticky;top:0;z-index:10;
   display:flex;align-items:center;justify-content:space-between;
   padding:14px 32px;
-  background:rgba(7,16,30,.95);backdrop-filter:blur(20px);
-  border-bottom:1px solid rgba(255,255,255,.06);
+  background:rgba(255,255,255,.95);backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(0,0,0,.06);
   gap:16px;
 }
 .demo-back{
   display:flex;align-items:center;gap:8px;
-  background:none;border:1px solid rgba(255,255,255,.12);
+  background:none;border:1px solid rgba(0,0,0,.12);
   color:var(--text-dim);padding:8px 16px;border-radius:8px;
   cursor:pointer;font-size:13px;font-weight:500;
   transition:.2s;white-space:nowrap;
@@ -863,6 +863,73 @@ section.alt-bg-2{
   .d-notdienst-banner{margin:0 24px;margin-top:10px}
 }
 
+/* APP PHONE FRAME */
+.app-frame{
+  width:280px;height:560px;margin:0 auto;
+  border-radius:36px;overflow:hidden;
+  border:3px solid #2a2a36;
+  background:#111;
+  box-shadow:0 20px 60px rgba(0,0,0,.15),0 4px 16px rgba(0,0,0,.08);
+  display:flex;flex-direction:column;
+  position:relative;
+}
+.app-frame::before{
+  content:'';position:absolute;top:8px;left:50%;transform:translateX(-50%);
+  width:80px;height:24px;background:#000;border-radius:20px;z-index:10;
+}
+.app-status-bar{
+  height:44px;padding:14px 20px 0;
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:11px;font-weight:600;color:rgba(255,255,255,.8);
+  background:inherit;flex-shrink:0;
+}
+.app-content{
+  flex:1;overflow-y:auto;overflow-x:hidden;
+  scrollbar-width:none;
+}
+.app-content::-webkit-scrollbar{display:none}
+.app-bottom-nav{
+  height:56px;padding:6px 0;
+  background:rgba(17,17,17,.95);
+  backdrop-filter:blur(10px);
+  border-top:1px solid rgba(255,255,255,.08);
+  display:flex;justify-content:space-around;align-items:center;
+  flex-shrink:0;
+}
+.app-nav-item{
+  display:flex;flex-direction:column;align-items:center;gap:2px;
+  font-size:9px;color:rgba(255,255,255,.4);font-weight:500;
+}
+.app-nav-item.active{color:#fff}
+.app-nav-icon{width:20px;height:20px;border-radius:4px;background:rgba(255,255,255,.15)}
+.app-nav-item.active .app-nav-icon{background:var(--app-accent,#4cd45c)}
+
+.app-header{padding:16px 20px 12px;font-size:20px;font-weight:800;color:#fff}
+.app-sub{font-size:12px;color:rgba(255,255,255,.5);padding:0 20px 16px}
+.app-card{
+  margin:8px 16px;padding:14px;background:rgba(255,255,255,.06);
+  border-radius:12px;border:1px solid rgba(255,255,255,.08);
+}
+.app-card-title{font-size:13px;font-weight:700;color:#fff;margin-bottom:4px}
+.app-card-text{font-size:11px;color:rgba(255,255,255,.45);line-height:1.5}
+.app-section-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.3);padding:12px 20px 8px}
+.app-list-item{
+  display:flex;align-items:center;gap:12px;padding:10px 20px;
+  border-bottom:1px solid rgba(255,255,255,.04);
+}
+.app-list-icon{width:36px;height:36px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:16px}
+.app-list-info{flex:1}
+.app-list-name{font-size:13px;font-weight:600;color:#fff}
+.app-list-meta{font-size:11px;color:rgba(255,255,255,.4)}
+.app-progress-bar{height:6px;border-radius:3px;background:rgba(255,255,255,.08);margin-top:8px}
+.app-progress-fill{height:100%;border-radius:3px}
+.app-stat-row{display:flex;gap:8px;padding:0 16px 12px}
+.app-stat-card{flex:1;padding:12px;background:rgba(255,255,255,.05);border-radius:10px;text-align:center}
+.app-stat-num{font-size:18px;font-weight:800;margin-bottom:2px}
+.app-stat-label{font-size:9px;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.5px}
+
+.demo-page .app-frame{margin:20px auto}
+
 /* FLOATING CTA */
 .floating-cta{
   position:fixed;bottom:32px;right:32px;z-index:200;
@@ -877,12 +944,12 @@ section.alt-bg-2{
   background:linear-gradient(135deg,var(--gold) 0%,var(--gold-soft) 100%);
   color:#09090f;font-weight:700;font-size:14px;
   text-decoration:none;
-  box-shadow:0 8px 32px rgba(201,168,76,.35),0 2px 8px rgba(0,0,0,.4);
+  box-shadow:0 8px 32px rgba(184,148,46,.25),0 2px 8px rgba(0,0,0,.08);
   transition:.25s;
 }
 .floating-cta-btn:hover{
   transform:translateY(-2px);
-  box-shadow:0 12px 40px rgba(201,168,76,.5),0 4px 12px rgba(0,0,0,.4);
+  box-shadow:0 12px 40px rgba(184,148,46,.4),0 4px 12px rgba(0,0,0,.08);
 }
 @media(max-width:600px){
   .floating-cta{bottom:20px;right:20px}
@@ -974,7 +1041,7 @@ section.alt-bg-2{
 .booking-cta-card{
   background:var(--card);border:1px solid var(--border-soft);
   border-radius:20px;padding:36px;
-  box-shadow:0 40px 80px rgba(0,0,0,.5);
+  box-shadow:0 20px 60px rgba(0,0,0,.08);
 }
 .booking-cta-top{display:flex;align-items:center;gap:16px;margin-bottom:28px}
 .booking-cta-icon{font-size:36px;line-height:1}
@@ -1037,15 +1104,15 @@ section.alt-bg-2{
 }
 .preview-browser{
   border-radius:14px;overflow:hidden;
-  border:1px solid #2a2a36;
-  box-shadow:0 40px 80px rgba(0,0,0,.6),0 10px 30px rgba(0,0,0,.4);
+  border:1px solid var(--border);
+  box-shadow:0 20px 40px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.04);
   transition:opacity .35s ease, transform .35s ease;
 }
 .preview-browser.switching{opacity:0;transform:translateY(-10px)}
 .preview-bar{
-  height:36px;background:#1a1a24;
+  height:36px;background:#e8e4de;
   display:flex;align-items:center;padding:0 14px;gap:7px;
-  border-bottom:1px solid #2a2a36;
+  border-bottom:1px solid #d5d0c8;
 }
 .pb-dot{width:12px;height:12px;border-radius:50%}
 .pd-red{background:#ff5f57}
@@ -1053,20 +1120,20 @@ section.alt-bg-2{
 .pd-green{background:#28c840}
 .preview-url{
   flex:1;margin-left:12px;height:20px;
-  background:rgba(255,255,255,.06);border-radius:6px;
-  border:1px solid #2a2a36;
+  background:rgba(0,0,0,.05);border-radius:6px;
+  border:1px solid #d5d0c8;
   display:flex;align-items:center;padding:0 10px;
   font-size:11px;color:var(--text-muted);font-family:monospace;
   letter-spacing:.3px;
 }
 .preview-content{
   height:580px;overflow-y:auto;overflow-x:hidden;
-  background:var(--preview-bg,#07101e);
-  scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.1) transparent;
+  background:var(--preview-bg,#faf8f5);
+  scrollbar-width:thin;scrollbar-color:rgba(0,0,0,.15) transparent;
 }
 .preview-content::-webkit-scrollbar{width:4px}
-.preview-content::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:2px}
-.preview-scroll-hint{position:sticky;bottom:0;width:100%;text-align:center;padding:8px;font-size:11px;color:var(--text-muted);background:linear-gradient(transparent,rgba(9,9,15,.8));pointer-events:none;}
+.preview-content::-webkit-scrollbar-thumb{background:rgba(0,0,0,.15);border-radius:2px}
+.preview-scroll-hint{position:sticky;bottom:0;width:100%;text-align:center;padding:8px;font-size:11px;color:var(--text-muted);background:linear-gradient(transparent,rgba(250,248,245,.9));pointer-events:none;}
 
 /* Preview Sections */
 .pc-nav{
@@ -1421,7 +1488,7 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
       <span class="eyebrow-slots">Noch <strong>2 Projektslots</strong> im <span id="current-month">April</span> frei</span>
     </div>
     <h1>Websites & Apps,<br>die <span class="gold">begeistern.</span></h1>
-    <p>Maßgeschneiderte digitale Lösungen für Unternehmen, die mehr wollen als nur eine Website. Schnell entwickelt, sauber gebaut, kompromisslos in der Qualität.</p>
+    <p>Maßgeschneiderte digitale Lösungen für Unternehmen — von der responsiven Website bis zur nativen App. Schnell entwickelt, sauber gebaut, kompromisslos in der Qualität.</p>
     <div class="hero-cta">
       <a href="#contact" class="btn btn-primary">Projekt starten <span class="arrow">→</span></a>
       <a href="#booking" class="btn btn-ghost">Termin buchen →</a>
@@ -1429,7 +1496,7 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
     <div class="hero-stats">
       <div class="stat">
         <div class="stat-num">8+</div>
-        <div class="stat-label">Websites gebaut</div>
+        <div class="stat-label">Projekte gebaut</div>
       </div>
       <div class="stat-divider"></div>
       <div class="stat">
@@ -1527,13 +1594,13 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
         <div class="service-icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
         </div>
-        <h3>Web Apps</h3>
-        <p>Maßgeschneiderte Web-Anwendungen — von Buchungssystemen bis zu komplexen Dashboards.</p>
+        <h3>Web & Mobile Apps</h3>
+        <p>Von Web-Apps über iOS bis Android — maßgeschneiderte Anwendungen mit Flutter, React Native oder nativem Code.</p>
         <ul>
-          <li>Custom Funktionen</li>
-          <li>Datenbank-Integration</li>
-          <li>Verschlüsselte Datenhaltung</li>
-          <li>PWA-fähig (offline)</li>
+          <li>Cross-Platform (iOS & Android)</li>
+          <li>Push-Benachrichtigungen</li>
+          <li>Offline-fähig (PWA)</li>
+          <li>App Store Deployment</li>
         </ul>
       </div>
 
@@ -1559,7 +1626,7 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
   <div class="container">
     <div class="section-head reveal" style="text-align:center;margin:0 auto 64px;max-width:600px">
       <div class="section-eyebrow">So einfach gehts</div>
-      <h2>In 3 Schritten<br>zur fertigen Website.</h2>
+      <h2>In 3 Schritten<br>zum fertigen Projekt.</h2>
     </div>
     <div class="process-steps">
       <div class="process-step reveal">
@@ -1577,7 +1644,7 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
         </div>
         <h3>Design & Entwicklung</h3>
-        <p>Ich baue Ihre Website — maßgeschneidert, sauber codiert, optimiert für Geschwindigkeit und Mobilgeräte.</p>
+        <p>Ich baue Ihre Website oder App — maßgeschneidert, sauber codiert, optimiert für Geschwindigkeit und Mobilgeräte.</p>
       </div>
       <div class="process-connector"></div>
       <div class="process-step reveal">
@@ -1586,7 +1653,7 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
         </div>
         <h3>Live & erfolgreich</h3>
-        <p>Nach Ihrer Freigabe geht die Seite live. Sie bekommen den kompletten Code — keine Abhängigkeiten, kein Lock-In.</p>
+        <p>Nach Ihrer Freigabe geht das Projekt live. Sie bekommen den kompletten Code — keine Abhängigkeiten, kein Lock-In.</p>
       </div>
     </div>
   </div>
@@ -1633,8 +1700,8 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
   <div class="container">
     <div class="section-head reveal">
       <div class="section-eyebrow">Design-Vorlagen</div>
-      <h2>So könnte Ihre<br>Website aussehen.</h2>
-      <p>Klicken Sie eine Branche an — und sehen Sie live, wie Ihre Website aussehen könnte. Individuell angepasst an Ihr Design, Ihre Inhalte, Ihre Marke.</p>
+      <h2>So könnte Ihr<br>Projekt aussehen.</h2>
+      <p>Klicken Sie eine Branche an — und sehen Sie live, wie Ihre Website oder App aussehen könnte. Individuell angepasst an Ihr Design, Ihre Inhalte, Ihre Marke.</p>
     </div>
 
     <!-- INTERACTIVE SHOWCASE -->
@@ -1680,8 +1747,8 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
       <div class="about-text reveal">
         <div class="section-eyebrow">Über ONYX</div>
         <h2>Premium Code.<br>Persönlicher Service.</h2>
-        <p><strong>ONYX Studio</strong> ist mein nebenberufliches Web-Studio. Hauptberuflich arbeite ich als <strong>Informations- und System-Techniker</strong> — ich verstehe IT-Infrastruktur, Netzwerke, Sicherheit und was Unternehmen wirklich brauchen.</p>
-        <p>Ich baue Websites und Web-Apps mit den modernsten KI-gestützten Tools — was mir erlaubt, in Tagen zu liefern, wofür Agenturen Wochen brauchen. <strong>Ohne Kompromisse bei Qualität, Design oder Sicherheit.</strong></p>
+        <p><strong>ONYX Studio</strong> ist mein nebenberufliches Digital-Studio. Hauptberuflich arbeite ich als <strong>Informations- und System-Techniker</strong> — ich verstehe IT-Infrastruktur, Netzwerke, Sicherheit und was Unternehmen wirklich brauchen.</p>
+        <p>Ich baue Websites, Web-Apps und Mobile Apps mit den modernsten KI-gestützten Tools — was mir erlaubt, in Tagen zu liefern, wofür Agenturen Wochen brauchen. <strong>Ohne Kompromisse bei Qualität, Design oder Sicherheit.</strong></p>
         <p>Jedes Projekt wird handverlesen. Keine Vorlagen, kein WordPress-Baukasten — sondern echter, sauberer Code, der dir gehört.</p>
       </div>
 
@@ -1798,7 +1865,7 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
       <div class="contact-badge">⚡ Schnelle Antwort — meist innerhalb 24h</div>
       <div class="section-eyebrow">Kontakt</div>
       <h2>Lass uns dein<br>Projekt umsetzen.</h2>
-      <p>Egal ob Website, Web-App oder Idee im Kopf — schreib mir und wir schauen gemeinsam, was möglich ist. <strong style="color:var(--text)">Erstgespräch ist kostenlos.</strong></p>
+      <p>Egal ob Website, App oder Idee im Kopf — schreib mir und wir schauen gemeinsam, was möglich ist. <strong style="color:var(--text)">Erstgespräch ist kostenlos.</strong></p>
       <a id="email-cta" href="#" class="email-cta">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         <span id="email-display">onyxstudio@outlook.de</span>
@@ -1828,63 +1895,27 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 </footer>
 
 <script>
-// STARFIELD
+// Subtle background — no starfield on light theme
 (function(){
   const canvas = document.getElementById('starfield');
   const ctx = canvas.getContext('2d');
-  let W, H, stars = [];
-  const STAR_COUNT = 220;
-  const GOLD = 'rgba(201,168,76,';
-  const WHITE = 'rgba(220,230,248,';
-
-  function resize(){
-    W = canvas.width = window.innerWidth;
-    H = canvas.height = window.innerHeight;
-  }
-
-  function initStars(){
-    stars = [];
-    for(let i = 0; i < STAR_COUNT; i++){
-      const isGold = Math.random() < 0.28;
-      stars.push({
-        x: Math.random() * W,
-        y: Math.random() * H,
-        r: Math.random() * 1.4 + 0.3,
-        alpha: Math.random() * 0.7 + 0.15,
-        speed: Math.random() * 0.015 + 0.005,
-        phase: Math.random() * Math.PI * 2,
-        gold: isGold,
-        twinkleSpeed: Math.random() * 0.02 + 0.005
-      });
+  let W, H;
+  function resize(){ W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; draw(); }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    const dots = 80;
+    for(let i=0;i<dots;i++){
+      const x = (i * 137.508) % W;
+      const y = (i * 89.123) % H;
+      const r = 1 + (i % 3) * 0.5;
+      ctx.beginPath();
+      ctx.arc(x,y,r,0,Math.PI*2);
+      ctx.fillStyle = 'rgba(184,148,46,' + (0.04 + (i%5)*0.01) + ')';
+      ctx.fill();
     }
   }
-
-  let frame = 0;
-  function draw(){
-    ctx.clearRect(0, 0, W, H);
-    frame += 0.5;
-    stars.forEach(s => {
-      const tw = Math.sin(frame * s.twinkleSpeed + s.phase);
-      const a = s.alpha * (0.5 + 0.5 * tw);
-      const color = s.gold ? GOLD : WHITE;
-      if(s.gold && a > 0.4){
-        ctx.beginPath();
-        ctx.arc(s.x, s.y, s.r * 3, 0, Math.PI * 2);
-        ctx.fillStyle = GOLD + (a * 0.12) + ')';
-        ctx.fill();
-      }
-      ctx.beginPath();
-      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-      ctx.fillStyle = color + a + ')';
-      ctx.fill();
-    });
-    requestAnimationFrame(draw);
-  }
-
-  window.addEventListener('resize', () => { resize(); initStars(); });
+  window.addEventListener('resize', resize);
   resize();
-  initStars();
-  draw();
 })();
 
 // Email obfuscation
@@ -1941,13 +1972,13 @@ style.textContent = `
   .nav-links.open{
     display:flex;flex-direction:column;
     position:absolute;top:100%;left:0;right:0;
-    background:rgba(7,16,30,.98);
+    background:rgba(255,255,255,.98);
     backdrop-filter:blur(20px);
     -webkit-backdrop-filter:blur(20px);
     padding:20px 24px 28px;
     border-bottom:1px solid var(--border);
     gap:4px;
-    box-shadow:0 20px 40px rgba(0,0,0,.5);
+    box-shadow:0 20px 40px rgba(0,0,0,.08);
   }
   .nav-links.open li a{
     display:block;padding:12px 8px;font-size:16px;
@@ -1973,7 +2004,8 @@ const templates = [
     themeDark: '#8a3a18',
     bgPreview: '#1a100d',
     url: 'ihr-restaurant.de',
-    features: ['Online-Reservierung', 'Speisekarte', 'Bildergalerie']
+    features: ['Online-Reservierung', 'Speisekarte', 'Bildergalerie'],
+    type: 'website'
   },
   {
     name: 'Business Dashboard',
@@ -1982,7 +2014,8 @@ const templates = [
     themeDark: '#2a7a2a',
     bgPreview: '#0d150d',
     url: 'firma-dashboard.de',
-    features: ['Projektverwaltung', 'AES-256 Verschlüsselt', 'Offline-fähig']
+    features: ['Projektverwaltung', 'AES-256 Verschlüsselt', 'Offline-fähig'],
+    type: 'website'
   },
   {
     name: 'Online-Shop',
@@ -1991,16 +2024,18 @@ const templates = [
     themeDark: '#1a4a8a',
     bgPreview: '#0d1218',
     url: 'ihr-onlineshop.de',
-    features: ['Produktkatalog', 'Warenkorb & Checkout', 'Kundenkonto']
+    features: ['Produktkatalog', 'Warenkorb & Checkout', 'Kundenkonto'],
+    type: 'website'
   },
   {
-    name: 'Friseursalon',
-    branch: 'Beauty & Wellness',
-    theme: '#d44c9e',
-    themeDark: '#8a1a5a',
-    bgPreview: '#180d15',
-    url: 'salon-beauty.de',
-    features: ['Online-Terminbuchung', 'Team & Preisliste', 'Instagram-Feed']
+    name: 'Fitness App',
+    branch: 'Sport & Gesundheit',
+    theme: '#4cd45c',
+    themeDark: '#1a8a2a',
+    bgPreview: '#111111',
+    url: 'fitness-tracker.app',
+    features: ['Workout-Tracking', 'Fortschritts-Charts', 'Push-Benachrichtigungen'],
+    type: 'app'
   },
   {
     name: 'Handwerksbetrieb',
@@ -2009,34 +2044,38 @@ const templates = [
     themeDark: '#8a5a18',
     bgPreview: '#181410',
     url: 'meister-betrieb.de',
-    features: ['Leistungskatalog', 'Notdienst-Banner', 'Click-to-Call']
+    features: ['Leistungskatalog', 'Notdienst-Banner', 'Click-to-Call'],
+    type: 'website'
   },
   {
-    name: 'Kreativ-Portfolio',
-    branch: 'Fotografie & Design',
-    theme: '#a0a0b8',
-    themeDark: '#404050',
-    bgPreview: '#101012',
-    url: 'ihr-portfolio.de',
-    features: ['Vollbild-Galerie', 'Projekt-Cases', 'Social Media Links']
+    name: 'Liefer App',
+    branch: 'Food Delivery',
+    theme: '#e87d4a',
+    themeDark: '#8a3a18',
+    bgPreview: '#111111',
+    url: 'liefer-express.app',
+    features: ['Restaurant-Auswahl', 'Live-Tracking', 'Push-Bestellstatus'],
+    type: 'app'
   },
   {
-    name: 'Fitnessstudio',
-    branch: 'Sport & Fitness',
-    theme: '#4cd45c',
-    themeDark: '#1a8a2a',
-    bgPreview: '#0d180e',
-    url: 'fitness-studio.de',
-    features: ['Wöchentlicher Kursplan', 'Trainer-Profile', 'Mitgliedschaftspakete']
+    name: 'Termin App',
+    branch: 'Terminbuchung',
+    theme: '#7c5ce0',
+    themeDark: '#4a2a9a',
+    bgPreview: '#111111',
+    url: 'termin-easy.app',
+    features: ['Kalender-Sync', 'Online-Buchung', 'Automatische Erinnerungen'],
+    type: 'app'
   },
   {
-    name: 'Immobilienmakler',
-    branch: 'Immobilien',
+    name: 'Immobilien App',
+    branch: 'Immobiliensuche',
     theme: '#4c6fd4',
     themeDark: '#1a3a8a',
-    bgPreview: '#0d1018',
-    url: 'immobilien-makler.de',
-    features: ['Objektsuche & Filter', 'Exposé mit Galerie', 'Besichtigungs-Anfrage']
+    bgPreview: '#111111',
+    url: 'immo-scout.app',
+    features: ['Kartensuche', 'Filter & Favoriten', 'Exposé-Galerie'],
+    type: 'app'
   }
 ];
 
@@ -2495,107 +2534,71 @@ document.querySelectorAll('.nav-links a').forEach(a => {
     </footer>
   </section>
 
-  <!-- DEMO 4: FRISEURSALON  LuminaBeauty -->
+  <!-- DEMO 4: FITNESS APP  FitTrack -->
   <section class="demo-page" data-tpl="3">
-    <header class="d-header" style="background:#140a12">
-      <nav class="d-nav" style="border-bottom:1px solid rgba(212,76,158,.12)">
-        <div class="d-logo" style="color:#d44c9e">&#9986;&#65039; LuminaBeauty</div>
-        <ul class="d-links">
-          <li><a href="#">Leistungen</a></li>
-          <li><a href="#">Team</a></li>
-          <li><a href="#">Galerie</a></li>
-          <li><a href="#" class="d-cta-link" style="background:#d44c9e">Termin buchen</a></li>
-        </ul>
-      </nav>
-      <div class="d-hero-compact" style="background:linear-gradient(135deg,#2a0a24 0%,#1e0820 50%,#140a18 100%);--d-accent-glow:rgba(212,76,158,.15)">
-        <div class="d-eyebrow" style="color:#d44c9e">&#10024; Sch&#246;nheit neu erleben</div>
-        <h1 class="d-h1">Ihr Moment.<br>Ihr Style.</h1>
-        <p class="d-p" style="max-width:420px">Premium Hair &amp; Beauty Care &#8212; individuell auf Sie abgestimmt, von zertifizierten Stylisten.</p>
-        <div class="d-btns">
-          <a href="#" class="d-btn" style="background:#d44c9e">Termin online buchen</a>
-          <a href="#" class="d-btn-ghost" style="border-color:rgba(212,76,158,.35);color:#d44c9e">Preisliste ansehen</a>
+    <div class="app-frame" style="--app-accent:#4cd45c">
+      <div class="app-status-bar" style="background:#111">
+        <span>9:41</span>
+        <span>●●● WiFi 🔋</span>
+      </div>
+      <div class="app-content" style="background:#111">
+        <div class="app-header">Guten Morgen! 💪</div>
+        <div class="app-sub">Dein Wochenfortschritt: 4 von 5 Trainings</div>
+        <div class="app-stat-row">
+          <div class="app-stat-card">
+            <div class="app-stat-num" style="color:#4cd45c">2.340</div>
+            <div class="app-stat-label">Kalorien</div>
+          </div>
+          <div class="app-stat-card">
+            <div class="app-stat-num" style="color:#4cd45c">48</div>
+            <div class="app-stat-label">Minuten</div>
+          </div>
+          <div class="app-stat-card">
+            <div class="app-stat-num" style="color:#4cd45c">12k</div>
+            <div class="app-stat-label">Schritte</div>
+          </div>
+        </div>
+        <div class="app-section-title">Heutiges Training</div>
+        <div class="app-card" style="border-color:rgba(76,212,92,.2)">
+          <div class="app-card-title">🏋️ Oberkörper Power</div>
+          <div class="app-card-text">45 Min · 8 Übungen · Fortgeschritten</div>
+          <div class="app-progress-bar" style="margin-top:10px"><div class="app-progress-fill" style="width:65%;background:#4cd45c"></div></div>
+          <div style="font-size:10px;color:rgba(255,255,255,.35);margin-top:4px">65% abgeschlossen</div>
+        </div>
+        <div class="app-card">
+          <div class="app-card-title">🧘 Stretch & Recovery</div>
+          <div class="app-card-text">20 Min · 12 Übungen · Leicht</div>
+        </div>
+        <div class="app-section-title">Letzte Aktivitäten</div>
+        <div class="app-list-item">
+          <div class="app-list-icon" style="background:rgba(76,212,92,.15);color:#4cd45c">🏃</div>
+          <div class="app-list-info">
+            <div class="app-list-name">Laufen — 5,2 km</div>
+            <div class="app-list-meta">Gestern · 28 Min · 320 kcal</div>
+          </div>
+        </div>
+        <div class="app-list-item">
+          <div class="app-list-icon" style="background:rgba(76,137,212,.15);color:#4c89d4">💪</div>
+          <div class="app-list-info">
+            <div class="app-list-name">Krafttraining</div>
+            <div class="app-list-meta">Vorgestern · 50 Min · 410 kcal</div>
+          </div>
+        </div>
+        <div class="app-list-item">
+          <div class="app-list-icon" style="background:rgba(212,76,76,.15);color:#d45c5c">🚴</div>
+          <div class="app-list-info">
+            <div class="app-list-name">Radfahren — 12 km</div>
+            <div class="app-list-meta">Fr · 45 Min · 380 kcal</div>
+          </div>
         </div>
       </div>
-    </header>
-
-    <section class="d-section" style="background:#100810">
-      <div class="d-section-label" style="color:#d44c9e">Unsere Leistungen</div>
-      <h2 class="d-h2">Was wir f&#252;r Sie tun.</h2>
-      <div class="d-price-list">
-        <div class="d-price-row">
-          <div class="d-price-name">&#128247; Damenhaarschnitt</div>
-          <div class="d-price-val" style="color:#d44c9e">ab 45 &#8364;</div>
-        </div>
-        <div class="d-price-row">
-          <div class="d-price-name">&#127774; Coloration &amp; Balayage</div>
-          <div class="d-price-val" style="color:#d44c9e">ab 85 &#8364;</div>
-        </div>
-        <div class="d-price-row">
-          <div class="d-price-name">&#128141; Hochzeitsstyling</div>
-          <div class="d-price-val" style="color:#d44c9e">ab 120 &#8364;</div>
-        </div>
-        <div class="d-price-row">
-          <div class="d-price-name">&#9986;&#65039; Herrenhaarschnitt</div>
-          <div class="d-price-val" style="color:#d44c9e">ab 28 &#8364;</div>
-        </div>
-        <div class="d-price-row">
-          <div class="d-price-name">&#128488;&#65039; Bart &amp; Rasur</div>
-          <div class="d-price-val" style="color:#d44c9e">ab 18 &#8364;</div>
-        </div>
+      <div class="app-bottom-nav">
+        <div class="app-nav-item active"><div class="app-nav-icon"></div>Home</div>
+        <div class="app-nav-item"><div class="app-nav-icon"></div>Training</div>
+        <div class="app-nav-item"><div class="app-nav-icon"></div>Stats</div>
+        <div class="app-nav-item"><div class="app-nav-icon"></div>Profil</div>
       </div>
-    </section>
-
-    <section class="d-section" style="background:#0e070d">
-      <div class="d-section-label" style="color:#d44c9e">Unser Team</div>
-      <h2 class="d-h2">Ihre Experten.</h2>
-      <div class="d-team-grid">
-        <div class="d-team-card">
-          <div class="d-team-avatar" style="background-image:url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=200&fit=crop&auto=format&q=75');background-size:cover;background-position:center"></div>
-          <div class="d-team-name">Sophie M.</div>
-          <div class="d-team-role">Lead Stylistin</div>
-        </div>
-        <div class="d-team-card">
-          <div class="d-team-avatar" style="background-image:url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&auto=format&q=75');background-size:cover;background-position:center"></div>
-          <div class="d-team-name">Laura K.</div>
-          <div class="d-team-role">Coloristin</div>
-        </div>
-        <div class="d-team-card">
-          <div class="d-team-avatar" style="background-image:url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&auto=format&q=75');background-size:cover;background-position:center"></div>
-          <div class="d-team-name">Max B.</div>
-          <div class="d-team-role">Barbier</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="d-section" style="background:#120910">
-      <div class="d-section-split">
-        <div class="d-split-text" style="display:flex;flex-direction:column;justify-content:center;gap:16px">
-          <div class="d-section-label" style="color:#d44c9e">Termin vereinbaren</div>
-          <h2 class="d-h2" style="font-size:22px">Jetzt buchen &#8212; online oder per Anruf</h2>
-          <div style="font-size:22px;font-weight:800;color:#d44c9e">+49 5661 88999</div>
-          <a href="#" class="d-btn" style="background:#d44c9e;width:fit-content">Online Termin buchen</a>
-        </div>
-        <div class="d-split-img">
-          <div class="d-section-label" style="color:#d44c9e">&#214;ffnungszeiten</div>
-          <ul class="d-info-list" style="margin-top:8px">
-            <li class="d-info-item"><span class="d-info-icon">&#128336;</span><div><strong>Mo&#8211;Fr</strong><div class="d-text-dim">09:00 &#8211; 19:00 Uhr</div></div></li>
-            <li class="d-info-item"><span class="d-info-icon">&#128336;</span><div><strong>Samstag</strong><div class="d-text-dim">09:00 &#8211; 17:00 Uhr</div></div></li>
-            <li class="d-info-item"><span class="d-info-icon">&#128336;</span><div><strong>Sonntag</strong><div class="d-text-dim">Geschlossen</div></div></li>
-            <li class="d-info-item"><span class="d-info-icon">&#128205;</span><div><strong>Adresse</strong><div class="d-text-dim">Steinweg 12, 34212 Melsungen</div></div></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <footer class="d-footer" style="background:#0a050a">
-      <div class="d-footer-inner">
-        <div class="d-footer-brand">
-          <div class="d-logo" style="color:#d44c9e;font-size:18px">&#9986;&#65039; LuminaBeauty</div>
-          <div class="d-footer-text">Ihr Wohf&#252;hlsalon in Melsungen</div>
-        </div>
-        <div class="d-footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">Kontakt</a></div>
-      </div>
-    </footer>
+    </div>
   </section>
 
   <!-- DEMO 5: HANDWERK  Meister Schmidt -->
@@ -2705,310 +2708,196 @@ document.querySelectorAll('.nav-links a').forEach(a => {
     </footer>
   </section>
 
-  <!-- DEMO 6: PORTFOLIO  Max Müller -->
+  <!-- DEMO 6: LIEFER APP  LieferExpress -->
   <section class="demo-page" data-tpl="5">
-    <header class="d-header" style="background:#0a0a0c">
-      <nav class="d-nav" style="border-bottom:1px solid rgba(255,255,255,.05)">
-        <div class="d-logo" style="color:#f0f0f5;font-family:monospace;letter-spacing:2px;font-size:16px">MAX M&#220;LLER</div>
-        <ul class="d-links">
-          <li><a href="#" style="color:rgba(240,240,245,.5)">Arbeiten</a></li>
-          <li><a href="#" style="color:rgba(240,240,245,.5)">&#220;ber mich</a></li>
-          <li><a href="#" style="color:rgba(240,240,245,.5)">Kontakt</a></li>
-        </ul>
-      </nav>
-      <div class="d-hero-compact" style="background:#0a0a0c;padding:56px 48px 48px">
-        <h1 style="font-size:clamp(28px,4vw,44px);font-weight:800;color:#f0f0f5;line-height:1.15;letter-spacing:-1px;margin:0">Fotografie<br>&amp; Design.</h1>
-        <p style="font-size:14px;color:rgba(240,240,245,.35);margin:0;max-width:340px;line-height:1.6">Ich erschaffe visuelle Erlebnisse, die bleiben.</p>
-        <div>
-          <a href="#" style="display:inline-block;padding:10px 22px;border:1px solid rgba(240,240,245,.2);border-radius:8px;font-size:13px;font-weight:500;color:rgba(240,240,245,.7);text-decoration:none;letter-spacing:.3px">Arbeiten ansehen &#8594;</a>
-        </div>
+    <div class="app-frame" style="--app-accent:#e87d4a">
+      <div class="app-status-bar" style="background:#111">
+        <span>12:30</span>
+        <span>●●● WiFi 🔋</span>
       </div>
-    </header>
-
-    <section class="d-section" style="background:#0c0c0f;padding-top:32px">
-      <h2 class="d-h2" style="font-size:18px;font-weight:600;color:rgba(240,240,245,.7);margin-bottom:20px">Ausgew&#228;hlte Arbeiten</h2>
-      <div class="d-work-grid">
-        <div class="d-work-item">
-          <div class="d-work-thumb" style="background-image:url('https://images.unsplash.com/photo-1558655146-d09347e92766?w=300&h=80&fit=crop&auto=format&q=75');background-size:cover;background-position:center"></div>
-          <div class="d-work-overlay">Branding</div>
+      <div class="app-content" style="background:#111">
+        <div class="app-header">🍔 LieferExpress</div>
+        <div class="app-sub">Was möchtest du essen?</div>
+        <div style="margin:0 16px 12px;padding:10px 14px;background:rgba(255,255,255,.06);border-radius:10px;border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:8px">
+          <span style="font-size:14px;color:rgba(255,255,255,.3)">🔍</span>
+          <span style="font-size:12px;color:rgba(255,255,255,.3)">Restaurant oder Gericht suchen...</span>
         </div>
-        <div class="d-work-item">
-          <div class="d-work-thumb" style="background-image:url('https://images.unsplash.com/photo-1561070791-2526d30994b5?w=300&h=80&fit=crop&auto=format&q=75');background-size:cover;background-position:center"></div>
-          <div class="d-work-overlay">Fotografie</div>
+        <div style="display:flex;gap:8px;padding:0 16px 16px;overflow-x:auto">
+          <div style="padding:6px 14px;background:rgba(232,125,74,.15);border:1px solid rgba(232,125,74,.3);border-radius:20px;font-size:11px;font-weight:600;color:#e87d4a;white-space:nowrap">🔥 Beliebt</div>
+          <div style="padding:6px 14px;background:rgba(255,255,255,.05);border-radius:20px;font-size:11px;color:rgba(255,255,255,.5);white-space:nowrap">🍕 Pizza</div>
+          <div style="padding:6px 14px;background:rgba(255,255,255,.05);border-radius:20px;font-size:11px;color:rgba(255,255,255,.5);white-space:nowrap">🍣 Sushi</div>
+          <div style="padding:6px 14px;background:rgba(255,255,255,.05);border-radius:20px;font-size:11px;color:rgba(255,255,255,.5);white-space:nowrap">🥗 Salat</div>
         </div>
-        <div class="d-work-item">
-          <div class="d-work-thumb" style="background-image:url('https://images.unsplash.com/photo-1547658719-da2b51169166?w=300&h=80&fit=crop&auto=format&q=75');background-size:cover;background-position:center"></div>
-          <div class="d-work-overlay">Editorial</div>
-        </div>
-        <div class="d-work-item">
-          <div class="d-work-thumb" style="background-image:url('https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=300&h=80&fit=crop&auto=format&q=75');background-size:cover;background-position:center"></div>
-          <div class="d-work-overlay">Web</div>
-        </div>
-        <div class="d-work-item">
-          <div class="d-work-thumb" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=300&h=80&fit=crop&auto=format&q=75');background-size:cover;background-position:center"></div>
-          <div class="d-work-overlay">Motion</div>
-        </div>
-        <div class="d-work-item">
-          <div class="d-work-thumb" style="background-image:url('https://images.unsplash.com/photo-1536735561749-fc87494598cb?w=300&h=80&fit=crop&auto=format&q=75');background-size:cover;background-position:center"></div>
-          <div class="d-work-overlay">Print</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="d-section" style="background:#080810">
-      <div class="d-section-split">
-        <div class="d-split-text">
-          <p style="font-size:14px;font-style:italic;color:rgba(240,240,245,.35);line-height:1.8;margin:0">&#8220;Gutes Design ist unsichtbar &#8212; es l&#228;sst das Wesentliche sprechen. Ich arbeite an der Schnittstelle von Fotografie, Typografie und Konzept.&#8221;</p>
-        </div>
-        <div class="d-split-img" style="display:flex;flex-direction:column;gap:12px">
-          <div style="display:flex;align-items:center;gap:10px">
-            <div style="width:8px;height:8px;border-radius:50%;background:#22c55e;flex-shrink:0"></div>
-            <div style="font-size:13px;font-weight:500;color:rgba(240,240,245,.6)">Verf&#252;gbar f&#252;r Projekte</div>
-          </div>
-          <div style="font-size:13px;color:rgba(240,240,245,.35);font-family:monospace">hello@maxmueller.de</div>
-          <div style="font-size:12px;color:rgba(240,240,245,.2)">Fotografie &#183; Branding &#183; Editorial</div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="d-footer" style="background:#060608;padding:20px 0">
-      <div class="d-footer-inner" style="justify-content:space-between">
-        <div style="font-size:12px;color:rgba(240,240,245,.2);font-family:monospace">MAX M&#220;LLER &#169; 2025</div>
-        <div style="font-size:12px;color:rgba(240,240,245,.2)">Alle Rechte vorbehalten</div>
-      </div>
-    </footer>
-  </section>
-
-  <!-- DEMO 7: FITNESS  IronForge -->
-  <section class="demo-page" data-tpl="6">
-    <header class="d-header" style="background:#080f09">
-      <nav class="d-nav" style="border-bottom:1px solid rgba(76,212,92,.1)">
-        <div class="d-logo" style="color:#4cd45c">&#128170; IronForge</div>
-        <ul class="d-links">
-          <li><a href="#">Kurse</a></li>
-          <li><a href="#">Trainer</a></li>
-          <li><a href="#">Mitgliedschaft</a></li>
-          <li><a href="#" class="d-cta-link" style="background:#4cd45c;color:#080f09;font-weight:700">Probetraining</a></li>
-        </ul>
-      </nav>
-      <div class="d-hero-compact" style="background:linear-gradient(135deg,rgba(10,31,10,.85) 0%,rgba(13,42,13,.9) 100%),url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&h=400&fit=crop&auto=format&q=70');background-size:cover;background-position:center;--d-accent-glow:rgba(76,212,92,.15)">
-        <div class="d-eyebrow" style="color:#4cd45c">&#128165; Jetzt Probetraining sichern</div>
-        <h1 class="d-h1" style="font-weight:900;text-transform:uppercase;letter-spacing:-1px">St&#228;rker werden.<br>Jeden Tag.</h1>
-        <p class="d-p" style="max-width:420px">Dein Fitnessstudio in Melsungen &#8212; modernste Ger&#228;te, motivierende Trainer, echte Gemeinschaft.</p>
-        <div class="d-btns">
-          <a href="#" class="d-btn" style="background:#4cd45c;color:#080f09;font-weight:800">Mitglied werden</a>
-          <a href="#" class="d-btn-ghost" style="border-color:rgba(76,212,92,.3);color:#4cd45c">Kursplan ansehen</a>
-        </div>
-        <div style="font-size:12px;color:rgba(240,240,245,.35);display:flex;gap:16px">
-          <span>500+ Mitglieder</span>
-          <span style="color:rgba(255,255,255,.15)">&#183;</span>
-          <span>20+ Kurse/Woche</span>
-          <span style="color:rgba(255,255,255,.15)">&#183;</span>
-          <span>5 Trainer</span>
-        </div>
-      </div>
-    </header>
-
-    <section class="d-section" style="background:#060d07">
-      <div class="d-section-label" style="color:#4cd45c">Heutiger Kursplan</div>
-      <h2 class="d-h2">Dein Tag. Dein Training.</h2>
-      <div class="d-schedule">
-        <div class="d-sched-item">
-          <div class="d-sched-time">07:00</div>
-          <div class="d-sched-name">Yoga Flow</div>
-          <div class="d-sched-badge" style="background:rgba(76,212,92,.15);color:#4cd45c">Entspannt</div>
-        </div>
-        <div class="d-sched-item">
-          <div class="d-sched-time">09:00</div>
-          <div class="d-sched-name">HIIT Power</div>
-          <div class="d-sched-badge" style="background:rgba(212,76,76,.15);color:#e05555">Hochintensiv</div>
-        </div>
-        <div class="d-sched-item">
-          <div class="d-sched-time">12:00</div>
-          <div class="d-sched-name">R&#252;cken &amp; Core</div>
-          <div class="d-sched-badge" style="background:rgba(76,137,212,.15);color:#4c89d4">B&#252;ro-Fit</div>
-        </div>
-        <div class="d-sched-item">
-          <div class="d-sched-time">17:30</div>
-          <div class="d-sched-name">Spinning</div>
-          <div class="d-sched-badge" style="background:rgba(212,158,76,.15);color:#d49e4c">Ausdauer</div>
-        </div>
-        <div class="d-sched-item">
-          <div class="d-sched-time">19:00</div>
-          <div class="d-sched-name">Bootcamp</div>
-          <div class="d-sched-badge" style="background:rgba(160,76,212,.15);color:#a04cd4">Fortgeschritten</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="d-section" style="background:#050c06">
-      <div class="d-section-label" style="color:#4cd45c">Mitgliedschaft</div>
-      <h2 class="d-h2">W&#228;hle deinen Plan.</h2>
-      <div class="d-membership-grid">
-        <div class="d-membership" style="background:rgba(255,255,255,.03)">
-          <div class="d-mem-badge" style="color:rgba(240,240,245,.4)">Basic</div>
-          <div class="d-mem-name">Starter</div>
-          <div class="d-mem-price" style="color:#4cd45c">29 &#8364;</div>
-          <div class="d-mem-period">pro Monat</div>
-          <ul class="d-mem-features">
-            <li>Freier Ger&#228;tezugang</li>
-            <li>Umkleiden &amp; Duschen</li>
-            <li>Mo&#8211;Fr 06:00&#8211;22:00</li>
-          </ul>
-          <a href="#" class="d-btn-ghost" style="display:block;text-align:center;border-color:rgba(76,212,92,.3);color:#4cd45c;padding:10px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none">W&#228;hlen</a>
-        </div>
-        <div class="d-membership featured" style="background:rgba(76,212,92,.08);border-color:#4cd45c">
-          <div class="d-mem-badge" style="color:#4cd45c">&#11088; Beliebt</div>
-          <div class="d-mem-name">Premium</div>
-          <div class="d-mem-price" style="color:#4cd45c">49 &#8364;</div>
-          <div class="d-mem-period">pro Monat</div>
-          <ul class="d-mem-features" style="color:rgba(240,240,245,.75)">
-            <li>Alle Kurse inklusive</li>
-            <li>Personal Training (1x/Mo)</li>
-            <li>7 Tage, 06:00&#8211;23:00</li>
-            <li>Ern&#228;hrungsberatung</li>
-          </ul>
-          <a href="#" class="d-btn" style="display:block;text-align:center;background:#4cd45c;color:#080f09;padding:10px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none">W&#228;hlen</a>
-        </div>
-        <div class="d-membership" style="background:rgba(255,255,255,.03)">
-          <div class="d-mem-badge" style="color:rgba(240,240,245,.4)">Elite</div>
-          <div class="d-mem-name">VIP</div>
-          <div class="d-mem-price" style="color:#4cd45c">79 &#8364;</div>
-          <div class="d-mem-period">pro Monat</div>
-          <ul class="d-mem-features">
-            <li>Alles aus Premium</li>
-            <li>Unlimitiertes PT</li>
-            <li>24/7 Zugang</li>
-            <li>Sauna &amp; Wellness</li>
-          </ul>
-          <a href="#" class="d-btn-ghost" style="display:block;text-align:center;border-color:rgba(76,212,92,.3);color:#4cd45c;padding:10px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none">W&#228;hlen</a>
-        </div>
-      </div>
-    </section>
-
-    <footer class="d-footer" style="background:#040a05">
-      <div class="d-footer-inner">
-        <div class="d-footer-brand">
-          <div class="d-logo" style="color:#4cd45c;font-size:18px">&#128170; IronForge</div>
-          <div class="d-footer-text">Dein Fitnessstudio in Melsungen</div>
-        </div>
-        <div class="d-footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">Kontakt</a></div>
-      </div>
-    </footer>
-  </section>
-
-  <!-- DEMO 8: IMMOBILIEN  PrimeImmobilien -->
-  <section class="demo-page" data-tpl="7">
-    <header class="d-header" style="background:#070a12">
-      <nav class="d-nav" style="border-bottom:1px solid rgba(76,111,212,.12)">
-        <div class="d-logo" style="color:#4c6fd4">&#127968; PrimeImmobilien</div>
-        <ul class="d-links">
-          <li><a href="#">Kaufen</a></li>
-          <li><a href="#">Mieten</a></li>
-          <li><a href="#">Bewerten</a></li>
-          <li><a href="#" class="d-cta-link" style="background:#4c6fd4">Kostenlose Beratung</a></li>
-        </ul>
-      </nav>
-      <div class="d-hero-compact" style="background:linear-gradient(160deg,#0c1428 0%,#0a1020 100%);--d-accent-glow:rgba(76,111,212,.15)">
-        <div class="d-eyebrow" style="color:#4c6fd4">Ihr Immobilienexperte in Nordhessen</div>
-        <h1 class="d-h1">Ihr Traumhaus<br>wartet.</h1>
-        <p class="d-p" style="max-width:420px">Professionelle Vermittlung von Wohn- und Gewerbeimmobilien in der Region Nordhessen.</p>
-        <div class="d-search-bar" style="margin-top:4px">
-          <input class="d-search-input" type="text" placeholder="Ort, PLZ oder Stadtteil ..." readonly>
-          <button class="d-search-btn" style="background:#4c6fd4;color:#fff">Suchen</button>
-        </div>
-        <div style="font-size:12px;color:rgba(240,240,245,.35);display:flex;gap:10px;flex-wrap:wrap">
-          <span>&#128293; Beliebt:</span>
-          <a href="#" style="color:rgba(76,111,212,.8);text-decoration:none;font-size:12px">Melsungen</a>
-          <a href="#" style="color:rgba(76,111,212,.8);text-decoration:none;font-size:12px">Kassel</a>
-          <a href="#" style="color:rgba(76,111,212,.8);text-decoration:none;font-size:12px">Bad Hersfeld</a>
-        </div>
-      </div>
-    </header>
-
-    <section class="d-section" style="background:#060910">
-      <div class="d-section-label" style="color:#4c6fd4">Aktuelle Angebote</div>
-      <h2 class="d-h2">Ausgew&#228;hlte Objekte.</h2>
-      <div class="d-prop-grid">
-        <div class="d-prop">
-          <div class="d-prop-img" style="background-image:url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=300&h=90&fit=crop&auto=format&q=75');background-size:cover;background-position:center">
-            <div class="d-prop-badge" style="background:#e74c3c;color:#fff">VERKAUFEN</div>
-          </div>
-          <div class="d-prop-info">
-            <div class="d-prop-title">Einfamilienhaus Melsungen</div>
-            <div class="d-prop-meta">4 Zimmer &#183; 140 m&#178; &#183; Garten</div>
-            <div class="d-prop-price" style="color:#4c6fd4">349.000 &#8364;</div>
-          </div>
-        </div>
-        <div class="d-prop">
-          <div class="d-prop-img" style="background-image:url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=300&h=90&fit=crop&auto=format&q=75');background-size:cover;background-position:center">
-            <div class="d-prop-badge" style="background:#2ecc71;color:#fff">MIETEN</div>
-          </div>
-          <div class="d-prop-info">
-            <div class="d-prop-title">Moderne Wohnung Kassel</div>
-            <div class="d-prop-meta">2 Zimmer &#183; 68 m&#178; &#183; Balkon</div>
-            <div class="d-prop-price" style="color:#4c6fd4">1.250 &#8364;/Mo</div>
-          </div>
-        </div>
-        <div class="d-prop">
-          <div class="d-prop-img" style="background-image:url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=300&h=90&fit=crop&auto=format&q=75');background-size:cover;background-position:center">
-            <div class="d-prop-badge" style="background:#2ecc71;color:#fff">MIETEN</div>
-          </div>
-          <div class="d-prop-info">
-            <div class="d-prop-title">Gewerbeimmobilie</div>
-            <div class="d-prop-meta">250 m&#178; &#183; Parkpl&#228;tze &#183; zentral</div>
-            <div class="d-prop-price" style="color:#4c6fd4">2.800 &#8364;/Mo</div>
-          </div>
-        </div>
-        <div class="d-prop">
-          <div class="d-prop-img" style="background-image:url('https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=300&h=90&fit=crop&auto=format&q=75');background-size:cover;background-position:center">
-            <div class="d-prop-badge" style="background:#4c6fd4;color:#fff">KAUFEN</div>
-          </div>
-          <div class="d-prop-info">
-            <div class="d-prop-title">Grundst&#252;ck Schwalm</div>
-            <div class="d-prop-meta">800 m&#178; &#183; Bauland &#183; ruhige Lage</div>
-            <div class="d-prop-price" style="color:#4c6fd4">89.000 &#8364;</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="d-section" style="background:#050810">
-      <div class="d-section-split">
-        <div class="d-split-text" style="display:flex;flex-direction:column;align-items:flex-start;gap:12px">
-          <div class="d-section-label" style="color:#4c6fd4">Ihr Ansprechpartner</div>
-          <div style="display:flex;align-items:center;gap:16px">
-            <div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#1a2848,#0e1a34);border:2px solid rgba(76,111,212,.3);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;color:#4c6fd4;flex-shrink:0">TK</div>
+        <div class="app-section-title">In deiner Nähe</div>
+        <div class="app-card">
+          <div style="display:flex;justify-content:space-between;align-items:start">
             <div>
-              <div style="font-size:16px;font-weight:700;color:#f0f0f5">Thomas Klein</div>
-              <div style="font-size:12px;color:rgba(240,240,245,.4)">Ihr pers&#246;nlicher Berater</div>
+              <div class="app-card-title">🍕 Bella Cucina</div>
+              <div class="app-card-text">Italienisch · ⭐ 4.8 · 25-35 Min</div>
+            </div>
+            <div style="font-size:10px;padding:3px 8px;background:rgba(76,212,92,.15);color:#4cd45c;border-radius:4px;font-weight:700">GRATIS</div>
+          </div>
+        </div>
+        <div class="app-card">
+          <div style="display:flex;justify-content:space-between;align-items:start">
+            <div>
+              <div class="app-card-title">🍣 Sakura Sushi</div>
+              <div class="app-card-text">Japanisch · ⭐ 4.9 · 30-40 Min</div>
+            </div>
+            <div style="font-size:10px;padding:3px 8px;background:rgba(232,125,74,.15);color:#e87d4a;border-radius:4px;font-weight:700">-20%</div>
+          </div>
+        </div>
+        <div class="app-card">
+          <div style="display:flex;justify-content:space-between;align-items:start">
+            <div>
+              <div class="app-card-title">🥙 Mamas Döner</div>
+              <div class="app-card-text">Türkisch · ⭐ 4.6 · 15-25 Min</div>
             </div>
           </div>
-          <div style="font-size:13px;color:rgba(240,240,245,.5)">&#128222; +49 5661 77800</div>
-          <div style="font-size:13px;color:rgba(240,240,245,.5)">&#128231; t.klein@prime-immo.de</div>
-          <a href="#" class="d-btn" style="background:#4c6fd4;margin-top:4px">Jetzt kontaktieren</a>
         </div>
-        <div class="d-split-img">
-          <div class="d-section-label" style="color:#4c6fd4">Warum PrimeImmobilien?</div>
-          <ul class="d-info-list" style="margin-top:8px">
-            <li class="d-info-item"><span class="d-info-icon" style="color:#4c6fd4">&#10003;</span><div><strong>15 Jahre Erfahrung</strong><div class="d-text-dim">Tiefes Marktwissen in Nordhessen</div></div></li>
-            <li class="d-info-item"><span class="d-info-icon" style="color:#4c6fd4">&#10003;</span><div><strong>200+ verkaufte Objekte</strong><div class="d-text-dim">Nachgewiesene Erfolgsbilanz</div></div></li>
-            <li class="d-info-item"><span class="d-info-icon" style="color:#4c6fd4">&#10003;</span><div><strong>Kostenlose Erstberatung</strong><div class="d-text-dim">Unverbindlich und ohne Risiko</div></div></li>
-            <li class="d-info-item"><span class="d-info-icon" style="color:#4c6fd4">&#10003;</span><div><strong>Diskretion garantiert</strong><div class="d-text-dim">Vertraulicher Umgang mit Ihren Daten</div></div></li>
-          </ul>
+        <div class="app-section-title">Aktive Bestellung</div>
+        <div class="app-card" style="border-color:rgba(232,125,74,.25)">
+          <div class="app-card-title">🛵 Dein Essen ist unterwegs!</div>
+          <div class="app-card-text">Bella Cucina · Ankunft ca. 12:55</div>
+          <div class="app-progress-bar" style="margin-top:10px"><div class="app-progress-fill" style="width:75%;background:#e87d4a"></div></div>
         </div>
       </div>
-    </section>
+      <div class="app-bottom-nav">
+        <div class="app-nav-item active"><div class="app-nav-icon" style="background:#e87d4a"></div>Home</div>
+        <div class="app-nav-item"><div class="app-nav-icon"></div>Suche</div>
+        <div class="app-nav-item"><div class="app-nav-icon"></div>Bestellungen</div>
+        <div class="app-nav-item"><div class="app-nav-icon"></div>Profil</div>
+      </div>
+    </div>
+  </section>
 
-    <footer class="d-footer" style="background:#040710">
-      <div class="d-footer-inner">
-        <div class="d-footer-brand">
-          <div class="d-logo" style="color:#4c6fd4;font-size:18px">&#127968; PrimeImmobilien</div>
-          <div class="d-footer-text">Ihr Immobilienexperte in Nordhessen</div>
-        </div>
-        <div class="d-footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">Kontakt</a></div>
+  <!-- DEMO 7: TERMIN APP  TerminEasy -->
+  <section class="demo-page" data-tpl="6">
+    <div class="app-frame" style="--app-accent:#7c5ce0">
+      <div class="app-status-bar" style="background:#111">
+        <span>14:15</span>
+        <span>●●● WiFi 🔋</span>
       </div>
-    </footer>
+      <div class="app-content" style="background:#111">
+        <div class="app-header">📅 Meine Termine</div>
+        <div class="app-sub">Heute: 2 Termine · Morgen: 1 Termin</div>
+        <div style="display:flex;gap:6px;padding:0 16px 12px">
+          <div style="flex:1;text-align:center;padding:8px;background:rgba(124,92,224,.15);border:1px solid rgba(124,92,224,.3);border-radius:8px;font-size:11px;font-weight:700;color:#7c5ce0">Heute</div>
+          <div style="flex:1;text-align:center;padding:8px;background:rgba(255,255,255,.04);border-radius:8px;font-size:11px;color:rgba(255,255,255,.4)">Morgen</div>
+          <div style="flex:1;text-align:center;padding:8px;background:rgba(255,255,255,.04);border-radius:8px;font-size:11px;color:rgba(255,255,255,.4)">Woche</div>
+          <div style="flex:1;text-align:center;padding:8px;background:rgba(255,255,255,.04);border-radius:8px;font-size:11px;color:rgba(255,255,255,.4)">Monat</div>
+        </div>
+        <div class="app-section-title">Heute — Montag, 21. April</div>
+        <div class="app-card" style="border-left:3px solid #7c5ce0">
+          <div style="display:flex;justify-content:space-between">
+            <div class="app-card-title">Kundengespräch</div>
+            <div style="font-size:11px;color:#7c5ce0;font-weight:600">14:30</div>
+          </div>
+          <div class="app-card-text">mit Sarah K. · Zoom Meeting</div>
+          <div style="margin-top:8px;display:flex;gap:6px">
+            <span style="font-size:10px;padding:2px 8px;background:rgba(124,92,224,.12);color:#7c5ce0;border-radius:4px">Online</span>
+            <span style="font-size:10px;padding:2px 8px;background:rgba(76,212,92,.12);color:#4cd45c;border-radius:4px">Bestätigt</span>
+          </div>
+        </div>
+        <div class="app-card" style="border-left:3px solid #e87d4a">
+          <div style="display:flex;justify-content:space-between">
+            <div class="app-card-title">Website-Review</div>
+            <div style="font-size:11px;color:#e87d4a;font-weight:600">16:00</div>
+          </div>
+          <div class="app-card-text">mit Thomas B. · Vor Ort</div>
+          <div style="margin-top:8px;display:flex;gap:6px">
+            <span style="font-size:10px;padding:2px 8px;background:rgba(232,125,74,.12);color:#e87d4a;border-radius:4px">Vor Ort</span>
+            <span style="font-size:10px;padding:2px 8px;background:rgba(212,158,76,.12);color:#d49e4c;border-radius:4px">Ausstehend</span>
+          </div>
+        </div>
+        <div class="app-section-title">Morgen — Dienstag</div>
+        <div class="app-card" style="border-left:3px solid #4c89d4">
+          <div style="display:flex;justify-content:space-between">
+            <div class="app-card-title">Projektplanung</div>
+            <div style="font-size:11px;color:#4c89d4;font-weight:600">10:00</div>
+          </div>
+          <div class="app-card-text">mit Elektro Schmidt GmbH · Teams</div>
+        </div>
+        <div class="app-section-title">Schnellzugriff</div>
+        <div style="display:flex;gap:8px;padding:0 16px 16px">
+          <div style="flex:1;padding:14px;background:rgba(124,92,224,.1);border-radius:12px;text-align:center">
+            <div style="font-size:20px;margin-bottom:4px">➕</div>
+            <div style="font-size:10px;color:rgba(255,255,255,.5)">Neuer Termin</div>
+          </div>
+          <div style="flex:1;padding:14px;background:rgba(255,255,255,.04);border-radius:12px;text-align:center">
+            <div style="font-size:20px;margin-bottom:4px">🔗</div>
+            <div style="font-size:10px;color:rgba(255,255,255,.5)">Link teilen</div>
+          </div>
+          <div style="flex:1;padding:14px;background:rgba(255,255,255,.04);border-radius:12px;text-align:center">
+            <div style="font-size:20px;margin-bottom:4px">⏰</div>
+            <div style="font-size:10px;color:rgba(255,255,255,.5)">Erinnerung</div>
+          </div>
+        </div>
+      </div>
+      <div class="app-bottom-nav">
+        <div class="app-nav-item active"><div class="app-nav-icon" style="background:#7c5ce0"></div>Termine</div>
+        <div class="app-nav-item"><div class="app-nav-icon"></div>Kalender</div>
+        <div class="app-nav-item"><div class="app-nav-icon"></div>Kunden</div>
+        <div class="app-nav-item"><div class="app-nav-icon"></div>Profil</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEMO 8: IMMOBILIEN APP  ImmoScout -->
+  <section class="demo-page" data-tpl="7">
+    <div class="app-frame" style="--app-accent:#4c6fd4">
+      <div class="app-status-bar" style="background:#111">
+        <span>11:20</span>
+        <span>●●● WiFi 🔋</span>
+      </div>
+      <div class="app-content" style="background:#111">
+        <div class="app-header">🏠 ImmoScout</div>
+        <div class="app-sub">3 neue Objekte in deiner Nähe</div>
+        <div style="margin:0 16px 12px;padding:10px 14px;background:rgba(255,255,255,.06);border-radius:10px;border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:8px">
+          <span style="font-size:14px;color:rgba(255,255,255,.3)">🔍</span>
+          <span style="font-size:12px;color:rgba(255,255,255,.3)">Melsungen, 50km Umkreis</span>
+        </div>
+        <div style="display:flex;gap:6px;padding:0 16px 12px;flex-wrap:wrap">
+          <div style="padding:5px 12px;background:rgba(76,111,212,.15);border:1px solid rgba(76,111,212,.3);border-radius:6px;font-size:10px;font-weight:600;color:#4c6fd4">Kaufen</div>
+          <div style="padding:5px 12px;background:rgba(255,255,255,.05);border-radius:6px;font-size:10px;color:rgba(255,255,255,.4)">Mieten</div>
+          <div style="padding:5px 12px;background:rgba(255,255,255,.05);border-radius:6px;font-size:10px;color:rgba(255,255,255,.4)">bis 400k €</div>
+          <div style="padding:5px 12px;background:rgba(255,255,255,.05);border-radius:6px;font-size:10px;color:rgba(255,255,255,.4)">3+ Zimmer</div>
+        </div>
+        <div class="app-section-title">Top-Empfehlungen</div>
+        <div class="app-card">
+          <div style="height:100px;background:linear-gradient(135deg,#1a2848,#0e1a34);border-radius:8px;margin-bottom:10px;display:flex;align-items:center;justify-content:center;position:relative">
+            <span style="font-size:28px">🏡</span>
+            <div style="position:absolute;top:6px;right:6px;font-size:9px;padding:2px 6px;background:#e74c3c;color:#fff;border-radius:3px;font-weight:700">NEU</div>
+            <div style="position:absolute;top:6px;left:6px;font-size:9px;padding:2px 6px;background:rgba(0,0,0,.5);color:#fff;border-radius:3px">❤️</div>
+          </div>
+          <div class="app-card-title">Einfamilienhaus · Melsungen</div>
+          <div class="app-card-text">4 Zimmer · 140 m² · Garten · Garage</div>
+          <div style="margin-top:8px;font-size:16px;font-weight:800;color:#4c6fd4">349.000 €</div>
+        </div>
+        <div class="app-card">
+          <div style="height:100px;background:linear-gradient(135deg,#14283a,#0c1a28);border-radius:8px;margin-bottom:10px;display:flex;align-items:center;justify-content:center">
+            <span style="font-size:28px">🏢</span>
+          </div>
+          <div class="app-card-title">Stadtwohnung · Kassel</div>
+          <div class="app-card-text">2 Zimmer · 68 m² · Balkon · TG-Platz</div>
+          <div style="margin-top:8px;font-size:16px;font-weight:800;color:#4c6fd4">189.000 €</div>
+        </div>
+        <div class="app-card">
+          <div style="height:100px;background:linear-gradient(135deg,#1a2040,#101830);border-radius:8px;margin-bottom:10px;display:flex;align-items:center;justify-content:center">
+            <span style="font-size:28px">🏗️</span>
+          </div>
+          <div class="app-card-title">Neubau-Projekt · Fritzlar</div>
+          <div class="app-card-text">3 Zimmer · 95 m² · Erstbezug 2026</div>
+          <div style="margin-top:8px;font-size:16px;font-weight:800;color:#4c6fd4">275.000 €</div>
+        </div>
+      </div>
+      <div class="app-bottom-nav">
+        <div class="app-nav-item active"><div class="app-nav-icon" style="background:#4c6fd4"></div>Suche</div>
+        <div class="app-nav-item"><div class="app-nav-icon"></div>Karte</div>
+        <div class="app-nav-item"><div class="app-nav-icon"></div>Favoriten</div>
+        <div class="app-nav-item"><div class="app-nav-icon"></div>Profil</div>
+      </div>
+    </div>
   </section>
 
 </div><!-- /#demo-storage -->
