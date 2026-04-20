@@ -1308,6 +1308,85 @@ footer{
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
 .reveal{opacity:0;transform:translateY(30px);transition:.8s ease}
 .reveal.in{opacity:1;transform:none}
+.stagger{opacity:0;transform:translateY(20px);transition:opacity .6s ease, transform .6s ease}
+.stagger.in{opacity:1;transform:none}
+
+/* Scale reveal for special elements */
+.reveal-scale{opacity:0;transform:scale(.96);transition:opacity .8s ease, transform .8s ease}
+.reveal-scale.in{opacity:1;transform:none}
+
+/* BRANCHE KONFIGURATOR */
+.konfigurator{
+  margin-top:48px;padding:40px 32px;
+  background:linear-gradient(135deg,var(--bg-soft) 0%,var(--bg-alt) 100%);
+  border-radius:20px;
+  border:1px solid var(--border-soft);
+  text-align:center;
+}
+.konfig-header h3{
+  font-family:'Georgia',serif;font-size:clamp(22px,4vw,30px);
+  font-weight:700;margin-bottom:10px;
+}
+.konfig-header p{
+  font-size:15px;color:var(--text-dim);margin-bottom:28px;
+}
+.konfig-input-wrap{
+  display:flex;gap:12px;max-width:520px;margin:0 auto 24px;
+}
+.konfig-input{
+  flex:1;padding:14px 20px;border-radius:12px;
+  border:1.5px solid var(--border);background:var(--card);
+  font-size:15px;color:var(--text);outline:none;
+  transition:.3s;font-family:inherit;
+}
+.konfig-input::placeholder{color:var(--text-muted)}
+.konfig-input:focus{border-color:var(--gold);box-shadow:0 0 0 4px var(--gold-glow)}
+.konfig-cta{white-space:nowrap;flex-shrink:0}
+.konfig-tags{
+  display:flex;flex-wrap:wrap;gap:8px;justify-content:center;
+  max-width:520px;margin:0 auto;
+}
+.konfig-tag{
+  padding:8px 16px;border-radius:100px;
+  font-size:13px;font-weight:500;
+  background:var(--card);border:1px solid var(--border);
+  color:var(--text-dim);cursor:pointer;transition:.25s;
+  display:flex;align-items:center;gap:6px;
+}
+.konfig-tag:hover{
+  border-color:var(--gold);color:var(--text);
+  background:var(--gold-glow);
+}
+.konfig-tag.selected{
+  background:var(--gold);color:#fff;border-color:var(--gold);
+}
+
+/* Carousel dots (mobile testimonials) */
+.carousel-dots{
+  display:none;
+  justify-content:center;gap:8px;padding:16px 0 0;
+}
+.dot-indicator{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--border);transition:.3s;cursor:pointer;
+}
+.dot-indicator.active{background:var(--gold);width:24px;border-radius:4px}
+@media(max-width:768px){
+  .carousel-dots{display:flex}
+}
+
+/* Mobile konfigurator */
+@media(max-width:600px){
+  .konfigurator{padding:28px 20px;margin-top:32px}
+  .konfig-input-wrap{flex-direction:column;gap:10px}
+  .konfig-cta{width:100%;justify-content:center}
+  .konfig-input{padding:12px 16px;font-size:14px}
+  .konfig-tags{gap:6px}
+  .konfig-tag{padding:6px 12px;font-size:12px}
+}
+@media(max-width:430px){
+  .konfigurator{padding:24px 16px;border-radius:16px}
+}
 
 /* RESPONSIVE */
 @media (max-width:980px){
@@ -1347,12 +1426,34 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
   .hero-stats{gap:24px}
   .services-grid{grid-template-columns:1fr}
   .trust-grid{grid-template-columns:1fr 1fr}
+  .testimonial-grid{
+    display:flex;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    gap:16px;
+    padding-bottom:12px;
+    scrollbar-width:none;
+    mask-image:linear-gradient(to right,transparent 0,#000 8px,#000 calc(100% - 8px),transparent 100%);
+    -webkit-mask-image:linear-gradient(to right,transparent 0,#000 8px,#000 calc(100% - 8px),transparent 100%);
+  }
+  .testimonial-grid::-webkit-scrollbar{display:none}
+  .testimonial{
+    flex-shrink:0;
+    min-width:85%;
+    scroll-snap-align:start;
+  }
 }
 
 /* ── 600px: Grosses Handy ── */
 @media(max-width:600px){
   /* Allgemein */
-  section{padding:56px 0}
+  section{padding:64px 0}
+  .service,.trust-item,.testimonial{
+    border-color:rgba(229,221,208,.6);
+    box-shadow:0 2px 12px rgba(0,0,0,.03);
+  }
+  .section-divider{height:2px;margin:0}
   .container{padding:0 20px}
   .section-head{margin-bottom:36px}
   .section-head p{font-size:16px}
@@ -1399,8 +1500,12 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
   .quote{font-size:14.5px}
 
   /* Trust */
-  .trust-grid{grid-template-columns:1fr}
-  .trust-item{padding:20px}
+  .trust-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .trust-item{padding:16px 14px}
+  .trust-icon{width:40px;height:40px;border-radius:10px}
+  .trust-icon svg{width:18px;height:18px}
+  .trust-text h4{font-size:14px;margin-bottom:3px}
+  .trust-text p{font-size:12px;line-height:1.5}
 
   /* About */
   .about-grid{gap:32px}
@@ -1482,8 +1587,8 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
   .st-card{min-width:105px;padding:8px 10px}
   .st-name{font-size:11.5px}
   .st-type{font-size:9.5px}
-  .trust-item{padding:22px 18px}
-  .trust-icon{width:44px;height:44px}
+  .trust-item{padding:14px 12px}
+  .trust-icon{width:36px;height:36px}
   .ps-number{width:28px;height:28px;font-size:12px}
   .ps-icon{width:50px;height:50px}
 }
@@ -1497,9 +1602,12 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
   .hero-stats{gap:10px}
   .booking-cta-card{padding:18px 14px}
   .email-cta{font-size:14px;padding:14px 16px}
-  .trust-item{padding:18px 15px;gap:12px}
-  .trust-text h4{font-size:14.5px}
-  .trust-text p{font-size:12.5px}
+  .trust-grid{gap:8px}
+  .trust-item{padding:12px 10px;gap:10px}
+  .trust-text h4{font-size:13px}
+  .trust-text p{font-size:11px;line-height:1.4}
+  .trust-icon{width:32px;height:32px;border-radius:8px}
+  .trust-icon svg{width:16px;height:16px}
 }
 </style>
 </head>
@@ -1571,7 +1679,7 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
     </div>
 
     <div class="testimonial-grid">
-      <div class="testimonial reveal">
+      <div class="testimonial stagger">
         <div class="stars">★★★★★</div>
         <p class="quote">In nur 5 Tagen hatte ich eine komplett neue Website — modern, schnell und mobil-optimiert. Reservierungen laufen jetzt direkt über die Seite. Absolute Empfehlung!</p>
         <div class="author">
@@ -1583,7 +1691,7 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
         </div>
       </div>
 
-      <div class="testimonial reveal">
+      <div class="testimonial stagger">
         <div class="stars">★★★★★</div>
         <p class="quote">Endlich eine professionelle Online-Präsenz ohne monatliche WordPress-Kosten. Lionel hat genau verstanden was wir brauchen und technisch sauber umgesetzt.</p>
         <div class="author">
@@ -1595,7 +1703,7 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
         </div>
       </div>
 
-      <div class="testimonial reveal">
+      <div class="testimonial stagger">
         <div class="stars">★★★★★</div>
         <p class="quote">Persönlicher Service, faire Preise und transparente Kommunikation. Die Website läuft perfekt und sieht richtig hochwertig aus.</p>
         <div class="author">
@@ -1607,6 +1715,11 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
         </div>
       </div>
     </div>
+      <div class="carousel-dots" id="testimonialDots">
+        <span class="dot-indicator active"></span>
+        <span class="dot-indicator"></span>
+        <span class="dot-indicator"></span>
+      </div>
   </div>
 </section>
 
@@ -1619,8 +1732,8 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
       <p>Von der Idee bis zum Launch — alles aus einer Hand. Modernste Technologie, sauberer Code, kein Bullshit.</p>
     </div>
 
-    <div class="services-grid">
-      <div class="service reveal">
+    <div class="services-grid reveal">
+      <div class="service stagger">
         <div class="service-icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
         </div>
@@ -1634,7 +1747,7 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
         </ul>
       </div>
 
-      <div class="service reveal">
+      <div class="service stagger">
         <div class="service-icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
         </div>
@@ -1648,7 +1761,7 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
         </ul>
       </div>
 
-      <div class="service reveal">
+      <div class="service stagger">
         <div class="service-icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
@@ -1710,28 +1823,28 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
       <div class="section-eyebrow">Warum ONYX Studio?</div>
       <h2>Sechs Gründe,<br>uns zu vertrauen.</h2>
     </div>
-    <div class="trust-grid">
-      <div class="trust-item reveal">
+    <div class="trust-grid reveal">
+      <div class="trust-item stagger">
         <div class="trust-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
         <div class="trust-text"><h4>SSL & DSGVO-konform</h4><p>Verschlüsselte Verbindung Standard. Datenschutz nach deutschem Recht.</p></div>
       </div>
-      <div class="trust-item reveal">
+      <div class="trust-item stagger">
         <div class="trust-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
         <div class="trust-text"><h4>Kein WordPress</h4><p>Sauberer, eigener Code — keine Plugin-Abhängigkeiten, keine Sicherheitslücken.</p></div>
       </div>
-      <div class="trust-item reveal">
+      <div class="trust-item stagger">
         <div class="trust-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
         <div class="trust-text"><h4>Deutscher Support</h4><p>Persönlicher Ansprechpartner — keine Hotlines, kein Sprachbarrieren.</p></div>
       </div>
-      <div class="trust-item reveal">
+      <div class="trust-item stagger">
         <div class="trust-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
         <div class="trust-text"><h4>Faire Preise</h4><p>Transparente Pakete. Keine versteckten Kosten, kein Kleingedrucktes.</p></div>
       </div>
-      <div class="trust-item reveal">
+      <div class="trust-item stagger">
         <div class="trust-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
         <div class="trust-text"><h4>Schnelle Ladezeiten</h4><p>Optimiert für Geschwindigkeit — gut für Nutzer und Google-Ranking.</p></div>
       </div>
-      <div class="trust-item reveal">
+      <div class="trust-item stagger">
         <div class="trust-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
         <div class="trust-text"><h4>Volle Code-Ownership</h4><p>Der gesamte Code gehört Ihnen — keine Abhängigkeit, kein Lock-In.</p></div>
       </div>
@@ -1782,6 +1895,28 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
           <ul class="pi-features" id="piFeatures"></ul>
           <a href="#contact" class="btn btn-primary pi-cta">Diese Vorlage anfragen <span class="arrow">→</span></a>
         </div>
+      </div>
+    </div>
+
+    <!-- BRANCHE KONFIGURATOR -->
+    <div class="konfigurator reveal">
+      <div class="konfig-header">
+        <h3>Ihre Branche nicht dabei?<br>Kein Problem.</h3>
+        <p>Jedes Projekt wird individuell für Sie gestaltet — wählen Sie Ihre Branche und starten Sie.</p>
+      </div>
+      <div class="konfig-input-wrap">
+        <input type="text" class="konfig-input" placeholder="z.B. Zahnarztpraxis, Café, Autohaus..." id="brancheInput">
+        <a href="#contact" class="btn btn-primary konfig-cta" id="brancheCta">Projekt starten <span class="arrow">→</span></a>
+      </div>
+      <div class="konfig-tags" id="konfigTags">
+        <span class="konfig-tag" data-branch="Arztpraxis">🏥 Arztpraxis</span>
+        <span class="konfig-tag" data-branch="Anwaltskanzlei">⚖️ Anwaltskanzlei</span>
+        <span class="konfig-tag" data-branch="Hotel & Pension">🏨 Hotel</span>
+        <span class="konfig-tag" data-branch="Friseur & Beauty">💇 Friseur</span>
+        <span class="konfig-tag" data-branch="Fotograf">📸 Fotograf</span>
+        <span class="konfig-tag" data-branch="Steuerberater">📊 Steuerberater</span>
+        <span class="konfig-tag" data-branch="Café & Bäckerei">☕ Café</span>
+        <span class="konfig-tag" data-branch="Autohaus">🚗 Autohaus</span>
       </div>
     </div>
   </div>
@@ -2006,11 +2141,113 @@ const floatingObserver = new IntersectionObserver(([e]) => {
 }, {threshold: 0});
 if(heroSection) floatingObserver.observe(heroSection);
 
-// Reveal on scroll
-const io = new IntersectionObserver(es => {
-  es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }});
-}, {threshold: .12});
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+// Enhanced reveal system with stagger support
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      entry.target.classList.add('in');
+      const children = entry.target.querySelectorAll('.stagger');
+      children.forEach((child, i) => {
+        child.style.transitionDelay = (i * 120) + 'ms';
+        setTimeout(() => child.classList.add('in'), 10);
+      });
+      revealObs.unobserve(entry.target);
+    }
+  });
+}, {threshold: 0.08, rootMargin: '0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+// Stats counter animation
+(function(){
+  const statNums = document.querySelectorAll('.stat-num');
+  const counted = new Set();
+  function animateNum(el){
+    if(counted.has(el)) return;
+    counted.add(el);
+    const text = el.textContent.trim();
+    const match = text.match(/^(\d+)/);
+    if(!match) return;
+    const target = parseInt(match[1]);
+    const suffix = text.replace(/^\d+/, '');
+    const duration = 1800;
+    const start = performance.now();
+    el.textContent = '0' + suffix;
+    function step(now){
+      const p = Math.min((now - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * ease) + suffix;
+      if(p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) animateNum(e.target); });
+  }, {threshold: 0.5});
+  statNums.forEach(el => obs.observe(el));
+})();
+
+// Testimonial carousel dots
+(function(){
+  const grid = document.querySelector('.testimonial-grid');
+  const dots = document.querySelectorAll('.dot-indicator');
+  if(!grid || dots.length === 0) return;
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      const cards = grid.querySelectorAll('.testimonial');
+      if(cards[i]) cards[i].scrollIntoView({behavior:'smooth', block:'nearest', inline:'start'});
+    });
+  });
+  let scrollTimeout;
+  grid.addEventListener('scroll', () => {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      const cards = grid.querySelectorAll('.testimonial');
+      let closest = 0;
+      let minDist = Infinity;
+      cards.forEach((card, i) => {
+        const dist = Math.abs(card.getBoundingClientRect().left - grid.getBoundingClientRect().left);
+        if(dist < minDist){ minDist = dist; closest = i; }
+      });
+      dots.forEach((d, i) => d.classList.toggle('active', i === closest));
+    }, 50);
+  });
+})();
+
+// Branche Konfigurator
+(function(){
+  const input = document.getElementById('brancheInput');
+  const cta = document.getElementById('brancheCta');
+  const tags = document.querySelectorAll('.konfig-tag');
+  if(!input || !cta) return;
+  const baseCta = 'Projekt starten';
+  const parts = ['onyxstudio', 'outlook.de'];
+  const email = parts.join('@');
+  function updateCta(branch){
+    if(branch && branch.trim()){
+      cta.innerHTML = branch.trim() + '-Projekt starten <span class="arrow">→</span>';
+      const subj = encodeURIComponent('Projekt-Anfrage: ' + branch.trim());
+      const body = encodeURIComponent('Hallo ONYX Studio,\n\nich interessiere mich für ein Projekt in der Branche: ' + branch.trim() + '\n\nBitte kontaktieren Sie mich für ein kostenloses Erstgespräch.\n\nMit freundlichen Grüßen');
+      cta.href = 'mailto:' + email + '?subject=' + subj + '&body=' + body;
+    } else {
+      cta.innerHTML = baseCta + ' <span class="arrow">→</span>';
+      cta.href = '#contact';
+    }
+  }
+  input.addEventListener('input', function(){
+    tags.forEach(t => t.classList.remove('selected'));
+    updateCta(this.value);
+  });
+  tags.forEach(tag => {
+    tag.addEventListener('click', function(){
+      tags.forEach(t => t.classList.remove('selected'));
+      this.classList.add('selected');
+      const branch = this.dataset.branch;
+      input.value = branch;
+      updateCta(branch);
+      input.focus();
+    });
+  });
+})();
 
 // Mobile menu toggle styles
 const style = document.createElement('style');
