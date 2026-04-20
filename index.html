@@ -880,13 +880,18 @@ section.alt-bg-2{
   border-radius:36px;overflow:hidden;
   border:3px solid #2a2a36;
   background:#111;
-  box-shadow:0 20px 60px rgba(0,0,0,.15),0 4px 16px rgba(0,0,0,.08);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.1),0 20px 60px rgba(0,0,0,.15),0 4px 16px rgba(0,0,0,.08);
   display:flex;flex-direction:column;
   position:relative;
 }
 .app-frame::before{
   content:'';position:absolute;top:8px;left:50%;transform:translateX(-50%);
-  width:80px;height:24px;background:#000;border-radius:20px;z-index:10;
+  width:60px;height:20px;background:#000;border-radius:12px;z-index:10;
+}
+.app-frame::after{
+  content:'';position:absolute;bottom:6px;left:50%;transform:translateX(-50%);
+  width:40%;height:4px;background:rgba(255,255,255,.2);border-radius:2px;z-index:10;
+  pointer-events:none;
 }
 .app-status-bar{
   height:44px;padding:14px 20px 0;
@@ -972,18 +977,32 @@ section.alt-bg-2{
   align-items:center;justify-content:center;
 }
 .app-demo-modal.open{display:flex}
+.app-demo-modal.closing{display:flex}
 .app-demo-modal.open ~ .floating-cta{opacity:0;pointer-events:none}
+.app-demo-modal.closing ~ .floating-cta{opacity:0;pointer-events:none}
 .app-demo-modal-backdrop{
   position:absolute;inset:0;
   background:rgba(0,0,0,.7);
   backdrop-filter:blur(8px);
   -webkit-backdrop-filter:blur(8px);
 }
+.app-demo-modal.open .app-demo-modal-backdrop{
+  animation:modalBackdropIn .3s ease both;
+}
+.app-demo-modal.closing .app-demo-modal-backdrop{
+  animation:modalBackdropOut .3s ease both;
+}
 .app-demo-modal-content{
   position:relative;z-index:1;
   display:flex;flex-direction:column;align-items:center;
   gap:16px;padding:20px;
   max-height:100vh;
+}
+.app-demo-modal.open .app-demo-modal-content{
+  animation:modalSlideUp .5s cubic-bezier(.16,1,.3,1) both;
+}
+.app-demo-modal.closing .app-demo-modal-content{
+  animation:modalSlideDown .4s cubic-bezier(.4,0,1,1) both;
 }
 .app-demo-modal-close{
   position:absolute;top:12px;right:16px;z-index:10;
@@ -1000,12 +1019,74 @@ section.alt-bg-2{
 }
 .app-demo-modal-frame .app-frame{
   width:100%;height:100%;margin:0;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.12),
+    0 0 40px color-mix(in srgb,var(--app-accent,#4cd45c) 30%,transparent),
+    0 0 80px color-mix(in srgb,var(--app-accent,#4cd45c) 15%,transparent),
+    0 20px 60px rgba(0,0,0,.3);
+  animation:glowPulse 3s ease-in-out infinite;
 }
+/* Modal in-app micro-animations */
+.app-demo-modal-frame .app-content{
+  background:linear-gradient(180deg,#111 0%,#0a0a0a 100%) !important;
+}
+.app-demo-modal-frame .app-progress-fill{
+  animation:progressFill 1.2s cubic-bezier(.4,0,.2,1) .5s both;
+}
+.app-demo-modal-frame .app-stat-card{
+  backdrop-filter:blur(10px);
+  background:rgba(255,255,255,.08) !important;
+  animation:statFadeInUp .6s cubic-bezier(.4,0,.2,1) both;
+}
+.app-demo-modal-frame .app-stat-card:nth-child(1){animation-delay:.3s}
+.app-demo-modal-frame .app-stat-card:nth-child(2){animation-delay:.5s}
+.app-demo-modal-frame .app-stat-card:nth-child(3){animation-delay:.7s}
+.app-demo-modal-frame .app-card{
+  animation:cardIn .5s cubic-bezier(.4,0,.2,1) both;
+  transition:transform .2s,box-shadow .2s;
+}
+.app-demo-modal-frame .app-card:nth-child(1){animation-delay:.3s}
+.app-demo-modal-frame .app-card:nth-child(2){animation-delay:.45s}
+.app-demo-modal-frame .app-card:nth-child(3){animation-delay:.6s}
+.app-demo-modal-frame .app-card:nth-child(4){animation-delay:.75s}
+.app-demo-modal-frame .app-card:nth-child(5){animation-delay:.9s}
+.app-demo-modal-frame .app-card:active{
+  transform:scale(.97);
+  box-shadow:0 0 20px rgba(255,255,255,.06);
+}
+.app-demo-modal-frame .app-list-item{
+  animation:listSlideIn .4s cubic-bezier(.4,0,.2,1) both;
+}
+.app-demo-modal-frame .app-list-item:nth-child(1){animation-delay:.2s}
+.app-demo-modal-frame .app-list-item:nth-child(2){animation-delay:.3s}
+.app-demo-modal-frame .app-list-item:nth-child(3){animation-delay:.4s}
+.app-demo-modal-frame .app-list-item:nth-child(4){animation-delay:.5s}
+.app-demo-modal-frame .app-list-item:nth-child(5){animation-delay:.6s}
+.app-demo-modal-frame .app-bottom-nav{
+  animation:navBounceIn .6s cubic-bezier(.4,0,.2,1) .4s both;
+}
+/* Modal CTA enhancement */
 .app-demo-modal-footer{
   text-align:center;
 }
 .app-demo-modal-cta{
   font-size:14px;padding:12px 24px;
+  position:relative;overflow:hidden;
+  box-shadow:0 0 24px rgba(184,148,46,.35),0 4px 12px rgba(0,0,0,.1);
+  animation:none;
+}
+.app-demo-modal-cta::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.25) 50%,transparent 100%);
+  background-size:200% 100%;
+  animation:shimmer 3s ease-in-out infinite;
+}
+/* Swipe indicator */
+.app-demo-scroll-hint{
+  font-size:11px;color:rgba(255,255,255,.5);
+  text-align:center;letter-spacing:.5px;
+  animation:hintFadeOut 3s ease forwards;
+  pointer-events:none;
 }
 .mobile-card-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
 .mobile-card-demo-btn{
@@ -1929,6 +2010,23 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
   .email-cta{font-size:13.5px;padding:13px 16px}
   .app-demo-modal-frame{width:240px;height:480px}
 }
+
+/* ── WOW UPGRADE: Keyframes ── */
+@keyframes modalBackdropIn{from{opacity:0}to{opacity:1}}
+@keyframes modalBackdropOut{from{opacity:1}to{opacity:0}}
+@keyframes modalSlideUp{from{opacity:0;transform:translateY(80vh)}to{opacity:1;transform:translateY(0)}}
+@keyframes modalSlideDown{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(80vh)}}
+@keyframes glowPulse{
+  0%,100%{box-shadow:inset 0 0 0 1px rgba(255,255,255,.12),0 0 30px color-mix(in srgb,var(--app-accent,#4cd45c) 25%,transparent),0 0 60px color-mix(in srgb,var(--app-accent,#4cd45c) 10%,transparent),0 20px 60px rgba(0,0,0,.3)}
+  50%{box-shadow:inset 0 0 0 1px rgba(255,255,255,.18),0 0 50px color-mix(in srgb,var(--app-accent,#4cd45c) 40%,transparent),0 0 100px color-mix(in srgb,var(--app-accent,#4cd45c) 20%,transparent),0 20px 60px rgba(0,0,0,.3)}
+}
+@keyframes progressFill{from{width:0}}
+@keyframes statFadeInUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes cardIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes listSlideIn{from{opacity:0;transform:translateX(-20px)}to{opacity:1;transform:translateX(0)}}
+@keyframes navBounceIn{0%{opacity:0;transform:translateY(20px)}60%{transform:translateY(-3px)}100%{opacity:1;transform:translateY(0)}}
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+@keyframes hintFadeOut{0%,50%{opacity:.7}100%{opacity:0;visibility:hidden}}
 </style>
 </head>
 <body>
@@ -3057,14 +3155,15 @@ document.querySelectorAll('.nav-links a').forEach(a => {
 
 <!-- App Demo Modal (mobile only) -->
 <div class="app-demo-modal" id="appDemoModal">
-  <div class="app-demo-modal-backdrop" onclick="closeAppDemo()"></div>
+  <div class="app-demo-modal-backdrop" onclick="closeAppDemoAnimated()"></div>
   <div class="app-demo-modal-content">
-    <button class="app-demo-modal-close" onclick="closeAppDemo()">✕</button>
+    <button class="app-demo-modal-close" onclick="closeAppDemoAnimated()">✕</button>
     <div class="app-demo-modal-frame" id="appDemoFrame">
       <!-- App demo content injected here by JS -->
     </div>
+    <div class="app-demo-scroll-hint">Tippen um zu scrollen ↕</div>
     <div class="app-demo-modal-footer">
-      <a href="#contact" class="btn btn-primary app-demo-modal-cta" id="appDemoCta" onclick="closeAppDemo()">Diese App anfragen <span class="arrow">→</span></a>
+      <a href="#contact" class="btn btn-primary app-demo-modal-cta" id="appDemoCta" onclick="closeAppDemoAnimated()">Diese App anfragen <span class="arrow">→</span></a>
     </div>
   </div>
 </div>
@@ -3775,6 +3874,22 @@ document.querySelectorAll('.nav-links a').forEach(a => {
   </section>
 
 </div><!-- /#demo-storage -->
+<script>
+// WOW Upgrade: Animated close with slide-down + fade-out
+function closeAppDemoAnimated() {
+  var modal = document.getElementById('appDemoModal');
+  if(!modal || !modal.classList.contains('open') || modal.classList.contains('closing')) return;
+  modal.classList.add('closing');
+  setTimeout(function(){
+    modal.classList.remove('closing');
+    closeAppDemo();
+  }, 400);
+}
+// Override Escape to use animated close
+document.addEventListener('keydown', function(e) {
+  if(e.key === 'Escape') { e.stopImmediatePropagation(); closeAppDemoAnimated(); }
+}, true);
+</script>
 <!-- Calendly Popup CSS & Script -->
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
