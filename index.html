@@ -1485,19 +1485,113 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 
 /* ── 768px: Tablet ── */
 @media(max-width:768px){
-  section{padding:72px 0}
-  .section-head{margin-bottom:48px}
-  .hero{padding:110px 0 64px}
-  .hero-stats{gap:24px}
-  .services-grid{grid-template-columns:1fr}
-  .trust-grid{grid-template-columns:1fr 1fr}
+  section{padding:56px 0}
+  .container{padding:0 16px}
+
+  /* Alternating section backgrounds — replaces dividers */
+  .section-divider{display:none}
+  #testimonials{background:var(--bg-soft)}
+  #services{background:var(--bg)}
+  #process{background:var(--bg-soft)}
+  #trust{background:var(--bg)}
+  #work{background:var(--bg-soft)}
+
+  /* Headings */
+  h2{font-size:24px;margin-bottom:12px}
+  .section-head{margin-bottom:24px}
+  .section-head p{font-size:14px}
+  .section-eyebrow{font-size:10px;letter-spacing:1.5px;margin-bottom:8px}
+
+  /* Nav */
+  nav{padding:14px 0}
+  .logo{font-size:20px;gap:8px}
+  .logo-mark{width:28px;height:28px;font-size:14px}
+
+  /* Hero base (one-screen) */
+  .hero{padding:88px 0 40px;min-height:auto}
+
+  /* Services */
+  .services-grid{grid-template-columns:1fr;gap:0}
+  .service{
+    background:none;border:none;border-radius:0;
+    box-shadow:none;padding:20px 0;
+    border-bottom:1px solid var(--border-soft);
+  }
+  .service:last-child{border-bottom:none}
+  .service::before{display:none}
+  .service-icon{
+    width:36px;height:36px;border-radius:10px;margin-bottom:14px;
+    background:var(--gold-glow);border:none;
+  }
+  .service h3{font-size:17px;margin-bottom:8px}
+  .service p{font-size:13px;line-height:1.6;margin-bottom:0}
+  .service ul{display:none}
+
+  /* Testimonials */
+  .testimonials{padding:48px 0}
+  .testimonial-grid{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+  }
+  .testimonial-grid::-webkit-scrollbar{display:none}
+  .testimonial{
+    background:none;border:none;border-radius:0;
+    box-shadow:none;padding:20px 0;width:100%;
+    border-bottom:1px solid var(--border-soft);
+  }
+  .testimonial:last-child{border-bottom:none}
+  .testimonial::before{display:none}
+  .stars{display:none}
+  .quote{
+    font-size:14px;line-height:1.6;font-style:italic;
+    margin-bottom:12px;color:var(--text-dim);
+    padding-left:16px;border-left:2px solid var(--gold);
+  }
+  .author{padding-top:0;border-top:none;gap:10px;margin-top:0}
+  .author-avatar{width:28px;height:28px;font-size:10px}
+  .author-name{font-size:12.5px}
+  .author-role{font-size:11px}
+  .carousel-dots{display:none !important}
+
+  /* Process */
+  .process{padding:48px 0}
+  .process-step{text-align:left;padding:16px 0;border-bottom:1px solid var(--border-soft)}
+  .process-step:last-child{border-bottom:none}
+  .ps-number{margin:0 0 8px 0;width:24px;height:24px;font-size:11px;border-width:1.5px}
+  .ps-icon{display:none}
+  .process-step h3{font-size:15px;margin-bottom:4px}
+  .process-step p{font-size:13px;line-height:1.55;color:var(--text-dim)}
+
+  /* Trust — inline checklist */
+  .trust{padding:48px 0}
+  .trust-grid{grid-template-columns:1fr;gap:0;margin-top:32px}
+  .trust-item{
+    flex-direction:row;align-items:center;gap:12px;
+    background:none;border:none;border-radius:0;
+    box-shadow:none;padding:14px 0;
+    border-bottom:1px solid var(--border-soft);
+  }
+  .trust-item:last-child{border-bottom:none}
+  .trust-item:hover{transform:none;box-shadow:none}
+  .trust-icon{
+    width:32px;height:32px;border-radius:8px;flex-shrink:0;
+    background:var(--gold-glow);border:none;
+  }
+  .trust-icon svg{width:16px;height:16px}
+  .trust-text h4{font-size:14px;margin-bottom:0}
+  .trust-text p{display:none}
+
+  /* Showcase */
+  #work{padding:48px 0}
+  #work .section-head p:last-child{display:none}
   .preview-browser{display:none}
   .preview-info{display:none}
   .showcase-thumbs{display:none}
   .mobile-project-cards{
     display:flex;
     flex-direction:column;
-    gap:14px;
+    gap:10px;
   }
   .mobile-project-cards::-webkit-scrollbar{display:none}
   .mobile-card-dots{display:none !important}
@@ -1506,7 +1600,23 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
     width:100%;
     flex-shrink:1;
     scroll-snap-align:none;
+    border:1px solid var(--border-soft);
+    box-shadow:none;
+    border-radius:14px;
+    overflow:hidden;
+    background:var(--card);
   }
+  .mobile-card-header{padding:16px 16px 12px}
+  .mobile-card-name{font-size:16px}
+  .mobile-card-type{font-size:10px}
+  .mobile-card-branch{font-size:11px}
+  .mobile-card-body{padding:14px 16px 16px}
+  .mobile-card-features{gap:6px;margin-bottom:14px}
+  .mobile-card-features li{font-size:11px;padding:3px 8px}
+  .mobile-card-cta{padding:10px 16px;font-size:13px;border-radius:8px}
+  .showcase-filters{gap:6px;margin-bottom:4px}
+  .sf-pill{padding:7px 14px;font-size:12px;border-radius:100px}
+  .sf-pill .sf-icon{font-size:13px}
   .mobile-cards-toggle{
     display:block;
     width:100%;
@@ -1526,221 +1636,127 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
     border-color:var(--gold);
     color:var(--text);
   }
-  .testimonial-grid{
-    display:flex;
-    flex-direction:column;
-    gap:16px;
+
+  /* Konfigurator */
+  .konfigurator{margin-top:24px;padding:24px 18px;border-radius:14px}
+  .konfig-header h3{font-size:18px}
+  .konfig-header p{font-size:13px;margin-bottom:18px}
+  .konfig-input{padding:11px 14px;font-size:13px}
+  .konfig-tags{gap:6px}
+  .konfig-tag{padding:6px 12px;font-size:11.5px}
+
+  /* About */
+  .about-card{
+    padding:24px 18px;
+    background:var(--card);border-radius:14px;
+    border:1px solid var(--border-soft);box-shadow:none;
   }
-  .testimonial-grid::-webkit-scrollbar{display:none}
-  .testimonial{
-    padding:24px 20px;
-    width:100%;
+  .about-text p{font-size:14px;margin-bottom:14px}
+  .about-list li{font-size:13px;padding:12px 0}
+
+  /* Booking */
+  .booking-section{padding:48px 0}
+  .booking-left h2{font-size:24px}
+  .booking-sub{font-size:14px}
+  .booking-checklist li{font-size:13px}
+  .booking-cta-title{font-size:15px}
+
+  /* Contact */
+  .contact{
+    padding:32px 18px;border-radius:14px;
+    background:var(--card);border:1px solid var(--border-soft);
   }
-  .carousel-dots{display:none !important}
-  h2{font-size:clamp(28px,6.5vw,44px)}
-  .hero{min-height:auto}
+  .contact::before{display:none}
+  .contact h2{font-size:24px;margin-bottom:10px}
+  .contact p{font-size:14px;margin-bottom:24px}
+  .email-cta{padding:14px 20px;font-size:14px}
+  .contact-badge{font-size:11px;padding:6px 14px;margin-bottom:16px}
+
+  /* Footer */
+  footer{padding:28px 0 20px;margin-top:40px}
+  .footer-inner{gap:10px;flex-direction:column;text-align:center}
+  .footer-links{flex-wrap:wrap;justify-content:center;gap:8px 14px}
+  .footer-links a{font-size:12px}
+
+  /* Floating CTA */
+  .floating-cta-btn{padding:10px 18px;font-size:13px}
 }
 .mobile-card-hidden{display:none !important}
 .mobile-cards-toggle{display:none}
 
 /* ── 600px: Grosses Handy ── */
 @media(max-width:600px){
-  /* Allgemein */
-  section{padding:56px 0}
-  .service,.trust-item,.testimonial{
-    border-color:rgba(229,221,208,.6);
-    box-shadow:0 2px 12px rgba(0,0,0,.03);
+  /* Hero — one-screen, minimal */
+  .hero{padding:88px 0 40px;min-height:auto}
+  .eyebrow{display:none}
+  h1{font-size:28px;line-height:1.12;margin-bottom:16px}
+  .hero p{
+    font-size:14px;line-height:1.65;margin-bottom:24px;
+    display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
   }
-  .section-divider{height:2px;margin:0}
-  .container{padding:0 20px}
-  h2{font-size:clamp(26px,7vw,40px)}
-  .section-head{margin-bottom:28px}
-  .section-head p{font-size:16px}
-  .section-eyebrow{font-size:11px;letter-spacing:1.5px;margin-bottom:10px}
+  .hero-cta{flex-direction:column;gap:10px;align-items:stretch}
+  .btn{padding:13px 20px;font-size:14px;justify-content:center;width:100%}
+  .btn-ghost{display:none}
 
-  /* Hero */
-  .hero{padding:96px 0 56px}
-  h1{font-size:clamp(34px,9.5vw,82px);line-height:1.08}
-  .hero p{font-size:16px;line-height:1.75;margin-bottom:32px}
-  .eyebrow{
-    font-size:11.5px;padding:7px 13px;gap:6px;
-    flex-wrap:wrap;line-height:1.5;
-  }
-  .eyebrow-sep{display:none}
-  .eyebrow-slots{display:block;width:100%;margin-top:2px;padding-top:4px;border-top:1px solid rgba(201,168,76,.15)}
-
-  /* CTA Buttons: full-width gestapelt */
-  .hero-cta{flex-direction:column;gap:12px;align-items:stretch}
-  .btn{padding:15px 24px;font-size:15px;justify-content:center;width:100%}
-
-  /* Stats: 2×2 Grid mit Karten */
+  /* Stats — inline text flow, no cards */
   .hero-stats{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-    margin-top:40px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0;
+    margin-top:28px;
+    padding:16px 0;
+    border-top:1px solid var(--border-soft);
   }
   .stat-divider{display:none}
   .stat{
-    padding:18px 14px;
-    background:var(--card);
-    border-radius:14px;
-    border:1px solid var(--border-soft);
-    text-align:center;
+    background:none;border:none;border-radius:0;
+    padding:0;text-align:left;
+    display:inline-flex;align-items:baseline;gap:6px;
+    box-shadow:none;
   }
-  .stat-num{font-size:26px;margin-bottom:2px}
-  .stat-label{font-size:11px;letter-spacing:.5px}
+  .stat::after{
+    content:'·';color:var(--text-muted);margin:0 10px;font-size:14px;
+  }
+  .stat:last-child::after{display:none}
+  .stat-num{font-size:16px;margin-bottom:0;color:var(--gold)}
+  .stat-label{font-size:11px;letter-spacing:0;text-transform:none;color:var(--text-muted)}
 
-  /* Services */
-  .service{padding:24px 20px}
-  .service h3{font-size:20px}
-  .service-icon{width:44px;height:44px;margin-bottom:18px}
-  .service ul li{padding:4px 0;font-size:13px}
+  /* Process tighter */
+  .process-step{padding:14px 0}
+  .process-step h3{font-size:14px}
+  .process-step p{font-size:12.5px}
 
-  /* Testimonials */
-  .testimonial{padding:20px 18px}
-  .testimonial::before{font-size:60px;top:-4px;right:12px;opacity:.15}
-  .quote{font-size:14px;line-height:1.65}
-  .stars{font-size:15px;letter-spacing:1px;margin-bottom:12px}
-  .author{margin-top:16px}
-  .author-avatar{width:32px;height:32px;font-size:11px}
-  .author-name{font-size:13px}
-  .author-role{font-size:11px}
-
-  /* Mobile Project Cards */
-  .mobile-card-header{padding:20px 18px 16px}
-  .mobile-card-name{font-size:18px}
-  .mobile-card-branch{font-size:12px}
-  .mobile-card-body{padding:16px 18px 18px}
-  .mobile-card-features li{font-size:11.5px;padding:4px 10px}
-  .mobile-card-cta{padding:11px 16px;font-size:13px}
-
-  /* Process */
-  .process-step{padding:24px 20px}
-  .ps-text h3{font-size:17px}
-  .ps-text p{font-size:13.5px}
-
-  /* Trust */
-  .trust-grid{grid-template-columns:1fr 1fr;gap:12px}
-  .trust-item{padding:16px 14px}
-  .trust-icon{width:40px;height:40px;border-radius:10px}
-  .trust-icon svg{width:18px;height:18px}
-  .trust-text h4{font-size:14px;margin-bottom:3px}
-  .trust-text p{font-size:12px;line-height:1.5}
-
-  /* About */
-  .about-grid{gap:32px}
-  .about-card{padding:28px 22px}
-  .about-list li{font-size:13.5px;padding:14px 0}
+  /* Showcase preview (legacy, mostly hidden but in case) */
+  .preview-content{height:380px}
+  .app-frame{width:200px;height:380px;border-radius:28px;border-width:2px}
 
   /* Booking */
-  .booking-section{padding:56px 0}
   .booking-grid{gap:32px}
-  .booking-left h2{font-size:clamp(28px,8vw,48px)}
-  .booking-sub{font-size:15px}
   .booking-what{padding:22px 18px}
-  .booking-checklist li{font-size:14px;gap:10px}
   .booking-cta-card{padding:24px 20px;border-radius:16px}
-  .booking-cta-title{font-size:17px}
-  .booking-cta-top{gap:12px;margin-bottom:20px}
-  .booking-slots{gap:10px;margin-bottom:24px}
   .booking-popup-btn{padding:14px;font-size:15px}
   .booking-scarcity{font-size:13px;padding:10px 14px}
 
   /* Contact */
-  .contact{padding:40px 22px;border-radius:18px}
-  .contact h2{font-size:clamp(26px,8vw,52px)}
-  .contact p{font-size:16px}
-  .email-cta{padding:16px 22px;font-size:15px;border-radius:10px}
   .contact-trust{gap:10px;flex-wrap:wrap;justify-content:center}
   .contact-trust span:nth-child(even){display:none}
-
-  /* Showcase */
-  .st-card{min-width:116px;padding:10px 12px}
-  .preview-content{height:380px}
-  .preview-info{padding:14px 16px;gap:12px}
-  .pi-name{font-size:16px;min-width:auto;width:100%}
-  .pi-branch{font-size:11px}
-  .pi-features{gap:6px}
-  .pi-features li{font-size:11px;padding:3px 8px}
-  .app-frame{width:200px;height:380px;border-radius:28px;border-width:2px}
-  .app-frame::before{width:56px;height:16px;top:6px}
-  .app-status-bar{height:36px;padding:10px 16px 0;font-size:10px}
-  .app-bottom-nav{height:44px}
-  .app-header{padding:12px 16px 8px;font-size:16px}
-  .app-sub{font-size:11px;padding:0 16px 12px}
-  .app-card{margin:6px 12px;padding:10px}
-  .app-card-title{font-size:12px}
-  .app-card-text{font-size:10px}
-  .app-section-title{font-size:10px;padding:8px 16px 6px}
-  .app-list-item{padding:8px 16px;gap:8px}
-  .app-list-icon{width:28px;height:28px;border-radius:8px;font-size:13px}
-  .app-list-name{font-size:12px}
-  .app-list-meta{font-size:10px}
-  .app-stat-row{gap:6px;padding:0 12px 8px}
-  .app-stat-card{padding:8px}
-  .app-stat-num{font-size:14px}
-  .app-stat-label{font-size:8px}
-  .app-nav-item{font-size:8px}
-  .app-nav-icon{width:16px;height:16px}
-
-  /* Footer */
-  .footer-inner{flex-direction:column;text-align:center;gap:14px}
-  .footer-links{flex-wrap:wrap;justify-content:center;gap:8px 14px}
-  footer{padding:36px 0 24px}
 }
 
 /* ── 430px: Normales Handy (iPhone 14, Pixel) ── */
 @media(max-width:430px){
-  .container{padding:0 18px}
-  h1{font-size:clamp(32px,9vw,82px)}
-  .hero p{font-size:15.5px}
-  .btn{padding:14px 20px;font-size:14.5px}
-  .stat-num{font-size:24px}
-  .stat{padding:16px 12px}
-  .service{padding:24px 20px}
-  .booking-cta-card{padding:20px 16px}
-  .booking-what{padding:18px 14px}
-  .contact{padding:32px 16px}
-  .about-card{padding:24px 18px}
-  .sf-pill{padding:7px 14px;font-size:12px;gap:5px}
-  .sf-pill .sf-icon{font-size:14px}
-  .st-card{min-width:105px;padding:8px 10px}
-  .st-name{font-size:11.5px}
-  .st-type{font-size:9.5px}
-  .trust-item{padding:14px 12px}
-  .trust-icon{width:36px;height:36px}
-  .ps-number{width:28px;height:28px;font-size:12px}
-  .ps-icon{width:50px;height:50px}
-  .testimonial{padding:18px 16px}
-  .quote{font-size:13.5px}
-  .mobile-card-header{padding:18px 16px 14px}
-  .mobile-card-name{font-size:16px}
-  .mobile-card-body{padding:14px 16px 16px}
-  .mobile-card-features{gap:6px;margin-bottom:16px}
-  .trust-text p{
-    display:-webkit-box;
-    -webkit-line-clamp:2;
-    -webkit-box-orient:vertical;
-    overflow:hidden;
-  }
+  h1{font-size:26px}
+  h2{font-size:22px}
+  .stat-num{font-size:15px}
+  .hero p{font-size:13.5px}
 }
 
 /* ── 380px: Kleines Handy (iPhone SE) ── */
 @media(max-width:380px){
-  .container{padding:0 15px}
-  h1{font-size:30px}
-  .eyebrow{font-size:10.5px}
-  .stat-num{font-size:22px}
-  .hero-stats{gap:10px}
-  .booking-cta-card{padding:18px 14px}
-  .email-cta{font-size:14px;padding:14px 16px}
-  .trust-grid{gap:8px}
-  .trust-item{padding:12px 10px;gap:10px}
-  .trust-text h4{font-size:13px}
-  .trust-text p{font-size:11px;line-height:1.4}
-  .trust-icon{width:32px;height:32px;border-radius:8px}
-  .trust-icon svg{width:16px;height:16px}
+  .container{padding:0 14px}
+  h1{font-size:24px}
+  .stat-num{font-size:14px}
+  .stat::after{margin:0 6px}
+  .email-cta{font-size:13.5px;padding:13px 16px}
 }
 </style>
 </head>
