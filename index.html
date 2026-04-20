@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="ONYX Studio — Premium Websites, Web-Apps & Mobile Apps für Unternehmen. Schnell, sicher, modern.">
 <meta name="theme-color" content="#faf8f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://assets.calendly.com; script-src 'self' 'unsafe-inline' https://assets.calendly.com https://va.vercel-scripts.com; img-src 'self' data: https://*.calendly.com https://*.cloudfront.net https://images.unsplash.com; font-src 'self' data: https://assets.calendly.com; connect-src https://calendly.com https://api.calendly.com https://*.calendly.com https://vitals.vercel-insights.com; frame-src https://calendly.com; object-src 'none'"><title>ONYX Studio — Websites & Apps die begeistern</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://assets.calendly.com; script-src 'self' 'unsafe-inline' https://assets.calendly.com https://va.vercel-scripts.com; img-src 'self' data: https://*.calendly.com https://*.cloudfront.net https://images.unsplash.com; font-src 'self' data: https://assets.calendly.com; connect-src https://calendly.com https://api.calendly.com https://*.calendly.com https://vitals.vercel-insights.com; frame-src https://calendly.com; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; frame-ancestors 'none'"><title>ONYX Studio — Websites & Apps die begeistern</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -2572,12 +2572,23 @@ document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
   const email = parts.join('@');
   function updateCta(branch){
     if(branch && branch.trim()){
-      cta.innerHTML = branch.trim() + '-Projekt starten <span class="arrow">→</span>';
-      const subj = encodeURIComponent('Projekt-Anfrage: ' + branch.trim());
-      const body = encodeURIComponent('Hallo ONYX Studio,\n\nich interessiere mich für ein Projekt in der Branche: ' + branch.trim() + '\n\nBitte kontaktieren Sie mich für ein kostenloses Erstgespräch.\n\nMit freundlichen Grüßen');
+      const safe = branch.trim().replace(/[<>"'&]/g, '');
+      cta.textContent = '';
+      cta.appendChild(document.createTextNode(safe + '-Projekt starten '));
+      const arrow = document.createElement('span');
+      arrow.className = 'arrow';
+      arrow.textContent = '→';
+      cta.appendChild(arrow);
+      const subj = encodeURIComponent('Projekt-Anfrage: ' + safe);
+      const body = encodeURIComponent('Hallo ONYX Studio,\n\nich interessiere mich für ein Projekt in der Branche: ' + safe + '\n\nBitte kontaktieren Sie mich für ein kostenloses Erstgespräch.\n\nMit freundlichen Grüßen');
       cta.href = 'mailto:' + email + '?subject=' + subj + '&body=' + body;
     } else {
-      cta.innerHTML = baseCta + ' <span class="arrow">→</span>';
+      cta.textContent = '';
+      cta.appendChild(document.createTextNode(baseCta + ' '));
+      const arrow = document.createElement('span');
+      arrow.className = 'arrow';
+      arrow.textContent = '→';
+      cta.appendChild(arrow);
       cta.href = '#contact';
     }
   }
