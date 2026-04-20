@@ -534,9 +534,14 @@ section.alt-bg-2{
   text-align:center;padding:0 24px;
 }
 .ps-number{
-  font-family:'Georgia',serif;font-size:56px;font-weight:700;
-  color:var(--border);letter-spacing:-3px;margin-bottom:-10px;
-  line-height:1;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+  font-size:13px;font-weight:700;
+  color:var(--gold);
+  width:32px;height:32px;border-radius:50%;
+  border:2px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 16px;
+  line-height:1;letter-spacing:0;
 }
 .ps-icon{
   width:60px;height:60px;border-radius:16px;margin:0 auto 20px;
@@ -1065,38 +1070,59 @@ section.alt-bg-2{
 }
 /* SHOWCASE TOOL */
 .showcase-wrapper{
-  display:grid;
-  grid-template-columns:260px 1fr;
-  gap:28px;
-  align-items:start;
-  margin-bottom:80px;
+  display:flex;flex-direction:column;gap:24px;
+  margin-bottom:40px;
 }
-.template-list{
-  display:flex;flex-direction:column;gap:8px;
-  position:sticky;top:100px;
+.showcase-filters{
+  display:flex;gap:8px;justify-content:center;margin-bottom:8px;
 }
-.tl-btn{
-  display:flex;align-items:center;gap:12px;
-  padding:14px 18px;border-radius:12px;
-  background:var(--card);border:1px solid var(--border-soft);
-  cursor:pointer;transition:.25s;
-  text-align:left;width:100%;color:var(--text-dim);
-  font-size:14px;font-weight:500;
+.sf-pill{
+  padding:10px 24px;border-radius:100px;
+  font-size:14px;font-weight:600;
+  cursor:pointer;transition:.3s;
+  border:1.5px solid var(--border);
+  background:var(--card);color:var(--text-dim);
+  display:flex;align-items:center;gap:8px;
 }
-.tl-btn:hover{background:var(--card-hover);color:var(--text)}
-.tl-btn.active{
-  background:var(--card-hover);
+.sf-pill:hover{border-color:var(--gold);color:var(--text)}
+.sf-pill.active{
+  background:var(--gold);color:#fff;
   border-color:var(--gold);
-  color:var(--text);
-  border-left:3px solid var(--gold);
+  box-shadow:0 4px 16px rgba(184,148,46,.25);
 }
-.tl-dot{
+.sf-pill .sf-icon{font-size:16px}
+.showcase-thumbs{
+  display:flex;gap:10px;overflow-x:auto;
+  padding:4px 0 8px;
+  scrollbar-width:none;
+}
+.showcase-thumbs::-webkit-scrollbar{display:none}
+.st-card{
+  flex-shrink:0;
+  display:flex;align-items:center;gap:10px;
+  padding:12px 18px;border-radius:12px;
+  background:var(--card);border:1.5px solid var(--border-soft);
+  cursor:pointer;transition:.3s;
+  min-width:140px;
+}
+.st-card:hover{
+  border-color:rgba(184,148,46,.4);
+  background:var(--card-hover);
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(0,0,0,.06);
+}
+.st-card.active{
+  border-color:var(--gold);
+  background:var(--gold-glow);
+  box-shadow:0 4px 16px rgba(184,148,46,.15);
+}
+.st-dot{
   width:10px;height:10px;border-radius:50%;flex-shrink:0;
 }
-.tl-info{display:flex;flex-direction:column;gap:2px}
-.tl-name{font-size:13.5px;font-weight:600}
-.tl-branch{font-size:11.5px;color:var(--text-muted)}
-.tl-btn.active .tl-branch{color:var(--gold);opacity:.8}
+.st-info{display:flex;flex-direction:column;gap:1px}
+.st-name{font-size:13px;font-weight:600;color:var(--text);white-space:nowrap}
+.st-type{font-size:10.5px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px}
+.st-card.active .st-name{color:var(--gold)}
 
 /* Preview Panel */
 .preview-panel{
@@ -1236,48 +1262,21 @@ section.alt-bg-2{
 .pi-demo{border-color:rgba(201,168,76,.3);color:var(--gold) !important}
 .pi-demo:hover{background:var(--gold-glow) !important}
 
-/* TEMPLATE OVERVIEW GRID */
-.template-overview-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
-  margin-top:40px;
-}
-.tog-card{
-  background:var(--card);border:1px solid var(--border-soft);
-  border-radius:12px;padding:20px;cursor:pointer;transition:.25s;
-}
-.tog-card:hover{
-  border-color:rgba(201,168,76,.3);
-  background:var(--card-hover);
-  transform:translateY(-2px);
-}
-.tog-header{display:flex;align-items:center;gap:10px;margin-bottom:12px}
-.tog-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
-.tog-name{font-size:14px;font-weight:600}
-.tog-branch{font-size:11px;color:var(--text-muted);margin-bottom:10px}
-.tog-feats{list-style:none;font-size:12px;color:var(--text-dim)}
-.tog-feats li{padding:2px 0;display:flex;align-items:center;gap:6px}
-.tog-feats li::before{
-  content:'';width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0;
-}
-
 /* Responsive Showcase */
 @media (max-width:900px){
-  .showcase-wrapper{grid-template-columns:1fr;gap:20px}
-  .template-list{
-    flex-direction:row;overflow-x:auto;position:static;
-    padding-bottom:4px;gap:8px;
-    scrollbar-width:none;
-  }
-  .template-list::-webkit-scrollbar{display:none}
-  .tl-btn{flex-shrink:0;min-width:130px}
-  .template-overview-grid{grid-template-columns:repeat(2,1fr)}
+  .showcase-wrapper{gap:20px}
+  .showcase-thumbs{gap:8px}
+  .st-card{padding:10px 14px;min-width:120px}
 }
 @media (max-width:600px){
-  .template-overview-grid{grid-template-columns:1fr 1fr}
   .preview-content{height:300px}
   .pc-hero{min-height:140px;padding:24px 16px}
   .pc-hero-img{display:none}
   .pi-cta{display:none}
+  .showcase-filters{flex-wrap:wrap}
+  .sf-pill{padding:8px 16px;font-size:13px}
+  .st-card{min-width:110px;padding:8px 12px}
+  .st-name{font-size:12px}
 }
 
 /* FOOTER */
@@ -1322,7 +1321,7 @@ footer{
 
 /* Touch: kein sticky-hover auf iOS */
 @media(hover:none){
-  .service:hover,.work:hover,.trust-item:hover,.testimonial:hover,.tog-card:hover{
+  .service:hover,.work:hover,.trust-item:hover,.testimonial:hover{
     transform:none;box-shadow:none;border-color:var(--border-soft);
   }
 }
@@ -1420,10 +1419,8 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
   .contact-trust span:nth-child(even){display:none}
 
   /* Showcase */
-  .tl-btn{min-width:116px;padding:11px 14px}
+  .st-card{min-width:116px;padding:10px 12px}
   .preview-content{height:280px}
-  .template-overview-grid{grid-template-columns:1fr 1fr;gap:12px}
-  .tog-card{padding:16px}
 
   /* Footer */
   .footer-inner{flex-direction:column;text-align:center;gap:14px}
@@ -1444,7 +1441,6 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
   .booking-what{padding:18px 14px}
   .contact{padding:32px 16px}
   .about-card{padding:24px 18px}
-  .template-overview-grid{grid-template-columns:1fr}
 }
 
 /* ── 380px: Kleines Handy (iPhone SE) ── */
@@ -1701,17 +1697,24 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
     <div class="section-head reveal">
       <div class="section-eyebrow">Design-Vorlagen</div>
       <h2>So könnte Ihr<br>Projekt aussehen.</h2>
-      <p>Klicken Sie eine Branche an — und sehen Sie live, wie Ihre Website oder App aussehen könnte. Individuell angepasst an Ihr Design, Ihre Inhalte, Ihre Marke.</p>
+      <p>Wählen Sie eine Kategorie — und sehen Sie live, wie Ihre Website oder App aussehen könnte.</p>
+    </div>
+
+    <!-- Category Filter -->
+    <div class="showcase-filters reveal">
+      <button class="sf-pill active" data-filter="all"><span class="sf-icon">✨</span> Alle</button>
+      <button class="sf-pill" data-filter="website"><span class="sf-icon">🖥️</span> Websites</button>
+      <button class="sf-pill" data-filter="app"><span class="sf-icon">📱</span> Apps</button>
     </div>
 
     <!-- INTERACTIVE SHOWCASE -->
     <div class="showcase-wrapper reveal">
-      <!-- LEFT: Template List -->
-      <div class="template-list" id="templateList">
+      <!-- Thumbnail Strip -->
+      <div class="showcase-thumbs" id="showcaseThumbs">
         <!-- filled by JS -->
       </div>
 
-      <!-- RIGHT: Preview Panel -->
+      <!-- Preview Panel -->
       <div class="preview-panel" id="previewPanel">
         <div class="preview-browser">
           <div class="preview-bar">
@@ -1731,11 +1734,6 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
           <a href="#contact" class="btn btn-primary pi-cta">Diese Vorlage anfragen <span class="arrow">→</span></a>
         </div>
       </div>
-    </div>
-
-    <!-- TEMPLATE OVERVIEW GRID (compact) -->
-    <div class="template-overview-grid">
-      <!-- filled by JS -->
     </div>
   </div>
 </section>
@@ -2082,35 +2080,43 @@ const templates = [
 let activeIdx = 0;
 
 
-function buildTemplateList() {
-  const list = document.getElementById('templateList');
-  if(!list) return;
-  list.innerHTML = templates.map((t, i) => `
-    <button class="tl-btn${i === 0 ? ' active' : ''}" onclick="switchTemplate(${i})" data-idx="${i}">
-      <div class="tl-dot" style="background:${t.theme}"></div>
-      <div class="tl-info">
-        <div class="tl-name">${t.name}</div>
-        <div class="tl-branch">${t.branch}</div>
+function buildShowcaseThumbs() {
+  const thumbs = document.getElementById('showcaseThumbs');
+  if(!thumbs) return;
+  thumbs.innerHTML = templates.map((t, i) => `
+    <button class="st-card${i === 0 ? ' active' : ''}" onclick="switchTemplate(${i})" data-idx="${i}" data-type="${t.type}">
+      <div class="st-dot" style="background:${t.theme}"></div>
+      <div class="st-info">
+        <div class="st-name">${t.name}</div>
+        <div class="st-type">${t.type === 'app' ? '📱 App' : '🖥️ Website'}</div>
       </div>
     </button>
   `).join('');
 }
 
-function buildOverviewGrid() {
-  const grid = document.querySelector('.template-overview-grid');
-  if(!grid) return;
-  grid.innerHTML = templates.map((t, i) => `
-    <div class="tog-card" onclick="switchTemplate(${i}); document.getElementById('work').scrollIntoView({behavior:'smooth'})">
-      <div class="tog-header">
-        <div class="tog-dot" style="background:${t.theme}"></div>
-        <div class="tog-name">${t.name}</div>
-      </div>
-      <div class="tog-branch">${t.branch}</div>
-      <ul class="tog-feats">
-        ${t.features.map(f => `<li>${f}</li>`).join('')}
-      </ul>
-    </div>
-  `).join('');
+function initFilters() {
+  document.querySelectorAll('.sf-pill').forEach(pill => {
+    pill.addEventListener('click', function() {
+      document.querySelectorAll('.sf-pill').forEach(p => p.classList.remove('active'));
+      this.classList.add('active');
+      const filter = this.dataset.filter;
+      document.querySelectorAll('.st-card').forEach(card => {
+        if(filter === 'all' || card.dataset.type === filter) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      const activeCard = document.querySelector('.st-card.active');
+      if(activeCard && activeCard.style.display === 'none') {
+        const firstVisible = document.querySelector('.st-card:not([style*="display: none"])');
+        if(firstVisible) {
+          const idx = parseInt(firstVisible.dataset.idx);
+          switchTemplate(idx);
+        }
+      }
+    });
+  });
 }
 
 window.switchTemplate = function(idx) {
@@ -2142,8 +2148,8 @@ window.switchTemplate = function(idx) {
     featsList.innerHTML = t.features.map(f => `<li>${f}</li>`).join('');
 
     // Update active button
-    document.querySelectorAll('.tl-btn').forEach((btn, i) => {
-      btn.classList.toggle('active', i === idx);
+    document.querySelectorAll('.st-card').forEach((card, i) => {
+      card.classList.toggle('active', i === idx);
     });
 
     // Scroll content to top
@@ -2157,16 +2163,16 @@ window.switchTemplate = function(idx) {
 // Keyboard navigation
 document.addEventListener('keydown', e => {
   const focused = document.activeElement;
-  if(focused && focused.classList.contains('tl-btn')) {
-    if(e.key === 'ArrowDown') { e.preventDefault(); switchTemplate(Math.min(activeIdx + 1, templates.length - 1)); document.querySelectorAll('.tl-btn')[activeIdx].focus(); }
-    if(e.key === 'ArrowUp') { e.preventDefault(); switchTemplate(Math.max(activeIdx - 1, 0)); document.querySelectorAll('.tl-btn')[activeIdx].focus(); }
+  if(focused && focused.classList.contains('st-card')) {
+    if(e.key === 'ArrowRight') { e.preventDefault(); switchTemplate(Math.min(activeIdx + 1, templates.length - 1)); document.querySelectorAll('.st-card')[activeIdx]?.focus(); }
+    if(e.key === 'ArrowLeft') { e.preventDefault(); switchTemplate(Math.max(activeIdx - 1, 0)); document.querySelectorAll('.st-card')[activeIdx]?.focus(); }
   }
 });
 
 // Init after full DOM is ready (demo-storage is after this script tag)
 document.addEventListener('DOMContentLoaded', function() {
-  buildTemplateList();
-  buildOverviewGrid();
+  buildShowcaseThumbs();
+  initFilters();
   document.querySelectorAll('.demo-page').forEach(p => {
     document.getElementById('previewContent').appendChild(p);
     p.style.display = 'none';
