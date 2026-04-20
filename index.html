@@ -965,6 +965,57 @@ section.alt-bg-2{
 @media(max-width:600px){
 }
 
+/* APP DEMO MODAL */
+.app-demo-modal{
+  display:none;
+  position:fixed;inset:0;z-index:1000;
+  align-items:center;justify-content:center;
+}
+.app-demo-modal.open{display:flex}
+.app-demo-modal.open ~ .floating-cta{opacity:0;pointer-events:none}
+.app-demo-modal-backdrop{
+  position:absolute;inset:0;
+  background:rgba(0,0,0,.7);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+}
+.app-demo-modal-content{
+  position:relative;z-index:1;
+  display:flex;flex-direction:column;align-items:center;
+  gap:16px;padding:20px;
+  max-height:100vh;
+}
+.app-demo-modal-close{
+  position:absolute;top:12px;right:16px;z-index:10;
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(255,255,255,.15);border:none;
+  color:#fff;font-size:18px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  backdrop-filter:blur(8px);
+  transition:.2s;
+}
+.app-demo-modal-close:hover{background:rgba(255,255,255,.25)}
+.app-demo-modal-frame{
+  width:280px;height:560px;flex-shrink:0;
+}
+.app-demo-modal-frame .app-frame{
+  width:100%;height:100%;margin:0;
+}
+.app-demo-modal-footer{
+  text-align:center;
+}
+.app-demo-modal-cta{
+  font-size:14px;padding:12px 24px;
+}
+.mobile-card-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.mobile-card-demo-btn{
+  padding:5px 10px;border-radius:6px;
+  background:var(--gold-glow);border:1px solid var(--gold);
+  color:var(--gold);font-size:11px;font-weight:600;
+  cursor:pointer;transition:.2s;white-space:nowrap;
+}
+.mobile-card-demo-btn:hover{background:var(--gold);color:#fff}
+
 /* BOOKING SECTION */
 .booking-section{
   padding:120px 0;
@@ -1843,6 +1894,7 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
   h2{font-size:22px}
   .stat-num{font-size:15px}
   .hero p{font-size:13.5px}
+  .app-demo-modal-frame{width:260px;height:520px}
 }
 
 /* ── 380px: Kleines Handy (iPhone SE) ── */
@@ -1851,6 +1903,7 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
   h1{font-size:24px}
   .stat-num{font-size:14px}
   .email-cta{font-size:13.5px;padding:13px 16px}
+  .app-demo-modal-frame{width:240px;height:480px}
 }
 </style>
 </head>
@@ -2569,6 +2622,47 @@ document.querySelectorAll('.service').forEach(svc => {
 });
 
 // ============================================
+// APP DEMO MODAL
+// ============================================
+function openAppDemo(templateIdx) {
+  const modal = document.getElementById('appDemoModal');
+  const frame = document.getElementById('appDemoFrame');
+  const cta = document.getElementById('appDemoCta');
+  if(!modal || !frame) return;
+
+  const demoStorage = document.getElementById('demo-storage');
+  const demoPage = demoStorage?.querySelector('[data-tpl="' + templateIdx + '"]');
+  if(!demoPage) return;
+
+  const appFrame = demoPage.querySelector('.app-frame');
+  if(!appFrame) return;
+
+  frame.innerHTML = '';
+  frame.appendChild(appFrame.cloneNode(true));
+
+  const t = templates[templateIdx];
+  if(cta && t) {
+    cta.innerHTML = t.name + ' anfragen <span class="arrow">→</span>';
+  }
+
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeAppDemo() {
+  const modal = document.getElementById('appDemoModal');
+  if(!modal) return;
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+  const frame = document.getElementById('appDemoFrame');
+  if(frame) frame.innerHTML = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if(e.key === 'Escape') closeAppDemo();
+});
+
+// ============================================
 // TEMPLATE SHOWCASE
 // ============================================
 const templates = [
@@ -2671,7 +2765,10 @@ function buildMobileCards() {
           <span class="mobile-card-name">${t.name}</span>
           <span class="mobile-card-branch">${t.branch} · ${t.type === 'app' ? 'App' : 'Website'}</span>
         </div>
-        <a href="#contact" class="mobile-card-link">Anfragen →</a>
+        <div class="mobile-card-actions">
+          ${t.type === 'app' ? `<button class="mobile-card-demo-btn" onclick="openAppDemo(${i})">Demo 👁️</button>` : ''}
+          <a href="#contact" class="mobile-card-link">Anfragen →</a>
+        </div>
       </div>
     </div>
   `).join('');
@@ -2904,6 +3001,20 @@ document.querySelectorAll('.nav-links a').forEach(a => {
   });
 });
 </script>
+
+<!-- App Demo Modal (mobile only) -->
+<div class="app-demo-modal" id="appDemoModal">
+  <div class="app-demo-modal-backdrop" onclick="closeAppDemo()"></div>
+  <div class="app-demo-modal-content">
+    <button class="app-demo-modal-close" onclick="closeAppDemo()">✕</button>
+    <div class="app-demo-modal-frame" id="appDemoFrame">
+      <!-- App demo content injected here by JS -->
+    </div>
+    <div class="app-demo-modal-footer">
+      <a href="#contact" class="btn btn-primary app-demo-modal-cta" id="appDemoCta" onclick="closeAppDemo()">Diese App anfragen <span class="arrow">→</span></a>
+    </div>
+  </div>
+</div>
 
 <div class="floating-cta" id="floatingCta">
   <a id="floating-email" href="#" class="floating-cta-btn">
