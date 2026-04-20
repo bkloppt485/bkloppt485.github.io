@@ -1015,6 +1015,23 @@ section.alt-bg-2{
   cursor:pointer;transition:.2s;white-space:nowrap;
 }
 .mobile-card-demo-btn:hover{background:var(--gold);color:#fff}
+/* App card — prominent demo layout on mobile */
+.mobile-card-app{
+  border:1px solid var(--border-soft);border-radius:12px;
+  background:var(--card);overflow:hidden;
+}
+.mobile-card-app .mobile-card-row{padding:12px 14px}
+.mobile-card-app-demo{
+  display:none;padding:0 14px 14px;
+}
+.mobile-card-app-demo button{
+  width:100%;padding:11px 16px;border-radius:8px;
+  background:#111;border:none;color:#fff;
+  font-size:13px;font-weight:600;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  transition:.2s;
+}
+.mobile-card-app-demo button:active{transform:scale(.97)}
 
 /* BOOKING SECTION */
 .booking-section{
@@ -1716,6 +1733,13 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
     font-size:12px;color:var(--gold);font-weight:600;
     text-decoration:none;white-space:nowrap;
   }
+  /* App cards — prominent on mobile */
+  .mobile-card-app{
+    border:1px solid var(--border-soft);border-radius:12px;
+    background:var(--card);margin-bottom:8px;
+  }
+  .mobile-card-app .mobile-card-row{padding:12px 14px}
+  .mobile-card-app-demo{display:block;padding:0 14px 14px}
   .mobile-project-cards{gap:0}
   .showcase-filters{gap:6px;margin-bottom:4px}
   .sf-pill{padding:7px 14px;font-size:12px;border-radius:100px}
@@ -2757,21 +2781,38 @@ function buildMobileCards() {
   const dotsContainer = document.getElementById('mobileCardDots');
   if(!container || !dotsContainer) return;
   
-  container.innerHTML = templates.map((t, i) => `
-    <div class="mobile-card" data-idx="${i}" data-type="${t.type}">
-      <div class="mobile-card-row">
-        <span class="mobile-card-dot-color" style="background:${t.theme}"></span>
-        <div class="mobile-card-info">
-          <span class="mobile-card-name">${t.name}</span>
-          <span class="mobile-card-branch">${t.branch} · ${t.type === 'app' ? 'App' : 'Website'}</span>
-        </div>
-        <div class="mobile-card-actions">
-          ${t.type === 'app' ? `<button class="mobile-card-demo-btn" onclick="openAppDemo(${i})">Demo 👁️</button>` : ''}
+  // Sort: apps first, then websites (keeps original index for demo lookup)
+  const sorted = templates.map((t, i) => ({...t, origIdx: i}));
+  sorted.sort((a, b) => (a.type === 'app' ? 0 : 1) - (b.type === 'app' ? 0 : 1));
+  
+  container.innerHTML = sorted.map(t => {
+    if(t.type === 'app') {
+      return `<div class="mobile-card mobile-card-app" data-idx="${t.origIdx}" data-type="app">
+        <div class="mobile-card-row">
+          <span class="mobile-card-dot-color" style="background:${t.theme}"></span>
+          <div class="mobile-card-info">
+            <span class="mobile-card-name">${t.name}</span>
+            <span class="mobile-card-branch">${t.branch}</span>
+          </div>
           <a href="#contact" class="mobile-card-link">Anfragen →</a>
         </div>
-      </div>
-    </div>
-  `).join('');
+        <div class="mobile-card-app-demo">
+          <button onclick="event.stopPropagation();openAppDemo(${t.origIdx})">▶ Live Demo ansehen</button>
+        </div>
+      </div>`;
+    } else {
+      return `<div class="mobile-card" data-idx="${t.origIdx}" data-type="website">
+        <div class="mobile-card-row">
+          <span class="mobile-card-dot-color" style="background:${t.theme}"></span>
+          <div class="mobile-card-info">
+            <span class="mobile-card-name">${t.name}</span>
+            <span class="mobile-card-branch">${t.branch} · Website</span>
+          </div>
+          <a href="#contact" class="mobile-card-link">Anfragen →</a>
+        </div>
+      </div>`;
+    }
+  }).join('');
   
   // Build dots (kept for desktop/legacy, hidden on mobile via CSS)
   dotsContainer.innerHTML = templates.map((_, i) => 
