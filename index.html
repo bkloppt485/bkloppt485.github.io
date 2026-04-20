@@ -1273,6 +1273,71 @@ section.alt-bg-2{
 .pi-demo{border-color:rgba(201,168,76,.3);color:var(--gold) !important}
 .pi-demo:hover{background:var(--gold-glow) !important}
 
+/* MOBILE PROJECT CARDS (hidden on desktop) */
+.mobile-project-cards{
+  display:none;
+}
+.mobile-card{
+  flex-shrink:0;
+  min-width:85%;
+  scroll-snap-align:center;
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid var(--border-soft);
+  background:var(--card);
+  box-shadow:0 8px 32px rgba(0,0,0,.06);
+  transition:.3s;
+}
+.mobile-card-header{
+  padding:28px 24px 20px;
+  position:relative;
+  overflow:hidden;
+}
+.mobile-card-header::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 80% 0%,rgba(255,255,255,.15),transparent 60%);
+  pointer-events:none;
+}
+.mobile-card-type{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;
+  color:rgba(255,255,255,.8);margin-bottom:12px;
+}
+.mobile-card-name{
+  font-family:'Georgia',serif;font-size:22px;font-weight:700;
+  color:#fff;margin-bottom:4px;
+}
+.mobile-card-branch{
+  font-size:13px;color:rgba(255,255,255,.65);
+}
+.mobile-card-body{
+  padding:20px 24px 24px;
+}
+.mobile-card-features{
+  list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;
+}
+.mobile-card-features li{
+  font-size:12.5px;color:var(--text-dim);
+  background:var(--bg-soft);padding:5px 12px;border-radius:100px;
+  border:1px solid var(--border);
+}
+.mobile-card-cta{
+  display:flex;width:100%;padding:13px 20px;border-radius:10px;
+  background:var(--gold);color:#fff;font-weight:600;font-size:14px;
+  text-decoration:none;justify-content:center;align-items:center;gap:8px;
+  transition:.2s;border:none;cursor:pointer;
+}
+.mobile-card-cta:hover{background:var(--gold-soft)}
+.mobile-card-dots{
+  display:none;
+  justify-content:center;gap:8px;padding:16px 0 0;
+}
+.mobile-card-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--border);transition:.3s;cursor:pointer;
+}
+.mobile-card-dot.active{background:var(--gold);width:24px;border-radius:4px}
+
 /* Responsive Showcase */
 @media (max-width:900px){
   .showcase-wrapper{gap:20px}
@@ -1426,6 +1491,22 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
   .hero-stats{gap:24px}
   .services-grid{grid-template-columns:1fr}
   .trust-grid{grid-template-columns:1fr 1fr}
+  .preview-browser{display:none}
+  .preview-info{display:none}
+  .showcase-thumbs{display:none}
+  .mobile-project-cards{
+    display:flex;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    gap:16px;
+    padding:4px 0 8px;
+    scrollbar-width:none;
+    mask-image:linear-gradient(to right,transparent 0,#000 12px,#000 calc(100% - 12px),transparent 100%);
+    -webkit-mask-image:linear-gradient(to right,transparent 0,#000 12px,#000 calc(100% - 12px),transparent 100%);
+  }
+  .mobile-project-cards::-webkit-scrollbar{display:none}
+  .mobile-card-dots{display:flex}
   .testimonial-grid{
     display:flex;
     overflow-x:auto;
@@ -1678,7 +1759,7 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
       <p>Echtes Feedback von Unternehmen, die bereits mit ONYX Studio arbeiten.</p>
     </div>
 
-    <div class="testimonial-grid">
+    <div class="testimonial-grid reveal">
       <div class="testimonial stagger">
         <div class="stars">★★★★★</div>
         <p class="quote">In nur 5 Tagen hatte ich eine komplett neue Website — modern, schnell und mobil-optimiert. Reservierungen laufen jetzt direkt über die Seite. Absolute Empfehlung!</p>
@@ -1895,6 +1976,13 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
           <ul class="pi-features" id="piFeatures"></ul>
           <a href="#contact" class="btn btn-primary pi-cta">Diese Vorlage anfragen <span class="arrow">→</span></a>
         </div>
+      </div>
+      <!-- Mobile Project Cards (hidden on desktop, shown on mobile) -->
+      <div class="mobile-project-cards" id="mobileCards">
+        <!-- filled by JS -->
+      </div>
+      <div class="mobile-card-dots" id="mobileCardDots">
+        <!-- filled by JS -->
       </div>
     </div>
 
@@ -2366,6 +2454,92 @@ const templates = [
 let activeIdx = 0;
 
 
+// Mobile project cards
+function buildMobileCards() {
+  const container = document.getElementById('mobileCards');
+  const dotsContainer = document.getElementById('mobileCardDots');
+  if(!container || !dotsContainer) return;
+  
+  container.innerHTML = templates.map((t, i) => `
+    <div class="mobile-card" data-idx="${i}" data-type="${t.type}">
+      <div class="mobile-card-header" style="background:linear-gradient(135deg,${t.themeDark} 0%,${t.bgPreview} 100%)">
+        <div class="mobile-card-type">${t.type === 'app' ? '📱 App' : '🖥️ Website'}</div>
+        <div class="mobile-card-name">${t.name}</div>
+        <div class="mobile-card-branch">${t.branch}</div>
+      </div>
+      <div class="mobile-card-body">
+        <ul class="mobile-card-features">
+          ${t.features.map(f => `<li>${f}</li>`).join('')}
+        </ul>
+        <a href="#contact" class="mobile-card-cta">Diese Vorlage anfragen <span class="arrow">→</span></a>
+      </div>
+    </div>
+  `).join('');
+  
+  // Build dots
+  dotsContainer.innerHTML = templates.map((_, i) => 
+    `<span class="mobile-card-dot${i === 0 ? ' active' : ''}" data-idx="${i}"></span>`
+  ).join('');
+  
+  // Dot click handlers
+  dotsContainer.querySelectorAll('.mobile-card-dot').forEach(dot => {
+    dot.addEventListener('click', () => {
+      const cards = container.querySelectorAll('.mobile-card:not([style*="display: none"])');
+      const targetIdx = parseInt(dot.dataset.idx);
+      let visibleIdx = 0;
+      cards.forEach((card, vi) => {
+        if(parseInt(card.dataset.idx) === targetIdx) visibleIdx = vi;
+      });
+      if(cards[visibleIdx]) cards[visibleIdx].scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
+    });
+  });
+  
+  // Scroll sync for dots
+  let mobileScrollTimeout;
+  container.addEventListener('scroll', () => {
+    clearTimeout(mobileScrollTimeout);
+    mobileScrollTimeout = setTimeout(() => {
+      const cards = container.querySelectorAll('.mobile-card:not([style*="display: none"])');
+      const allDots = dotsContainer.querySelectorAll('.mobile-card-dot:not([style*="display: none"])');
+      let closest = 0;
+      let minDist = Infinity;
+      cards.forEach((card, i) => {
+        const dist = Math.abs(card.getBoundingClientRect().left - container.getBoundingClientRect().left);
+        if(dist < minDist){ minDist = dist; closest = i; }
+      });
+      allDots.forEach((d, i) => d.classList.toggle('active', i === closest));
+    }, 50);
+  });
+}
+
+function filterMobileCards(filterType) {
+  const container = document.getElementById('mobileCards');
+  const dotsContainer = document.getElementById('mobileCardDots');
+  if(!container || !dotsContainer) return;
+  
+  const cards = container.querySelectorAll('.mobile-card');
+  const dots = dotsContainer.querySelectorAll('.mobile-card-dot');
+  
+  let visibleCount = 0;
+  cards.forEach((card, i) => {
+    const type = card.dataset.type;
+    const visible = (filterType === 'all' || type === filterType);
+    card.style.display = visible ? '' : 'none';
+    if(dots[i]) dots[i].style.display = visible ? '' : 'none';
+    if(visible) visibleCount++;
+  });
+  
+  // Reset scroll to first visible card
+  const firstVisible = container.querySelector('.mobile-card:not([style*="display: none"])');
+  if(firstVisible) {
+    container.scrollTo({left: 0, behavior: 'smooth'});
+  }
+  
+  // Reset dots
+  const visibleDots = dotsContainer.querySelectorAll('.mobile-card-dot:not([style*="display: none"])');
+  visibleDots.forEach((d, i) => d.classList.toggle('active', i === 0));
+}
+
 function buildShowcaseThumbs() {
   const thumbs = document.getElementById('showcaseThumbs');
   if(!thumbs) return;
@@ -2386,6 +2560,7 @@ function initFilters() {
       document.querySelectorAll('.sf-pill').forEach(p => p.classList.remove('active'));
       this.classList.add('active');
       const filter = this.dataset.filter;
+      // Desktop: filter thumb cards
       document.querySelectorAll('.st-card').forEach(card => {
         if(filter === 'all' || card.dataset.type === filter) {
           card.style.display = '';
@@ -2401,6 +2576,8 @@ function initFilters() {
           switchTemplate(idx);
         }
       }
+      // Mobile: filter project cards
+      filterMobileCards(filter);
     });
   });
 }
@@ -2458,6 +2635,7 @@ document.addEventListener('keydown', e => {
 // Init after full DOM is ready (demo-storage is after this script tag)
 document.addEventListener('DOMContentLoaded', function() {
   buildShowcaseThumbs();
+  buildMobileCards();
   initFilters();
   document.querySelectorAll('.demo-page').forEach(p => {
     document.getElementById('previewContent').appendChild(p);
