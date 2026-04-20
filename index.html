@@ -2654,8 +2654,9 @@ function openAppDemo(templateIdx) {
   const cta = document.getElementById('appDemoCta');
   if(!modal || !frame) return;
 
-  const demoStorage = document.getElementById('demo-storage');
-  const demoPage = demoStorage?.querySelector('[data-tpl="' + templateIdx + '"]');
+  // Demo pages are moved to #previewContent on DOMContentLoaded, fallback to #demo-storage
+  const container = document.getElementById('previewContent') || document.getElementById('demo-storage');
+  const demoPage = container?.querySelector('[data-tpl="' + templateIdx + '"]');
   if(!demoPage) return;
 
   const appFrame = demoPage.querySelector('.app-frame');
