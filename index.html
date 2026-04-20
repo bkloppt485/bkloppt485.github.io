@@ -387,6 +387,280 @@ section.alt-bg-2{
 .trust-text h4{font-size:16px;font-weight:700;margin-bottom:6px;color:var(--text);letter-spacing:-.01em}
 .trust-text p{font-size:13.5px;color:var(--text-dim);line-height:1.6}
 
+/* ============================================================
+   BENTO GRID — Trust + Services (premium asymmetric layout)
+   ============================================================ */
+.bento-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-auto-rows:minmax(180px,auto);
+  gap:18px;
+  margin-top:48px;
+}
+.bento-tile{
+  position:relative;
+  padding:30px;
+  background:var(--card);
+  border:1px solid var(--border-soft);
+  border-radius:22px;
+  overflow:hidden;
+  isolation:isolate;
+  transition:transform .5s cubic-bezier(.2,.8,.2,1),
+             box-shadow .5s cubic-bezier(.2,.8,.2,1),
+             border-color .5s ease;
+  box-shadow:0 1px 2px rgba(26,26,46,.04);
+  display:flex;flex-direction:column;
+}
+.bento-tile:hover{
+  transform:translateY(-4px);
+  box-shadow:0 24px 48px -16px rgba(26,26,46,.14),
+             0 4px 12px rgba(184,148,46,.06);
+  border-color:rgba(184,148,46,.28);
+}
+.bento-tile > *{position:relative;z-index:2}
+.bento-tile .bento-icon{
+  width:46px;height:46px;border-radius:13px;
+  background:linear-gradient(135deg,rgba(184,148,46,.14),rgba(184,148,46,.04));
+  border:1px solid rgba(184,148,46,.22);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--gold);margin-bottom:18px;flex-shrink:0;
+}
+.bento-tile .bento-icon svg{width:22px;height:22px}
+.bento-tile h3,.bento-tile h4{
+  color:var(--text);letter-spacing:-.015em;font-weight:700;
+  margin:0 0 8px;line-height:1.25;
+}
+.bento-tile h4{font-size:17px}
+.bento-tile h3{font-size:22px}
+.bento-tile p{
+  color:var(--text-dim);font-size:14px;line-height:1.65;margin:0;
+}
+.bento-tile .bento-eyebrow{
+  font-size:10.5px;letter-spacing:1.6px;text-transform:uppercase;
+  color:var(--gold);font-weight:700;margin-bottom:10px;
+}
+
+/* Spans */
+.bento-tile--xl{grid-column:span 2;grid-row:span 2}
+.bento-tile--wide{grid-column:span 2}
+.bento-tile--wide3{grid-column:span 3}
+.bento-tile--tall{grid-row:span 2}
+
+/* ── Effect: Featured DARK Hero ── */
+.bento-effect-hero{
+  background:
+    radial-gradient(120% 80% at 0% 0%,rgba(212,176,74,.18),transparent 55%),
+    radial-gradient(80% 60% at 100% 100%,rgba(212,176,74,.10),transparent 60%),
+    linear-gradient(135deg,#15151f 0%,#0e0e18 100%);
+  border-color:rgba(212,176,74,.25);
+  color:#f5f1e6;
+  padding:38px;
+}
+.bento-effect-hero h3,.bento-effect-hero h4{color:#f8f4e9}
+.bento-effect-hero p{color:rgba(245,241,230,.72)}
+.bento-effect-hero .bento-eyebrow{color:var(--gold-bright)}
+.bento-effect-hero .bento-icon{
+  background:linear-gradient(135deg,rgba(212,176,74,.22),rgba(212,176,74,.06));
+  border-color:rgba(212,176,74,.4);color:var(--gold-bright);
+  width:54px;height:54px;border-radius:15px;
+}
+.bento-effect-hero::before{
+  content:'';position:absolute;inset:0;z-index:1;
+  background-image:
+    linear-gradient(rgba(212,176,74,.07) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(212,176,74,.07) 1px,transparent 1px);
+  background-size:32px 32px;
+  mask-image:radial-gradient(ellipse 80% 70% at 50% 40%,#000 20%,transparent 75%);
+  -webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 40%,#000 20%,transparent 75%);
+  animation:bentoGridPan 22s linear infinite;
+  opacity:.65;
+}
+.bento-effect-hero::after{
+  content:'';position:absolute;top:-30%;right:-20%;width:60%;height:80%;z-index:1;
+  background:radial-gradient(circle,rgba(212,176,74,.22) 0%,transparent 60%);
+  filter:blur(40px);pointer-events:none;
+  animation:bentoFloat 9s ease-in-out infinite;
+}
+@keyframes bentoGridPan{
+  0%{background-position:0 0,0 0}
+  100%{background-position:64px 64px,64px 64px}
+}
+@keyframes bentoFloat{
+  0%,100%{transform:translate(0,0) scale(1)}
+  50%{transform:translate(-12px,14px) scale(1.08)}
+}
+.bento-hero-shield{
+  position:absolute;right:-30px;bottom:-30px;width:220px;height:220px;
+  z-index:1;opacity:.10;pointer-events:none;
+}
+.bento-hero-shield svg{width:100%;height:100%;color:var(--gold-bright)}
+
+/* ── Effect: Spotlight (cursor-follow glow) ── */
+.bento-effect-spotlight{
+  --mx:50%;--my:50%;
+  background:linear-gradient(180deg,#ffffff 0%,#fbf7ee 100%);
+}
+.bento-effect-spotlight::before{
+  content:'';position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(380px circle at var(--mx) var(--my),rgba(184,148,46,.15),transparent 60%);
+  opacity:0;transition:opacity .4s ease;
+}
+.bento-effect-spotlight:hover::before{opacity:1}
+
+/* ── Effect: Gradient Mesh ── */
+.bento-effect-mesh{
+  background:
+    radial-gradient(60% 80% at 10% 10%,rgba(212,176,74,.16),transparent 55%),
+    radial-gradient(50% 60% at 100% 100%,rgba(184,148,46,.12),transparent 55%),
+    linear-gradient(135deg,#fdfbf6 0%,#f6efdf 100%);
+}
+.bento-effect-mesh::before{
+  content:'';position:absolute;inset:-20%;z-index:1;
+  background:
+    radial-gradient(40% 50% at 30% 20%,rgba(212,176,74,.18),transparent 60%),
+    radial-gradient(35% 45% at 80% 80%,rgba(184,148,46,.12),transparent 60%);
+  filter:blur(20px);
+  animation:bentoMeshShift 14s ease-in-out infinite alternate;
+  pointer-events:none;
+}
+@keyframes bentoMeshShift{
+  0%{transform:translate(0,0) scale(1)}
+  100%{transform:translate(20px,-12px) scale(1.1)}
+}
+
+/* ── Effect: Glassmorphism ── */
+.bento-effect-glass{
+  background:linear-gradient(135deg,rgba(255,255,255,.7) 0%,rgba(243,239,233,.6) 100%);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-color:rgba(255,255,255,.6);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 1px 2px rgba(26,26,46,.04);
+}
+.bento-effect-glass::before{
+  content:'';position:absolute;top:-40%;left:-20%;width:60%;height:120%;z-index:1;
+  background:radial-gradient(circle,rgba(212,176,74,.18),transparent 60%);
+  filter:blur(50px);pointer-events:none;
+}
+
+/* ── Effect: Floating icons ── */
+.bento-effect-float .bento-icon{
+  animation:bentoIconFloat 4s ease-in-out infinite;
+}
+@keyframes bentoIconFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+}
+
+/* ── Effect: Conic border glow ── */
+.bento-effect-border{
+  background:var(--card);
+}
+.bento-effect-border::before{
+  content:'';position:absolute;inset:-1px;z-index:0;border-radius:inherit;
+  background:conic-gradient(from 0deg,transparent 0deg,rgba(212,176,74,.55) 60deg,transparent 120deg,transparent 360deg);
+  animation:bentoConicSpin 6s linear infinite;
+  opacity:0;transition:opacity .4s ease;
+}
+.bento-effect-border::after{
+  content:'';position:absolute;inset:1px;z-index:1;border-radius:21px;
+  background:var(--card);
+}
+.bento-effect-border:hover::before{opacity:1}
+@keyframes bentoConicSpin{to{transform:rotate(360deg)}}
+
+/* ── Effect: Shine sweep ── */
+.bento-effect-shine::before{
+  content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;z-index:1;
+  background:linear-gradient(110deg,transparent 30%,rgba(212,176,74,.18) 50%,transparent 70%);
+  transition:left .9s cubic-bezier(.2,.8,.2,1);pointer-events:none;
+}
+.bento-effect-shine:hover::before{left:130%}
+
+/* ── Bento "stat" big number block ── */
+.bento-stat{
+  font-size:54px;font-weight:700;line-height:1;letter-spacing:-.04em;
+  background:linear-gradient(135deg,var(--gold) 0%,var(--gold-bright) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  margin-bottom:8px;
+}
+
+/* ── Service tile specifics ── */
+.bento-service-features{
+  list-style:none;padding:0;margin:18px 0 0;
+  display:grid;grid-template-columns:1fr 1fr;gap:8px 18px;
+  font-size:13px;color:var(--text-dim);
+}
+.bento-service-features li{
+  display:flex;align-items:center;gap:8px;line-height:1.4;
+}
+.bento-service-features li::before{
+  content:'';width:5px;height:5px;border-radius:50%;
+  background:var(--gold);flex-shrink:0;
+}
+.bento-effect-hero .bento-service-features li{color:rgba(245,241,230,.78)}
+.bento-effect-hero .bento-service-features li::before{background:var(--gold-bright)}
+
+/* Browser mockup decoration inside hero service tile */
+.bento-browser-deco{
+  position:absolute;right:-40px;bottom:-50px;width:340px;
+  z-index:1;opacity:.18;pointer-events:none;
+  transform:rotate(-6deg);
+  transition:transform .6s cubic-bezier(.2,.8,.2,1),opacity .4s ease;
+}
+.bento-effect-hero:hover .bento-browser-deco{
+  transform:rotate(-3deg) translateY(-6px);opacity:.28;
+}
+.bento-browser-deco .bdw{
+  background:rgba(245,241,230,.06);border:1px solid rgba(212,176,74,.22);
+  border-radius:10px;overflow:hidden;
+}
+.bento-browser-deco .bdw-bar{
+  height:18px;background:rgba(212,176,74,.10);display:flex;
+  align-items:center;gap:5px;padding:0 8px;
+  border-bottom:1px solid rgba(212,176,74,.15);
+}
+.bento-browser-deco .bdw-bar span{
+  width:6px;height:6px;border-radius:50%;background:rgba(212,176,74,.4);
+}
+.bento-browser-deco .bdw-content{padding:14px;display:flex;flex-direction:column;gap:6px}
+.bento-browser-deco .bdw-line{height:6px;border-radius:3px;background:rgba(212,176,74,.18)}
+.bento-browser-deco .bdw-line.short{width:50%}
+.bento-browser-deco .bdw-line.gold{background:linear-gradient(90deg,var(--gold-bright),transparent);width:65%}
+
+/* Phone mockup decoration */
+.bento-phone-deco{
+  position:absolute;right:24px;top:50%;transform:translateY(-50%) rotate(8deg);
+  width:78px;height:150px;z-index:1;
+  background:linear-gradient(160deg,#1a1a2e,#0e0e18);
+  border-radius:14px;border:1px solid rgba(212,176,74,.3);
+  box-shadow:0 12px 32px rgba(26,26,46,.18);
+  padding:8px 6px;display:flex;flex-direction:column;gap:5px;
+  opacity:.85;transition:transform .6s cubic-bezier(.2,.8,.2,1);
+  pointer-events:none;
+}
+.bento-tile:hover .bento-phone-deco{transform:translateY(-50%) rotate(4deg) translateX(-4px)}
+.bento-phone-deco::before{
+  content:'';width:24px;height:3px;background:#000;border-radius:2px;
+  margin:0 auto 4px;
+}
+.bento-phone-deco .pd-line{
+  height:5px;border-radius:2px;background:rgba(212,176,74,.35);
+}
+.bento-phone-deco .pd-line.short{width:60%}
+.bento-phone-deco .pd-card{
+  flex:1;background:linear-gradient(135deg,rgba(212,176,74,.25),rgba(212,176,74,.05));
+  border-radius:6px;margin-top:4px;
+}
+
+/* Decorative dot pattern (web-apps tile) */
+.bento-dots-deco{
+  position:absolute;right:-10px;top:-10px;width:140px;height:140px;
+  z-index:1;opacity:.55;pointer-events:none;
+  background-image:radial-gradient(circle,var(--gold) 1.5px,transparent 1.5px);
+  background-size:14px 14px;
+  mask-image:radial-gradient(circle at 70% 30%,#000 20%,transparent 70%);
+  -webkit-mask-image:radial-gradient(circle at 70% 30%,#000 20%,transparent 70%);
+}
+
 /* TESTIMONIALS */
 .testimonials{padding:80px 0 40px;position:relative}
 .testimonial-grid{
@@ -1778,6 +2052,60 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
   .trust-text h4{font-size:12px;margin-bottom:0;font-weight:600}
   .trust-text p{display:none}
 
+  /* === BENTO MOBILE === */
+  .bento-grid{
+    grid-template-columns:1fr 1fr;
+    grid-auto-rows:minmax(140px,auto);
+    gap:10px;margin-top:24px;
+  }
+  .bento-tile{
+    padding:18px;border-radius:16px;
+  }
+  .bento-tile h3{font-size:16px}
+  .bento-tile h4{font-size:13.5px;margin-bottom:4px}
+  .bento-tile p{font-size:12.5px;line-height:1.55}
+  .bento-tile .bento-icon{
+    width:34px;height:34px;border-radius:10px;margin-bottom:10px;
+  }
+  .bento-tile .bento-icon svg{width:17px;height:17px}
+  .bento-tile .bento-eyebrow{font-size:9.5px;letter-spacing:1.3px;margin-bottom:8px}
+  .bento-stat{font-size:34px}
+
+  /* Trust mobile bento: featured spans 2, others 1 */
+  .bento-trust .bento-tile--xl{grid-column:span 2;grid-row:span 1}
+  .bento-trust .bento-tile--wide{grid-column:span 2;grid-row:span 1}
+  .bento-trust .bento-tile--wide3{grid-column:span 2;grid-row:span 1}
+  .bento-trust .bento-tile--tall{grid-row:span 1}
+
+  /* Services mobile: stacked full-width with alternating tints */
+  .bento-services{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+  .bento-services .bento-tile{
+    grid-column:span 1 !important;grid-row:span 1 !important;
+    min-height:auto;
+  }
+  .bento-services .bento-tile p{font-size:13px}
+  .bento-services .bento-service-features{
+    grid-template-columns:1fr 1fr;font-size:12px;margin-top:12px;gap:6px 14px;
+  }
+  .bento-services .bento-effect-hero{padding:22px}
+  .bento-browser-deco{display:none}
+  .bento-phone-deco{
+    width:54px;height:100px;right:14px;
+  }
+  .bento-hero-shield{width:140px;height:140px;right:-20px;bottom:-20px}
+
+  /* Disable heavy animations on mobile for perf */
+  .bento-effect-hero::before,
+  .bento-effect-hero::after,
+  .bento-effect-mesh::before,
+  .bento-effect-border::before{animation:none}
+
+  /* Hide service-chevron on mobile bento (no accordion) */
+  .bento-services .service-chevron{display:none}
+
   /* Showcase */
   #work{padding:48px 0}
   #work .section-head p:last-child{display:none}
@@ -2155,61 +2483,68 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
       <p>Von der Idee bis zum Launch — alles aus einer Hand. Modernste Technologie, sauberer Code, kein Bullshit.</p>
     </div>
 
-    <div class="services-grid reveal">
-      <div class="service stagger">
-        <div class="service-header-row">
-          <div class="service-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-          </div>
-          <h3>Web Design</h3>
-          <svg class="service-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    <div class="bento-grid bento-services reveal">
+      <!-- S1: Web Design — DARK HERO 2x2 -->
+      <div class="bento-tile bento-tile--xl bento-effect-hero stagger">
+        <div class="bento-eyebrow">Flagship</div>
+        <div class="bento-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
         </div>
-        <div class="service-body">
-          <p>Professionelle Websites die nicht nur aussehen, sondern auch konvertieren. Maßgeschneidert für deine Marke.</p>
-          <ul>
-            <li>Responsive Design</li>
-            <li>SEO-optimiert</li>
-            <li>Schnelle Ladezeiten</li>
-            <li>Modernes UI/UX</li>
-          </ul>
+        <h3>Web Design</h3>
+        <p>Professionelle Websites die nicht nur aussehen, sondern auch konvertieren. Maßgeschneidert für deine Marke.</p>
+        <ul class="bento-service-features">
+          <li>Responsive Design</li>
+          <li>SEO-optimiert</li>
+          <li>Schnelle Ladezeiten</li>
+          <li>Modernes UI/UX</li>
+        </ul>
+        <div class="bento-browser-deco" aria-hidden="true">
+          <div class="bdw">
+            <div class="bdw-bar"><span></span><span></span><span></span></div>
+            <div class="bdw-content">
+              <div class="bdw-line gold"></div>
+              <div class="bdw-line"></div>
+              <div class="bdw-line short"></div>
+              <div class="bdw-line"></div>
+              <div class="bdw-line short"></div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="service stagger">
-        <div class="service-header-row">
-          <div class="service-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-          </div>
-          <h3>Web & Mobile Apps</h3>
-          <svg class="service-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      <!-- S2: Web & Mobile Apps — wide 2x1 with floating dots -->
+      <div class="bento-tile bento-tile--wide bento-effect-mesh bento-effect-float stagger">
+        <div class="bento-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
         </div>
-        <div class="service-body">
-          <p>Von Web-Apps über iOS bis Android — maßgeschneiderte Anwendungen mit Flutter, React Native oder nativem Code.</p>
-          <ul>
-            <li>Cross-Platform (iOS & Android)</li>
-            <li>Push-Benachrichtigungen</li>
-            <li>Offline-fähig (PWA)</li>
-            <li>App Store Deployment</li>
-          </ul>
-        </div>
+        <h3>Web &amp; Mobile Apps</h3>
+        <p>Von Web-Apps über iOS bis Android — maßgeschneiderte Anwendungen mit Flutter, React Native oder nativem Code.</p>
+        <ul class="bento-service-features">
+          <li>Cross-Platform (iOS &amp; Android)</li>
+          <li>Push-Benachrichtigungen</li>
+          <li>Offline-fähig (PWA)</li>
+          <li>App Store Deployment</li>
+        </ul>
+        <div class="bento-dots-deco" aria-hidden="true"></div>
       </div>
 
-      <div class="service stagger">
-        <div class="service-header-row">
-          <div class="service-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <h3>Wartung & Support</h3>
-          <svg class="service-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      <!-- S3: Wartung & Support — wide 2x1 with spotlight + phone deco -->
+      <div class="bento-tile bento-tile--wide bento-effect-spotlight stagger">
+        <div class="bento-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
-        <div class="service-body">
-          <p>Dauerhafte Betreuung deiner Website. Updates, Backups, Security — du musst dich um nichts kümmern.</p>
-          <ul>
-            <li>Sicherheits-Updates</li>
-            <li>Tägliche Backups</li>
-            <li>Performance-Monitoring</li>
-            <li>Schneller Support</li>
-          </ul>
+        <h3>Wartung &amp; Support</h3>
+        <p>Dauerhafte Betreuung deiner Website. Updates, Backups, Security — du musst dich um nichts kümmern.</p>
+        <ul class="bento-service-features">
+          <li>Sicherheits-Updates</li>
+          <li>Tägliche Backups</li>
+          <li>Performance-Monitoring</li>
+          <li>Schneller Support</li>
+        </ul>
+        <div class="bento-phone-deco" aria-hidden="true">
+          <div class="pd-line short"></div>
+          <div class="pd-line"></div>
+          <div class="pd-card"></div>
         </div>
       </div>
     </div>
@@ -2262,30 +2597,69 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
       <div class="section-eyebrow">Warum ONYX Studio?</div>
       <h2>Sechs Gründe,<br>uns zu vertrauen.</h2>
     </div>
-    <div class="trust-grid reveal">
-      <div class="trust-item stagger">
-        <div class="trust-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <div class="trust-text"><h4>SSL & DSGVO-konform</h4><p>Verschlüsselte Verbindung Standard. Datenschutz nach deutschem Recht.</p></div>
+    <div class="bento-grid bento-trust reveal">
+      <!-- T1: SSL & DSGVO — XL DARK HERO 2x2 -->
+      <div class="bento-tile bento-tile--xl bento-effect-hero stagger">
+        <div class="bento-eyebrow">Datenschutz</div>
+        <div class="bento-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h4>SSL &amp; DSGVO-konform</h4>
+        <p>Verschlüsselte Verbindung Standard. Datenschutz nach deutschem Recht.</p>
+        <div class="bento-hero-shield" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
       </div>
-      <div class="trust-item stagger">
-        <div class="trust-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-        <div class="trust-text"><h4>Kein WordPress</h4><p>Sauberer, eigener Code — keine Plugin-Abhängigkeiten, keine Sicherheitslücken.</p></div>
+
+      <!-- T2: Kein WordPress — wide 2x1, Glassmorphism -->
+      <div class="bento-tile bento-tile--wide bento-effect-glass bento-effect-shine stagger">
+        <div class="bento-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h4>Kein WordPress</h4>
+        <p>Sauberer, eigener Code — keine Plugin-Abhängigkeiten, keine Sicherheitslücken.</p>
       </div>
-      <div class="trust-item stagger">
-        <div class="trust-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
-        <div class="trust-text"><h4>Deutscher Support</h4><p>Persönlicher Ansprechpartner — keine Hotlines, kein Sprachbarrieren.</p></div>
+
+      <!-- T3: Deutscher Support — square 1x1, Spotlight -->
+      <div class="bento-tile bento-effect-spotlight stagger">
+        <div class="bento-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </div>
+        <h4>Deutscher Support</h4>
+        <p>Persönlicher Ansprechpartner — keine Hotlines, kein Sprachbarrieren.</p>
       </div>
-      <div class="trust-item stagger">
-        <div class="trust-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-        <div class="trust-text"><h4>Faire Preise</h4><p>Transparente Pakete. Keine versteckten Kosten, kein Kleingedrucktes.</p></div>
+
+      <!-- T4: Faire Preise — square 1x1, Floating icon -->
+      <div class="bento-tile bento-effect-mesh bento-effect-float stagger">
+        <div class="bento-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h4>Faire Preise</h4>
+        <p>Transparente Pakete. Keine versteckten Kosten, kein Kleingedrucktes.</p>
       </div>
-      <div class="trust-item stagger">
-        <div class="trust-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-        <div class="trust-text"><h4>Schnelle Ladezeiten</h4><p>Optimiert für Geschwindigkeit — gut für Nutzer und Google-Ranking.</p></div>
+
+      <!-- T5: Schnelle Ladezeiten — wide3 3x1, Spotlight + stat -->
+      <div class="bento-tile bento-tile--wide3 bento-effect-spotlight stagger" style="flex-direction:row;align-items:center;gap:32px">
+        <div style="flex-shrink:0">
+          <div class="bento-stat">99<span style="font-size:32px">%</span></div>
+          <div class="bento-eyebrow" style="margin:0">PageSpeed</div>
+        </div>
+        <div style="flex:1;min-width:0">
+          <div class="bento-icon" style="margin-bottom:12px">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h4>Schnelle Ladezeiten</h4>
+          <p>Optimiert für Geschwindigkeit — gut für Nutzer und Google-Ranking.</p>
+        </div>
       </div>
-      <div class="trust-item stagger">
-        <div class="trust-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-        <div class="trust-text"><h4>Volle Code-Ownership</h4><p>Der gesamte Code gehört Ihnen — keine Abhängigkeit, kein Lock-In.</p></div>
+
+      <!-- T6: Volle Code-Ownership — square 1x1, Conic border glow -->
+      <div class="bento-tile bento-effect-border stagger">
+        <div class="bento-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <h4>Volle Code-Ownership</h4>
+        <p>Der gesamte Code gehört Ihnen — keine Abhängigkeit, kein Lock-In.</p>
       </div>
     </div>
   </div>
@@ -2734,7 +3108,7 @@ style.textContent = `
 }`;
 document.head.appendChild(style);
 
-// Service accordion (mobile only)
+// Service accordion (legacy — selectors now no-op since bento redesign)
 document.querySelectorAll('.service').forEach(svc => {
   svc.addEventListener('click', function(e) {
     if(window.innerWidth > 768) return;
@@ -2751,6 +3125,15 @@ document.querySelectorAll('.service').forEach(svc => {
       body.classList.add('open');
       chevron.classList.add('open');
     }
+  });
+});
+
+// Bento spotlight: cursor-follow glow
+document.querySelectorAll('.bento-effect-spotlight').forEach(tile => {
+  tile.addEventListener('mousemove', e => {
+    const rect = tile.getBoundingClientRect();
+    tile.style.setProperty('--mx', (e.clientX - rect.left) + 'px');
+    tile.style.setProperty('--my', (e.clientY - rect.top) + 'px');
   });
 });
 
